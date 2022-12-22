@@ -6,11 +6,10 @@ export default function ContactSection(){
                     <div className="relative">
                         <div className="sm:text-center">
                             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                                Get notified when we&rsquo;re launching.
+                                Project in mind? Let's talk!
                             </h2>
-                            <p className="mx-auto mt-6 max-w-2xl text-lg text-rose-100">
-                                Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed consectetur neque
-                                tristique pellentesque.
+                            <p className="mx-auto mt-6 max-w-2xl text-lg text-white">
+                                Let me reach out to you by droping your e-mail
                             </p>
                         </div>
                         <form action="#" className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
@@ -21,19 +20,29 @@ export default function ContactSection(){
                                 <input
                                     id="cta-email"
                                     type="email"
-                                    className="block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500"
+                                    className="block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500"
                                     placeholder="Enter your email"
                                 />
                             </div>
                             <div className="mt-4 sm:mt-0 sm:ml-3">
                                 <button
                                     type="submit"
-                                    className="block w-full rounded-md border border-transparent bg-gray-900 px-5 py-3 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
+                                    className="block w-full rounded-md border border-transparent bg-gray-900 px-5 py-3 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
                                 >
-                                    Notify me
+                                    Yes, reach out to me!
                                 </button>
                             </div>
                         </form>
+                        <div className="flex flex-col items-center justify-center mt-8">
+                            <span className='text-white text-lg'>or contact me directly</span>
+                            <br/>
+                            <a
+                                className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-blue-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
+                                href="pages/index#"
+                            >
+                                Contact
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -184,20 +184,6 @@ export default function Navbar() {
                                     </a>
                                 ))}
                             </div>
-                            <div>
-                                <a
-                                    href="pages#"
-                                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
-                                >
-                                    Sign up
-                                </a>
-                                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                                    Existing customer?{' '}
-                                    <a href="pages#" className="text-blue-600 hover:text-blue-500">
-                                        Sign in
-                                    </a>
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </Popover.Panel>
