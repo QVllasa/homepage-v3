@@ -75,10 +75,10 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Header() {
+export default function HeaderSection() {
     return (
         <div className="relative bg-white">
-            <main className="relative grid grid-cols-2 mx-auto w-full h-auto max-w-screen-2xl  lg:text-left place-items-center">
+            <div className="relative grid grid-cols-2 mx-auto w-full h-auto max-w-screen-2xl  lg:text-left place-items-center">
                 <div className="px-4">
                     <h1 className="text-4xl  tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                         <span className="block font-medium text-blue-600 xl:inline">Hi, I am</span>{' '}
@@ -99,27 +99,27 @@ export default function Header() {
                     </div>
                     <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                         <div>
-                            <div className="mt-1 flex rounded-md shadow-sm">
-                                <div className="relative flex flex-grow items-stretch ">
-                                    <div
-                                        className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                        <EnvelopeIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
-                                    </div>
+                            <form action="#" className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
+                                <div className="min-w-0 flex-1">
+                                    <label htmlFor="cta-email" className="sr-only">
+                                        Email address
+                                    </label>
                                     <input
+                                        id="cta-email"
                                         type="email"
-                                        name="email"
-                                        id="email"
-                                        className="block w-full rounded-none rounded-l-md border-none ring-2 ring-black ring-offset-2 focus:ring-2 focus:ring-black focus:ring-offset-2 pl-10 "
-                                        placeholder="your@email.com"
+                                        className="block w-full rounded-md border-none ring-2 ring-blue-500 px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500"
+                                        placeholder="Enter your email"
                                     />
                                 </div>
-                                <button
-                                    type="button"
-                                    className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md ring-2 ring-black ring-offset-2 bg-yellow-300 px-10 py-4 text-sm font-medium text-black  focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                                >
-                                    <span>Let me contact you!</span>
-                                </button>
-                            </div>
+                                <div className="mt-4 sm:mt-0 sm:ml-3">
+                                    <button
+                                        type="submit"
+                                        className="block w-full rounded-md border border-transparent bg-gray-900 px-5 py-3 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
+                                    >
+                                        Yes, contact me!
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@ export default function Header() {
                     <img src="/yellow_background.svg" alt="" className='w-full h-auto'/>
                     <img src="/qendrim.png" alt="" className='h-auto w-144 absolute bottom-0 left-0 right-0 mx-auto grayscale transform -scale-x-100'/>
                 </div>
-            </main>
+            </div>
         </div>
     )
 }

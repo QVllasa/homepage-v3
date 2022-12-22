@@ -2,15 +2,15 @@ import {ArrowSmallRightIcon} from "@heroicons/react/24/outline";
 
 export default function Stack() {
     return (
-        <div className="bg-white">
-            <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div className="overflow-hidden bg-white">
+            <div className="relative mx-auto py-24 ">
                 <div className="lg:grid lg:grid-cols-3 lg:gap-8">
                     <div className='col-span-1'>
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                             Stack
                         </h2>
                         <p className="mt-3 max-w-3xl text-lg text-gray-500">
-                            Technologies I regularly use
+                            Technologies which I regularly use
                         </p>
                     </div>
                     <div className="mt-8 col-span-2 grid grid-cols-3 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-3">

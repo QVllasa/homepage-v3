@@ -1,18 +1,4 @@
-/*
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-export default function AboutMe() {
+export default function AboutMeSection() {
     return (
         <div className="relative bg-white py-16">
             <div className="absolute inset-x-0 top-0 hidden h-1/2  lg:block" aria-hidden="true" />

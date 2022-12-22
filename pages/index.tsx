@@ -1,29 +1,35 @@
 import Head from 'next/head'
-import Header from "./Components/IndexSections/Header";
+import HeaderSection from "./Components/IndexSections/HeaderSection";
 import Navbar from "./Components/Navbar/Navbar";
-import AboutMe from "./Components/IndexSections/AboutMe";
 import Footer from "./Components/Footers/Footer";
-import Experience from "./Components/IndexSections/Experience";
-import Stack from "./Components/IndexSections/Stack";
+import ExperienceSection from "./Components/IndexSections/ExperienceSection";
+import ServicesSection from "./Components/IndexSections/ServicesSection";
+import AboutMeSection from "./Components/IndexSections/AboutMeSection";
+import BlogSection from "./Components/IndexSections/BlogSection";
+import CompanySection from "./Components/IndexSections/CompanySection";
+import ContactSection from "./Components/IndexSections/ContactSection";
 
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Qendrim Vllasa - Official Homepage</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className='relative'>
-          <Navbar/>
-          <Header/>
-          <AboutMe/>
-          <Experience/>
-          <Stack/>
-          <Footer/>
-      </main>
-    </>
-  )
+    return (
+        <>
+            <Head>
+                <title>Qendrim Vllasa - Official Homepage</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="icon" href="/favicon.ico"/>
+            </Head>
+            <main className='relative'>
+                <Navbar/>
+                <HeaderSection/>
+                <AboutMeSection/>
+                <ExperienceSection/>
+                <ServicesSection/>
+                <BlogSection/>
+                <CompanySection/>
+                <ContactSection/>
+                <Footer/>
+            </main>
+        </>
+    )
 }
 
