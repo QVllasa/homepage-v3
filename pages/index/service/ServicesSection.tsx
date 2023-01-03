@@ -4,7 +4,7 @@ import {ArrowPathIcon, ShieldCheckIcon} from "@heroicons/react/24/solid";
 const services = [
     {
         name: 'IT Consulting',
-        description: 'Tools and Software to optimize you process.',
+        description: 'Optimize you process.',
         icon: CloudArrowUpIcon,
     },
     {
@@ -14,7 +14,7 @@ const services = [
     },
     {
         name: 'Business Research & Analytics',
-        description: 'Get a deeper insight about your data.',
+        description: 'Insight about your data.',
         icon: ArrowPathIcon,
     },
 ]
@@ -39,7 +39,7 @@ export default function ServicesSection() {
                                 <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
                                     {services.map((feature) => (
                                         <div key={feature.name} className="pt-6">
-                                            <div className="flow-root rounded-lg bg-white px-6 pb-8 shadow-xl shadow-blue-300/40 hover:shadow-2xl transition-all hover:shadow-blue-400/50 hover:scale-105 ">
+                                            <div className="flow-root rounded-lg bg-white px-6 pb-8 shadow-xl shadow-amber-400 hover:shadow-2xl transition-all hover:shadow-amber-600 hover:scale-105 ">
                                                 <div className="-mt-6">
                                                     <div>
                                                         <span className="inline-flex items-center justify-center rounded-xl bg-blue-600 p-3 shadow-lg">
@@ -53,7 +53,7 @@ export default function ServicesSection() {
                                                     <div className='flex justify-center items-end mt-8'>
                                                         <div className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
                                                             <a
-                                                                href="#"
+                                                                href="components/IndexSections#"
                                                                 className="flex items-center justify-center rounded-md   bg-white px-4 py-2 text-sm font-medium text-blue-600  hover:bg-blue-50"
                                                             >
                                                                 Read more

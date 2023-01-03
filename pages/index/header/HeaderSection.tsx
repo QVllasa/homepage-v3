@@ -99,7 +99,7 @@ export default function HeaderSection() {
                     </div>
                     <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                         <div>
-                            <form action="#" className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
+                            <form action="components/IndexSections#" className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
                                 <div className="min-w-0 flex-1">
                                     <label htmlFor="cta-email" className="sr-only">
                                         Email address
@@ -114,7 +114,7 @@ export default function HeaderSection() {
                                 <div className="mt-4 sm:mt-0 sm:ml-3">
                                     <button
                                         type="submit"
-                                        className="block w-full rounded-md border border-transparent bg-gray-900 px-5 py-3 text-base font-medium text-white shadow hover:bg-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
+                                        className="block w-full rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 sm:px-10"
                                     >
                                         Yes, contact me!
                                     </button>

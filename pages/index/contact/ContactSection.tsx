@@ -12,7 +12,7 @@ export default function ContactSection(){
                                 Let me reach out to you by droping your e-mail
                             </p>
                         </div>
-                        <form action="#" className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
+                        <form action="components/IndexSections#" className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
                             <div className="min-w-0 flex-1">
                                 <label htmlFor="cta-email" className="sr-only">
                                     Email address

@@ -1,4 +1,4 @@
-import EducationAccordion from "../Accordion/EducationAccordion";
+import EducationAccordion from "../../components/accordion/EducationAccordion";
 
 const education = [
     {

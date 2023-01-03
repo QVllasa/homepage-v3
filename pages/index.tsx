@@ -1,13 +1,13 @@
 import Head from 'next/head'
-import HeaderSection from "./Components/IndexSections/HeaderSection";
-import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footers/Footer";
-import ExperienceSection from "./Components/IndexSections/ExperienceSection";
-import ServicesSection from "./Components/IndexSections/ServicesSection";
-import AboutMeSection from "./Components/IndexSections/AboutMeSection";
-import BlogSection from "./Components/IndexSections/BlogSection";
-import CompanySection from "./Components/IndexSections/CompanySection";
-import ContactSection from "./Components/IndexSections/ContactSection";
+import HeaderSection from "./index/header/HeaderSection";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footers/Footer";
+import ExperienceSection from "./index/experience/ExperienceSection";
+import ServicesSection from "./index/service/ServicesSection";
+import AboutMeSection from "./index/aboutme/AboutMeSection";
+import BlogSection from "./index/blog/BlogSection";
+import CompanySection from "./index/company/CompanySection";
+import ContactSection from "./index/contact/ContactSection";
 
 
 export default function Home() {
@@ -21,13 +21,13 @@ export default function Home() {
             <main className='relative'>
                 <Navbar/>
                 <HeaderSection/>
-                <AboutMeSection/>
-                <ExperienceSection/>
-                <ServicesSection/>
-                <BlogSection/>
-                <CompanySection/>
-                <ContactSection/>
-                <Footer/>
+                {/*<AboutMeSection/>*/}
+                {/*<ExperienceSection/>*/}
+                {/*<ServicesSection/>*/}
+                {/*<BlogSection/>*/}
+                {/*<CompanySection/>*/}
+                {/*<ContactSection/>*/}
+                {/*<Footer/>*/}
             </main>
         </>
     )
