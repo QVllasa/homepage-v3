@@ -20,7 +20,7 @@ export default function Home() {
             </Head>
             <main className='relative'>
                 <Navbar/>
-                <HeaderSection/>
+                {/*<HeaderSection/>*/}
                 {/*<AboutMeSection/>*/}
                 {/*<ExperienceSection/>*/}
                 {/*<ServicesSection/>*/}
