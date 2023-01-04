@@ -20,10 +20,10 @@ export default function Home() {
             </Head>
             <main className='relative'>
                 <Navbar/>
-                {/*<HeaderSection/>*/}
-                {/*<AboutMeSection/>*/}
-                {/*<ExperienceSection/>*/}
-                {/*<ServicesSection/>*/}
+                <HeaderSection/>
+                <AboutMeSection/>
+                <ExperienceSection/>
+                <ServicesSection/>
                 {/*<BlogSection/>*/}
                 {/*<CompanySection/>*/}
                 {/*<ContactSection/>*/}
