@@ -30,7 +30,7 @@ export default function Education() {
                             Where I shifted my limits
                         </p>
                     </div>
-                    <dl className="grid grid-cols-1 gap-4 lg:col-span-2 lg:mt-0">
+                    <dl className="mt-20 grid grid-cols-1 gap-4 lg:col-span-2 lg:mt-0">
                         {education.map((item) => (
                             <EducationAccordion key={item.id} item={item}/>
                         ))}
