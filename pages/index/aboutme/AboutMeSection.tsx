@@ -10,7 +10,7 @@ export default function AboutMeSection() {
                             <div className="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
                                 <img
                                     className="rounded-3xl object-cover object-center shadow-2xl "
-                                    src="/me.JPG"
+                                    src="/assets/me.JPG"
                                     alt=""
                                 />
                             </div>
