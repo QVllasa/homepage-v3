@@ -78,7 +78,7 @@ export default function HeaderSection() {
     return (
         <div className="relative bg-white h-screen">
             <div
-                className="relative grid grid-cols-2 mx-auto w-full h-full max-w-screen-2xl  lg:text-left place-items-center">
+                className="relative grid md:grid-cols-2 mx-auto w-full h-full max-w-screen-2xl  lg:text-left place-items-center">
                 <div className="px-4">
                     <div className="text-4xl  tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                         <p className="block font-medium text-blue-600 xl:inline">Hi, I am</p>{' '}
@@ -124,9 +124,9 @@ export default function HeaderSection() {
                     </div>
                 </div>
                 <div className='relative w-full h-full'>
-                    <div className="absolute bottom-0 left-0 right-0 w-full h-full overflow-hidden flex justify-center items-center -mt-24 z-0">
-                        <img src="/yellow_background.svg" alt="" className='absolute w-full h-auto'/>
-                        <img src="/qendrim.png" alt="" className='h-auto w-144 mx-auto grayscale transform -scale-x-100 object-cover object-center'/>
+                    <div className="absolute bottom-0 left-0 right-0 w-full h-full md:overflow-hidden flex justify-center items-center ">
+                        <img src="/yellow_background.svg" alt="" className='absolute w-48 md:w-full h-auto'/>
+                        <img src="/qendrim.png" alt="" className='h-auto md:w-144 w-96 mx-auto grayscale transform -scale-x-100 object-cover object-center'/>
                     </div>
                 </div>
 
