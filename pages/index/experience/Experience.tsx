@@ -38,7 +38,7 @@ const experience = [
 ]
 export default function Experience(){
     return (
-        <div className="overflow-hidden bg-white">
+        <div className=" bg-white">
             <div className="relative mx-auto py-24 ">
                 <div className="relative lg:grid lg:grid-cols-3 lg:gap-x-12 xl:gap-x-16">
                     <div className="lg:col-span-1">

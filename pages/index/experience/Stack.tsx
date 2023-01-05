@@ -2,7 +2,7 @@ import {ArrowSmallRightIcon} from "@heroicons/react/24/outline";
 
 export default function Stack() {
     return (
-        <div className="overflow-hidden bg-white">
+        <div className=" bg-white">
             <div className="relative mx-auto py-24 ">
                 <div className="lg:grid lg:grid-cols-3 lg:gap-8">
                     <div className='col-span-1'>

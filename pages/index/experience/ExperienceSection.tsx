@@ -39,7 +39,7 @@ const communicationFeatures = [
 
 export default function ExperienceSection() {
     return (
-        <div className="overflow-hidden bg-white py-16 lg:py-24">
+        <div className=" bg-white py-16 lg:py-24">
             <div className="relative mx-auto max-w-xl px-6 lg:max-w-7xl lg:px-8">
 
                 {/*Intro*/}

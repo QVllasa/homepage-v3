@@ -22,17 +22,11 @@ export default function ExperienceAccordion(data: { item: { role: string, period
                         </div>
                     </div>
                     <div
-                        className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs md:text-base truncate">
-                        <p className="">
-                            {data.item.period}
-                        </p>
-                        |
-                        <p className="">
-                            {data.item.company}
-                        </p>
+                        className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs sm:text-sm md:text-sm lg:text-base truncate">
+                        {data.item.company} | {data.item.period}
                     </div>
                 </div>
-                <div className="col-span-2 md:col-span-4 mt-2 w-auto flex  sm:mt-0 justify-self-end">
+                <div className="col-span-2 md:col-span-4 w-auto flex  sm:mt-0 justify-self-end">
                     <button onClick={()=>setOpen(!open)}
                             className="hidden lg:flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-2 text-sm font-medium text-blue-600 shadow-sm hover:bg-blue-50">
                         What I have done here
@@ -43,7 +37,7 @@ export default function ExperienceAccordion(data: { item: { role: string, period
                     </button>
                 </div>
                 {open ?
-                    <div className='col-span-full mt-6 '>
+                    <div className='col-span-full mt-6 text-xs sm:text-sm md:text-md'>
                         <p>
                             asdasdasd
                         </p>
