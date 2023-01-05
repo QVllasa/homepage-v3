@@ -37,9 +37,9 @@ export default function ExperienceAccordion(data: { item: { role: string, period
                     </button>
                 </div>
                 {open ?
-                    <div className='col-span-full mt-6 text-xs sm:text-sm md:text-md'>
-                        <p>
-                            asdasdasd
+                    <div className='col-span-full mt-6 text-xs sm:text-sm md:text-md '>
+                        <p className='leading-6'>
+                            {data.item.description}
                         </p>
                     </div>
                     :
