@@ -40,7 +40,7 @@ export default function AboutMeSection() {
                                 </p>
                                 <a
                                     className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-blue-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
-                                    href="pages/index#"
+                                    href="pages#"
                                 >
                                     Contact
                                 </a>

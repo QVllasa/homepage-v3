@@ -1,4 +1,4 @@
-import ExperienceAccordion from "../../components/accordion/ExperienceAccordion";
+import ExperienceAccordion from "../../accordion/ExperienceAccordion";
 import {ArrowSmallRightIcon, BuildingOfficeIcon} from "@heroicons/react/24/outline";
 
 

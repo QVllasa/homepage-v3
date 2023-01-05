@@ -7,9 +7,9 @@ import {
     EnvelopeIcon,
     BuildingOfficeIcon
 } from '@heroicons/react/24/outline'
-import ExperienceAccordion from "../../components/accordion/ExperienceAccordion";
-import SkillsAccordion from "../../components/accordion/SkillsAccordion";
-import EducationAccordion from "../../components/accordion/EducationAccordion";
+import ExperienceAccordion from "../../accordion/ExperienceAccordion";
+import SkillsAccordion from "../../accordion/SkillsAccordion";
+import EducationAccordion from "../../accordion/EducationAccordion";
 import Skills from "./Skills";
 import Stack from "./Stack";
 import Stats from "./Stats";

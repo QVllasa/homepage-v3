@@ -1,4 +1,4 @@
-import SkillsAccordion from "../../components/accordion/SkillsAccordion";
+import SkillsAccordion from "../../accordion/SkillsAccordion";
 import {ArrowSmallRightIcon, CheckBadgeIcon} from "@heroicons/react/24/outline";
 
 const skills = [
