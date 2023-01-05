@@ -48,8 +48,8 @@ export default function Experience(){
                         </p>
                     </div>
                     <dl className="mt-20 grid grid-cols-1 gap-4 lg:col-span-2 lg:mt-0">
-                        {experience.map((item) => (
-                            <ExperienceAccordion key={item.id} item={item} />
+                        {experience.map((item, index) => (
+                            <ExperienceAccordion key={index} item={item} />
                         ))}
                         <div className='flex justify-end items-end mt-8'>
                             <button

@@ -1,4 +1,4 @@
-import { SVGProps } from "react"
+import {SVGProps} from "react"
 
 const navigation = {
     solutions: [
@@ -109,8 +109,8 @@ export default function Footer() {
                             Making the world a better place through constructing elegant hierarchies.
                         </p>
                         <div className="flex space-x-6">
-                            {navigation.social.map((item) => (
-                                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                            {navigation.social.map((item, index) => (
+                                <a key={index} href={item.href} className="text-gray-400 hover:text-gray-500">
                                     <span className="sr-only">{item.name}</span>
                                     <item.icon className="h-6 w-6" aria-hidden="true" />
                                 </a>
@@ -122,8 +122,8 @@ export default function Footer() {
                             <div>
                                 <h3 className="text-base font-medium text-gray-900">Solutions</h3>
                                 <ul role="list" className="mt-4 space-y-4">
-                                    {navigation.solutions.map((item) => (
-                                        <li key={item.name}>
+                                    {navigation.solutions.map((item, index) => (
+                                        <li key={index}>
                                             <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                                                 {item.name}
                                             </a>
@@ -134,8 +134,8 @@ export default function Footer() {
                             <div className="mt-12 md:mt-0">
                                 <h3 className="text-base font-medium text-gray-900">Support</h3>
                                 <ul role="list" className="mt-4 space-y-4">
-                                    {navigation.support.map((item) => (
-                                        <li key={item.name}>
+                                    {navigation.support.map((item, index) => (
+                                        <li key={index}>
                                             <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                                                 {item.name}
                                             </a>
@@ -148,8 +148,8 @@ export default function Footer() {
                             <div>
                                 <h3 className="text-base font-medium text-gray-900">Company</h3>
                                 <ul role="list" className="mt-4 space-y-4">
-                                    {navigation.company.map((item) => (
-                                        <li key={item.name}>
+                                    {navigation.company.map((item, index) => (
+                                        <li key={index}>
                                             <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                                                 {item.name}
                                             </a>

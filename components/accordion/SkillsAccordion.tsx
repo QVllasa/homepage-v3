@@ -1,8 +1,6 @@
-import {BuildingOfficeIcon} from "@heroicons/react/24/outline";
-
 export default function SkillsAccordion(data: {item: {id: number, name: string, description: string, icon: any}}) {
     return (
-        <div key={data.item.name}>
+        <div>
             <dt>
                 <div
                     className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">

@@ -1,5 +1,5 @@
-import {ArrowSmallRightIcon, CloudArrowUpIcon, CogIcon, LockClosedIcon, ServerIcon} from "@heroicons/react/24/outline";
-import {ArrowPathIcon, ShieldCheckIcon} from "@heroicons/react/24/solid";
+import {CloudArrowUpIcon, LockClosedIcon} from "@heroicons/react/24/outline";
+import {ArrowPathIcon} from "@heroicons/react/24/solid";
 
 const services = [
     {
@@ -37,8 +37,8 @@ export default function ServicesSection() {
                         <div className="relative mx-auto  space-y-6 px-4 w-full sm:py-16 sm:px-6 lg:col-span-12 lg:max-w-none lg:p-0">
                             <div className=" px-16 pb-36 pt-20 text-center">
                                 <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                                    {services.map((feature) => (
-                                        <div key={feature.name} className="pt-6">
+                                    {services.map((feature, index) => (
+                                        <div key={index} className="pt-6">
                                             <div className="flow-root rounded-lg bg-white px-6 pb-8 shadow-xl shadow-amber-400 hover:shadow-2xl transition-all hover:shadow-amber-600 hover:scale-105 ">
                                                 <div className="-mt-6">
                                                     <div>
