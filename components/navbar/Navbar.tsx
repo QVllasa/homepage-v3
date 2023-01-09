@@ -1,5 +1,7 @@
 import {Popover} from '@headlessui/react'
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
+import {ContactDialog} from "../dialogs/ContactDialog";
+import {RefObject, useRef} from "react";
 
 const navigation = [
     {name: 'Dashboard', href: '#', current: true},
@@ -14,6 +16,8 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
+    const ref = useRef<RefObject<any>>(null);
+
     return (
         <>
             {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
@@ -76,12 +80,12 @@ export default function Navbar() {
                                     </Popover.Button>
                                 </div>
                                 <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
-                                    <a
-                                        href="pages#"
+                                    <button
+                                        onClick={()=>ref.current.open()}
                                         className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                     >
                                         Contact
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -114,6 +118,7 @@ export default function Navbar() {
                     </>
                 )}
             </Popover>
+            <ContactDialog ref={ref} />
         </>
     )
 }
