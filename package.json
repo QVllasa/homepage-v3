@@ -23,6 +23,7 @@
     "next": "13.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-loader-spinner": "^5.3.4",
     "react-simple-typewriter": "^5.0.1",
     "reactfire": "^4.2.2",
     "swr": "^2.0.0",
