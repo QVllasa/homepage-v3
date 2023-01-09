@@ -36,18 +36,18 @@ const posts = [
 
 export default function BlogSection() {
     return (
-        <div className="relative mx-auto max-w-xl px-6 lg:max-w-7xl lg:px-8">
+        <div className="relative mx-auto py-16 lg:py-24 px-6 lg:max-w-7xl lg:px-8">
             <div className="absolute inset-0">
                 <div className="h-1/3 bg-white sm:h-2/3" />
             </div>
-            <div className="relative mx-auto max-w-7xl">
-                <div className="text-center">
+            <div className="relative mx-auto max-w-3xl lg:max-w-7xl">
+                <div className="text-left lg:text-center">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Some of My latest Projects</h2>
-                    <p className="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
+                    <p className="mx-auto mt-3 lg:max-w-2xl text-xl text-gray-500 sm:mt-4">
                         Growing with every project
                     </p>
                 </div>
-                <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+                <div className="mx-auto mt-12 grid  gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
                     {posts.map((post) => (
                         <div key={post.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
                             <div className="flex-shrink-0">

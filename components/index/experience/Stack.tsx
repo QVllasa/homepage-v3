@@ -3,7 +3,7 @@ import {ArrowSmallRightIcon} from "@heroicons/react/24/outline";
 export default function Stack() {
     return (
         <div className=" bg-white">
-            <div className="relative mx-auto py-24 ">
+            <div className="relative mx-auto pt-24">
                 <div className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl">
                     <div className='col-span-1'>
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">

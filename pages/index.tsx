@@ -4,6 +4,10 @@ import Navbar from "../components/navbar/Navbar";
 import ExperienceSection from "../components/index/experience/ExperienceSection";
 import ServicesSection from "../components/index/service/ServicesSection";
 import AboutMeSection from "../components/index/aboutme/AboutMeSection";
+import BlogSection from "../components/index/blog/BlogSection";
+import CompanySection from "../components/index/company/CompanySection";
+import ContactSection from "../components/index/contact/ContactSection";
+import Footer from "../components/footers/Footer";
 
 export default function Home() {
 
@@ -20,10 +24,10 @@ export default function Home() {
                 <AboutMeSection/>
                 <ExperienceSection/>
                 <ServicesSection/>
-                {/*<BlogSection/>*/}
-                {/*<CompanySection/>*/}
-                {/*<ContactSection/>*/}
-                {/*<Footer/>*/}
+                <BlogSection/>
+                <CompanySection/>
+                <ContactSection/>
+                <Footer/>
             </main>
         </>
     )
