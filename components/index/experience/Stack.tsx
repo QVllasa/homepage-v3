@@ -4,7 +4,7 @@ export default function Stack() {
     return (
         <div className=" bg-white">
             <div className="relative mx-auto py-24 ">
-                <div className="lg:grid lg:grid-cols-3 lg:gap-8">
+                <div className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6">
                     <div className='col-span-1'>
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                             Stack
@@ -49,15 +49,15 @@ export default function Stack() {
                             />
                         </div>
                     </div>
-                </div>
-                <div className='flex justify-end items-end mt-8'>
-                    <button
-                        type="button"
-                        className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                    >
-                        Show more
-                        <ArrowSmallRightIcon className='h-5 w-5 ml-3'/>
-                    </button>
+                    <div className='flex justify-end items-end mt-8'>
+                        <button
+                            type="button"
+                            className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        >
+                            Show more
+                            <ArrowSmallRightIcon className='h-5 w-5 ml-3'/>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

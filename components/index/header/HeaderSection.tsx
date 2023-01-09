@@ -1,18 +1,29 @@
 import {Typewriter} from "react-simple-typewriter";
 import {useState} from "react";
+import {addDoc, collection, getFirestore} from "firebase/firestore";
+import {useFirebaseApp} from "reactfire";
 
 
 export default function HeaderSection() {
     const [email, setEmail] = useState('')
+    const [emailSubmitted, setEmailSubmitted] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const app = useFirebaseApp();
+    const firestore = getFirestore(app);
 
     const handler = (val: string) => {
         setEmail(val)
     }
 
     const submit = () => {
-        console.log(email);
+        setIsLoading(true);
+        addDoc(collection(firestore, "contact_me"), {
+            email: email,
+        }).then(() => {
+            setIsLoading(false);
+            setEmailSubmitted(true);
+        });
     }
-
 
     return (
         <div className="relative bg-white h-screen">
@@ -45,30 +56,45 @@ export default function HeaderSection() {
                     </div>
                     <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                         <div>
-                            <form className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
-                                <div className="min-w-0 flex-1">
-                                    <label htmlFor="cta-email" className="sr-only">
-                                        Email address
-                                    </label>
-                                    <input
-                                        id="cta-email"
-                                        type="email"
-                                        className="block w-full rounded-md border-none ring-2 ring-blue-500 px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500"
-                                        placeholder="Enter your email"
-                                        onChange={(e) => handler(e.target.value)}
-                                        value={email}
-                                    />
-                                </div>
-                                <div className="mt-4 sm:mt-0 sm:ml-3">
-                                    <button
-                                        type="button"
-                                        onClick={submit}
-                                        className="block w-full rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
-                                    >
-                                        Yes, contact me!
-                                    </button>
-                                </div>
-                            </form>
+                            {
+                                emailSubmitted ?
+                                    <div className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
+                                        <div className="sm:mt-0">
+                                            <button
+                                                type="button"
+                                                className="cursor-default block w-full rounded-md border border-transparent bg-amber-300 px-5 py-3 text-base font-medium text-white shadow  sm:px-10">
+                                                <span className='text-2xl mr-3'>🎉</span>
+                                                I will reach out to you!
+                                            </button>
+                                        </div>
+                                    </div>
+                                    :
+                                    <div className="mt-12 sm:mx-auto sm:flex">
+                                        <div className="flex-1 min-w-72 sm:w-72">
+                                            <label htmlFor="cta-email" className="sr-only">
+                                                Email address
+                                            </label>
+                                            <input
+                                                id="cta-email"
+                                                type="email"
+                                                className="block w-full rounded-md border-none ring-2 ring-blue-500 px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500"
+                                                placeholder="Enter your email"
+                                                onChange={(e) => handler(e.target.value)}
+                                                value={email}
+                                            />
+                                        </div>
+                                        <div className="mt-4 sm:mt-0 sm:ml-3 min-w-72">
+                                            <button
+                                                disabled={isLoading}
+                                                type="button"
+                                                onClick={submit}
+                                                className="block w-full rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
+                                            >
+                                                Yes, contact me!
+                                            </button>
+                                        </div>
+                                    </div>
+                            }
                         </div>
                     </div>
                 </div>

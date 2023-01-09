@@ -1,9 +1,9 @@
 export default function AboutMeSection() {
     return (
         <div className=" bg-white py-16 lg:py-24">
-            <div className="relative mx-auto max-w-xl px-6 lg:max-w-7xl lg:px-8">
+            <div className="relative mx-auto w-auto lg:max-w-7xl lg:px-8">
                 <div className="absolute inset-x-0 top-0 hidden h-1/2  lg:block" aria-hidden="true"/>
-                <div className="mx-auto w-full h-auto max-w-screen-2xl bg-blue-600 lg:bg-transparent ">
+                <div className="mx-auto w-full h-auto max-w-screen-2xl bg-blue-600 lg:bg-transparent rounded-3xl">
                     <div className="lg:grid lg:grid-cols-12">
                         <div
                             className="relative z-10 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:bg-transparent lg:py-16">
@@ -22,7 +22,7 @@ export default function AboutMeSection() {
 
                         <div
                             className="relative bg-blue-600 lg:col-span-10 lg:col-start-3 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
-                            <div className="absolute inset-0 hidden overflow-hidden rounded-3xl lg:block"
+                            <div className="absolute inset-0 hidden overflow-hidden  lg:block"
                                  aria-hidden="true">
 
 
