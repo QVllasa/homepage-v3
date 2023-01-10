@@ -2,6 +2,7 @@ import {Popover} from '@headlessui/react'
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
 import {RefObject, useRef} from "react";
+import Link from "next/link";
 
 const navigation = [
     {name: 'Dashboard', href: '#', current: true},
@@ -39,9 +40,10 @@ export default function Navbar() {
                                 <div className="flex md:inset-y-0 md:left-0 md:static md:col-span-2">
                                     <div className="flex flex-shrink-0 items-center">
                                         <div className="flex justify-start lg:w-0 lg:flex-1">
-                                            <a href="components/navbar#" className='font-bold text-blue-600 text-6xl cursor-pointer'>Q
+                                            <Link href={'/'} className={'font-bold text-blue-600 text-6xl cursor-pointer'}>
+                                                Q
                                                 <span className='text-yellow-400'>.</span>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

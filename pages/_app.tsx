@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type {AppProps} from 'next/app'
 import {FirebaseAppProvider} from "reactfire";
 import {FirebaseSDKProviders} from "../firebase/firebase-provider";
+import Navbar from "../components/navbar/Navbar";
 
 const firebaseConfig = {
     apiKey: process.env.apiKey,
@@ -18,6 +19,7 @@ export default function App({Component, pageProps}: AppProps) {
     return (
         <FirebaseAppProvider firebaseConfig={firebaseConfig}>
             <FirebaseSDKProviders>
+                <Navbar/>
                 <Component {...pageProps} />
             </FirebaseSDKProviders>
         </FirebaseAppProvider>
