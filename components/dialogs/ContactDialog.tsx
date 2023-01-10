@@ -17,13 +17,17 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
 
     const submit = ()=>{
         setIsLoading(true);
-        addDoc(collection(firestore, "messages"), {
-            name: nameRef.current?.value,
-            email: emailRef.current?.value,
-            message: messageRef.current?.value,
+        addDoc(collection(firestore, "mail"), {
+            to: ['qendrim.vllasa@gmail.com'],
+            message: {
+                subject: `Hello from ${nameRef.current?.value}`,
+                text: messageRef.current?.value,
+            }
         }).then(() => {
             setIsLoading(false);
             setSubmitted(true);
+        }).catch((err) => {
+            console.error(err);
         });
     }
 
@@ -38,7 +42,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
 
     return (
         <Transition.Root show={show} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setShow}>
+            <Dialog as="div" className="relative z-10" onClose={()=>{ isLoading ? setShow(true) : setShow(false) }} >
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"

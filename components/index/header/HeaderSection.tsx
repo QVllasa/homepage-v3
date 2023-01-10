@@ -17,8 +17,12 @@ export default function HeaderSection() {
 
     const submit = () => {
         setIsLoading(true);
-        addDoc(collection(firestore, "contact_me"), {
-            email: email,
+        addDoc(collection(firestore, "mail"), {
+            to: ['qendrim.vllasa@gmail.com'],
+            message: {
+                subject: `Contact Me: ${email}`,
+                text: "Kontaktiere mich: " + email,
+            }
         }).then(() => {
             setIsLoading(false);
             setEmailSubmitted(true);
