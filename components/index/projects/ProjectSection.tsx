@@ -34,9 +34,9 @@ const posts = [
     },
 ]
 
-export default function BlogSection() {
+export default function ProjectSection() {
     return (
-        <div className="relative mx-auto py-16 lg:py-24 px-6 lg:max-w-7xl lg:px-8">
+        <div className="relative mx-auto py-16 lg:py-24 px-6 lg:max-w-7xl lg:px-8" id='projects'>
             <div className="absolute inset-0">
                 <div className="h-1/3 bg-white sm:h-2/3" />
             </div>

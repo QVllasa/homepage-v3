@@ -3,9 +3,11 @@ import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
 import {RefObject, useRef} from "react";
 import Link from "next/link";
+import {useRouter} from "next/router";
+import {FaGithub} from "react-icons/fa";
 
 const navigation = [
-    {name: 'Dashboard', href: '#', current: true},
+    {name: 'Projects', href: '#projects', current: false},
     {name: 'Calendar', href: '#', current: false},
     {name: 'Teams', href: '#', current: false},
     {name: 'Directory', href: '#', current: false},
@@ -18,6 +20,7 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
     const ref = useRef<RefObject<any>>(null);
+    const router = useRouter()
 
     return (
         <>
@@ -40,7 +43,8 @@ export default function Navbar() {
                                 <div className="flex md:inset-y-0 md:left-0 md:static md:col-span-2">
                                     <div className="flex flex-shrink-0 items-center">
                                         <div className="flex justify-start lg:w-0 lg:flex-1">
-                                            <Link href={'/'} className={'font-bold text-blue-600 text-6xl cursor-pointer'}>
+                                            <Link href={'/'}
+                                                  className={'font-bold text-blue-600 text-6xl cursor-pointer'}>
                                                 Q
                                                 <span className='text-yellow-400'>.</span>
                                             </Link>
@@ -82,8 +86,10 @@ export default function Navbar() {
                                     </Popover.Button>
                                 </div>
                                 <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
+                                    <FaGithub className={'text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                                  onClick={() => router.push('https://github.com/QVllasa')}/>
                                     <button
-                                        onClick={()=>ref.current.open()}
+                                        onClick={() => ref.current?.open()}
                                         className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                     >
                                         Contact
@@ -120,7 +126,7 @@ export default function Navbar() {
                     </>
                 )}
             </Popover>
-            <ContactDialog ref={ref} />
+            <ContactDialog ref={ref}/>
         </>
     )
 }
