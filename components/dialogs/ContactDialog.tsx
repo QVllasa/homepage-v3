@@ -1,37 +1,44 @@
-import {forwardRef, Fragment, Ref, RefObject, useImperativeHandle, useRef, useState} from 'react'
+import {ForwardedRef, forwardRef, Fragment, useImperativeHandle, useState} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
 import {addDoc, collection, getFirestore} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
 import {TailSpin} from "react-loader-spinner";
+import {FieldValues, useForm} from "react-hook-form";
 
-export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: Ref<RefObject<any>>){
+interface Message{
+    name:string,
+    email: string,
+    message: string
+}
+
+export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: ForwardedRef<any>){
     const [show, setShow] = useState(false);
     const [isSubmitted, setSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const app = useFirebaseApp();
     const firestore = getFirestore(app);
 
-    const nameRef = useRef();
-    const emailRef = useRef();
-    const messageRef = useRef();
+    const {
+        register,
+        handleSubmit,
+    } = useForm();
 
-    const submit = ()=>{
+    const onSubmit = (data:FieldValues) => {
         setIsLoading(true);
-        addDoc(collection(firestore, "mail"), {
-            to: ['qendrim.vllasa@gmail.com'],
-            message: {
-                subject: `Hello from ${nameRef.current?.value}`,
-                text: messageRef.current?.value,
-            }
-        }).then(() => {
-            setIsLoading(false);
-            setSubmitted(true);
-        }).catch((err) => {
-            console.error(err);
-        });
-    }
-
-    const loader = "assets/check2.gif";
+            addDoc(collection(firestore, "mail"), {
+                to: ['qendrim.vllasa@gmail.com'],
+                message: {
+                    subject: `Hello from ${data.name}`,
+                    text: `Email from: ${data.email}  
+                    ${data.message}`,
+                }
+            }).then(() => {
+                setIsLoading(false);
+                setSubmitted(true);
+            }).catch((err) => {
+                console.error(err);
+            });
+    };
 
     const open = ()=>{
         setSubmitted(false);
@@ -106,17 +113,14 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                 </Dialog.Title>
                                                 <form action="#" method="POST" className=" mt-6 grid grid-cols-1 gap-y-6">
                                                     <div>
-                                                        <label htmlFor="full-name" className="sr-only">
+                                                        <label htmlFor="name" className="sr-only">
                                                             Full name
                                                         </label>
                                                         <input
-                                                            type="text"
-                                                            name="full-name"
-                                                            id="full-name"
                                                             autoComplete="name"
                                                             className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                                                            placeholder="Full name"
-                                                            ref={nameRef}
+                                                            placeholder="Name"
+                                                            {...register('name')}
                                                         />
                                                     </div>
                                                     <div>
@@ -124,13 +128,10 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                             Email
                                                         </label>
                                                         <input
-                                                            id="email"
-                                                            name="email"
-                                                            type="email"
                                                             autoComplete="email"
                                                             className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Email"
-                                                            ref={emailRef}
+                                                            {...register('email')}
                                                         />
                                                     </div>
                                                     <div>
@@ -139,8 +140,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                         </label>
                                                         <textarea
                                                             id="message"
-                                                            name="message"
-                                                            ref={messageRef}
+                                                            {...register('message')}
                                                             rows={4}
                                                             className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Message"
@@ -148,7 +148,8 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                         />
                                                     </div>
                                                     <div className="mt-5 sm:mt-6">
-                                                        <button onClick={submit}
+                                                        <button onClick={handleSubmit(onSubmit)}
+                                                                type="button"
                                                             className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                                         >
                                                             Send

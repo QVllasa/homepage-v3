@@ -1,17 +1,18 @@
 import {Popover} from '@headlessui/react'
-import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
+import {Bars3Icon, DocumentArrowDownIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
 import {RefObject, useRef} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
-import {FaChevronDown, FaGithub} from "react-icons/fa";
-import BasicMenu, {Menu} from "../menu/BasicMenu";
+import {FaGithub} from "react-icons/fa";
+import Dropdown from "../menu/Dropdown";
+
 
 const navigation = [
     {name: 'Projects', href: '#projects', current: false},
     {name: 'Experience', href: '#experience', current: false},
     {name: 'Services', href: '#services', current: false},
-    {name: 'Downloads', href: '', current: false, popover: true}
+    {name: 'Downloads', href: '', current: false, popover: true, children: [{name: 'Download CV', icon: DocumentArrowDownIcon}]}
 ]
 
 
@@ -59,18 +60,7 @@ export default function Navbar() {
                                             <div className="flex space-x-4">
                                                 {navigation.map((item, index) => (
                                                     item.popover ?
-                                                        <BasicMenu key={index}>
-                                                            <div
-                                                                className={classNames(
-                                                                    item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-black hover:text-white',
-                                                                    ' flex items-center px-3 py-2 rounded-md text-base font-medium'
-                                                                )}
-                                                                aria-current={item.current ? 'page' : undefined}
-                                                            >
-                                                                {item.name}
-                                                                <FaChevronDown className={'ml-2 h-4 w-4'}/>
-                                                            </div>
-                                                        </BasicMenu>
+                                                        <Dropdown key={index} buttonText={item.name} listItems={item.children}></Dropdown>
                                                         :
                                                         <a
                                                             key={item.name}
@@ -104,7 +94,7 @@ export default function Navbar() {
                                     <FaGithub className={'text-3xl text-gray-400 hover:text-black cursor-pointer'}
                                               onClick={() => router.push('https://github.com/QVllasa')}/>
                                     <button
-                                        onClick={() => ref.current?.open()}
+                                        onClick={() => ref?.current?.open()}
                                         className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                     >
                                         Contact
@@ -145,3 +135,7 @@ export default function Navbar() {
         </>
     )
 }
+
+
+
+
