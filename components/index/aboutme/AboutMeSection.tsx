@@ -2,6 +2,14 @@ export default function AboutMeSection() {
     return (
         <div className=" bg-white py-16 lg:py-24">
             <div className="relative mx-auto w-auto lg:max-w-7xl lg:px-8">
+                <div className="relative lg:flex lg:flex-col lg:items-center mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0 mb-16">
+                    <h2 className="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                        How I work
+                    </h2>
+                    <p className="mx-auto mt-4  text-xl text-gray-500">
+                        What drives me
+                    </p>
+                </div>
                 <div className="absolute inset-x-0 top-0 hidden h-1/2  lg:block" aria-hidden="true"/>
                 <div className="mx-auto w-full h-auto max-w-screen-2xl bg-blue-600 lg:bg-transparent rounded-3xl">
                     <div className="lg:grid lg:grid-cols-12">

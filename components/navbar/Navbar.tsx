@@ -4,13 +4,14 @@ import {ContactDialog} from "../dialogs/ContactDialog";
 import {RefObject, useRef} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
-import {FaGithub} from "react-icons/fa";
+import {FaChevronDown, FaGithub} from "react-icons/fa";
+import BasicMenu, {Menu} from "../menu/BasicMenu";
 
 const navigation = [
     {name: 'Projects', href: '#projects', current: false},
-    {name: 'Calendar', href: '#', current: false},
-    {name: 'Teams', href: '#', current: false},
-    {name: 'Directory', href: '#', current: false},
+    {name: 'Experience', href: '#experience', current: false},
+    {name: 'Services', href: '#services', current: false},
+    {name: 'Downloads', href: '', current: false, popover: true}
 ]
 
 
@@ -56,18 +57,32 @@ export default function Navbar() {
                                         className="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
                                         <div className="hidden sm:ml-6 sm:block">
                                             <div className="flex space-x-4">
-                                                {navigation.map((item) => (
-                                                    <a
-                                                        key={item.name}
-                                                        href={item.href}
-                                                        className={classNames(
-                                                            item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-black hover:text-white',
-                                                            'px-3 py-2 rounded-md text-base font-medium'
-                                                        )}
-                                                        aria-current={item.current ? 'page' : undefined}
-                                                    >
-                                                        {item.name}
-                                                    </a>
+                                                {navigation.map((item, index) => (
+                                                    item.popover ?
+                                                        <BasicMenu key={index}>
+                                                            <div
+                                                                className={classNames(
+                                                                    item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-black hover:text-white',
+                                                                    ' flex items-center px-3 py-2 rounded-md text-base font-medium'
+                                                                )}
+                                                                aria-current={item.current ? 'page' : undefined}
+                                                            >
+                                                                {item.name}
+                                                                <FaChevronDown className={'ml-2 h-4 w-4'}/>
+                                                            </div>
+                                                        </BasicMenu>
+                                                        :
+                                                        <a
+                                                            key={item.name}
+                                                            href={item.href}
+                                                            className={classNames(
+                                                                item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-black hover:text-white',
+                                                                'px-3 py-2 rounded-md text-base font-medium'
+                                                            )}
+                                                            aria-current={item.current ? 'page' : undefined}
+                                                        >
+                                                            {item.name}
+                                                        </a>
                                                 ))}
                                             </div>
                                         </div>
@@ -87,7 +102,7 @@ export default function Navbar() {
                                 </div>
                                 <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
                                     <FaGithub className={'text-3xl text-gray-400 hover:text-black cursor-pointer'}
-                                                  onClick={() => router.push('https://github.com/QVllasa')}/>
+                                              onClick={() => router.push('https://github.com/QVllasa')}/>
                                     <button
                                         onClick={() => ref.current?.open()}
                                         className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"

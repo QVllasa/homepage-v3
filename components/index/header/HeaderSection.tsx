@@ -44,7 +44,7 @@ export default function HeaderSection() {
                         <p className="block font-medium text-blue-600 xl:inline">Hi, I am</p>{' '}
                         <br/>
                         <p
-                            className="block font-bold xl:inline underline decoration-yellow-400 decoration-4 underline-offset-3">Qendrim
+                            className="block font-bold xl:inline">Qendrim
                             Vllasa</p>
                     </div>
                     <div
