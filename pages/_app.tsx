@@ -3,7 +3,6 @@ import type {AppProps} from 'next/app'
 import {FirebaseAppProvider} from "reactfire";
 import {FirebaseSDKProviders} from "../firebase/firebase-provider";
 import Navbar from "../components/navbar/Navbar";
-import {VechaiProvider} from "@vechaiui/react";
 
 const firebaseConfig = {
     apiKey: process.env.apiKey,
@@ -20,10 +19,8 @@ export default function App({Component, pageProps}: AppProps) {
     return (
         <FirebaseAppProvider firebaseConfig={firebaseConfig}>
             <FirebaseSDKProviders>
-                <VechaiProvider>
                     <Navbar/>
                     <Component {...pageProps} />
-                </VechaiProvider>
             </FirebaseSDKProviders>
         </FirebaseAppProvider>
 )

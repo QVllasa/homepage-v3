@@ -1,7 +1,7 @@
 import {Popover} from '@headlessui/react'
 import {Bars3Icon, DocumentArrowDownIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
-import {RefObject, useRef} from "react";
+import {PropsWithChildren, useRef} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {FaGithub} from "react-icons/fa";
@@ -14,14 +14,14 @@ const navigation = [
     {name: 'Services', href: '#services', current: false},
     {name: 'Downloads', href: '', current: false, popover: true, children: [{name: 'Download CV', icon: DocumentArrowDownIcon}]}
 ]
-
+type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
 export default function Navbar() {
-    const ref = useRef<RefObject<any>>(null);
+    const ref = useRef<ContactDialogProps>(null);
     const router = useRouter()
 
     return (

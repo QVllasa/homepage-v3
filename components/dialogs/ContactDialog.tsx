@@ -118,7 +118,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                         </label>
                                                         <input
                                                             autoComplete="name"
-                                                            className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                                            className="block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Name"
                                                             {...register('name')}
                                                         />
@@ -129,7 +129,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                         </label>
                                                         <input
                                                             autoComplete="email"
-                                                            className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                                            className="block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Email"
                                                             {...register('email')}
                                                         />
