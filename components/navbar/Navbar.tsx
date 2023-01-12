@@ -9,9 +9,9 @@ import Dropdown from "../menu/Dropdown";
 
 
 const navigation = [
-    {name: 'Projects', href: '#projects', current: false},
-    {name: 'Experience', href: '#experience', current: false},
-    {name: 'Services', href: '#services', current: false},
+    {name: 'Projects', href: '/#projects', current: false},
+    {name: 'Experience', href: '/#experience', current: false},
+    {name: 'Services', href: '/#services', current: false},
     {name: 'Downloads', href: '', current: false, popover: true, children: [{name: 'Download CV', icon: DocumentArrowDownIcon}]}
 ]
 type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
@@ -62,7 +62,7 @@ export default function Navbar() {
                                                     item.popover ?
                                                         <Dropdown key={index} buttonText={item.name} listItems={item.children}></Dropdown>
                                                         :
-                                                        <a
+                                                        <Link
                                                             key={item.name}
                                                             href={item.href}
                                                             className={classNames(
@@ -72,7 +72,7 @@ export default function Navbar() {
                                                             aria-current={item.current ? 'page' : undefined}
                                                         >
                                                             {item.name}
-                                                        </a>
+                                                        </Link>
                                                 ))}
                                             </div>
                                         </div>
