@@ -104,6 +104,7 @@ export default function Navbar() {
                         </div>
 
 
+
                         {/*Mobile*/}
                         <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
                             <div className="mx-auto max-w-3xl space-y-1 px-2 pt-2 pb-3 sm:px-4">
