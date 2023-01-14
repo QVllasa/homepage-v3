@@ -26,6 +26,9 @@ const skills = [
 ]
 // relative lg:flex lg:flex-col lg:items-center mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0
 export default function Skills() {
+
+
+
     return (
         <div className=" bg-white">
             <div className="relative mx-auto  py-24 ">

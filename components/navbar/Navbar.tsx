@@ -4,7 +4,7 @@ import {ContactDialog} from "../dialogs/ContactDialog";
 import {PropsWithChildren, useRef} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
-import {FaGithub} from "react-icons/fa";
+import {FaGithub, FaLinkedin} from "react-icons/fa";
 import Dropdown from "../menu/Dropdown";
 
 
@@ -91,14 +91,19 @@ export default function Navbar() {
                                     </Popover.Button>
                                 </div>
                                 <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
-                                    <FaGithub className={'text-3xl text-gray-400 hover:text-black cursor-pointer'}
-                                              onClick={() => router.push('https://github.com/QVllasa')}/>
-                                    <button
-                                        onClick={() => ref?.current?.open()}
-                                        className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
-                                    >
-                                        Contact
-                                    </button>
+                                    <div className='flex items-center'>
+                                        <FaLinkedin className={'w-8 h-8 text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                                    onClick={() => router.push('https://github.com/QVllasa')}/>
+                                        <FaGithub className={'w-8 h-8 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                                  onClick={() => router.push('https://github.com/QVllasa')}/>
+                                        <button
+                                            onClick={() => ref?.current?.open()}
+                                            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                                        >
+                                            Contact
+                                        </button>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
