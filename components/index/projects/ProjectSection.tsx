@@ -20,17 +20,14 @@ export default function ProjectSection() {
     const app = useFirebaseApp();
     const firestore = getFirestore(app);
     const [projects, setProjects] = useState<ProjectModel[]>([]);
-    const [isLoading, setIsLoading] = useState(false);
     const [hide, setHide] = useState(false);
     const [lastVisible, setLastVisible] = useState<QueryDocumentSnapshot<DocumentData>>();
 
     let q = query(collection(firestore, "projects"), orderBy('rollout', 'desc'), limit(6))
     const loadProjects = (query: Query<DocumentData>) => {
-        setIsLoading(true);
         return getDocs(query)
             .then((data) => {
                 if(data.empty) setHide(true);
-                setIsLoading(false);
                 setLastVisible(data.docs[data.docs.length - 1]);
                 let list: any =[];
                 data.forEach((doc) => {
