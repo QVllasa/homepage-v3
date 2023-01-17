@@ -1,4 +1,6 @@
-export default function SkillsAccordion(data: {item: {id: number, name: string, description: string, icon: any}}) {
+import {SkillModel} from "../models/skill.model";
+
+export default function SkillsAccordion(data: {item: SkillModel}) {
     return (
         <div>
             <dt>

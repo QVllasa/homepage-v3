@@ -1,8 +1,9 @@
-import {ChevronDownIcon, ChevronRightIcon} from "@heroicons/react/24/outline";
+import {BuildingOfficeIcon, ChevronDownIcon, ChevronRightIcon} from "@heroicons/react/24/outline";
 import {useState} from "react";
+import {ExperienceModel} from "../models/experience.model";
 
 
-export default function ExperienceAccordion(data: { item: { role: string, period: string, company: string, description: string, icon: any } }) {
+export default function ExperienceAccordion(data: { item: ExperienceModel }) {
     const [open, setOpen] = useState(false)
 
     return (
@@ -13,17 +14,16 @@ export default function ExperienceAccordion(data: { item: { role: string, period
                     <div className="flex flex-wrap items-center justify-between">
                         <div className="flex w-0 flex-1 items-center">
                             <span className="flex rounded-lg bg-blue-600 p-2">
-                                <data.item.icon className="h-3 w-3 sm:h-6 md:w-6 text-white"
+                                <BuildingOfficeIcon className="h-3 w-3 sm:h-6 md:w-6 text-white"
                                                 aria-hidden="true"/>
                             </span>
-                            <p className="ml-3 truncate font-medium text-black text-xs sm:text-base">
+                            <p className="ml-3 truncate font-medium text-black text-xs sm:text-base uppercase">
                                 {data.item.role}
                             </p>
                         </div>
                     </div>
-                    <div
-                        className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs sm:text-sm md:text-sm lg:text-base truncate">
-                        {data.item.company} | {data.item.period}
+                    <div className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs sm:text-sm md:text-sm lg:text-base truncate">
+                        {data.item.company} | {data.item.from} - {data.item.to}
                     </div>
                 </div>
                 <div className="col-span-2 md:col-span-4 w-auto flex  sm:mt-0 justify-self-end">

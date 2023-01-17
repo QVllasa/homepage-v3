@@ -1,42 +1,41 @@
 import ExperienceAccordion from "../../accordion/ExperienceAccordion";
-import {ArrowSmallRightIcon, BuildingOfficeIcon} from "@heroicons/react/24/outline";
+import {ArrowSmallRightIcon, CheckBadgeIcon} from "@heroicons/react/24/outline";
+import {useFirebaseApp} from "reactfire";
+import {collection, DocumentData, getDocs, getFirestore, orderBy, Query, query} from "firebase/firestore";
+import {useEffect, useState} from "react";
+import {ExperienceModel} from "../../models/experience.model";
 
-
-const experience = [
-    {
-        id: 1,
-        role: 'Lead Software Engineer',
-        company: 'newboxes solutions GmbH',
-        period: 'Dez 2021 - Mar 2023',
-        description: 'As the lead developer in cloud transformation, I was responsible for implementing projects for customers with best practice development and state of the art technologies.',
-        icon: BuildingOfficeIcon
-    },
-    {
-        id: 1,
-        role: 'Project Lead & Software Engineer',
-        company: 'newboxes solutions GmbH',
-        period: 'Dez 2021 - Mar 2023',
-        description: 'As the lead developer in cloud transformation, I was responsible for implementing projects for customers with best practice development and state of the art technologies.',
-        icon: BuildingOfficeIcon
-    },
-    {
-        id: 1,
-        role: 'Lead Software Engineer',
-        company: 'newboxes solutions GmbH',
-        period: 'Dez 2021 - Mar 2023',
-        description: 'As the lead developer in cloud transformation, I was responsible for implementing projects for customers with best practice development and state of the art technologies.',
-        icon: BuildingOfficeIcon
-    },
-    {
-        id: 1,
-        role: 'Lead Software Engineer',
-        company: 'newboxes solutions GmbH',
-        period: 'Dez 2021 - Mar 2023',
-        description: 'As the lead developer in cloud transformation, I was responsible for implementing projects for customers with best practice development and state of the art technologies.',
-        icon: BuildingOfficeIcon
-    },
-]
 export default function Experience(){
+    const app = useFirebaseApp();
+    const firestore = getFirestore(app);
+    const [exp, setExp] = useState<ExperienceModel[]>([]);
+
+    const q = query(collection(firestore, "experience"), orderBy('order', 'desc'));
+
+    const loadExperiences = (query: Query<DocumentData>)=>{
+        return getDocs(query)
+            .then((data) => {
+                let list: any =[];
+                data.forEach((doc) => {
+                    const exp = {
+                        ...doc.data(),
+                        icon: CheckBadgeIcon,
+                        id: doc.id
+                    };
+                    list.push(exp);
+                })
+                console.log(list);
+                setExp([...exp, ...list]);
+            });
+    }
+
+    useEffect(()=>{loadExperiences(q)}, [])
+
+    if (exp.length == 0){
+        return <div>Loading...</div>
+    }
+
+
     return (
         <div className=" bg-white">
             <div className="relative mx-auto py-24 ">
@@ -48,9 +47,10 @@ export default function Experience(){
                         </p>
                     </div>
                     <dl className="mt-20 grid grid-cols-1 gap-4 lg:col-span-2 lg:mt-0">
-                        {experience.map((item, index) => (
-                            <ExperienceAccordion key={index} item={item} />
-                        ))}
+                        {exp.map((item, index) => {
+                            if (index<4) return <ExperienceAccordion key={index} item={item} />
+                        }
+                        )}
                         <div className='flex justify-end items-end mt-8'>
                             <button
                                 type="button"

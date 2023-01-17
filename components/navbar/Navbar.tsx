@@ -93,7 +93,7 @@ export default function Navbar() {
                                 <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
                                     <div className='flex items-center'>
                                         <FaLinkedin className={'w-8 h-8 text-3xl text-gray-400 hover:text-black cursor-pointer'}
-                                                    onClick={() => router.push('https://github.com/QVllasa')}/>
+                                                    onClick={() => router.push('https://www.linkedin.com/in/qendrim-vllasa/')}/>
                                         <FaGithub className={'w-8 h-8 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer'}
                                                   onClick={() => router.push('https://github.com/QVllasa')}/>
                                         <button
