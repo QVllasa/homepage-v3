@@ -25,7 +25,6 @@ export default function Experience(){
                     };
                     list.push(exp);
                 })
-                console.log(list);
                 setExp([...exp, ...list]);
             });
     }

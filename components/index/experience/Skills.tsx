@@ -1,4 +1,10 @@
-import {ArrowSmallDownIcon, CheckBadgeIcon, CheckCircleIcon, CheckIcon} from "@heroicons/react/24/outline";
+import {
+    ArrowSmallDownIcon,
+    ArrowSmallUpIcon,
+    CheckBadgeIcon,
+    CheckCircleIcon,
+    CheckIcon
+} from "@heroicons/react/24/outline";
 import {useEffect, useState} from "react";
 import {collection, DocumentData, getDocs, getFirestore, orderBy, Query, query} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
@@ -68,11 +74,11 @@ export default function Skills() {
                             className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none "
                         >
                             {showMore ? 'Show less': 'Show more'}
-                            <ArrowSmallDownIcon className='h-5 w-5 ml-3'/>
+                            {showMore ? <ArrowSmallUpIcon className='h-5 w-5 ml-3'/>: <ArrowSmallDownIcon className='h-5 w-5 ml-3'/>}
+
                         </button>
                     </div>
                 </div>
-
                 {showMore ? <dl className="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
                     {skills?.map((item, index) => {
                         if (index >= 4) return  <div key={item.name} className="relative">
@@ -84,7 +90,6 @@ export default function Skills() {
                         </div>
                     })}
                 </dl> : null}
-
             </div>
         </div>
     )

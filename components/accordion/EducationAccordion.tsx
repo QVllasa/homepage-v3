@@ -1,7 +1,9 @@
 import {AcademicCapIcon, ChevronDownIcon, ChevronRightIcon} from "@heroicons/react/24/outline";
 import {useState} from "react";
+import {EducationModel} from "../models/education.model";
+import Link from "next/link";
 
-export default function EducationAccordion(data: { item: { id: number, degree: string, period?: string, institute: string, description: string } }) {
+export default function EducationAccordion(data: { item: EducationModel}) {
     const [open, setOpen] = useState(false)
 
     return (
@@ -22,7 +24,7 @@ export default function EducationAccordion(data: { item: { id: number, degree: s
                     </div>
                     <div
                         className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs sm:text-sm md:text-sm lg:text-base truncate">
-                        {data.item.institute} |  {data.item.period}
+                        <span>{data.item.from} - {data.item.to}</span> <span>|</span> <Link target='_blank' passHref href={data.item.url} className={'font-semibold hover:text-blue-600'}>{data.item.name}</Link>
                     </div>
                 </div>
                 <div className="col-span-2 md:col-span-4 w-auto flex  sm:mt-0 justify-self-end">

@@ -1,10 +1,51 @@
-import {ArrowSmallDownIcon} from "@heroicons/react/24/outline";
+import {ArrowSmallDownIcon, ArrowSmallUpIcon} from "@heroicons/react/24/outline";
+import {getDownloadURL, getStorage, ref} from "@firebase/storage";
+import {useFirebaseApp} from "reactfire";
+import {collection, DocumentData, getDocs, getFirestore, orderBy, Query, query} from "firebase/firestore";
+import {useEffect, useState} from "react";
+import {StackModel} from "../../models/stack.model";
+import Link from "next/link";
+import {Tooltip} from "@mui/material";
 
 export default function Stack() {
+    const storage = getStorage();
+    const app = useFirebaseApp();
+    const firestore = getFirestore(app);
+    const [stack, setStack] = useState<StackModel[]>([]);
+    const [counter, setCounter] = useState(9)
+
+    const q = query(collection(firestore, "stack"), orderBy('order', 'asc'));
+
+    const loadStack = async (query: Query<StackModel | DocumentData>) => {
+        const data = await getDocs(query)
+        let list: StackModel[] = [];
+        data.forEach((doc) => {
+            const stack = {
+                ...doc.data() as StackModel,
+                id: doc.id
+            };
+            list.push(stack);
+        })
+        for await (const item of list){
+            item.icon = await getDownloadURL(ref(storage, item.icon));
+        }
+        console.log(list);
+        setStack([...stack, ...list]);
+    }
+
+    useEffect(() => {
+        loadStack(q);
+    }, [])
+
+    if (stack.length == 0) {
+        return <div>Loading...</div>
+    }
+
     return (
         <div className=" bg-white">
             <div className="relative mx-auto pt-24">
-                <div className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl">
+                <div
+                    className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl">
                     <div className='col-span-1'>
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                             Stack
@@ -14,48 +55,28 @@ export default function Stack() {
                         </p>
                     </div>
                     <div className="mt-8 col-span-2 grid grid-cols-3 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-3">
-                        <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
-                            <img
-                                className="max-h-12"
-                                src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg"
-                                alt="Workcation"
-                            />
-                        </div>
-                        <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
-                            <img className="max-h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage" />
-                        </div>
-                        <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
-                            <img className="max-h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple" />
-                        </div>
-                        <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
-                            <img
-                                className="max-h-12"
-                                src="https://tailwindui.com/img/logos/laravel-logo-gray-400.svg"
-                                alt="Laravel"
-                            />
-                        </div>
-                        <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
-                            <img
-                                className="max-h-12"
-                                src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg"
-                                alt="StaticKit"
-                            />
-                        </div>
-                        <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
-                            <img
-                                className="max-h-12"
-                                src="https://tailwindui.com/img/logos/statamic-logo-gray-400.svg"
-                                alt="Statamic"
-                            />
-                        </div>
+                        {stack.map((item, index) => {
+                            if (index<counter) return (<div key={item.id} className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+                                <Tooltip title={item.name}>
+                                    <Link href={item.url} target={'_blank'}>
+                                        <img className="max-h-12 w-full aspect-auto"
+                                             src={item.icon}
+                                             alt={item.name}
+                                        />
+                                    </Link>
+                                </Tooltip>
+                            </div>)
+                        })}
                     </div>
                     <div className='flex col-span-2 col-start-2 justify-center items-end mt-8'>
                         <button
                             type="button"
+                            onClick={()=> counter != stack.length ? setCounter(stack.length) : setCounter(9)}
                             className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none"
                         >
-                            Show more
-                            <ArrowSmallDownIcon className='h-5 w-5 ml-3'/>
+                            {counter != stack.length ? 'Show more' : 'Show less'}
+                            {counter != stack.length ?  <ArrowSmallDownIcon className='h-5 w-5 ml-3'/> :  <ArrowSmallUpIcon className='h-5 w-5 ml-3'/>}
+
                         </button>
                     </div>
                 </div>

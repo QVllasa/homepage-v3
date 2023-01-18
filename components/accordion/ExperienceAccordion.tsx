@@ -26,7 +26,7 @@ export default function ExperienceAccordion(data: { item: ExperienceModel }) {
                     </div>
                     {/*// @ts-ignore*/}
                     <div className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs sm:text-sm md:text-sm lg:text-base truncate">
-                        {data.item.from} - {data.item.to} | <Link target='_blank' passHref href={data.item.companyUrl} className={'font-semibold hover:text-blue-600'}>{data.item.company}</Link>
+                        <span>{data.item.from} - {data.item.to}</span> <span>|</span> <Link target='_blank' passHref href={data.item.companyUrl} className={'font-semibold hover:text-blue-600'}>{data.item.company}</Link>
                     </div>
                 </div>
                 <div className="col-span-2 md:col-span-4 w-auto flex  sm:mt-0 justify-self-end">

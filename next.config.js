@@ -10,6 +10,11 @@ const nextConfig = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
   },
+  images: {
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    domains: ['firebasestorage.googleapis.com'],
+  },
 }
 
 module.exports = nextConfig
