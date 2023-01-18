@@ -57,9 +57,9 @@ export default function Stack() {
                     <div className="mt-8 col-span-2 grid grid-cols-3 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-3">
                         {stack.map((item, index) => {
                             if (index<counter) return (<div key={item.id} className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
-                                <Tooltip title={item.name}>
-                                    <Link href={item.url} target={'_blank'}>
-                                        <img className="max-h-12 w-full aspect-auto"
+                                <Tooltip title={item.name.toUpperCase()}>
+                                    <Link href={item.url} target={'_blank'} className={'flex items-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition'}>
+                                        <img className="w-16 h-auto max-h-12 aspect-auto "
                                              src={item.icon}
                                              alt={item.name}
                                         />
