@@ -1,11 +1,7 @@
 import Head from 'next/head'
 import HeaderSection from "../components/index/header/HeaderSection";
 import ExperienceSection from "../components/index/experience/ExperienceSection";
-import ServicesSection from "../components/index/service/ServicesSection";
 import AboutMeSection from "../components/index/aboutme/AboutMeSection";
-import ProjectSection from "../components/index/projects/ProjectSection";
-import CompanySection from "../components/index/company/CompanySection";
-import ContactSection from "../components/index/contact/ContactSection";
 import Footer from "../components/footers/Footer";
 
 export default function Home() {
@@ -21,11 +17,12 @@ export default function Home() {
                 <HeaderSection/>
                 <AboutMeSection/>
                 <ExperienceSection/>
-                <ServicesSection/>
-                <ProjectSection/>
-                <CompanySection/>
-                <ContactSection/>
+                {/*<ServicesSection/>*/}
+                {/*<ProjectSection/>*/}
+                {/*<CompanySection/>*/}
+                {/*<ContactSection/>*/}
                 <Footer/>
+
             </main>
         </>
     )
