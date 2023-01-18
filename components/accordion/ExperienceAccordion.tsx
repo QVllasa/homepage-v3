@@ -7,6 +7,7 @@ import Link from "next/link";
 export default function ExperienceAccordion(data: { item: ExperienceModel }) {
     const [open, setOpen] = useState(false)
 
+
     return (
         <div className="mx-auto w-full">
             <div
@@ -23,6 +24,7 @@ export default function ExperienceAccordion(data: { item: ExperienceModel }) {
                             </p>
                         </div>
                     </div>
+                    {/*// @ts-ignore*/}
                     <div className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs sm:text-sm md:text-sm lg:text-base truncate">
                         {data.item.from} - {data.item.to} | <Link target='_blank' passHref href={data.item.companyUrl} className={'font-semibold hover:text-blue-600'}>{data.item.company}</Link>
                     </div>
