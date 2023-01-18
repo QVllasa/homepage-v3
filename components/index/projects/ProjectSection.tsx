@@ -70,9 +70,9 @@ export default function ProjectSection() {
                 </div>
                 <div className="mx-auto mt-12 grid  gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
                     {projects?.map((project, index) => (
-                        <div key={project.id} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
+                        <div key={project.id} className="flex flex-col overflow-hidden rounded-lg border">
                             <div className="flex-shrink-0">
-                                <img className="h-48 w-full object-cover" src={project.img} alt=""/>
+                                <img className="h-48 w-full object-cover" src={'https://picsum.photos/200/300'} alt=""/>
                             </div>
                             <div className="flex flex-1 flex-col justify-between bg-white p-6">
                                 <div className="flex-1">

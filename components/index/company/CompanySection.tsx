@@ -1,40 +1,56 @@
+import {getStorage} from "@firebase/storage";
+import {useFirebaseApp} from "reactfire";
+import {collection, DocumentData, getDocs, getFirestore, Query, query, where} from "firebase/firestore";
+import {useEffect, useState} from "react";
+import {StackModel} from "../../models/stack.model";
+import {CompanyModel} from "../../models/company.model";
+
 export default function CompanySection() {
+    const storage = getStorage();
+    const app = useFirebaseApp();
+    const firestore = getFirestore(app);
+    const [companies, setCompanies] = useState<CompanyModel[]>([]);
+
+
+    const q = query(collection(firestore, "companies"), where("featured", "==", true));
+
+    const loadCompanies = async (query: Query<StackModel | DocumentData>) => {
+        const data = await getDocs(query)
+        let list: CompanyModel[] = [];
+        data.forEach((doc) => {
+            const company = {
+                ...doc.data() as CompanyModel,
+                id: doc.id
+            };
+            list.push(company);
+        })
+        // for await (const item of list){
+        //     item.logo = await getDownloadURL(ref(storage, item.logo));
+        // }
+        // console.log(list);
+        setCompanies([...companies, ...list]);
+    }
+
+    useEffect(() => {
+        setCompanies([]);
+        loadCompanies(q);
+    }, [])
+
+    if (companies.length == 0) {
+        return <div>Loading...</div>
+    }
     return (
         <>
             <div className="bg-blue-600">
             <div className="mx-auto max-w-7xl py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-bold tracking-tight text-white text-center">
-                    Companies I work(ed) with
+                    Some companies which profited from my work
                 </h2>
                 <div className="mt-8 flow-root lg:mt-10">
-                    <div className="-mt-4 -ml-8 flex flex-wrap justify-between lg:-ml-4">
-                        <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                            <img className="h-12" src="https://tailwindui.com/img/logos/tuple-logo-indigo-300.svg" alt="Tuple" />
-                        </div>
-                        <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                            <img className="h-12" src="https://tailwindui.com/img/logos/mirage-logo-indigo-300.svg" alt="Mirage" />
-                        </div>
-                        <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                            <img
-                                className="h-12"
-                                src="https://tailwindui.com/img/logos/statickit-logo-indigo-300.svg"
-                                alt="StaticKit"
-                            />
-                        </div>
-                        <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                            <img
-                                className="h-12"
-                                src="https://tailwindui.com/img/logos/transistor-logo-indigo-300.svg"
-                                alt="Transistor"
-                            />
-                        </div>
-                        <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                            <img
-                                className="h-12"
-                                src="https://tailwindui.com/img/logos/workcation-logo-indigo-300.svg"
-                                alt="Workcation"
-                            />
-                        </div>
+                    <div className="-mt-4 -ml-8 flex flex justify-center lg:-ml-4 gap-12">
+                        {companies.map((item)=><div key={item.id} className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
+                            <img className="h-auto w-24 max-h-12 aspect-auto grayscale opacity-80 brightness-200" src={item.logo} alt="Tuple" />
+                        </div>)}
                     </div>
                 </div>
             </div>

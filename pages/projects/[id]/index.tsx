@@ -2,6 +2,7 @@ import {ProjectModel} from "../../../components/models/project.model";
 import {CheckCircleIcon} from "@heroicons/react/24/outline";
 
 const project: ProjectModel = {
+    order: 0,
     id: '1',
     title: 'Dronegraphy',
     description: 'With dronegraphy I combine multiple passions of mine. As I love making impressing films and know how to code, this was some kind of natural outcome. Dronegraphy will be some kind of platform, in which people can buy and sell drone footage. In addition a forum will help drone lovers come together. As of now, dronegraphy is still in development as a side project of mine.',
@@ -23,7 +24,7 @@ const project: ProjectModel = {
     previewLink: '',
     img: 'https://firebasestorage.googleapis.com/v0/b/my-homepage-f50b5.appspot.com/o/projects%2Fdronegraphy%2F5f85ab1852c24_drone.svg?alt=media&token=aa1fed7f-dd5d-43d3-a509-8f1c861f6f2d',
     createAt: new Date('10.01.2023, 21:38:15'),
-    updatedAt: new Date('10.01.2023, 21:38:15'),
+    updatedAt: new Date('10.01.2023, 21:38:15')
 }
 
 export default function ProjectDetails() {

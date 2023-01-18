@@ -10,5 +10,5 @@ export interface ProjectModel {
     img?: string,
     createAt?: Date,
     updatedAt?: Date,
-    order: number,
+    order?: number,
 }
