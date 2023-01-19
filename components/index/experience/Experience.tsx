@@ -55,7 +55,7 @@ export default function Experience(){
                             <button
                                 onClick={()=>exp.length != counter ? setCounter(exp.length) : setCounter(4)}
                                 type="button"
-                                className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none "
+                                className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none "
                             >
                                 {exp.length != counter ? 'Show more' : 'Show less'}
                                 {exp.length != counter ? <ArrowSmallDownIcon className='h-5 w-5 ml-3'/> : <ArrowSmallUpIcon className='h-5 w-5 ml-3'/>}

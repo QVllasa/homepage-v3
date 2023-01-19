@@ -74,7 +74,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <Dialog.Panel
-                                className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 w-full  md:max-w-sm sm:p-6">
+                                className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left  transition-all sm:my-8 w-full  md:max-w-sm sm:p-6">
                                 {()=> {
                                     if (isSubmitted && !isLoading){
                                         return <div className='flex flex-col justify-center items-center text-xl'>
@@ -82,7 +82,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                             Danke für deine Nachricht!
                                             <button
                                                 onClick={()=>setShow(false)}
-                                                className="mt-4 w-full inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                                                className="mt-4 w-full inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white  hover:bg-blue-700"
                                             >
                                                 Back
                                             </button>
@@ -118,7 +118,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                         </label>
                                                         <input
                                                             autoComplete="name"
-                                                            className="block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                                            className="block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500  focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Name"
                                                             {...register('name')}
                                                         />
@@ -129,7 +129,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                         </label>
                                                         <input
                                                             autoComplete="email"
-                                                            className="block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                                            className="block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Email"
                                                             {...register('email')}
                                                         />
@@ -142,7 +142,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                             id="message"
                                                             {...register('message')}
                                                             rows={4}
-                                                            className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                                            className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500  focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Message"
                                                             defaultValue={''}
                                                         />
@@ -150,7 +150,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                     <div className="mt-5 sm:mt-6">
                                                         <button onClick={handleSubmit(onSubmit)}
                                                                 type="button"
-                                                            className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                                                            className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white  hover:bg-blue-700"
                                                         >
                                                             Send
                                                         </button>

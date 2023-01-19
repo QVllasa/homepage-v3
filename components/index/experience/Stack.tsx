@@ -72,7 +72,7 @@ export default function Stack() {
                         <button
                             type="button"
                             onClick={()=> counter != stack.length ? setCounter(stack.length) : setCounter(9)}
-                            className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none"
+                            className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none"
                         >
                             {counter != stack.length ? 'Show more' : 'Show less'}
                             {counter != stack.length ?  <ArrowSmallDownIcon className='h-5 w-5 ml-3'/> :  <ArrowSmallUpIcon className='h-5 w-5 ml-3'/>}

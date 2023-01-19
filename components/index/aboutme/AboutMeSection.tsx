@@ -1,4 +1,9 @@
+import {ContactDialog} from "../../dialogs/ContactDialog";
+import {PropsWithChildren, useRef} from "react";
+
+type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
 export default function AboutMeSection() {
+    const ref = useRef<ContactDialogProps>(null);
     return (
         <div className=" bg-white py-16 lg:py-24">
             <div className="relative mx-auto w-auto lg:max-w-7xl lg:px-8">
@@ -46,17 +51,19 @@ export default function AboutMeSection() {
                                     is known to everyone, product development is no longer imaginable without Virtual
                                     Twins and networked machines learn independently.
                                 </p>
-                                <a
-                                    className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-blue-700 shadow-md hover:bg-gray-50 sm:inline-block sm:w-auto"
-                                    href="pages#"
+                                <button
+                                    type='button'
+                                    onClick={() => ref?.current?.open()}
+                                    className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
                                 >
                                     Contact
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <ContactDialog ref={ref}/>
         </div>
     )
 }

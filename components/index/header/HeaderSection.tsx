@@ -66,7 +66,7 @@ export default function HeaderSection() {
                                         <div className="sm:mt-0">
                                             <button
                                                 type="button"
-                                                className="cursor-default block w-full rounded-md border border-transparent bg-amber-300 px-5 py-3 text-base font-medium text-white shadow  sm:px-10">
+                                                className="cursor-default block w-full rounded-md border border-transparent bg-amber-300 px-5 py-3 text-base font-medium text-white   sm:px-10">
                                                 <span className='text-2xl mr-3'>🎉</span>
                                                 I will reach out to you!
                                             </button>
@@ -81,7 +81,7 @@ export default function HeaderSection() {
                                             <input
                                                 id="cta-email"
                                                 type="email"
-                                                className="block w-full rounded-md border-none ring-2 ring-blue-500 px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500"
+                                                className="block w-full rounded-md border-none ring-2 ring-blue-500 px-5 py-3 text-base text-gray-900 placeholder-gray-500  focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-blue-600"
                                                 placeholder="Enter your email"
                                                 onChange={(e) => handler(e.target.value)}
                                                 value={email}
@@ -92,7 +92,7 @@ export default function HeaderSection() {
                                                 disabled={isLoading}
                                                 type="button"
                                                 onClick={submit}
-                                                className="block w-full rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
+                                                className="block w-full rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
                                             >
                                                 Yes, contact me!
                                             </button>

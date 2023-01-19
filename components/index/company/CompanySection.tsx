@@ -1,9 +1,11 @@
-import {getStorage} from "@firebase/storage";
+import {getDownloadURL, getStorage, ref} from "@firebase/storage";
 import {useFirebaseApp} from "reactfire";
 import {collection, DocumentData, getDocs, getFirestore, Query, query, where} from "firebase/firestore";
 import {useEffect, useState} from "react";
 import {StackModel} from "../../models/stack.model";
 import {CompanyModel} from "../../models/company.model";
+import {Tooltip} from "@mui/material";
+import Link from "next/link";
 
 export default function CompanySection() {
     const storage = getStorage();
@@ -24,10 +26,9 @@ export default function CompanySection() {
             };
             list.push(company);
         })
-        // for await (const item of list){
-        //     item.logo = await getDownloadURL(ref(storage, item.logo));
-        // }
-        // console.log(list);
+        for await (const item of list){
+            item.logo = await getDownloadURL(ref(storage, item.logo));
+        }
         setCompanies([...companies, ...list]);
     }
 
@@ -49,7 +50,11 @@ export default function CompanySection() {
                 <div className="mt-8 flow-root lg:mt-10">
                     <div className="-mt-4 -ml-8 flex flex justify-center lg:-ml-4 gap-12">
                         {companies.map((item)=><div key={item.id} className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                            <img className="h-auto w-24 max-h-12 aspect-auto grayscale opacity-80 brightness-200" src={item.logo} alt="Tuple" />
+                            <Tooltip title={item.name.toUpperCase()}>
+                                <Link href={item.url} target={'_blank'} className={'flex items-center grayscale opacity-80 brightness-200 hover:scale-110 transition'}>
+                                    <img className="h-auto w-24 max-h-12 aspect-auto" src={item.logo} alt="Tuple" />
+                                </Link>
+                            </Tooltip>
                         </div>)}
                     </div>
                 </div>

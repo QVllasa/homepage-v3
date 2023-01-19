@@ -14,6 +14,7 @@ import {
     QueryDocumentSnapshot,
     startAfter
 } from "firebase/firestore";
+import {ArrowSmallDownIcon} from "@heroicons/react/24/outline";
 
 
 export default function ProjectSection() {
@@ -89,9 +90,10 @@ export default function ProjectSection() {
                     {hide ? null :   <button
                         type='button'
                         onClick={loadMore}
-                        className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                        className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white  hover:bg-blue-700"
                     >
                         Load more
+                        <ArrowSmallDownIcon className='h-5 w-5 ml-3'/>
                     </button>
                     }
 

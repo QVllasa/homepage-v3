@@ -6,6 +6,7 @@ import Footer from "../components/footers/Footer";
 import ServicesSection from "../components/index/service/ServicesSection";
 import ProjectSection from "../components/index/projects/ProjectSection";
 import CompanySection from "../components/index/company/CompanySection";
+import ContactSection from "../components/index/contact/ContactSection";
 
 export default function Home() {
 
@@ -23,7 +24,7 @@ export default function Home() {
                 <ServicesSection/>
                 <ProjectSection/>
                 <CompanySection/>
-                {/*<ContactSection/>*/}
+                <ContactSection/>
                 <Footer/>
 
             </main>
