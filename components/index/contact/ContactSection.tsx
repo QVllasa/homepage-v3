@@ -77,7 +77,7 @@ export default function ContactSection(){
                                                     disabled={isLoading}
                                                     type="button"
                                                     onClick={submit}
-                                                    className="block w-full rounded-md border border-transparent bg-black px-5 py-3 text-base font-medium text-white  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
+                                                    className="block w-full rounded-md border border-transparent bg-black px-5 py-3 text-base font-medium text-white  hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
                                                 >
                                                     Yes, contact me!
                                                 </button>

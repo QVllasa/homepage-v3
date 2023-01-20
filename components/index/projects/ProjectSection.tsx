@@ -71,7 +71,7 @@ export default function ProjectSection() {
                 </div>
                 <div className="mx-auto mt-12 grid  gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
                     {projects?.map((project, index) => (
-                        <div key={project.id} className="flex flex-col overflow-hidden rounded-lg border">
+                        <div key={project.id} className="flex flex-col overflow-hidden rounded-lg border hover:scale-101 transition">
                             <div className="flex-shrink-0">
                                 <img className="h-48 w-full object-cover" src={'https://picsum.photos/200/300'} alt=""/>
                             </div>

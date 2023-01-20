@@ -6,6 +6,10 @@ module.exports = {
     ],
     theme: {
         extend: {
+            scale: {
+                '101': '1.01',
+                '102': '1.02',
+            },
             spacing: {
                 '128': '32rem',
                 '144': '36rem',
