@@ -7,7 +7,7 @@ export interface ProjectModel {
     stats: { key: string, value: string }[],
     client: string,
     previewLink?: string,
-    img?: string,
+    img: string,
     createAt?: Date,
     updatedAt?: Date,
     order?: number,

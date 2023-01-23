@@ -5,6 +5,7 @@ import {ProjectModel} from "../../../components/models/project.model";
 import {CheckIcon} from "@heroicons/react/24/outline";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 
 
 export default function ProjectDetails() {
@@ -60,12 +61,13 @@ export default function ProjectDetails() {
                             <rect width={404} height={392} fill="url(#02f20b47-fd69-4224-a62a-4c9de5c763f7)"/>
                         </svg>
                     </div>
-                    <div className="relative mx-auto max-w-md px-6 sm:max-w-3xl lg:max-w-none lg:px-0 lg:py-20">
-                        <div className="relative overflow-hidden rounded-2xl pt-96 pb-10 ">
-                            <img
-                                className="absolute inset-0 h-full w-full object-cover"
-                                src={'https://picsum.photos/640'}
-                                alt={data.title}
+                    <div
+                        className="relative lg:absolute lg:right-0 lg:w-[48rem] mx-auto max-w-md px-6 sm:max-w-3xl lg:max-w-none lg:px-0 lg:py-20 ">
+                        <div className="relative overflow-hidden rounded-2xl pt-[56.25%] pb-10 ">
+                            <Image width={640} height={400}
+                                   className="absolute inset-0 h-full w-full "
+                                   src={data.img}
+                                   alt={data.title}
                             />
                         </div>
                         <Link target="_blank" href={data.previewLink ?? ''}
@@ -81,7 +83,6 @@ export default function ProjectDetails() {
                         {data.previewLink ? null :
                             <p className={'w-full text-center mt-2 text-gray-400'}>Only visible at the customers
                                 site</p>}
-
                     </div>
                 </div>
 

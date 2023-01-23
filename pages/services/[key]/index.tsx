@@ -1,58 +1,11 @@
-import {
-    BoltIcon,
-    ChatBubbleBottomCenterTextIcon,
-    CheckCircleIcon,
-    EnvelopeIcon,
-    GlobeAltIcon,
-    ScaleIcon,
-} from '@heroicons/react/24/outline'
+import {CheckCircleIcon,} from '@heroicons/react/24/outline'
 import {useRouter} from "next/router";
 import {collection, getDocs, getFirestore, query, where} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
 import useSWR from "swr";
-import {useEffect} from "react";
 import {ServiceModel} from "../../../components/models/service.model";
+import Image from "next/image";
 
-
-const transferFeatures = [
-    {
-        id: 1,
-        name: 'Competitive exchange rates',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: GlobeAltIcon,
-    },
-    {
-        id: 2,
-        name: 'No hidden fees',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: ScaleIcon,
-    },
-    {
-        id: 3,
-        name: 'Transfers are instant',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: BoltIcon,
-    },
-]
-const communicationFeatures = [
-    {
-        id: 1,
-        name: 'Mobile notifications',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: ChatBubbleBottomCenterTextIcon,
-    },
-    {
-        id: 2,
-        name: 'Reminder emails',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: EnvelopeIcon,
-    },
-]
 
 export default function Index() {
     const app = useFirebaseApp();
@@ -67,10 +20,6 @@ export default function Index() {
     })
 
     const {data, error} = useSWR(key, loadService)
-
-    useEffect(() => {
-        console.log("data", data);
-    }, []);
 
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
@@ -123,10 +72,11 @@ const Left = (props: {section: {
                 </dl>
             </div>
             <div className="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
-                <img
+                <Image
                     className="relative mx-auto"
                     width={490}
-                    src="https://tailwindui.com/img/features/feature-example-1.png"
+                    height={400}
+                    src={section.img}
                     alt=""
                 />
             </div>
@@ -167,10 +117,11 @@ const Right = (props: {section: {
                 </div>
                 <div className="relative -mx-4 mt-10 lg:col-start-1 lg:mt-0">
                     <RightDots/>
-                    <img
+                    <Image
                         className="relative mx-auto"
                         width={490}
-                        src="https://tailwindui.com/img/features/feature-example-2.png"
+                        height={400}
+                        src={section.img}
                         alt=""
                     />
                 </div>

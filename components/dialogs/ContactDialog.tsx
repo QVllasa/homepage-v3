@@ -5,11 +5,6 @@ import {useFirebaseApp} from "reactfire";
 import {TailSpin} from "react-loader-spinner";
 import {FieldValues, useForm} from "react-hook-form";
 
-interface Message{
-    name:string,
-    email: string,
-    message: string
-}
 
 export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: ForwardedRef<any>){
     const [show, setShow] = useState(false);
@@ -49,7 +44,9 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
 
     return (
         <Transition.Root show={show} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={()=>{ isLoading ? setShow(true) : setShow(false) }} >
+            <Dialog as="div" className="relative z-50" onClose={() => {
+                isLoading ? setShow(true) : setShow(false)
+            }}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"

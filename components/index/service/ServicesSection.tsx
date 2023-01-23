@@ -1,21 +1,24 @@
-import {CloudArrowUpIcon, LockClosedIcon} from "@heroicons/react/24/outline";
-import {ArrowPathIcon} from "@heroicons/react/24/solid";
+import {ChartBarSquareIcon, CodeBracketIcon, PresentationChartLineIcon} from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 const services = [
     {
         name: 'IT Consulting',
         description: 'Optimize you process.',
-        icon: CloudArrowUpIcon,
+        link: '/services/consulting',
+        icon: PresentationChartLineIcon,
     },
     {
         name: 'Web Application Development',
         description: 'Development of tailor-made software.',
-        icon: LockClosedIcon,
+        link: '/services/development',
+        icon: CodeBracketIcon,
     },
     {
         name: 'Business Research & Analytics',
         description: 'Insight about your data.',
-        icon: ArrowPathIcon,
+        link: '/services/analytics',
+        icon: ChartBarSquareIcon,
     },
 ]
 
@@ -72,13 +75,14 @@ export default function ServicesSection() {
                                                     </h3>
                                                     <p className="text-sm leading-6 font-thin text-gray-600">{feature.description}</p>
                                                     <div className='flex justify-center items-end mt-8'>
-                                                        <div className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
-                                                            <a
-                                                                href="components/IndexSections#"
+                                                        <div
+                                                            className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
+                                                            <Link
+                                                                href={feature.link}
                                                                 className="flex items-center justify-center rounded-md   bg-white px-4 py-2 text-sm font-medium text-blue-600  hover:bg-blue-50"
                                                             >
                                                                 Read more
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>

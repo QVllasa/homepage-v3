@@ -15,6 +15,7 @@ import {
     startAfter
 } from "firebase/firestore";
 import {ArrowSmallDownIcon} from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 
 export default function ProjectSection() {
@@ -51,8 +52,8 @@ export default function ProjectSection() {
     }
 
     useEffect(() => {
-        loadProjects(q);
-    }, [])
+        loadProjects(q).then();
+    })
 
 
 
@@ -70,10 +71,11 @@ export default function ProjectSection() {
                     </p>
                 </div>
                 <div className="mx-auto mt-12 grid  gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
-                    {projects?.map((project, index) => (
-                        <div key={project.id} className="flex flex-col overflow-hidden rounded-lg border hover:scale-101 transition">
+                    {projects?.map((project) => (
+                        <div key={project.id}
+                             className="flex flex-col overflow-hidden rounded-lg border hover:scale-101 transition">
                             <div className="flex-shrink-0">
-                                <img className="h-48 w-full object-cover" src={'https://picsum.photos/200/300'} alt=""/>
+                                <Image className="h-48 w-full" width={640} height={400} src={project.img} alt=""/>
                             </div>
                             <div className="flex flex-1 flex-col justify-between bg-white p-6">
                                 <div className="flex-1">
