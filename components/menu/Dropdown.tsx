@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function Dropdown(props: any) {
     return (
         <Menu as="div" className="relative inline-block text-left">
-            {({open}) => {
-                return (<>
+            {({open}) =>
+                 <>
                     <div>
                         <Menu.Button
                             className={` flex items-center px-3 py-2 rounded-md text-base font-medium   ${
@@ -31,8 +31,7 @@ export default function Dropdown(props: any) {
                         <Menu.Items
                             className="absolute z-50 right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="px-1 py-1 ">
-                                {props.listItems.map((listItem: any, index: any) =>
-                                    listItem.link ?
+                                {props.listItems.map((listItem: any, index: any) => listItem.link ?
                                         <Menu.Item key={index}>
                                             {({ close }) => (
                                                 <Link onClick={close} href={listItem.link} className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-blue-600 hover:text-white'}>
@@ -64,8 +63,9 @@ export default function Dropdown(props: any) {
                                 }
                             </div>
                         </Menu.Items>
-                    </Transition></>)
-            }}
+                    </Transition>
+                 </>
+            }
         </Menu>
     )
 }
