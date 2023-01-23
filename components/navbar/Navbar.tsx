@@ -1,5 +1,12 @@
 import {Popover} from '@headlessui/react'
-import {Bars3Icon, DocumentArrowDownIcon, XMarkIcon} from '@heroicons/react/24/outline'
+import {
+    AcademicCapIcon,
+    Bars3Icon,
+    CodeBracketIcon,
+    DocumentArrowDownIcon,
+    PresentationChartLineIcon,
+    XMarkIcon
+} from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
 import {PropsWithChildren, useRef} from "react";
 import Link from "next/link";
@@ -11,10 +18,38 @@ import Dropdown from "../menu/Dropdown";
 const navigation = [
     {name: 'Projects', href: '/#projects', current: false},
     {name: 'Experience', href: '/#experience', current: false},
-    {name: 'Services', href: '/#services', current: false},
-    {name: 'Downloads', href: '', current: false, popover: true, children: [{name: 'Download CV', icon: DocumentArrowDownIcon}]}
+    {
+        name: 'Services',
+        href: '/#services',
+        current: false,
+        popover: true,
+        children: [
+            {
+                name: 'Consulting',
+                icon: AcademicCapIcon,
+                link: "/services/consulting"
+            },
+            {
+                name: 'App Development',
+                icon: CodeBracketIcon,
+                link: "/services/development"
+            },
+            {
+                name: 'Data Analytics',
+                icon: PresentationChartLineIcon,
+                link: "/services/analytics"
+            }
+        ]
+    },
+    {
+        name: 'Downloads',
+        href: '',
+        current: false,
+        popover: true,
+        children: [{name: 'Download CV', icon: DocumentArrowDownIcon}]
+    }
 ]
-type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
+type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -60,7 +95,8 @@ export default function Navbar() {
                                             <div className="flex space-x-4">
                                                 {navigation.map((item, index) => (
                                                     item.popover ?
-                                                        <Dropdown key={index} buttonText={item.name} listItems={item.children}></Dropdown>
+                                                        <Dropdown key={index} buttonText={item.name}
+                                                                  listItems={item.children}></Dropdown>
                                                         :
                                                         <Link
                                                             key={item.name}
@@ -92,10 +128,12 @@ export default function Navbar() {
                                 </div>
                                 <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
                                     <div className='flex items-center'>
-                                        <FaLinkedin className={'w-8 h-8 text-3xl text-gray-400 hover:text-black cursor-pointer'}
-                                                    onClick={() => router.push('https://www.linkedin.com/in/qendrim-vllasa/')}/>
-                                        <FaGithub className={'w-8 h-8 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer'}
-                                                  onClick={() => router.push('https://github.com/QVllasa')}/>
+                                        <FaLinkedin
+                                            className={'w-8 h-8 text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                            onClick={() => router.push('https://www.linkedin.com/in/qendrim-vllasa/')}/>
+                                        <FaGithub
+                                            className={'w-8 h-8 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                            onClick={() => router.push('https://github.com/QVllasa')}/>
                                         <button
                                             onClick={() => ref?.current?.open()}
                                             className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
@@ -107,7 +145,6 @@ export default function Navbar() {
                                 </div>
                             </div>
                         </div>
-
 
 
                         {/*Mobile*/}

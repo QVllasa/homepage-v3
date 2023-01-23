@@ -31,11 +31,7 @@ export default function ExperienceAccordion(data: { item: ExperienceModel }) {
                 </div>
                 <div className="col-span-2 md:col-span-4 w-auto flex  sm:mt-0 justify-self-end">
                     <button onClick={()=>setOpen(!open)}
-                            className="hidden lg:flex items-center justify-center rounded-md border bg-white px-4 py-2 text-sm font-medium text-blue-600  hover:bg-blue-50">
-                        What I have done here
-                    </button>
-                    <button onClick={()=>setOpen(!open)}
-                        className=" flex lg:hidden items-center justify-center  rounded-md   bg-white px-4 py-2 text-sm font-medium text-blue-600  hover:bg-blue-50">
+                        className=" flex items-center justify-center  rounded-md   bg-white px-4 py-2 text-sm font-medium text-blue-600  hover:bg-blue-50">
                         {open ? <ChevronDownIcon className='h-5 w-5'/>:<ChevronRightIcon className='h-5 w-5'/> }
                     </button>
                 </div>
