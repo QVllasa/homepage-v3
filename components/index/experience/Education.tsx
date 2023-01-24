@@ -43,8 +43,8 @@ export default function Education() {
                 <div
                     className="relative mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:grid lg:grid-cols-3 lg:gap-x-12 xl:gap-x-16">
                     <div className="lg:col-span-1">
-                        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">Education.</h2>
-                        <p className="mt-3 max-w-3xl text-lg text-gray-500 dark:text-slate-300">
+                        <h2 className="text-4xl font-bold transition tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">Education.</h2>
+                        <p className="mt-3 max-w-3xl text-lg transition text-gray-500 dark:text-slate-300">
                             Where I shifted my limits
                         </p>
                     </div>

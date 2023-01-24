@@ -25,7 +25,7 @@ export default function Index() {
     if (!data) return <div>Loading...</div>
 
     return (
-        <div className={'dark'}>
+        <div className={''}>
             <div className="overflow-hidden bg-gray-50 dark:bg-slate-900 py-16 lg:py-24">
                 <div className="relative mx-auto max-w-xl px-6 lg:max-w-7xl lg:px-8">
                     <TopDots/>

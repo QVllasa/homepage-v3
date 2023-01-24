@@ -13,7 +13,7 @@ export default function Dropdown(props: any) {
                     <div>
                         <Menu.Button
                             className={` flex items-center px-3 py-2 rounded-md text-base font-medium   ${
-                                open ? 'bg-black text-white dark:text-black dark:bg-slate-100' : 'text-black dark:text-white dark:hover:bg-slate-100 dark:hover:text-black hover:bg-black hover:text-white'
+                                open ? 'bg-black transition text-white dark:text-black dark:bg-slate-100' : 'text-black transition dark:text-white dark:hover:bg-slate-100 dark:hover:text-black hover:bg-black hover:text-white'
                             }`}>
                             {props.buttonText}
                             <ChevronDownIcon

@@ -10,11 +10,12 @@ import {
     XMarkIcon
 } from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
-import {PropsWithChildren, useRef, useState} from "react";
+import {PropsWithChildren, useContext, useRef, useState} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import Dropdown from "../menu/Dropdown";
+import DarkModeContext from "../../stores/darkmode-context";
 
 
 const navigation = [
@@ -69,9 +70,10 @@ export default function Navbar() {
     const ref = useRef<ContactDialogProps>(null);
     const router = useRouter()
     const [enabled, setEnabled] = useState(false)
+    const darkModeCtx = useContext(DarkModeContext)
 
     return (
-        <div className={'dark lg:sticky lg:top-0 lg:z-40 lg:overflow-y-visible'}>
+        <div className={'lg:sticky lg:top-0 lg:z-40 lg:overflow-y-visible'}>
             {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
             <Popover
                 as="nav"
@@ -92,9 +94,9 @@ export default function Navbar() {
                                     <div className="flex flex-shrink-0 items-center">
                                         <div className="flex justify-start lg:w-0 lg:flex-1">
                                             <Link href={'/'}
-                                                  className={'font-bold text-blue-600 dark:text-yellow-500 text-6xl cursor-pointer'}>
+                                                  className={'font-bold transition text-blue-600 dark:text-yellow-500 text-6xl cursor-pointer'}>
                                                 Q
-                                                <span className='text-yellow-400 dark:text-blue-600'>.</span>
+                                                <span className='text-yellow-400 transition dark:text-blue-600'>.</span>
                                             </Link>
                                         </div>
                                     </div>
@@ -113,7 +115,7 @@ export default function Navbar() {
                                                             key={item.name}
                                                             href={item.href}
                                                             className={classNames(
-                                                                item.current ? 'bg-gray-900 dark:bg-slate-100 dark:text-black text-white' : 'text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-slate-100 dark:hover:text-black',
+                                                                item.current ? 'bg-gray-900 transition dark:bg-slate-100 dark:text-black text-white' : 'text-black transition dark:text-white hover:bg-black hover:text-white dark:hover:bg-slate-100 dark:hover:text-black',
                                                                 'px-3 py-2 rounded-md text-base font-medium'
                                                             )}
                                                             aria-current={item.current ? 'page' : undefined}
@@ -141,19 +143,20 @@ export default function Navbar() {
                                     <div className='flex items-center'>
                                         <div className={'flex items-center gap-2 mr-5'}>
                                             <Switch
-                                                checked={enabled}
-                                                onChange={setEnabled}
+                                                checked={darkModeCtx.darkMode}
+                                                onChange={darkModeCtx.setDarkMode}
                                                 className={`${
-                                                    enabled ? 'bg-yellow-500' : 'bg-gray-300'
+                                                    darkModeCtx.darkMode ? 'bg-yellow-500' : 'bg-gray-300'
                                                 } relative inline-flex h-4 w-8 items-center rounded-full`}
                                             >
                                                 <span
                                                     className={`${
-                                                        enabled ? 'translate-x-4' : 'translate-x-0'
+                                                        darkModeCtx.darkMode ? 'translate-x-4' : 'translate-x-0'
                                                     } inline-block h-5 w-5 transform rounded-full bg-white transition border`}
                                                 />
                                             </Switch>
-                                            {enabled ? <MoonIcon className={'w-5 h-5 text-3xl text-gray-400 '}/> :
+                                            {darkModeCtx.darkMode ?
+                                                <MoonIcon className={'w-5 h-5 text-3xl text-gray-400 '}/> :
                                                 <SunIcon className={' w-5 h-5 text-3xl text-gray-400'}/>}
 
                                         </div>
@@ -165,7 +168,7 @@ export default function Navbar() {
                                             onClick={() => router.push('https://github.com/QVllasa')}/>
                                         <button
                                             onClick={() => ref?.current?.open()}
-                                            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                                            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                         >
                                             Contact
                                         </button>

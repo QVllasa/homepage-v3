@@ -29,13 +29,13 @@ export default function ServicesSection() {
 
                 <div className="lg:grid lg:grid-cols-12">
                     <div
-                        className="relative pt-24 bg-blue-600 dark:bg-yellow-500 lg:col-span-12 lg:grid lg:grid-cols-12 lg:items-center lg:rounded-3xl">
+                        className="relative transition pt-24 bg-blue-600 dark:bg-yellow-500 lg:col-span-12 lg:grid lg:grid-cols-12 lg:items-center lg:rounded-3xl">
                         <div
                             className="relative lg:flex lg:flex-col lg:items-center mx-auto  space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:p-0 mb-16">
-                            <h2 className="text-3xl font-bold leading-8 tracking-tight text-white sm:text-4xl dark:text-slate-900">
+                            <h2 className="text-3xl font-bold leading-8 transition tracking-tight text-white sm:text-4xl dark:text-slate-900">
                                 What I can do for you
                             </h2>
-                            <p className="mx-auto mt-4  text-xl text-gray-200 dark:text-slate-800">
+                            <p className="mx-auto mt-4 transition text-xl text-gray-200 dark:text-slate-800">
                                 Using cutting edge technologies
                             </p>
                         </div>
@@ -56,7 +56,7 @@ export default function ServicesSection() {
                                     patternUnits="userSpaceOnUse"
                                 >
                                     <rect x={0} y={0} width={4} height={4}
-                                          className="text-blue-300 dark:text-yellow-300"
+                                          className="text-blue-300 transition dark:text-yellow-300"
                                           fill="currentColor"/>
                                 </pattern>
                             </defs>
@@ -68,7 +68,7 @@ export default function ServicesSection() {
                                     {services.map((feature, index) => (
                                         <div key={index} className="pt-6">
                                             <Link href={feature.link}
-                                                  className="flow-root rounded-lg bg-white dark:bg-slate-800 px-6 pb-8 border dark:border-slate-800 transition-all hover:scale-105 cursor-pointer">
+                                                  className="flow-root transition rounded-lg bg-white dark:bg-slate-800 px-6 pb-8 border dark:border-slate-800 transition-all hover:scale-105 cursor-pointer">
                                                 <div className="-mt-6">
                                                     <div>
                                                         <span

@@ -46,10 +46,10 @@ export default function Stack() {
                 <div
                     className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl">
                     <div className='col-span-1'>
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
+                        <h2 className="text-3xl font-bold tracking-tight transition text-gray-900 sm:text-4xl dark:text-slate-100">
                             Stack
                         </h2>
-                        <p className="mt-3 max-w-3xl text-lg text-gray-500 dark:text-slate-300">
+                        <p className="mt-3 max-w-3xl text-lg transition text-gray-500 dark:text-slate-300">
                             Technologies which I regularly use
                         </p>
                     </div>
@@ -58,10 +58,10 @@ export default function Stack() {
                             if (index < counter) {
                                 return (
                                     <div key={item.id}
-                                         className="col-span-1 flex justify-center bg-gray-50 dark:bg-slate-800 py-8 px-8">
+                                         className="col-span-1 flex transition justify-center bg-gray-50 dark:bg-slate-800 py-8 px-8">
                                         <Tooltip title={item.name.toUpperCase()}>
                                             <Link href={item.url.trim()} target={'_blank'}
-                                                  className={'flex items-center dark:brightness-200 dark:hover:brightness-100 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition'}>
+                                                  className={'flex items-center transition dark:brightness-200 dark:hover:brightness-100 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition'}>
                                                 <img className="w-16 h-auto max-h-12 aspect-auto "
                                                      src={item.icon}
                                                      alt={item.name}
@@ -76,7 +76,7 @@ export default function Stack() {
                         <button
                             type="button"
                             onClick={() => counter != stack.length ? setCounter(stack.length) : setCounter(9)}
-                            className="inline-flex items-center rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-black px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none"
+                            className="inline-flex items-center rounded-md border transition border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-black px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none"
                         >
                             {counter != stack.length ? 'Show more' : 'Show less'}
                             {counter != stack.length ?  <ArrowSmallDownIcon className='h-5 w-5 ml-3'/> :  <ArrowSmallUpIcon className='h-5 w-5 ml-3'/>}
