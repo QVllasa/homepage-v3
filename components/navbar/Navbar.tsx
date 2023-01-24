@@ -73,14 +73,14 @@ export default function Navbar() {
     const darkModeCtx = useContext(DarkModeContext)
 
     return (
-        <div className={'lg:sticky lg:top-0 lg:z-40 lg:overflow-y-visible'}>
+        <div className={'lg:overflow-y-visible fixed top-0 z-40 w-full'}>
             {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
             <Popover
                 as="nav"
                 className={({open}) =>
                     classNames(
-                        open ? 'fixed inset-0 z-40 overflow-y-auto' : '',
-                        'shadow-sm  bg-white dark:bg-slate-800'
+                        open ? 'inset-0 z-40 overflow-y-auto' : '',
+                        ' shadow-sm  bg-white dark:bg-slate-800'
                     )
                 }
             >
@@ -180,28 +180,32 @@ export default function Navbar() {
 
 
                         {/*Mobile*/}
-                        <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
-                            <div className="mx-auto max-w-3xl space-y-1 px-2 pt-2 pb-3 sm:px-4">
-                                {navigation.map((item) => (
-                                    <a
-                                        key={item.name}
-                                        href={item.href}
-                                        aria-current={item.current ? 'page' : undefined}
-                                        className={classNames(
-                                            item.current ? 'bg-gray-100 text-gray-900' : 'hover:bg-gray-50',
-                                            'block rounded-md py-2 px-3 text-base font-medium'
-                                        )}
+                        <Popover.Panel as="nav" className="lg:hidden " aria-label="Global">
+                            {({close}) => (
+                                <div className="mx-auto max-w-3xl space-y-1 px-2 pt-2 pb-3 sm:px-4">
+                                    {navigation.map((item) => (
+                                        <a
+                                            key={item.name}
+                                            href={item.href}
+                                            onClick={() => close()}
+                                            aria-current={item.current ? 'page' : undefined}
+                                            className={classNames(
+                                                item.current ? 'bg-gray-100 text-gray-900' : 'hover:bg-gray-50',
+                                                'block rounded-md py-2 px-3 text-base font-medium'
+                                            )}
+                                        >
+                                            {item.name}
+                                        </a>
+                                    ))}
+                                    <button
+                                        onClick={() => ref?.current?.open()}
+                                        className="flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                     >
-                                        {item.name}
-                                    </a>
-                                ))}
-                                <a
-                                    href="pages#"
-                                    className="flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
-                                >
-                                    Contact
-                                </a>
-                            </div>
+                                        Contact
+                                    </button>
+                                </div>
+                            )}
+
                         </Popover.Panel>
                     </>
                 )}

@@ -6,9 +6,12 @@ export const Layout = (props: any) => {
     const darkModeCtx = useContext(DarkModeContext);
     return (
         <Fragment>
-            <div className={darkModeCtx.darkMode ? 'dark' : ''}>
+            <div className={`${darkModeCtx.darkMode ? 'dark' : ''} `}>
                 <Navbar/>
-                {props.children}
+                <div className={'overflow-hidden mt-24 '}>
+                    {props.children}
+                </div>
+
             </div>
         </Fragment>
     )

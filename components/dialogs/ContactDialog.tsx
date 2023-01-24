@@ -42,6 +42,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
     useImperativeHandle(ref, () => ({ open }), []);
 
 
+
     return (
         <Transition.Root show={show} as={Fragment}>
             <Dialog as="div" className="relative z-50" onClose={() => {
@@ -71,14 +72,14 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <Dialog.Panel
-                                className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left  transition-all sm:my-8 w-full  md:max-w-sm sm:p-6">
-                                {()=> {
-                                    if (isSubmitted && !isLoading){
+                                className="relative transform overflow-hidden  rounded-lg bg-white px-4 pt-5 pb-4 text-left  transition-all sm:my-8 w-full  md:max-w-sm sm:p-6">
+                                {() => {
+                                    if (isSubmitted && !isLoading) {
                                         return <div className='flex flex-col justify-center items-center text-xl'>
-                                            <span className='text-3xl' >🥳</span>
+                                            <span className='text-3xl'>🥳</span>
                                             Danke für deine Nachricht!
                                             <button
-                                                onClick={()=>setShow(false)}
+                                                onClick={() => setShow(false)}
                                                 className="mt-4 w-full inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white  hover:bg-blue-700"
                                             >
                                                 Back
@@ -105,10 +106,11 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                 👋
                                             </span>
                                             <div className="mt-3 text-center sm:mt-5">
-                                                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                                                <Dialog.Title as="h3"
+                                                              className="text-lg font-medium leading-6 text-gray-900">
                                                     Say Hi!
                                                 </Dialog.Title>
-                                                <form action="#" method="POST" className=" mt-6 grid grid-cols-1 gap-y-6">
+                                                <form className=" mt-6 grid grid-cols-1 gap-y-6">
                                                     <div>
                                                         <label htmlFor="name" className="sr-only">
                                                             Full name
