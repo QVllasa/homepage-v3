@@ -41,7 +41,7 @@ export default function HeaderSection() {
                 <div>
                     <div
                         className="text-4xl text-center sm:text-center md:text-start tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-                        <p className="block font-medium text-blue-600 dark:text-yellow-300 xl:inline">Hi, I am</p>{' '}
+                        <p className="block font-medium text-blue-600 dark:text-yellow-500 xl:inline">Hi, I am</p>{' '}
                         <br/>
                         <p
                             className="block font-bold xl:inline dark:text-slate-100">Qendrim

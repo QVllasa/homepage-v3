@@ -92,9 +92,9 @@ export default function Navbar() {
                                     <div className="flex flex-shrink-0 items-center">
                                         <div className="flex justify-start lg:w-0 lg:flex-1">
                                             <Link href={'/'}
-                                                  className={'font-bold text-blue-600 text-6xl cursor-pointer'}>
+                                                  className={'font-bold text-blue-600 dark:text-yellow-500 text-6xl cursor-pointer'}>
                                                 Q
-                                                <span className='text-yellow-400'>.</span>
+                                                <span className='text-yellow-400 dark:text-blue-600'>.</span>
                                             </Link>
                                         </div>
                                     </div>
@@ -158,10 +158,10 @@ export default function Navbar() {
 
                                         </div>
                                         <FaLinkedin
-                                            className={'w-5 h-5 text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                            className={'w-5 h-5 text-3xl text-gray-400 hover:text-black cursor-pointer dark:text-slate-300 dark:hover:text-slate-100'}
                                             onClick={() => router.push('https://www.linkedin.com/in/qendrim-vllasa/')}/>
                                         <FaGithub
-                                            className={'w-5 h-5 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                            className={'w-5 h-5 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer dark:text-slate-300 dark:hover:text-slate-100'}
                                             onClick={() => router.push('https://github.com/QVllasa')}/>
                                         <button
                                             onClick={() => ref?.current?.open()}

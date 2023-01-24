@@ -20,7 +20,7 @@ export default function App({Component, pageProps}: AppProps) {
         <FirebaseAppProvider firebaseConfig={firebaseConfig}>
             <FirebaseSDKProviders>
                     <Navbar/>
-                    <Component {...pageProps} />
+                <Component  {...pageProps} />
             </FirebaseSDKProviders>
         </FirebaseAppProvider>
 )

@@ -33,15 +33,15 @@ export default function ContactSection(){
             <div className="relative mx-auto py-16 lg:py-24 px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative mx-auto max-w-xl  lg:max-w-7xl lg:px-8">
                     <div
-                        className="relative overflow-hidden rounded-2xl bg-yellow-400 dark:bg-blue-600 px-6 py-10  sm:px-12 sm:py-20">
+                        className="relative overflow-hidden rounded-2xl bg-blue-600 dark:bg-yellow-500  px-6 py-10  sm:px-12 sm:py-20">
                         <div className="relative">
                             <div className="sm:text-center">
-                                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl dark:text-slate-100">
+                                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl ">
                                     Project in mind?
                                     <br/>
                                     Let's talk!
                                 </h2>
-                                <p className="mx-auto mt-6 max-w-2xl text-lg dark:text-slate-300">
+                                <p className="mx-auto mt-6 max-w-2xl text-lg ">
                                     Let me reach out to you by droping your e-mail
                                 </p>
                             </div>
@@ -89,12 +89,12 @@ export default function ContactSection(){
                                 </div>
                             </div>
                             <div className="flex flex-col items-center justify-center mt-8 ">
-                                <span className='text-black text-lg dark:text-slate-300'>or contact me directly</span>
+                                <span className='text-black text-lg '>or contact me directly</span>
                                 <br/>
                                 <button
                                     type='button'
                                     onClick={() => ref?.current?.open()}
-                                    className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
+                                    className="block w-full rounded-md border border-transparent bg-white dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
                                 >
                                     Contact
                                 </button>
