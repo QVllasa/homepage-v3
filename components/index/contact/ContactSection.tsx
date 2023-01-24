@@ -32,15 +32,16 @@ export default function ContactSection(){
         <div className={'dark:bg-slate-900'}>
             <div className="relative mx-auto py-16 lg:py-24 px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative mx-auto max-w-xl  lg:max-w-7xl lg:px-8">
-                    <div className="relative overflow-hidden rounded-2xl bg-yellow-400 px-6 py-10  sm:px-12 sm:py-20">
+                    <div
+                        className="relative overflow-hidden rounded-2xl bg-yellow-400 dark:bg-blue-600 px-6 py-10  sm:px-12 sm:py-20">
                         <div className="relative">
                             <div className="sm:text-center">
-                                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+                                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl dark:text-slate-100">
                                     Project in mind?
                                     <br/>
                                     Let's talk!
                                 </h2>
-                                <p className="mx-auto mt-6 max-w-2xl text-lg ">
+                                <p className="mx-auto mt-6 max-w-2xl text-lg dark:text-slate-300">
                                     Let me reach out to you by droping your e-mail
                                 </p>
                             </div>
@@ -87,8 +88,8 @@ export default function ContactSection(){
                                     }
                                 </div>
                             </div>
-                            <div className="flex flex-col items-center justify-center mt-8">
-                                <span className='text-black text-lg'>or contact me directly</span>
+                            <div className="flex flex-col items-center justify-center mt-8 ">
+                                <span className='text-black text-lg dark:text-slate-300'>or contact me directly</span>
                                 <br/>
                                 <button
                                     type='button'
