@@ -9,27 +9,29 @@ export default function EducationAccordion(data: { item: EducationModel}) {
     return (
         <div className="mx-auto w-full">
             <div
-                className="rounded-lg bg-white border p-2  sm:p-3 grid grid-cols-12  auto-rows-min items-center justify-between">
+                className="rounded-lg  border p-2 dark:border-slate-700 sm:p-3 grid grid-cols-12  auto-rows-min items-center justify-between">
                 <div className='col-span-10 md:col-span-8'>
                     <div className="flex flex-wrap items-center justify-between">
                         <div className="flex w-0 flex-1 items-center">
-                            <span className="flex rounded-lg bg-white p-2">
-                                <AcademicCapIcon className="h-6 w-6 text-blue-600"
+                            <span className="flex rounded-lg  p-2">
+                                <AcademicCapIcon className="h-6 w-6 text-blue-600 dark:text-slate-300"
                                                  aria-hidden="true"/>
                             </span>
-                            <p className="ml-3 truncate font-medium text-black text-xs sm:text-base">
+                            <p className="ml-3 truncate font-medium text-black text-xs sm:text-base dark:text-slate-100">
                                 {data.item.degree}
                             </p>
                         </div>
                     </div>
                     <div
-                        className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs sm:text-sm md:text-sm lg:text-base truncate">
-                        <span>{data.item.from} - {data.item.to}</span> <span>|</span> <Link target='_blank' passHref href={data.item.url} className={'font-semibold hover:text-blue-600'}>{data.item.name}</Link>
+                        className="flex flex-1 items-center mt-2 gap-4 text-gray-500 font-thin text-xs sm:text-sm md:text-sm lg:text-base truncate dark:text-slate-300">
+                        <span>{data.item.from} - {data.item.to}</span> <span>|</span> <Link target='_blank' passHref
+                                                                                            href={data.item.url}
+                                                                                            className={'font-semibold hover:text-blue-600 dark:hover:text-yellow-500'}>{data.item.name}</Link>
                     </div>
                 </div>
                 <div className="col-span-2 md:col-span-4 w-auto flex  sm:mt-0 justify-self-end">
                     <button onClick={() => setOpen(!open)}
-                            className="hidden lg:flex items-center justify-center rounded-md border  bg-white px-4 py-2 text-sm font-medium text-blue-600  hover:bg-blue-50">
+                            className="hidden lg:flex items-center justify-center rounded-md border dark:border-slate-800 px-4 py-2 text-sm font-medium text-blue-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-800">
                         What I have done here
                     </button>
                     <button onClick={() => setOpen(!open)}
@@ -38,7 +40,7 @@ export default function EducationAccordion(data: { item: EducationModel}) {
                     </button>
                 </div>
                 {open ?
-                    <div className='col-span-full mt-6 text-xs sm:text-sm md:text-md'>
+                    <div className='col-span-full mt-6 text-xs sm:text-sm md:text-md dark:text-slate-300'>
                         <p>
                             {data.item.description}
                         </p>

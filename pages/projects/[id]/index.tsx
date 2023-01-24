@@ -16,8 +16,6 @@ export default function ProjectDetails() {
 
     const docRef = (id: string) => doc(firestore, "projects", id);
     const loadProject = (id: string) => getDoc(docRef(id)).then((docSnap) => {
-        console.log("id: ", id);
-        console.log(docSnap.data())
         return {
             ...docSnap.data() as ProjectModel,
             id: docSnap.id

@@ -1,14 +1,16 @@
-import {Popover} from '@headlessui/react'
+import {Popover, Switch} from '@headlessui/react'
 import {
     AcademicCapIcon,
     Bars3Icon,
     CodeBracketIcon,
     DocumentArrowDownIcon,
+    MoonIcon,
     PresentationChartLineIcon,
+    SunIcon,
     XMarkIcon
 } from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
-import {PropsWithChildren, useRef} from "react";
+import {PropsWithChildren, useRef, useState} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
@@ -20,24 +22,27 @@ const navigation = [
     {name: 'Experience', href: '/#experience', current: false},
     {
         name: 'Services',
-        href: '/#services',
+        href: '',
         current: false,
         popover: true,
         children: [
             {
                 name: 'Consulting',
                 icon: AcademicCapIcon,
-                link: "/services/consulting"
+                link: "/services/consulting",
+                storage: false
             },
             {
                 name: 'App Development',
                 icon: CodeBracketIcon,
-                link: "/services/development"
+                link: "/services/development",
+                storage: false,
             },
             {
                 name: 'Data Analytics',
                 icon: PresentationChartLineIcon,
-                link: "/services/analytics"
+                link: "/services/analytics",
+                storage: false
             }
         ]
     },
@@ -46,7 +51,12 @@ const navigation = [
         href: '',
         current: false,
         popover: true,
-        children: [{name: 'Download CV', icon: DocumentArrowDownIcon}]
+        children: [{
+            name: 'Download CV',
+            icon: DocumentArrowDownIcon,
+            link: '/CV/Qendrim_Vllasa_-_Software_Engineer_EN.pdf',
+            storage: true
+        }]
     }
 ]
 type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
@@ -58,16 +68,17 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
     const ref = useRef<ContactDialogProps>(null);
     const router = useRouter()
+    const [enabled, setEnabled] = useState(false)
 
     return (
-        <>
+        <div className={'dark lg:sticky lg:top-0 lg:z-40 lg:overflow-y-visible'}>
             {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
             <Popover
                 as="nav"
                 className={({open}) =>
                     classNames(
                         open ? 'fixed inset-0 z-40 overflow-y-auto' : '',
-                        'bg-white shadow-sm lg:sticky lg:top-0 lg:z-40 lg:overflow-y-visible'
+                        'shadow-sm  bg-white dark:bg-slate-800'
                     )
                 }
             >
@@ -75,7 +86,7 @@ export default function Navbar() {
                     <>
 
                         {/*Desktop*/}
-                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
                             <div className="relative flex justify-between md:gap-8 md:grid md:grid-cols-12">
                                 <div className="flex md:inset-y-0 md:left-0 md:static md:col-span-2">
                                     <div className="flex flex-shrink-0 items-center">
@@ -102,7 +113,7 @@ export default function Navbar() {
                                                             key={item.name}
                                                             href={item.href}
                                                             className={classNames(
-                                                                item.current ? 'bg-gray-900 text-white' : 'text-black hover:bg-black hover:text-white',
+                                                                item.current ? 'bg-gray-900 dark:bg-slate-100 dark:text-black text-white' : 'text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-slate-100 dark:hover:text-black',
                                                                 'px-3 py-2 rounded-md text-base font-medium'
                                                             )}
                                                             aria-current={item.current ? 'page' : undefined}
@@ -128,11 +139,29 @@ export default function Navbar() {
                                 </div>
                                 <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
                                     <div className='flex items-center'>
+                                        <div className={'flex items-center gap-1 mr-5'}>
+                                            <Switch
+                                                checked={enabled}
+                                                onChange={setEnabled}
+                                                className={`${
+                                                    enabled ? 'bg-blue-600' : 'bg-gray-300'
+                                                } relative inline-flex h-4 w-8 items-center rounded-full`}
+                                            >
+                                                <span
+                                                    className={`${
+                                                        enabled ? 'translate-x-4' : 'translate-x-0'
+                                                    } inline-block h-5 w-5 transform rounded-full bg-white transition border`}
+                                                />
+                                            </Switch>
+                                            {enabled ? <MoonIcon className={'w-5 h-5 text-3xl text-gray-400 '}/> :
+                                                <SunIcon className={' w-5 h-5 text-3xl text-gray-400'}/>}
+
+                                        </div>
                                         <FaLinkedin
-                                            className={'w-8 h-8 text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                            className={'w-5 h-5 text-3xl text-gray-400 hover:text-black cursor-pointer'}
                                             onClick={() => router.push('https://www.linkedin.com/in/qendrim-vllasa/')}/>
                                         <FaGithub
-                                            className={'w-8 h-8 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer'}
+                                            className={'w-5 h-5 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer'}
                                             onClick={() => router.push('https://github.com/QVllasa')}/>
                                         <button
                                             onClick={() => ref?.current?.open()}
@@ -175,7 +204,7 @@ export default function Navbar() {
                 )}
             </Popover>
             <ContactDialog ref={ref}/>
-        </>
+        </div>
     )
 }
 

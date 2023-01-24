@@ -5,13 +5,14 @@ type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
 export default function AboutMeSection() {
     const ref = useRef<ContactDialogProps>(null);
     return (
-        <div className=" bg-white py-16 lg:py-24">
+        <div className=" bg-white dark:bg-slate-900 py-16 lg:py-24">
             <div className="relative mx-auto w-auto lg:max-w-7xl lg:px-8">
-                <div className="relative lg:flex lg:flex-col lg:items-center mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0 mb-16">
-                    <h2 className="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+                <div
+                    className="relative lg:flex lg:flex-col lg:items-center mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0 mb-16">
+                    <h2 className="text-3xl font-bold leading-8 tracking-tight text-gray-900 dark:text-slate-100 sm:text-4xl">
                         How I work
                     </h2>
-                    <p className="mx-auto mt-4  text-xl text-gray-500">
+                    <p className="mx-auto mt-4  text-xl text-gray-500 dark:text-slate-200">
                         What drives me
                     </p>
                 </div>
@@ -34,18 +35,17 @@ export default function AboutMeSection() {
                         </div>
 
                         <div
-                            className="relative bg-blue-600 lg:col-span-10 lg:col-start-3 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
+                            className="relative bg-blue-600 dark:bg-yellow-500 lg:col-span-10 lg:col-start-3 lg:row-start-1 lg:grid lg:grid-cols-10 lg:items-center lg:rounded-3xl">
                             <div className="absolute inset-0 hidden overflow-hidden  lg:block"
                                  aria-hidden="true">
-
-
                             </div>
                             <div
                                 className="relative mx-auto max-w-md space-y-6 py-12 px-4 sm:max-w-3xl sm:py-16 sm:px-6 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0">
-                                <h2 className="text-3xl font-bold tracking-tight text-white" id="join-heading">
+                                <h2 className="text-3xl font-bold tracking-tight text-white dark:text-slate-900"
+                                    id="join-heading">
                                     Always turn a problem into an opportunity.
                                 </h2>
-                                <p className="text-lg text-white">
+                                <p className="text-lg text-white dark:text-slate-900">
                                     With the experience of yesterday, the ambition and motivation of today, I am
                                     fascinated for tomorrow and look almost euphorically towards a future in which IoT
                                     is known to everyone, product development is no longer imaginable without Virtual
@@ -54,7 +54,7 @@ export default function AboutMeSection() {
                                 <button
                                     type='button'
                                     onClick={() => ref?.current?.open()}
-                                    className="block w-full rounded-md border border-transparent bg-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
+                                    className="block w-full rounded-md border border-transparent bg-white dark:bg-blue-600 dark:text-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
                                 >
                                     Contact
                                 </button>

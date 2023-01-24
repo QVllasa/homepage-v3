@@ -37,25 +37,26 @@ export default function Experience(){
 
 
     return (
-        <div className=" bg-white">
+        <div className="">
             <div className="relative mx-auto py-24 ">
-                <div className="relative mx-auto max-w-md  px-4 sm:max-w-3xl lg:max-w-7xl sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-12 xl:gap-x-16">
+                <div
+                    className="relative mx-auto max-w-md  px-4 sm:max-w-3xl lg:max-w-7xl sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-12 xl:gap-x-16">
                     <div className="lg:col-span-1">
-                        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">Experience.</h2>
-                        <p className="mt-3 max-w-3xl text-lg text-gray-500">
+                        <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-100 sm:text-4xl">Experience.</h2>
+                        <p className="mt-3 max-w-3xl text-lg text-gray-500 dark:text-slate-300">
                             Where I applied and gained my skills
                         </p>
                     </div>
                     <dl className="grid grid-cols-1 gap-4 lg:col-span-2">
                         {exp.map((item, index) => {
-                            if (index<counter) return <ExperienceAccordion key={index} item={item} />
-                        }
+                                if (index < counter) return <ExperienceAccordion key={index} item={item}/>
+                            }
                         )}
                         <div className='flex justify-center items-end '>
                             <button
                                 onClick={()=>exp.length != counter ? setCounter(exp.length) : setCounter(4)}
                                 type="button"
-                                className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none "
+                                className="inline-flex items-center rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-black px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none "
                             >
                                 {exp.length != counter ? 'Show more' : 'Show less'}
                                 {exp.length != counter ? <ArrowSmallDownIcon className='h-5 w-5 ml-3'/> : <ArrowSmallUpIcon className='h-5 w-5 ml-3'/>}

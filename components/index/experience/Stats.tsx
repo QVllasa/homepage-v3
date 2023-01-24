@@ -1,27 +1,27 @@
 export default function Stats() {
     return (
-        <div className="overflow-hidden bg-white">
+        <div className="overflow-hidden">
             <div className="relative mx-auto py-24">
                 <div className="relative">
                     <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="mx-auto max-w-3xl">
-                            <dl className="rounded-lg bg-white border sm:grid sm:grid-cols-3">
+                            <dl className="rounded-lg border dark:border-slate-700 sm:grid sm:grid-cols-3">
                                 <div
-                                    className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
-                                    <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">Years</dt>
-                                    <dd className="order-1 text-5xl font-bold tracking-tight text-blue-600">4+</dd>
+                                    className="flex flex-col border-b border-gray-100 dark:border-slate-700 p-6 text-center sm:border-0 sm:border-r">
+                                    <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500 dark:text-slate-200">Years</dt>
+                                    <dd className="order-1 text-5xl font-bold tracking-tight text-blue-600 dark:text-yellow-500">4+</dd>
                                 </div>
                                 <div
-                                    className="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                                    <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">Projects</dt>
-                                    <dd className="order-1 text-5xl font-bold tracking-tight text-blue-600">8+</dd>
+                                    className="flex flex-col border-t border-b border-gray-100 dark:border-slate-700 p-6 text-center sm:border-0 sm:border-l sm:border-r">
+                                    <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500 dark:text-slate-200">Projects</dt>
+                                    <dd className="order-1 text-5xl font-bold tracking-tight text-blue-600 dark:text-yellow-500">8+</dd>
                                 </div>
                                 <div
-                                    className="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
-                                    <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500">Code
+                                    className="flex flex-col border-t border-gray-100 dark:border-slate-700 p-6 text-center sm:border-0 sm:border-l">
+                                    <dt className="order-2 mt-2 text-lg font-medium leading-6 text-gray-500 dark:text-slate-200">Code
                                         Languages
                                     </dt>
-                                    <dd className="order-1 text-5xl font-bold tracking-tight text-blue-600">5+</dd>
+                                    <dd className="order-1 text-5xl font-bold tracking-tight text-blue-600 dark:text-yellow-500">5+</dd>
                                 </div>
                             </dl>
                         </div>

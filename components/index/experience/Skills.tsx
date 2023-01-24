@@ -44,13 +44,14 @@ export default function Skills() {
     }
 
     return (
-        <div className=" bg-white">
+        <div className="">
             <div className="relative mx-auto  py-24 ">
-                <div className="relative mx-auto max-w-md  px-4 sm:max-w-3xl sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-12 xl:gap-x-16 lg:max-w-7xl">
+                <div
+                    className="relative mx-auto max-w-md  px-4 sm:max-w-3xl sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-12 xl:gap-x-16 lg:max-w-7xl">
                     <div className="lg:col-span-1">
-                        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">Top
+                        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">Top
                             Skills.</h2>
-                        <p className="mt-3 max-w-3xl text-lg text-gray-500">
+                        <p className="mt-3 max-w-3xl text-lg text-gray-500 dark:text-slate-300">
                             What I use to solve problems
                         </p>
                     </div>
@@ -59,10 +60,12 @@ export default function Skills() {
                             if (index < 4) {
                                 return <div key={item.name} className="relative">
                                     <dt>
-                                        <CheckCircleIcon className="absolute h-8 w-8 text-blue-600 font-bold" aria-hidden="true" />
-                                        <p className="ml-12 text-lg font-semibold leading-8 text-gray-900">{item.name}</p>
+                                        <CheckCircleIcon
+                                            className="absolute h-8 w-8 text-blue-600 dark:text-yellow-500 font-bold"
+                                            aria-hidden="true"/>
+                                        <p className="ml-12 text-lg font-semibold leading-8 text-gray-900 dark:text-slate-100">{item.name}</p>
                                     </dt>
-                                    <dd className="mt-3 ml-12 text-sm leading-7 text-gray-600">{item.description}</dd>
+                                    <dd className="mt-3 ml-12 text-sm leading-7 text-gray-600 dark:text-slate-300">{item.description}</dd>
                                 </div>
                             }
                         })}
@@ -70,8 +73,8 @@ export default function Skills() {
                     <div className='flex justify-center items-end mt-8 lg:max-w-7xl sm:max-w-3xl sm:px-6 max-w-md lg:col-span-2 lg:col-start-2'>
                         <button
                             type="button"
-                            onClick={()=>setShowMore(!showMore)}
-                            className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none "
+                            onClick={() => setShowMore(!showMore)}
+                            className="inline-flex items-center rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-black px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none "
                         >
                             {showMore ? 'Show less': 'Show more'}
                             {showMore ? <ArrowSmallUpIcon className='h-5 w-5 ml-3'/>: <ArrowSmallDownIcon className='h-5 w-5 ml-3'/>}
@@ -83,10 +86,11 @@ export default function Skills() {
                     {skills?.map((item, index) => {
                         if (index >= 4) return  <div key={item.name} className="relative">
                             <dt>
-                                <CheckIcon className="absolute mt-1 h-6 w-6 text-blue-600" aria-hidden="true" />
-                                <p className="ml-10 text-sm font-semibold leading-8 text-gray-900">{item.name}</p>
+                                <CheckIcon className="absolute mt-1 h-6 w-6 text-blue-600 dark:text-yellow-500"
+                                           aria-hidden="true"/>
+                                <p className="ml-10 text-sm font-semibold leading-8 text-gray-900 dark:text-slate-100">{item.name}</p>
                             </dt>
-                            <dd className="mt-2 ml-10 text-sm leading-7 text-gray-600">{item.description}</dd>
+                            <dd className="mt-2 ml-10 text-sm leading-7 text-gray-600 dark:text-slate-300">{item.description}</dd>
                         </div>
                     })}
                 </dl> : null}

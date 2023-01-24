@@ -30,7 +30,7 @@ export default function HeaderSection() {
     }
 
     return (
-        <div className="relative bg-white h-screen">
+        <div className="relative bg-white dark:bg-slate-900 h-screen">
             <div
                 className="relative grid md:grid-cols-2 mx-auto w-full h-full max-w-screen-2xl  lg:text-left md:place-items-center px-4">
                 <div className='md:hidden flex items-center justify-center'>
@@ -41,14 +41,14 @@ export default function HeaderSection() {
                 <div>
                     <div
                         className="text-4xl text-center sm:text-center md:text-start tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-                        <p className="block font-medium text-blue-600 xl:inline">Hi, I am</p>{' '}
+                        <p className="block font-medium text-blue-600 dark:text-yellow-300 xl:inline">Hi, I am</p>{' '}
                         <br/>
                         <p
-                            className="block font-bold xl:inline">Qendrim
+                            className="block font-bold xl:inline dark:text-slate-100">Qendrim
                             Vllasa</p>
                     </div>
                     <div
-                        className="mt-12 flex justify-center md:justify-start text-xl text-gray-500 sm:text-xl md:max-w-3xl">
+                        className="mt-12 flex justify-center md:justify-start text-xl text-gray-500 dark:text-slate-100 sm:text-xl md:max-w-3xl">
                         <Typewriter
                             words={['Drone Lover 🚁', 'Technology Enthusiast 🚀', 'Software Engineer by ❤️']}
                             cursor
