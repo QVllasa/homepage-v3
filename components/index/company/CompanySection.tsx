@@ -42,19 +42,21 @@ export default function CompanySection() {
     }
     return (
         <>
-            <div className="bg-blue-600">
-            <div className="mx-auto max-w-7xl py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold tracking-tight text-white text-center">
-                    Some companies which profited from my work
-                </h2>
-                <div className="mt-8 flow-root lg:mt-10">
-                    <div className="-mt-4 -ml-8 flex flex justify-center lg:-ml-4 gap-12">
-                        {companies.map((item)=><div key={item.id} className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                            <Tooltip title={item.name.toUpperCase()}>
-                                <Link href={item.url} target={'_blank'} className={'flex items-center grayscale opacity-80 brightness-200 hover:scale-110 transition'}>
-                                    <img className="h-auto w-24 max-h-12 aspect-auto" src={item.logo} alt="Tuple" />
-                                </Link>
-                            </Tooltip>
+            <div className="bg-blue-600 dark:bg-yellow-500">
+                <div className="mx-auto max-w-7xl py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold tracking-tight text-white text-center dark:text-slate-900">
+                        Some companies which profited from my work
+                    </h2>
+                    <div className="mt-8 flow-root lg:mt-10">
+                        <div className="-mt-4 -ml-8 flex flex justify-center lg:-ml-4 gap-12">
+                            {companies.map((item) => <div key={item.id}
+                                                          className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
+                                <Tooltip title={item.name.toUpperCase()}>
+                                    <Link href={item.url} target={'_blank'}
+                                          className={'flex items-center grayscale opacity-80 brightness-200 hover:scale-110 transition'}>
+                                        <img className="h-auto w-24 max-h-12 aspect-auto" src={item.logo} alt="Tuple"/>
+                                    </Link>
+                                </Tooltip>
                         </div>)}
                     </div>
                 </div>

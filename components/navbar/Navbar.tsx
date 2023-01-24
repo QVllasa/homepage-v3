@@ -139,12 +139,12 @@ export default function Navbar() {
                                 </div>
                                 <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
                                     <div className='flex items-center'>
-                                        <div className={'flex items-center gap-1 mr-5'}>
+                                        <div className={'flex items-center gap-2 mr-5'}>
                                             <Switch
                                                 checked={enabled}
                                                 onChange={setEnabled}
                                                 className={`${
-                                                    enabled ? 'bg-blue-600' : 'bg-gray-300'
+                                                    enabled ? 'bg-yellow-500' : 'bg-gray-300'
                                                 } relative inline-flex h-4 w-8 items-center rounded-full`}
                                             >
                                                 <span
