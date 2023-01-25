@@ -12,8 +12,20 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Qendrim Vllasa - Official Homepage</title>
+                <title>Qendrim Vllasa</title>
+                <meta
+                    name="description"
+                    content="Software Engineer and Tech Enthusiast"
+                />
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <meta
+                    property="og:description"
+                    content="Software Engineer and Tech Enthusiast"
+                />
+                <meta
+                    property="og:image"
+                    content="/assets/website.png"
+                />
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className='relative'>

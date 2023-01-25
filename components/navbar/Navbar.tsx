@@ -118,7 +118,7 @@ export default function Navbar() {
                                 <div className="flex items-center lg:absolute lg:inset-y-0 lg:right-0 lg:hidden">
                                     {/* Mobile menu button */}
                                     <Popover.Button
-                                        className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none">
+                                        className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 dark:text-slate-300 dark:hover:bg-slate-700 hover:bg-gray-100 dark:hover:text-slate-100 hover:text-gray-500 focus:outline-none">
                                         <span className="sr-only">Open menu</span>
                                         {open ? (
                                             <XMarkIcon className="block h-6 w-6" aria-hidden="true"/>
@@ -151,7 +151,8 @@ export default function Navbar() {
                                     {navigation.map((item) =>
                                         item.popover ?
                                             (<div key={item.name} className="w-full px-3 py-2">
-                                                    <div className="mx-auto w-full rounded-2xl bg-white">
+                                                    <div
+                                                        className="mx-auto w-full rounded-2xl bg-white dark:bg-slate-800">
                                                         <Disclosure>
                                                             {({open}) => (
                                                                 <>
@@ -161,19 +162,19 @@ export default function Navbar() {
                                                                             key={item.name}
                                                                             href={item.href}
                                                                             onClick={() => close()}
-                                                                            className={`${item.current ? 'bg-gray-100 text-gray-900 ' : 'hover:bg-gray-50'} block rounded-md  text-base font-medium`}
+                                                                            className={`text-gray-900 dark:text-slate-100  block rounded-md  text-base font-medium`}
                                                                         >
                                                                             {item.name}
                                                                         </Link>
                                                                         {open ? <ChevronDownIcon
-                                                                            className={`h-5 w-5 text-blue-600`}
+                                                                            className={`h-5 w-5 text-blue-600 dark:text-yellow-500`}
                                                                         /> : <ChevronRightIcon
-                                                                            className={`h-5 w-5 text-blue-600`}
+                                                                            className={`h-5 w-5 text-blue-600 dark:text-yellow-500`}
                                                                         />}
 
                                                                     </Disclosure.Button>
                                                                     <Disclosure.Panel
-                                                                        className="pl-3 pt-4 pb-2 text-sm text-slate-700  gap-4 flex flex-col ">
+                                                                        className="pl-3 pt-4 pb-2 text-sm text-slate-700 dark:text-slate-300   gap-4 flex flex-col ">
                                                                         {item.children.map((child) => (
                                                                             <Link
                                                                                 key={child.name}
@@ -201,7 +202,7 @@ export default function Navbar() {
                                                     href={item.href}
                                                     onClick={() => close()}
                                                     aria-current={item.current ? 'page' : undefined}
-                                                    className={'block rounded-md py-2 px-3 text-base font-medium'}
+                                                    className={'block text-slate-900 dark:text-slate-100 rounded-md py-2 px-3 text-base font-medium'}
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -210,7 +211,7 @@ export default function Navbar() {
 
                                     <button
                                         onClick={() => ref?.current?.open()}
-                                        className="mt-24 flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                                        className="mt-24 flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                     >
                                         Contact
                                     </button>
