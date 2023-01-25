@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import {StackModel} from "../../models/stack.model";
 import Link from "next/link";
 import {Tooltip} from "@mui/material";
+import Image from "next/image";
 
 export default function Stack() {
     const storage = getStorage();
@@ -34,6 +35,7 @@ export default function Stack() {
 
     useEffect(() => {
         loadStack(q);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (stack.length == 0) {
@@ -41,7 +43,7 @@ export default function Stack() {
     }
 
     return (
-        <div className="">
+        <div className="" id={'stack'}>
             <div className="relative mx-auto pt-24">
                 <div
                     className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl">
@@ -62,9 +64,10 @@ export default function Stack() {
                                         <Tooltip title={item.name.toUpperCase()}>
                                             <Link href={item.url.trim()} target={'_blank'}
                                                   className={'flex items-center transition dark:brightness-200 dark:hover:brightness-100 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition'}>
-                                                <img className="w-16 h-auto max-h-12 aspect-auto "
-                                                     src={item.icon}
-                                                     alt={item.name}
+                                                <Image className="w-16 h-auto max-h-12 aspect-auto "
+                                                       width={100} height={100}
+                                                       src={item.icon}
+                                                       alt={item.name}
                                                 />
                                             </Link>
                                         </Tooltip>

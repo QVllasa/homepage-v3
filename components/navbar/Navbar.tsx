@@ -1,21 +1,22 @@
-import {Popover, Switch} from '@headlessui/react'
+import {Disclosure, Popover} from '@headlessui/react'
 import {
     AcademicCapIcon,
     Bars3Icon,
+    ChevronDownIcon,
+    ChevronRightIcon,
     CodeBracketIcon,
     DocumentArrowDownIcon,
-    MoonIcon,
     PresentationChartLineIcon,
-    SunIcon,
     XMarkIcon
 } from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
-import {PropsWithChildren, useContext, useRef, useState} from "react";
+import {PropsWithChildren, useRef, useState} from "react";
 import Link from "next/link";
 import {useRouter} from "next/router";
-import {FaGithub, FaLinkedin} from "react-icons/fa";
 import Dropdown from "../menu/Dropdown";
-import DarkModeContext from "../../stores/darkmode-context";
+import {DarkModeSwitch} from "../DarkModeSwitch";
+import {LinkedinGithubComponent} from "../contact/LinkedinGithubComponent";
+import {QComponent} from "../icons/QComponent";
 
 
 const navigation = [
@@ -23,7 +24,7 @@ const navigation = [
     {name: 'Experience', href: '/#experience', current: false},
     {
         name: 'Services',
-        href: '',
+        href: '/#services',
         current: false,
         popover: true,
         children: [
@@ -62,26 +63,18 @@ const navigation = [
 ]
 type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
 
-function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-}
-
 export default function Navbar() {
     const ref = useRef<ContactDialogProps>(null);
     const router = useRouter()
     const [enabled, setEnabled] = useState(false)
-    const darkModeCtx = useContext(DarkModeContext)
+
 
     return (
         <div className={'lg:overflow-y-visible fixed top-0 z-40 w-full'}>
             {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
             <Popover
                 as="nav"
-                className={({open}) =>
-                    classNames(
-                        open ? 'inset-0 z-40 overflow-y-auto' : '',
-                        ' shadow-sm  bg-white dark:bg-slate-800'
-                    )
+                className={`shadow-sm  bg-white dark:bg-slate-800`
                 }
             >
                 {({open}) => (
@@ -89,21 +82,15 @@ export default function Navbar() {
 
                         {/*Desktop*/}
                         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
-                            <div className="relative flex justify-between md:gap-8 md:grid md:grid-cols-12">
-                                <div className="flex md:inset-y-0 md:left-0 md:static md:col-span-2">
+                            <div className="relative flex justify-between lg:gap-8 lg:grid lg:grid-cols-12">
+                                <div className="flex lg:inset-y-0 lg:left-0 lg:static lg:col-span-2">
                                     <div className="flex flex-shrink-0 items-center">
-                                        <div className="flex justify-start lg:w-0 lg:flex-1">
-                                            <Link href={'/'}
-                                                  className={'font-bold transition text-blue-600 dark:text-yellow-500 text-6xl cursor-pointer'}>
-                                                Q
-                                                <span className='text-yellow-400 transition dark:text-blue-600'>.</span>
-                                            </Link>
-                                        </div>
+                                        <QComponent/>
                                     </div>
                                 </div>
-                                <div className="hidden md:flex md:px-8 lg:px-0 md:col-span-8 md:justify-center">
+                                <div className="hidden lg:flex lg:px-8 lg:px-0 lg:col-span-8 lg:justify-center">
                                     <div
-                                        className="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
+                                        className="flex items-center px-6 py-4 lg:mx-auto lg:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
                                         <div className="hidden sm:ml-6 sm:block">
                                             <div className="flex space-x-4">
                                                 {navigation.map((item, index) => (
@@ -114,10 +101,7 @@ export default function Navbar() {
                                                         <Link
                                                             key={item.name}
                                                             href={item.href}
-                                                            className={classNames(
-                                                                item.current ? 'bg-gray-900 transition dark:bg-slate-100 dark:text-black text-white' : 'text-black transition dark:text-white hover:bg-black hover:text-white dark:hover:bg-slate-100 dark:hover:text-black',
-                                                                'px-3 py-2 rounded-md text-base font-medium'
-                                                            )}
+                                                            className={`${item.current ? 'bg-gray-900 transition dark:bg-slate-100 dark:text-black text-white' : 'text-black transition dark:text-white hover:bg-black hover:text-white dark:hover:bg-slate-100 dark:hover:text-black'} px-3 py-2 rounded-md text-base font-medium`}
                                                             aria-current={item.current ? 'page' : undefined}
                                                         >
                                                             {item.name}
@@ -127,10 +111,14 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-center md:absolute md:inset-y-0 md:right-0 md:hidden">
+                                <div className={'flex items-center gap-5 mr-5 lg:hidden'}>
+                                    <DarkModeSwitch/>
+                                    <LinkedinGithubComponent/>
+                                </div>
+                                <div className="flex items-center lg:absolute lg:inset-y-0 lg:right-0 lg:hidden">
                                     {/* Mobile menu button */}
                                     <Popover.Button
-                                        className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                        className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none">
                                         <span className="sr-only">Open menu</span>
                                         {open ? (
                                             <XMarkIcon className="block h-6 w-6" aria-hidden="true"/>
@@ -139,33 +127,10 @@ export default function Navbar() {
                                         )}
                                     </Popover.Button>
                                 </div>
-                                <div className="hidden md:flex md:items-center md:justify-end md:col-span-2">
+                                <div className="hidden lg:flex lg:items-center lg:justify-end lg:col-span-2">
                                     <div className='flex items-center'>
-                                        <div className={'flex items-center gap-2 mr-5'}>
-                                            <Switch
-                                                checked={darkModeCtx.darkMode}
-                                                onChange={darkModeCtx.setDarkMode}
-                                                className={`${
-                                                    darkModeCtx.darkMode ? 'bg-yellow-500' : 'bg-gray-300'
-                                                } relative inline-flex h-4 w-8 items-center rounded-full`}
-                                            >
-                                                <span
-                                                    className={`${
-                                                        darkModeCtx.darkMode ? 'translate-x-4' : 'translate-x-0'
-                                                    } inline-block h-5 w-5 transform rounded-full bg-white transition border`}
-                                                />
-                                            </Switch>
-                                            {darkModeCtx.darkMode ?
-                                                <MoonIcon className={'w-5 h-5 text-3xl text-gray-400 '}/> :
-                                                <SunIcon className={' w-5 h-5 text-3xl text-gray-400'}/>}
-
-                                        </div>
-                                        <FaLinkedin
-                                            className={'w-5 h-5 text-3xl text-gray-400 hover:text-black cursor-pointer dark:text-slate-300 dark:hover:text-slate-100'}
-                                            onClick={() => router.push('https://www.linkedin.com/in/qendrim-vllasa/')}/>
-                                        <FaGithub
-                                            className={'w-5 h-5 ml-3 text-3xl text-gray-400 hover:text-black cursor-pointer dark:text-slate-300 dark:hover:text-slate-100'}
-                                            onClick={() => router.push('https://github.com/QVllasa')}/>
+                                        <DarkModeSwitch/>
+                                        <LinkedinGithubComponent/>
                                         <button
                                             onClick={() => ref?.current?.open()}
                                             className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
@@ -182,24 +147,70 @@ export default function Navbar() {
                         {/*Mobile*/}
                         <Popover.Panel as="nav" className="lg:hidden " aria-label="Global">
                             {({close}) => (
-                                <div className="mx-auto max-w-3xl space-y-1 px-2 pt-2 pb-3 sm:px-4">
-                                    {navigation.map((item) => (
-                                        <a
-                                            key={item.name}
-                                            href={item.href}
-                                            onClick={() => close()}
-                                            aria-current={item.current ? 'page' : undefined}
-                                            className={classNames(
-                                                item.current ? 'bg-gray-100 text-gray-900' : 'hover:bg-gray-50',
-                                                'block rounded-md py-2 px-3 text-base font-medium'
-                                            )}
-                                        >
-                                            {item.name}
-                                        </a>
-                                    ))}
+                                <div className="mx-auto max-w-full space-y-1 px-2 pt-2 pb-3 sm:px-4">
+                                    {navigation.map((item) =>
+                                        item.popover ?
+                                            (<div key={item.name} className="w-full px-3 py-2">
+                                                    <div className="mx-auto w-full rounded-2xl bg-white">
+                                                        <Disclosure>
+                                                            {({open}) => (
+                                                                <>
+                                                                    <Disclosure.Button
+                                                                        className="flex w-full justify-between">
+                                                                        <Link
+                                                                            key={item.name}
+                                                                            href={item.href}
+                                                                            onClick={() => close()}
+                                                                            className={`${item.current ? 'bg-gray-100 text-gray-900 ' : 'hover:bg-gray-50'} block rounded-md  text-base font-medium`}
+                                                                        >
+                                                                            {item.name}
+                                                                        </Link>
+                                                                        {open ? <ChevronDownIcon
+                                                                            className={`h-5 w-5 text-blue-600`}
+                                                                        /> : <ChevronRightIcon
+                                                                            className={`h-5 w-5 text-blue-600`}
+                                                                        />}
+
+                                                                    </Disclosure.Button>
+                                                                    <Disclosure.Panel
+                                                                        className="pl-3 pt-4 pb-2 text-sm text-slate-700  gap-4 flex flex-col ">
+                                                                        {item.children.map((child) => (
+                                                                            <Link
+                                                                                key={child.name}
+                                                                                href={child.link}
+                                                                                onClick={() => close()}
+                                                                                className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-blue-600 hover:text-white'}
+                                                                            >
+                                                                                <child.icon
+                                                                                    className="mr-2 h-5 w-5"
+                                                                                    aria-hidden="true"/>
+                                                                                {child.name}
+                                                                            </Link>
+                                                                        ))}
+                                                                    </Disclosure.Panel>
+                                                                </>
+                                                            )}
+                                                        </Disclosure>
+                                                    </div>
+                                                </div>
+                                            )
+                                            :
+                                            (
+                                                <Link
+                                                    key={item.name}
+                                                    href={item.href}
+                                                    onClick={() => close()}
+                                                    aria-current={item.current ? 'page' : undefined}
+                                                    className={'block rounded-md py-2 px-3 text-base font-medium'}
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            )
+                                    )}
+
                                     <button
                                         onClick={() => ref?.current?.open()}
-                                        className="flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                                        className="mt-24 flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                     >
                                         Contact
                                     </button>

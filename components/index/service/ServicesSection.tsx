@@ -24,7 +24,7 @@ const services = [
 
 export default function ServicesSection() {
     return (
-        <div className="dark:bg-slate-900 py-16 lg:py-24">
+        <div className="dark:bg-slate-900 py-16 lg:py-24" id={'services'}>
             <div className="relative mx-auto lg:max-w-7xl lg:px-8">
 
                 <div className="lg:grid lg:grid-cols-12">

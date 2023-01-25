@@ -53,6 +53,7 @@ export default function ProjectSection() {
 
     useEffect(() => {
         loadProjects(q);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

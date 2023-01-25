@@ -104,6 +104,7 @@ const DownloadItem = (props: any) => {
         const xhr = new XMLHttpRequest();
 
         xhr.responseType = 'blob';
+        // @ts-ignore
         xhr.onload = (event: ProgressEvent<XMLHttpRequestEventTarget>) => {
             const blob = xhr.response;
             // save the blob or do whatever you want with it

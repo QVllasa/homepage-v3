@@ -1,5 +1,6 @@
 import {ContactDialog} from "../../dialogs/ContactDialog";
 import {PropsWithChildren, useRef} from "react";
+import Image from "next/image";
 
 type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
 export default function AboutMeSection() {
@@ -24,7 +25,9 @@ export default function AboutMeSection() {
                             <div className="absolute inset-x-0 h-1/2 bg-white lg:hidden" aria-hidden="true"/>
                             <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
                                 <div className="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
-                                    <img
+                                    <Image
+                                        width={640}
+                                        height={400}
                                         className="rounded-3xl object-cover shadow-2xl "
                                         style={{objectPosition: 'center 30%'}}
                                         src="/assets/me.JPG"

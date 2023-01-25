@@ -37,6 +37,7 @@ export default function Skills() {
 
     useEffect(() => {
         loadSkills(q)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (skills.length == 0) {
@@ -44,7 +45,7 @@ export default function Skills() {
     }
 
     return (
-        <div className="">
+        <div className="" id={'skills'}>
             <div className="relative mx-auto  py-24 ">
                 <div
                     className="relative mx-auto max-w-md  px-4 sm:max-w-3xl sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-12 xl:gap-x-16 lg:max-w-7xl">

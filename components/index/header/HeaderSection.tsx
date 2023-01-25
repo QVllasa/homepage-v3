@@ -3,6 +3,7 @@ import {useState} from "react";
 import {addDoc, collection, getFirestore} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
 import {SubmitHandler, useForm} from "react-hook-form";
+import Image from "next/image";
 
 type Email = {
     email: string,
@@ -30,14 +31,16 @@ export default function HeaderSection() {
     };
 
 
+
     return (
         <div className="relative bg-white transition dark:bg-slate-900 h-screen transition">
             <div
                 className="relative grid md:grid-cols-2 mx-auto w-full h-full max-w-screen-2xl  lg:text-left md:place-items-center px-4">
                 <div className='md:hidden flex items-center justify-center'>
-                    <img className=" h-64 w-64 rounded-full object-cover bg-yellow-300 object-top"
-                         src="/assets/qendrim.png"
-                         alt=""/>
+                    <Image width={600} height={600}
+                           className=" h-64 w-64 rounded-full object-cover bg-yellow-300 object-top"
+                           src="/assets/qendrim.png"
+                           alt=""/>
                 </div>
                 <div>
                     <div
@@ -103,6 +106,7 @@ export default function HeaderSection() {
                                             <button
                                                 disabled={isLoading}
                                                 type="button"
+                                                // @ts-ignore
                                                 onClick={handleSubmit(onSubmit)}
                                                 className="block w-full rounded-md transition border border-transparent bg-blue-600 transition dark:bg-yellow-500 px-5 py-3 text-base font-medium text-white dark:text-slate-900 dark:hover:bg-yellow-600 hover:bg-blue-700 focus:outline-none focus:ring-2 dark:focus:ring-yellow-500 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 dark:focus:ring-offset-yellow-500 sm:px-10"
                                             >
@@ -117,9 +121,10 @@ export default function HeaderSection() {
                 <div className='hidden md:block md:relative w-full h-full'>
                     <div
                         className="absolute bottom-0 left-0 right-0 w-full h-full md:overflow-hidden flex justify-center items-center ">
-                        <img src="/assets/yellow_background.svg" alt="" className='absolute w-48 md:w-full h-auto'/>
-                        <img src="/assets/qendrim.png" alt=""
-                             className='h-auto md:w-144 w-96 mx-auto transform -scale-x-100 object-cover object-center'/>
+                        <Image width={600} height={600} src="/assets/yellow_background.svg" alt=""
+                               className='absolute w-48 md:w-full h-auto'/>
+                        <Image width={600} height={600} src="/assets/qendrim.png" alt=""
+                               className='h-auto md:w-144 w-96 mx-auto transform -scale-x-100 object-cover object-center'/>
                     </div>
                 </div>
             </div>

@@ -30,6 +30,7 @@ export default function Education() {
 
     useEffect(() => {
         loadEducations(q)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (educations.length == 0) {
@@ -38,7 +39,7 @@ export default function Education() {
 
 
     return (
-        <div className="">
+        <div className="" id={'education'}>
             <div className="relative mx-auto py-24">
                 <div
                     className="relative mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:grid lg:grid-cols-3 lg:gap-x-12 xl:gap-x-16">

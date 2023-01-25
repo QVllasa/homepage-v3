@@ -6,6 +6,7 @@ import {StackModel} from "../../models/stack.model";
 import {CompanyModel} from "../../models/company.model";
 import {Tooltip} from "@mui/material";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CompanySection() {
     const storage = getStorage();
@@ -35,6 +36,7 @@ export default function CompanySection() {
     useEffect(() => {
         setCompanies([]);
         loadCompanies(q);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (companies.length == 0) {
@@ -54,7 +56,8 @@ export default function CompanySection() {
                                 <Tooltip title={item.name.toUpperCase()}>
                                     <Link href={item.url} target={'_blank'}
                                           className={'flex items-center grayscale opacity-80 brightness-200 hover:scale-110 transition'}>
-                                        <img className="h-auto w-24 max-h-12 aspect-auto" src={item.logo} alt="Tuple"/>
+                                        <Image width={300} height={300} className="h-auto w-24 max-h-12 aspect-auto"
+                                               src={item.logo} alt="Tuple"/>
                                     </Link>
                                 </Tooltip>
                         </div>)}

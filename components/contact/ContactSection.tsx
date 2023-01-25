@@ -1,4 +1,4 @@
-import {ContactDialog} from "../../dialogs/ContactDialog";
+import {ContactDialog} from "../dialogs/ContactDialog";
 import {PropsWithChildren, useRef, useState} from "react";
 import {addDoc, collection, getFirestore} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
@@ -39,7 +39,7 @@ export default function ContactSection(){
                                 <h2 className="text-3xl transition font-bold tracking-tight text-slate-100 dark:text-black sm:text-4xl ">
                                     Project in mind?
                                     <br/>
-                                    Let's talk!
+                                    Let&apos;s talk!
                                 </h2>
                                 <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300 dark:text-slate-900">
                                     Let me reach out to you by droping your e-mail
