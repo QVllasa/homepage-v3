@@ -14,13 +14,6 @@ const navigation = {
         {name: 'App Development', href: '/services/development'},
         {name: 'Analytics', href: '/services/analytics'},
     ],
-    projects: [
-        {name: 'About', href: '#'},
-        {name: 'Blog', href: '#'},
-        {name: 'Jobs', href: '#'},
-        {name: 'Press', href: '#'},
-        {name: 'Partners', href: '#'},
-    ],
     legal: [
         {name: 'Privacy', href: '/legal/privacy'},
         {name: 'Legal', href: '/legal'},
@@ -77,19 +70,19 @@ export default function Footer() {
                             </div>
                         </div>
                         <div className="md:grid md:grid-cols-2 md:gap-8">
-                            <div>
-                                <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">Company</h3>
-                                <ul role="list" className="mt-4 space-y-4">
-                                    {navigation.projects.map((item, index) => (
-                                        <li key={index}>
-                                            <a href={item.href}
-                                               className="text-base text-gray-500 hover:text-gray-900 dark:text-slate-400 transition">
-                                                {item.name}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            {/*<div>*/}
+                            {/*    <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">Latest Projects</h3>*/}
+                            {/*    <ul role="list" className="mt-4 space-y-4">*/}
+                            {/*        {navigation.projects.map((item, index) => (*/}
+                            {/*            <li key={index}>*/}
+                            {/*                <a href={item.href}*/}
+                            {/*                   className="text-base text-gray-500 hover:text-gray-900 dark:text-slate-400 transition">*/}
+                            {/*                    {item.name}*/}
+                            {/*                </a>*/}
+                            {/*            </li>*/}
+                            {/*        ))}*/}
+                            {/*    </ul>*/}
+                            {/*</div>*/}
                             <div className="mt-12 md:mt-0">
                                 <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">Legal</h3>
                                 <ul role="list" className="mt-4 space-y-4">
