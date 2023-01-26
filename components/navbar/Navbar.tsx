@@ -10,9 +10,8 @@ import {
     XMarkIcon
 } from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
-import {PropsWithChildren, useRef, useState} from "react";
+import {PropsWithChildren, useRef} from "react";
 import Link from "next/link";
-import {useRouter} from "next/router";
 import Dropdown from "../menu/Dropdown";
 import {DarkModeSwitch} from "../DarkModeSwitch";
 import {LinkedinGithubComponent} from "../contact/LinkedinGithubComponent";
@@ -56,7 +55,7 @@ const navigation = [
         children: [{
             name: 'Download CV',
             icon: DocumentArrowDownIcon,
-            link: '/CV/Qendrim_Vllasa_-_Software_Engineer_EN.pdf',
+            link: '/cv/Qendrim_Vllasa_-_Software_Engineer_EN.pdf',
             storage: true
         }]
     }
@@ -65,9 +64,6 @@ type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
 
 export default function Navbar() {
     const ref = useRef<ContactDialogProps>(null);
-    const router = useRouter()
-    const [enabled, setEnabled] = useState(false)
-
 
     return (
         <div className={'lg:overflow-y-visible fixed top-0 z-40 w-full'}>

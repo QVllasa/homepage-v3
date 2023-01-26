@@ -29,9 +29,9 @@ export default function ServicesSection() {
 
                 <div className="lg:grid lg:grid-cols-12">
                     <div
-                        className="relative transition pt-24 bg-blue-600 dark:bg-yellow-500 lg:col-span-12 lg:grid lg:grid-cols-12 lg:items-center lg:rounded-3xl">
+                        className="relative  transition pt-24 bg-blue-600 dark:bg-yellow-500 lg:col-span-12 lg:grid lg:grid-cols-12 lg:items-center lg:rounded-3xl">
                         <div
-                            className="relative lg:flex lg:flex-col lg:items-center mx-auto  space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:p-0 mb-16">
+                            className="relative z-10 lg:flex lg:flex-col lg:items-center mx-auto  space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:p-0 mb-16">
                             <h2 className="text-3xl font-bold leading-8 transition tracking-tight text-white sm:text-4xl dark:text-slate-900">
                                 What I can do for you
                             </h2>
@@ -40,7 +40,7 @@ export default function ServicesSection() {
                             </p>
                         </div>
                         <svg
-                            className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
+                            className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12 z-0"
                             width={404}
                             height={392}
                             fill="none"
@@ -56,7 +56,7 @@ export default function ServicesSection() {
                                     patternUnits="userSpaceOnUse"
                                 >
                                     <rect x={0} y={0} width={4} height={4}
-                                          className="text-blue-300 transition dark:text-yellow-300"
+                                          className="text-blue-500 transition dark:text-yellow-300"
                                           fill="currentColor"/>
                                 </pattern>
                             </defs>

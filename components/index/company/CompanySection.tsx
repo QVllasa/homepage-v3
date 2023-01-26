@@ -50,19 +50,18 @@ export default function CompanySection() {
                         Some companies which profited from my work
                     </h2>
                     <div className="mt-8 flow-root lg:mt-10">
-                        <div className="-mt-4 -ml-8 flex flex justify-center lg:-ml-4 gap-12">
-                            {companies.map((item) => <div key={item.id}
-                                                          className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                                <Tooltip title={item.name.toUpperCase()}>
+                        <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-flow-col  lg:-ml-4 gap-12">
+                            {companies.map((item) =>
+                                <Tooltip key={item.id} title={item.name.toUpperCase()}>
                                     <Link href={item.url} target={'_blank'}
-                                          className={'flex items-center grayscale opacity-80 brightness-200 hover:scale-110 transition'}>
+                                          className={'flex items-center justify-center grayscale opacity-80 brightness-200 hover:scale-110 transition'}>
                                         <Image width={300} height={300} className="h-auto w-24 max-h-12 aspect-auto"
                                                src={item.logo} alt="Tuple"/>
                                     </Link>
                                 </Tooltip>
-                        </div>)}
+                            )}
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
         </>

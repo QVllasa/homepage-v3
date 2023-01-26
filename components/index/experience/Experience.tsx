@@ -51,14 +51,14 @@ export default function Experience(){
                             Where I applied and gained my skills
                         </p>
                     </div>
-                    <dl className="grid grid-cols-1 gap-4 lg:col-span-2">
+                    <dl className="mt-12 lg:mt-0 grid grid-cols-1 gap-4 lg:col-span-2">
                         {exp.map((item, index) => {
                                 if (index < counter) return <ExperienceAccordion key={index} item={item}/>
                             }
                         )}
                         <div className='flex justify-center items-end '>
                             <button
-                                onClick={()=>exp.length != counter ? setCounter(exp.length) : setCounter(4)}
+                                onClick={() => exp.length != counter ? setCounter(exp.length) : setCounter(4)}
                                 type="button"
                                 className="inline-flex items-center rounded-md transition border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-black px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none "
                             >

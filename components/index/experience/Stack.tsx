@@ -1,5 +1,5 @@
 import {ArrowSmallDownIcon, ArrowSmallUpIcon} from "@heroicons/react/24/outline";
-import {getDownloadURL, getStorage, ref} from "@firebase/storage";
+import {getStorage} from "@firebase/storage";
 import {useFirebaseApp} from "reactfire";
 import {collection, DocumentData, getDocs, getFirestore, orderBy, Query, query} from "firebase/firestore";
 import {useEffect, useState} from "react";
@@ -27,9 +27,6 @@ export default function Stack() {
             };
             list.push(stack);
         })
-        for await (const item of list){
-            item.icon = await getDownloadURL(ref(storage, item.icon));
-        }
         setStack([...stack, ...list]);
     }
 
