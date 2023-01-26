@@ -43,7 +43,7 @@ export default function Stack() {
         <div className="" id={'stack'}>
             <div className="relative mx-auto pt-24">
                 <div
-                    className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl">
+                    className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md  px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl">
                     <div className='col-span-1'>
                         <h2 className="text-3xl font-bold tracking-tight transition text-gray-900 sm:text-4xl dark:text-slate-100">
                             Stack
@@ -52,7 +52,7 @@ export default function Stack() {
                             Technologies which I regularly use
                         </p>
                     </div>
-                    <div className="mt-8 col-span-2 grid grid-cols-3 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-3">
+                    <div className="mt-12 col-span-2 grid grid-cols-3 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-3">
                         {stack.map((item, index) => {
                             if (index < counter) {
                                 return (
