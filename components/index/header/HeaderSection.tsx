@@ -14,6 +14,7 @@ export default function HeaderSection() {
     const app = useFirebaseApp();
     const firestore = getFirestore(app);
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
+
     const onSubmit: SubmitHandler<Email> = (data: { email: string }) => {
         console.log("data:", data);
         if (!data.email) return

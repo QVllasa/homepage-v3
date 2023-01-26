@@ -2,32 +2,36 @@ import {ContactDialog} from "../dialogs/ContactDialog";
 import {PropsWithChildren, useRef, useState} from "react";
 import {addDoc, collection, getFirestore} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
+import {SubmitHandler, useForm} from "react-hook-form";
 
-type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
-export default function ContactSection(){
-    const [email, setEmail] = useState('')
+type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
+
+type Email = {
+    email: string,
+};
+export default function ContactSection() {
     const [emailSubmitted, setEmailSubmitted] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const app = useFirebaseApp();
     const firestore = getFirestore(app);
     const ref = useRef<ContactDialogProps>(null);
-    const handler = (val: string) => {
-        setEmail(val)
-    }
-
-    const submit = () => {
+    const {register, handleSubmit, watch, formState: {errors}} = useForm();
+    const onSubmit: SubmitHandler<Email> = (data: { email: string }) => {
+        console.log("data:", data);
+        if (!data.email) return
         setIsLoading(true);
         addDoc(collection(firestore, "mail"), {
             to: ['qendrim.vllasa@gmail.com'],
             message: {
-                subject: `Contact Me: ${email}`,
-                text: "Kontaktiere mich: " + email,
+                subject: `Contact Me: ${data.email}`,
+                text: "Kontaktiere mich: " + data.email,
             }
         }).then(() => {
             setIsLoading(false);
             setEmailSubmitted(true);
         });
-    }
+    };
+
     return (
         <div className={'dark:bg-slate-900'}>
             <div className="relative mx-auto py-16 lg:py-24 px-6 lg:max-w-7xl lg:px-8">
@@ -61,24 +65,34 @@ export default function ContactSection(){
                                             </div>
                                             :
                                             <div className="sm:mx-auto sm:flex">
-                                                <div className="flex-1 min-w-72 sm:w-72">
+                                                <div className="relative flex-1 min-w-72 sm:w-72">
                                                     <label htmlFor="cta-email" className="sr-only">
                                                         Email address
                                                     </label>
                                                     <input
+                                                        {...register("email", {
+                                                            required: {
+                                                                value: true,
+                                                                message: 'Field is required'
+                                                            },
+                                                            pattern: {
+                                                                value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+                                                                message: 'Not a valid E-Mail'
+                                                            }
+                                                        })}
                                                         id="cta-email"
                                                         type="email"
-                                                        className="block w-full rounded-md border-none ring-2 ring-black px-5 py-3 text-base text-gray-900 placeholder-gray-500  focus:border-transparent focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-black"
+                                                        className="block w-full rounded-md transition border-none ring-2 ring-blue-500 transition dark:ring-yellow-500 px-5 py-3 text-base text-gray-900 placeholder-gray-500  focus:border-transparent focus:outline-none focus:ring-2  focus:ring-blue-600 dark:focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-blue-600 dark:focus:ring-offset-yellow-500"
                                                         placeholder="Enter your email"
-                                                        onChange={(e) => handler(e.target.value)}
-                                                        value={email}
                                                     />
+                                                    {errors.email && <ErrorMessage message={errors.email.message}/>}
                                                 </div>
                                                 <div className="mt-4 sm:mt-0 sm:ml-3 min-w-72">
                                                     <button
                                                         disabled={isLoading}
                                                         type="button"
-                                                        onClick={submit}
+                                                        // @ts-ignore
+                                                        onClick={handleSubmit(onSubmit)}
                                                         className="block w-full rounded-md border border-transparent bg-black px-5 py-3 text-base font-medium text-white  hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
                                                     >
                                                         Yes, contact me!
@@ -108,4 +122,10 @@ export default function ContactSection(){
         </div>
 
     )
+}
+
+
+const ErrorMessage = (props: any) => {
+    const {message} = props;
+    return (<span className={'absolute top-8 text-red-600 font-light mt-6'}>{message}</span>)
 }

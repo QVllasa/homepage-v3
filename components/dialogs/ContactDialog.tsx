@@ -12,11 +12,8 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
     const [isLoading, setIsLoading] = useState(false);
     const app = useFirebaseApp();
     const firestore = getFirestore(app);
+    const {register, handleSubmit, watch, formState: {errors}} = useForm();
 
-    const {
-        register,
-        handleSubmit,
-    } = useForm();
 
     const onSubmit = (data:FieldValues) => {
         setIsLoading(true);
@@ -111,7 +108,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                     Say Hi!
                                                 </Dialog.Title>
                                                 <form className=" mt-6 grid grid-cols-1 gap-y-6">
-                                                    <div>
+                                                    <div className={'relative'}>
                                                         <label htmlFor="name" className="sr-only">
                                                             Full name
                                                         </label>
@@ -119,32 +116,55 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                                                             autoComplete="name"
                                                             className="block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500  focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Name"
-                                                            {...register('name')}
+                                                            {...register('name', {
+                                                                required: {
+                                                                    value: true,
+                                                                    message: 'Field is required'
+                                                                }
+                                                            })}
                                                         />
+                                                        {errors.email && <ErrorMessage message={errors.email.message}/>}
                                                     </div>
-                                                    <div>
+                                                    <div className={'relative'}>
                                                         <label htmlFor="email" className="sr-only">
                                                             Email
                                                         </label>
                                                         <input
                                                             autoComplete="email"
                                                             className="block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500 focus:border-blue-500 focus:ring-blue-500"
-                                                            placeholder="Email"
-                                                            {...register('email')}
+                                                            placeholder="*Email"
+                                                            {...register('email', {
+                                                                required: {
+                                                                    value: true,
+                                                                    message: 'Field is required'
+                                                                },
+                                                                pattern: {
+                                                                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+                                                                    message: 'Not a valid E-Mail'
+                                                                }
+                                                            })}
                                                         />
+                                                        {errors.email && <ErrorMessage message={errors.email.message}/>}
                                                     </div>
-                                                    <div>
+                                                    <div className={'relative'}>
                                                         <label htmlFor="message" className="sr-only">
                                                             Message
                                                         </label>
                                                         <textarea
                                                             id="message"
-                                                            {...register('message')}
+                                                            {...register('message', {
+                                                                required: {
+                                                                    value: true,
+                                                                    message: 'Field is required'
+                                                                }
+                                                            })}
                                                             rows={4}
                                                             className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500  focus:border-blue-500 focus:ring-blue-500"
                                                             placeholder="Message"
                                                             defaultValue={''}
                                                         />
+                                                        {errors.message &&
+                                                            <ErrorMessage message={errors.message.message}/>}
                                                     </div>
                                                     <div className="mt-5 sm:mt-6">
                                                         <button onClick={handleSubmit(onSubmit)}
@@ -165,7 +185,12 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                     </div>
                 </div>
             </Dialog>
-         </Transition.Root>
+        </Transition.Root>
     )
 });
 
+
+const ErrorMessage = (props: any) => {
+    const {message} = props;
+    return (<span className={'absolute top-8 text-red-600 font-light mt-6'}>{message}</span>)
+}
