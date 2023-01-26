@@ -173,6 +173,8 @@ export default function Navbar() {
                                                                         className="pl-3 pt-4 pb-2 text-sm text-slate-700 dark:text-slate-300   gap-4 flex flex-col ">
                                                                         {item.children.map((child) => (
                                                                             <Link
+                                                                                download={child.storage}
+                                                                                target={child.storage ? '_blank' : ''}
                                                                                 key={child.name}
                                                                                 href={child.link}
                                                                                 onClick={() => close()}

@@ -1,4 +1,4 @@
-import {getDownloadURL, getStorage, ref} from "@firebase/storage";
+import {getStorage} from "@firebase/storage";
 import {useFirebaseApp} from "reactfire";
 import {collection, DocumentData, getDocs, getFirestore, Query, query, where} from "firebase/firestore";
 import {useEffect, useState} from "react";
@@ -27,9 +27,6 @@ export default function CompanySection() {
             };
             list.push(company);
         })
-        for await (const item of list){
-            item.logo = await getDownloadURL(ref(storage, item.logo));
-        }
         setCompanies([...companies, ...list]);
     }
 

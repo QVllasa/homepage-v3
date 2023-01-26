@@ -2,8 +2,6 @@ import {Menu, Transition} from '@headlessui/react';
 import {Fragment} from 'react';
 import {ChevronDownIcon} from '@heroicons/react/20/solid';
 import Link from "next/link";
-import {useFirebaseApp} from "reactfire";
-import {getDownloadURL, getStorage, ref} from "@firebase/storage";
 
 export default function Dropdown(props: any) {
     return (
@@ -95,49 +93,13 @@ const ButtonItem = (props: any) => {
 
 const DownloadItem = (props: any) => {
     const {listItem} = props;
-    const app = useFirebaseApp();
-    const storage = getStorage();
-    const pathReference = ref(storage, listItem.link);
-
-    const download = async () => getDownloadURL(pathReference).then((url: string) => {
-        // Download the file
-        const xhr = new XMLHttpRequest();
-
-        xhr.responseType = 'blob';
-        // @ts-ignore
-        xhr.onload = (event: ProgressEvent<XMLHttpRequestEventTarget>) => {
-            const blob = xhr.response;
-            // save the blob or do whatever you want with it
-        };
-        xhr.open('GET', url);
-        xhr.send();
-
-    }).catch((error: any) => {
-        // Handle any errors
-        switch (error.code) {
-            case 'storage/object-not-found':
-                console.log("File doesn't exist")
-                // File doesn't exist
-                break;
-            case 'storage/unauthorized':
-                console.log("User doesn't have permission to access the object")
-                // User doesn't have permission to access the object
-                break;
-            case 'storage/canceled':
-                console.log("User canceled the upload")
-                // User canceled the upload
-                break;
-            case 'storage/unknown':
-                console.log("Unknown error occurred, inspect the server response")
-                // Unknown error occurred, inspect the server response
-                break;
-        }
-    });
 
     return (
         <Menu.Item>
-            <button
-                onClick={download}
+            <Link
+                download
+                target={'_blank'}
+                href={listItem.link}
                 className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-blue-600 hover:text-white'}
             >
                 {listItem.icon ?
@@ -147,7 +109,7 @@ const DownloadItem = (props: any) => {
                     :
                     null}
                 {listItem.name}
-            </button>
+            </Link>
         </Menu.Item>
     )
 }
