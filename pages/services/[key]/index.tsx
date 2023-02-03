@@ -28,13 +28,13 @@ export default function Index() {
                     <TopDots/>
                     <div className="relative">
                         <h2 className="text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
-                            {data.title ?? 'No Title'}
+                            {data?.title ?? 'No Title'}
                         </h2>
                         <p className="mx-auto mt-4 max-w-3xl text-center text-xl text-gray-500 dark:text-slate-300">
-                            {data.description}
+                            {data?.description}
                         </p>
                     </div>
-                    {data.sections.map((section, index) => {
+                    {data?.sections.map((section, index) => {
                         return index % 2 === 1 ? <Right section={section}/> : <Left section={section}/>
                     })}
                 </div>
