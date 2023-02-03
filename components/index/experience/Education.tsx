@@ -1,41 +1,8 @@
 import EducationAccordion from "../../accordion/EducationAccordion";
-import {useFirebaseApp} from "reactfire";
-import {collection, DocumentData, getDocs, getFirestore, orderBy, Query, query} from "firebase/firestore";
-import {useEffect, useState} from "react";
-import {CheckBadgeIcon} from "@heroicons/react/24/outline";
-import {EducationModel} from "../../models/education.model";
+import {Educations} from "../../../data/educations";
 
 export default function Education() {
-    const app = useFirebaseApp();
-    const firestore = getFirestore(app);
-    const [educations, setEducations] = useState<EducationModel[]>([]);
-
-    const q = query(collection(firestore, "education"), orderBy('order', 'desc'));
-
-    const loadEducations = (query: Query<DocumentData>) => {
-        return getDocs(query)
-            .then((data) => {
-                let list: any = [];
-                data.forEach((doc) => {
-                    const education = {
-                        ...doc.data(),
-                        icon: CheckBadgeIcon,
-                        id: doc.id
-                    };
-                    list.push(education);
-                })
-                setEducations([...educations, ...list]);
-            });
-    }
-
-    useEffect(() => {
-        loadEducations(q)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    if (educations.length == 0) {
-        return <div>Loading...</div>
-    }
+    const educations = Educations;
 
 
     return (

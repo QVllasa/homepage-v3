@@ -4,5 +4,6 @@ export interface CompanyModel {
     logo: string,
     name: string,
     url: string,
+    featured: boolean
 
 }

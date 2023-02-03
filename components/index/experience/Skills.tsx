@@ -1,48 +1,14 @@
-import {
-    ArrowSmallDownIcon,
-    ArrowSmallUpIcon,
-    CheckBadgeIcon,
-    CheckCircleIcon,
-    CheckIcon
-} from "@heroicons/react/24/outline";
-import {useEffect, useState} from "react";
-import {collection, DocumentData, getDocs, getFirestore, orderBy, Query, query} from "firebase/firestore";
-import {useFirebaseApp} from "reactfire";
+import {ArrowSmallDownIcon, ArrowSmallUpIcon, CheckCircleIcon, CheckIcon} from "@heroicons/react/24/outline";
+import {useState} from "react";
 import {SkillModel} from "../../models/skill.model";
+import {SkillsData} from "../../../data/skills";
 
 
 export default function Skills() {
-    const app = useFirebaseApp();
-    const firestore = getFirestore(app);
-    const [skills, setSkills] = useState<SkillModel[]>([]);
     const [showMore, setShowMore] = useState(false);
 
-    const q = query(collection(firestore, "top-skills"), orderBy('order', 'asc'));
+    const skills: SkillModel[] = SkillsData;
 
-    const loadSkills = (query: Query<DocumentData>) => {
-        return getDocs(query)
-            .then((data) => {
-                let list: any = [];
-                data.forEach((doc) => {
-                    const skill = {
-                        ...doc.data(),
-                        icon: CheckBadgeIcon,
-                        id: doc.id
-                    };
-                    list.push(skill);
-                })
-                setSkills([...skills, ...list]);
-            });
-    }
-
-    useEffect(() => {
-        loadSkills(q)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    if (skills.length == 0) {
-        return <div>Loading...</div>
-    }
 
     return (
         <div className="" id={'skills'}>
@@ -59,7 +25,7 @@ export default function Skills() {
                     <dl className="mt-20 grid grid-cols-1 gap-16 sm:grid-cols-2 sm:gap-x-12 lg:col-span-2 lg:mt-0">
                         {skills?.map((item, index) => {
                             if (index < 4) {
-                                return <div key={item.name} className="relative">
+                                return <div key={index} className="relative">
                                     <dt>
                                         <CheckCircleIcon
                                             className="absolute transition h-8 w-8 text-blue-600 dark:text-yellow-500 font-bold"

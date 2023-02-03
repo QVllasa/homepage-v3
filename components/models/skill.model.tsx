@@ -1,5 +1,5 @@
 export interface SkillModel {
-    id: number,
+    id: string,
     name: string,
     description: string,
     icon?: any,

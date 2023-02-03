@@ -7,4 +7,5 @@ export interface EducationModel {
     description: string,
     order: number,
     url: string,
+    icon?: any,
 }

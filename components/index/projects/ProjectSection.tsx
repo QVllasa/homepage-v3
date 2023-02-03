@@ -1,61 +1,21 @@
 import {ProjectModel} from "../../models/project.model";
 import Link from "next/link";
-import {useEffect, useState} from "react";
-import {useFirebaseApp} from "reactfire";
-import {
-    collection,
-    DocumentData,
-    getDocs,
-    getFirestore,
-    limit,
-    orderBy,
-    Query,
-    query,
-    QueryDocumentSnapshot,
-    startAfter
-} from "firebase/firestore";
+import {useState} from "react";
 import {ArrowSmallDownIcon} from "@heroicons/react/24/outline";
 import Image from "next/image";
+import {Projects} from "../../../data/projects";
 
 
 export default function ProjectSection() {
-    const app = useFirebaseApp();
-    const firestore = getFirestore(app);
-    const [projects, setProjects] = useState<ProjectModel[]>([]);
+    const projectData: ProjectModel[] = Projects;
+    const [projects, setProjects] = useState<ProjectModel[]>(projectData);
+    const [counter, setCounter] = useState(6);
     const [hide, setHide] = useState(false);
-    const [lastVisible, setLastVisible] = useState<QueryDocumentSnapshot<DocumentData>>();
 
-    let q = query(collection(firestore, "projects"), orderBy('rollout', 'desc'), limit(6))
-    const loadProjects = (query: Query<DocumentData>) => {
-        return getDocs(query)
-            .then((data) => {
-                if(data.empty) setHide(true);
-                setLastVisible(data.docs[data.docs.length - 1]);
-                let list: any =[];
-                data.forEach((doc) => {
-                    const project = {
-                        ...doc.data() as ProjectModel,
-                        id: doc.id
-                    };
-                    list.push(project);
-                })
-                setProjects([...projects, ...list]);
-            });
+    const loadMore = () => {
+        counter < projectData.length ? setCounter(counter + 3) : setHide(true);
+        setProjects(projectData)
     }
-
-    const loadMore = async () => {
-        q = query(collection(firestore, "projects"),
-            orderBy("rollout", "desc"),
-            startAfter(lastVisible),
-            limit(3));
-        loadProjects(q);
-    }
-
-    useEffect(() => {
-        loadProjects(q);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
 
 
     return (
@@ -74,24 +34,29 @@ export default function ProjectSection() {
                         </p>
                     </div>
                     <div className="mx-auto mt-12 grid  gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
-                        {projects?.map((project) => (
-                            <div key={project.id}
-                                 className="flex transition flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:scale-101 transition">
-                                <div className="flex-shrink-0 bg-white">
-                                    <Image className="h-48 w-full" width={640} height={400} src={project.img} alt=""/>
-                                </div>
-                                <div
-                                    className="flex transition flex-1 flex-col justify-between bg-white dark:bg-slate-800 p-6">
-                                    <div className="flex-1">
-                                        <Link href={`projects/${encodeURIComponent(project.id)}`}
-                                              className="mt-2 block">
-                                            <p className="text-xl transition font-semibold text-gray-900 dark:text-slate-100">{project.title}</p>
-                                            <p className="mt-3 transition text-base text-gray-500 dark:text-slate-300">{project.slug}</p>
-                                        </Link>
+                        {projects?.map((project, index) => {
+                            if (index < counter && index < projects.length) {
+                                return (
+                                    <div key={index}
+                                         className="flex transition flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:scale-101 transition">
+                                        <div className="flex-shrink-0 bg-white">
+                                            <Image className="h-48 w-full" width={640} height={400} src={project.img}
+                                                   alt=""/>
+                                        </div>
+                                        <div
+                                            className="flex transition flex-1 flex-col justify-between bg-white dark:bg-slate-800 p-6">
+                                            <div className="flex-1">
+                                                <Link href={`projects/${encodeURIComponent(project.id)}`}
+                                                      className="mt-2 block">
+                                                    <p className="text-xl transition font-semibold text-gray-900 dark:text-slate-100">{project.title}</p>
+                                                    <p className="mt-3 transition text-base text-gray-500 dark:text-slate-300">{project.slug}</p>
+                                                </Link>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        ))}
+                                )
+                            }
+                        })}
                     </div>
                     <div className={'flex w-full justify-center mt-12'}>
                         {hide ? null : <button

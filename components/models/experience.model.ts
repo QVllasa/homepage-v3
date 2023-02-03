@@ -1,9 +1,11 @@
 export interface ExperienceModel {
+    id: string,
     role: string,
     company: string,
     companyUrl: string,
     order: number,
     description: string,
-    from: {seconds: number, nanoseconds: number},
-    to: {seconds: number, nanoseconds: number},
+    from: string,
+    to: string,
+    icon?: any,
 }

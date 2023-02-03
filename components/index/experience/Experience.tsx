@@ -1,43 +1,15 @@
 import ExperienceAccordion from "../../accordion/ExperienceAccordion";
-import {ArrowSmallDownIcon, ArrowSmallUpIcon, CheckBadgeIcon} from "@heroicons/react/24/outline";
-import {useFirebaseApp} from "reactfire";
-import {collection, DocumentData, getDocs, getFirestore, orderBy, Query, query} from "firebase/firestore";
-import {useEffect, useState} from "react";
+import {ArrowSmallDownIcon, ArrowSmallUpIcon} from "@heroicons/react/24/outline";
+import {useState} from "react";
 import {ExperienceModel} from "../../models/experience.model";
+import {Experiences} from "../../../data/experiences";
 
 export default function Experience(){
-    const app = useFirebaseApp();
-    const firestore = getFirestore(app);
-    const [exp, setExp] = useState<ExperienceModel[]>([]);
+
     const [counter, setCounter] = useState(4);
 
-    const q = query(collection(firestore, "experience"), orderBy('order', 'desc'));
+    const exp: ExperienceModel[] = Experiences;
 
-    const loadExperiences = (query: Query<DocumentData>)=>{
-        return getDocs(query)
-            .then((data) => {
-                let list: any =[];
-                data.forEach((doc) => {
-                    const exp = {
-                        ...doc.data(),
-                        icon: CheckBadgeIcon,
-                        id: doc.id
-                    };
-                    list.push(exp);
-                })
-                setExp([...exp, ...list]);
-            });
-    }
-
-    useEffect(() => {
-            loadExperiences(q)
-        },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [])
-
-    if (exp.length == 0) {
-        return <div>Loading...</div>
-    }
 
 
     return (

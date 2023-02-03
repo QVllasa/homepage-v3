@@ -1,43 +1,15 @@
 import {ArrowSmallDownIcon, ArrowSmallUpIcon} from "@heroicons/react/24/outline";
-import {getStorage} from "@firebase/storage";
-import {useFirebaseApp} from "reactfire";
-import {collection, DocumentData, getDocs, getFirestore, orderBy, Query, query} from "firebase/firestore";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {StackModel} from "../../models/stack.model";
 import Link from "next/link";
 import {Tooltip} from "@mui/material";
 import Image from "next/image";
+import {StackData} from "../../../data/stack";
 
 export default function Stack() {
-    const storage = getStorage();
-    const app = useFirebaseApp();
-    const firestore = getFirestore(app);
-    const [stack, setStack] = useState<StackModel[]>([]);
     const [counter, setCounter] = useState(9)
 
-    const q = query(collection(firestore, "stack"), orderBy('order', 'asc'));
-
-    const loadStack = async (query: Query<StackModel | DocumentData>) => {
-        const data = await getDocs(query)
-        let list: StackModel[] = [];
-        data.forEach((doc) => {
-            const stack = {
-                ...doc.data() as StackModel,
-                id: doc.id
-            };
-            list.push(stack);
-        })
-        setStack([...stack, ...list]);
-    }
-
-    useEffect(() => {
-        loadStack(q);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    if (stack.length == 0) {
-        return <div>Loading...</div>
-    }
+    const stack: StackModel[] = StackData;
 
     return (
         <div className="" id={'stack'}>
