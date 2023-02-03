@@ -1,12 +1,15 @@
 import {ForwardedRef, forwardRef, Fragment, useImperativeHandle, useState} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
-import {addDoc, collection, getFirestore} from "firebase/firestore";
+import {getFirestore} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
 import {TailSpin} from "react-loader-spinner";
 import {FieldValues, useForm} from "react-hook-form";
 
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: ForwardedRef<any>){
+
+export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: ForwardedRef<any>) {
     const [show, setShow] = useState(false);
     const [isSubmitted, setSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -17,19 +20,38 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
 
     const onSubmit = (data:FieldValues) => {
         setIsLoading(true);
-            addDoc(collection(firestore, "mail"), {
-                to: ['qendrim.vllasa@gmail.com'],
-                message: {
-                    subject: `Hello from ${data.name}`,
-                    text: `Email from: ${data.email}  
-                    ${data.message}`,
+        //sendgrid function
+        const msg = {
+            to: 'qendrim.vllasa@gmail.com',
+            from: 'qendrim.vllasa@gmail.com', // Use the email address or domain you verified above
+            subject: 'Sending with Twilio SendGrid is Fun',
+            text: 'and easy to do anywhere, even with Node.js',
+            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        };
+        sgMail
+            .send(msg)
+            .then(() => {
+            }, (error) => {
+                console.error(error);
+
+                if (error.response) {
+                    console.error(error.response.body)
                 }
-            }).then(() => {
-                setIsLoading(false);
-                setSubmitted(true);
-            }).catch((err) => {
-                console.error(err);
             });
+
+        // addDoc(collection(firestore, "mail"), {
+        //     to: ['qendrim.vllasa@gmail.com'],
+        //     message: {
+        //         subject: `Hello from ${data.name}`,
+        //         text: `Email from: ${data.email}
+        //         ${data.message}`,
+        //     }
+        // }).then(() => {
+        //     setIsLoading(false);
+        //     setSubmitted(true);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
     };
 
     const open = ()=>{
