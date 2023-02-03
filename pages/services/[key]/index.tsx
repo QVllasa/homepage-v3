@@ -5,11 +5,13 @@ import Image from "next/image";
 import {Services} from "../../../data/services";
 
 
+const services = Services;
+
 export default function Index() {
     const router = useRouter();
     const {key} = router.query;
 
-    const data: ServiceModel = Services.filter(obj => obj.key === key)[0];
+    const data: ServiceModel = services.filter(obj => obj.key === key)[0];
 
     return (
         <div className={''}>

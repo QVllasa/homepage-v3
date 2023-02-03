@@ -4,13 +4,18 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import {Projects} from "../../../data/projects";
+import {useEffect, useState} from "react";
 
+const projects = Projects;
 
 export default function ProjectDetails() {
     const router = useRouter()
+    const [data, setData] = useState<ProjectModel>()
     const {id} = router.query
 
-    const data: ProjectModel = Projects.filter(obj => obj.id === id)[0];
+    useEffect(() => {
+        setData(projects.filter(obj => obj.id === id)[0]);
+    }, [])
 
     if (!data) {
         return <div>nothing</div>
