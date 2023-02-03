@@ -18,7 +18,8 @@ export default function AboutMeSection() {
                     </p>
                 </div>
                 <div className="absolute inset-x-0 top-0 hidden h-1/2  lg:block" aria-hidden="true"/>
-                <div className="mx-auto w-full h-auto max-w-screen-2xl bg-blue-600  lg:bg-transparent rounded-3xl">
+                <div
+                    className="mx-auto w-full h-auto max-w-screen-2xl bg-blue-600 dark:bg-yellow-500  lg:bg-transparent rounded-3xl">
                     <div className="lg:grid lg:grid-cols-12">
                         <div
                             className="relative z-10 lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:bg-transparent dark:lg:bg-transparent lg:py-16">

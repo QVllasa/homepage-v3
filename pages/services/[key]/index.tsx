@@ -1,28 +1,15 @@
 import {CheckCircleIcon,} from '@heroicons/react/24/outline'
 import {useRouter} from "next/router";
-import {collection, getDocs, getFirestore, query, where} from "firebase/firestore";
-import {useFirebaseApp} from "reactfire";
-import useSWR from "swr";
 import {ServiceModel} from "../../../components/models/service.model";
 import Image from "next/image";
+import {Services} from "../../../data/services";
 
 
 export default function Index() {
-    const app = useFirebaseApp();
-    const firestore = getFirestore(app);
     const router = useRouter();
     const {key} = router.query;
 
-    const q = (key: string) => query(collection(firestore, "services"), where("key", "==", key));
-
-    const loadService = (key: string) => getDocs(q(key)).then((querySnapshot) => {
-        return querySnapshot.docs[0].data() as ServiceModel
-    })
-
-    const {data, error} = useSWR(key, loadService)
-
-    if (error) return <div>Failed to load</div>
-    if (!data) return <div>Loading...</div>
+    const data: ServiceModel = Services.filter(obj => obj.key === key)[0];
 
     return (
         <div className={''}>

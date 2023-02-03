@@ -1,32 +1,16 @@
-import {useFirebaseApp} from "reactfire";
-import {doc, getDoc, getFirestore} from "firebase/firestore";
-import useSWR from 'swr';
 import {ProjectModel} from "../../../components/models/project.model";
 import {CheckIcon} from "@heroicons/react/24/outline";
 import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import {Projects} from "../../../data/projects";
 
 
 export default function ProjectDetails() {
-    const app = useFirebaseApp();
-    const firestore = getFirestore(app);
     const router = useRouter()
     const {id} = router.query
 
-    const docRef = (id: string) => doc(firestore, "projects", id);
-    const loadProject = (id: string) => getDoc(docRef(id)).then((docSnap) => {
-        return {
-            ...docSnap.data() as ProjectModel,
-            id: docSnap.id
-        }
-    })
-
-
-    const {data, error} = useSWR(id, loadProject)
-
-    if (error) return <div>Failed to load</div>
-    if (!data) return <div>Loading...</div>
+    const data: ProjectModel = Projects.filter(obj => obj.id === id)[0];
 
 
     return (

@@ -10,7 +10,8 @@ export interface ServiceModel {
         keys: { title: string, description: string }[],
         title: string,
     }[],
-    key: string[],
     description: string,
-    pageTitle: string
+    pageTitle?: string,
+    key: string,
+
 }
