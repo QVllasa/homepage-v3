@@ -3,15 +3,23 @@ import {useRouter} from "next/router";
 import {ServiceModel} from "../../../components/models/service.model";
 import Image from "next/image";
 import {Services} from "../../../data/services";
+import {useEffect, useState} from "react";
 
 
 const services = Services;
 
 export default function Index() {
+    const [data, setData] = useState<ServiceModel>()
     const router = useRouter();
     const {key} = router.query;
 
-    const data: ServiceModel = services.filter(obj => obj.key === key)[0];
+    useEffect(() => {
+        setData(services.filter(obj => obj.key === key)[0]);
+    }, [])
+
+    if (!data) {
+        return <div>nothing</div>
+    }
 
     return (
         <div className={''}>
