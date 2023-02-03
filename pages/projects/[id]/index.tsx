@@ -60,21 +60,21 @@ export default function ProjectDetails() {
                             <div className="relative overflow-hidden rounded-2xl pt-[56.25%] pb-10 ">
                                 <Image width={640} height={400}
                                        className="absolute inset-0 h-full w-full "
-                                       src={data.img}
-                                       alt={data.title}
+                                       src={data?.img}
+                                       alt={data?.title}
                                 />
                             </div>
-                            <Link target="_blank" href={data.previewLink ?? ''}
+                            <Link target="_blank" href={data?.previewLink ?? ''}
                                   className={'flex mx-auto w-max h-max mt-4 relative'}>
                                 <button
-                                    disabled={!data.previewLink}
+                                    disabled={!data?.previewLink}
                                     type="button"
                                     className="relative mx-auto disabled:bg-gray-300 dark:disabled:bg-slate-700 dark:disabled:text-slate-400 block dark:bg-yellow-500 dark:text-slate-900 rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
                                 >
                                     Live Preview
                                 </button>
                             </Link>
-                            {data.previewLink ? null :
+                            {data?.previewLink ? null :
                                 <p className={'w-full text-center mt-2 text-gray-400 dark:text-slate-600'}>Only visible
                                     at the customers
                                     site</p>}
@@ -85,17 +85,17 @@ export default function ProjectDetails() {
                         {/* Content area */}
                         <div className="pt-12 sm:pt-16 lg:pt-20">
                             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
-                                {data.title}
+                                {data?.title}
                             </h2>
                             <div className="mt-6 space-y-6 text-gray-500 dark:text-slate-300">
                                 <p className="text-lg">
-                                    {data.description}
+                                    {data?.description}
                                 </p>
                             </div>
                         </div>
 
                         <div className="mt-10 space-y-10">
-                            {data.keys.map((item, index) => (
+                            {data?.keys.map((item, index) => (
                                 <div key={index} className="relative">
                                     <dt>
                                         <div
@@ -112,7 +112,7 @@ export default function ProjectDetails() {
                         {/* Stats section */}
                         <div className="mt-10">
                             <dl className="grid grid-cols-2 gap-x-4 gap-y-8">
-                                {data.stats?.map((stat, index) => (
+                                {data?.stats?.map((stat, index) => (
                                     <div key={index} className="border-t-2 border-gray-100 dark:border-slate-700 pt-6">
                                         <dt className="text-base font-medium text-gray-500 dark:text-slate-100">{stat.key}</dt>
                                         <dd className="text-3xl font-bold tracking-tight text-gray-900 dark:text-yellow-500">{stat.value}</dd>
