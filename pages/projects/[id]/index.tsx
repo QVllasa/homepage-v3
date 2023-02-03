@@ -12,6 +12,10 @@ export default function ProjectDetails() {
 
     const data: ProjectModel = Projects.filter(obj => obj.id === id)[0];
 
+    if (!data) {
+        return <div>nothing</div>
+    }
+
 
     return (
         <div className={''}>
