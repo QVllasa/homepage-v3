@@ -3,7 +3,6 @@ import {CheckIcon} from "@heroicons/react/24/outline";
 import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import {useEffect, useState} from "react";
 
 const projects: ProjectModel[] = [
     {
@@ -520,16 +519,11 @@ const projects: ProjectModel[] = [
 
 export default function ProjectDetails() {
     const router = useRouter()
-    const [data, setData] = useState<ProjectModel>()
-    const {id} = router.query
+    const {id} = router.query;
 
-    useEffect(() => {
-        setData(projects.filter(obj => obj.id === id)[0]);
-    }, [])
+    const data: ProjectModel = projects.filter(obj => obj.id === id)[0]
 
-    if (!data) {
-        return <div>nothing</div>
-    }
+    if (!data) return null
 
 
     return (

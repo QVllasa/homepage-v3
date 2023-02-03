@@ -2,7 +2,6 @@ import {CheckCircleIcon,} from '@heroicons/react/24/outline'
 import {useRouter} from "next/router";
 import {ServiceModel} from "../../../components/models/service.model";
 import Image from "next/image";
-import {useEffect, useState} from "react";
 
 
 const services: ServiceModel[] = [
@@ -174,17 +173,13 @@ const services: ServiceModel[] = [
 ];
 
 export default function Index() {
-    const [data, setData] = useState<ServiceModel>()
     const router = useRouter();
     const {key} = router.query;
 
-    useEffect(() => {
-        setData(services.filter(obj => obj.key === key)[0]);
-    }, [])
 
-    if (!data) {
-        return <div>nothing</div>
-    }
+    const data: ServiceModel = services.filter(obj => obj.key === key)[0]
+
+    if (!data) return null
 
     return (
         <div className={''}>
