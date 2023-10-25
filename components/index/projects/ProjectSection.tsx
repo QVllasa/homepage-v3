@@ -47,7 +47,41 @@ export default function ProjectSection() {
                                             className="flex transition flex-1 flex-col justify-between bg-white dark:bg-slate-800 p-6">
                                             <div className="flex-1">
                                                 <div className="mt-2 block">
-                                                    <p className="hover:text-blue-500 text-xl transition font-semibold text-gray-900 dark:text-slate-100">{project.title}</p>
+                                                    <div
+                                                        className="flex justify-between items-center text-xl transition font-semibold text-gray-900 dark:text-slate-100">
+                                                        <p>{project.title}</p>
+                                                        {project?.status === 'On Hold' &&
+                                                            <>
+                                                                <span
+                                                                    className={'inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20'}>
+                                                                    {project?.status}
+                                                                </span>
+                                                            </>
+                                                        }
+                                                        {project?.status === 'Completed' &&
+                                                            <>
+                                                                <span
+                                                                    className={'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20'}>
+                                                                    {project?.status}
+                                                                </span>
+                                                            </>
+                                                        }
+                                                        {project?.status === 'Canceled' &&
+                                                            <>
+                                                                <span
+                                                                    className={'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}>
+                                                                    {project?.status}
+                                                                </span>
+                                                            </>
+                                                        }
+                                                        {project?.status === 'In Progress' &&
+                                                            <>
+                                                                <span
+                                                                    className={'inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10'}>
+                                                                    {project?.status}
+                                                                </span>
+                                                            </>
+                                                        }</div>
                                                     <p className="mt-3 transition text-base text-gray-500 dark:text-slate-300">{project.slug}</p>
                                                 </div>
                                             </div>
