@@ -56,7 +56,7 @@ export default function HeaderSection() {
                     <div
                         className="mt-12 flex justify-center transition md:justify-start text-xl text-gray-500 transition dark:text-slate-100 sm:text-xl md:max-w-3xl">
                         <Typewriter
-                            words={['Drone Lover 🚁', 'Technology Enthusiast 🚀', 'Software Engineer by ❤️']}
+                            words={['Software Engineer by ❤️', 'Technology Enthusiast 🚀', 'Drone Lover 🚁']}
                             cursor
                             cursorStyle='_'
                             typeSpeed={70}
