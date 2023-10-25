@@ -37,7 +37,7 @@ export default function ProjectSection() {
                         {projects?.map((project, index) => {
                             if (index < counter && index < projects.length) {
                                 return (
-                                    <div key={index}
+                                    <Link key={index} href={`projects/${encodeURIComponent(project.id)}`}
                                          className="flex transition flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:scale-101 transition">
                                         <div className="flex-shrink-0 bg-white">
                                             <Image className="h-48 w-full" width={640} height={400} src={project.img}
@@ -46,14 +46,13 @@ export default function ProjectSection() {
                                         <div
                                             className="flex transition flex-1 flex-col justify-between bg-white dark:bg-slate-800 p-6">
                                             <div className="flex-1">
-                                                <Link href={`projects/${encodeURIComponent(project.id)}`}
-                                                      className="mt-2 block">
-                                                    <p className="text-xl transition font-semibold text-gray-900 dark:text-slate-100">{project.title}</p>
+                                                <div className="mt-2 block">
+                                                    <p className="hover:text-blue-500 text-xl transition font-semibold text-gray-900 dark:text-slate-100">{project.title}</p>
                                                     <p className="mt-3 transition text-base text-gray-500 dark:text-slate-300">{project.slug}</p>
-                                                </Link>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             }
                         })}

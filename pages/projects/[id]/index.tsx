@@ -7,18 +7,19 @@ import Image from "next/image";
 const projects: ProjectModel[] = [
     {
         "client": "My own project",
+        "status": 'On Hold',
         "keys": [
             {
-                "description": "some description",
+                "description": "",
                 "value": "Modern and beautiful UI"
             },
             {
                 "value": "Based on Angular and Symfony API Platform (PHP)",
-                "description": "some description"
+                "description": ""
             },
             {
                 "value": "Combines my hobbies",
-                "description": "some description"
+                "description": ""
             }
         ],
         "slug": "To combine my love for flying my drone and developing my skills, I am working on a platform where pilots can sell their footage. For the development of the platform I use the programming language GO together in a microservice architecture. For the frontend Angular is used.",
@@ -35,6 +36,7 @@ const projects: ProjectModel[] = [
     },
     {
         "slug": "I built a web-app to manage inventory, optimize supply chain and communicate with suppliers and customers for a polymer company.",
+        "status": 'Completed',
         "keys": [
             {
                 "value": "Inventory Management",
@@ -87,6 +89,7 @@ const projects: ProjectModel[] = [
             "seconds": 1672441200,
             "nanoseconds": 89000000
         },
+        "status": 'Completed',
         "title": "Design Verification Process Platform",
         "description": "The web app is a platform used by over 500 engineers for verifying product design. It provides a variety of tools and features that are designed to help engineers ensure that their designs meet quality standards, including simulations, tests, and real-time collaboration. Additionally, it has an PTC Integrity Interface and a configuration matrix, which allow for easy integration with other tools and software, and easy testing and validation of different product configurations respectively. The app is user-friendly and intuitive, making it easy for engineers to access the tools and information they need.",
         "client": "Rolls Royce Power Systems",
@@ -139,6 +142,7 @@ const projects: ProjectModel[] = [
             "seconds": 1640905200,
             "nanoseconds": 707000000
         },
+        "status": 'Completed',
         "title": "Das Karateprinzip",
         "client": "Markus Sauter",
         "keys": [
@@ -185,6 +189,7 @@ const projects: ProjectModel[] = [
             "seconds": 1638226800,
             "nanoseconds": 839000000
         },
+        "status": 'Completed',
         "client": "Rolls Royce Power Systems",
         "slug": "This is a tool for Rolls Royce Power Systems that simplifies project change management across multiple divisions with flexibility, increasing productivity, and improving efficiency.",
         "title": "Project Change Management",
@@ -231,6 +236,7 @@ const projects: ProjectModel[] = [
     },
     {
         "client": "newboxes GmbH",
+        "status": 'Completed',
         "keys": [
             {
                 "value": "Visually stunning design",
@@ -301,6 +307,7 @@ const projects: ProjectModel[] = [
                 "value": "Increased efficiency and effectiveness of HSE initiatives."
             }
         ],
+        "status": 'Completed',
         "rollout": {
             "seconds": 1601416800,
             "nanoseconds": 640000000
@@ -336,6 +343,7 @@ const projects: ProjectModel[] = [
             "seconds": 1598824800,
             "nanoseconds": 74000000
         },
+        "status": 'Completed',
         "client": "Rolls Royce Power Systems",
         "description": "I led the development of a global online platform for Rolls Royce Power Systems to track progress towards achieving company-wide environmental goals. The platform includes a dashboard with real-time data, reports and analytics, and educational resources. It helps the company to stay informed and make progress towards its environmental targets.",
         "previewLink": "",
@@ -382,6 +390,7 @@ const projects: ProjectModel[] = [
     },
     {
         "title": "Heat & Power Web Presence",
+        "status": 'Completed',
         "keys": [
             {
                 "description": "Website has been designed and developed for the company Heat & Power I",
@@ -448,6 +457,7 @@ const projects: ProjectModel[] = [
                 "value": "Efficiency"
             }
         ],
+        "status": 'Completed',
         "rollout": {
             "seconds": 1553986800,
             "nanoseconds": 991000000
@@ -480,6 +490,7 @@ const projects: ProjectModel[] = [
     },
     {
         "client": "Institute of Informationmanagement in Engineering at KIT",
+        "status": 'Completed',
         "img": "/projects/virtual.png",
         "slug": "Core developer in Virtual Engineering Internship, responsible for VR-game communication, navigation, camera perspectives, video editing, 3D modeling, and key team member.",
         "rollout": {
@@ -588,9 +599,44 @@ export default function ProjectDetails() {
                     <div className="relative mx-auto max-w-md px-6 sm:max-w-3xl lg:px-0">
                         {/* Content area */}
                         <div className="pt-12 sm:pt-16 lg:pt-20">
-                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
-                                {data?.title}
-                            </h2>
+                            <div className={'flex justify-start items-start '}>
+                                <h2 className="mr-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
+                                    {data?.title}
+                                </h2>
+                                {data?.status === 'On Hold' &&
+                                    <>
+                                        <span
+                                            className={'inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20'}>
+                                            {data?.status}
+                                        </span>
+                                    </>
+                                }
+                                {data?.status === 'Completed' &&
+                                    <>
+                                        <span
+                                            className={'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20'}>
+                                            {data?.status}
+                                        </span>
+                                    </>
+                                }
+                                {data?.status === 'Canceled' &&
+                                    <>
+                                        <span
+                                            className={'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}>
+                                            {data?.status}
+                                        </span>
+                                    </>
+                                }
+                                {data?.status === 'In Progress' &&
+                                    <>
+                                        <span
+                                            className={'inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10'}>
+                                            {data?.status}
+                                        </span>
+                                    </>
+                                }
+                            </div>
+
                             <div className="mt-6 space-y-6 text-gray-500 dark:text-slate-300">
                                 <p className="text-lg">
                                     {data?.description}
