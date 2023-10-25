@@ -1,6 +1,7 @@
 export interface ProjectModel {
     id: string,
     title: string,
+    status: 'On Hold' | 'Canceled' | 'Completed' | 'In Progress',
     description: string,
     slug: string,
     keys: { icon?: any, value: string, description: string }[],

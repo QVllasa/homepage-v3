@@ -10,8 +10,6 @@ export default function Experience(){
 
     const exp: ExperienceModel[] = Experiences;
 
-
-
     return (
         <div className="" id={'experiences'}>
             <div className="relative mx-auto py-24 ">

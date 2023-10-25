@@ -2,21 +2,112 @@ import {ProjectModel} from "../components/models/project.model";
 
 export const Projects: ProjectModel[] = [
     {
+        "client": "ThyssenKrupp Presta AG",
+        "keys": [
+            {
+                "description": "Users can effortlessly create customized dashboards to meet their specific data monitoring needs, even without advanced technical expertise.",
+                "value": "User-Friendly Dashboard Creation"
+            },
+            {
+                "value": "Versatile Data Monitoring",
+                "description": "The BI Reporting Platform accommodates a wide range of data types, making it adaptable for monitoring investments, operations, metadata, and more."
+            },
+            {
+                "value": "Streamlined Data Control",
+                "description": "This application simplifies data management, ensuring that individuals can maintain control over their information, regardless of the data type."
+            }
+        ],
+        "stats": [
+            {
+                "key": "Supported Data Types",
+                "value": "20+"
+            },
+            {
+                "key": "User-Created Dashboards",
+                "value": "Within Minutes"
+            },
+            {
+                "key": "Data Control Efficiency",
+                "value": "Up to 30% Improvement"
+            }
+        ],
+        "status": 'In Progress',
+        "slug": "The \"BI Reporting Platform\" simplifies data monitoring and dashboard creation. From investments to metadata, this user-friendly tool is your one-stop solution for tailored dashboards.",
+        "title": "BI Reporting Platform",
+        "img": "/projects/reporting.png",
+        "order": 0,
+        "rollout": {
+            "seconds": 1685570400,
+            "nanoseconds": 455000000
+        },
+        "description": "The \"BI Reporting Platform\" is a versatile and powerful application designed to streamline data monitoring and dashboard creation. This all-encompassing tool empowers users to monitor a wide array of data types, including investments, operations, process data, metadata, and more. What sets this platform apart is its user-friendly and generic approach, allowing individuals to craft customized dashboards tailored to their unique data needs. Whether you're tracking financial investments, optimizing operational processes, or diving into metadata analysis, the BI Reporting Platform simplifies data monitoring and reporting, making it a valuable asset for professionals in various industries.",
+        "previewLink": "",
+        "id": "MCY6ucNmsf07AhdbLNW53"
+    },
+    {
+        "client": "ThyssenKrupp Presta AG",
+        "keys": [
+            {
+                "description": "DUDE enables precise identification of anomalies in manufacturing data, ensuring a higher level of quality control by catching irregularities in real-time.",
+                "value": "Enhanced Quality Control"
+            },
+            {
+                "value": "Process Optimization",
+                "description": "The application contributes to process optimization by providing insights into data variations, helping streamline manufacturing operations and enhance efficiency."
+            },
+            {
+                "value": "Improved Product Consistency",
+                "description": "With DUDE, product consistency is bolstered as it helps maintain uniform quality standards across manufacturing processes, resulting in more reliable and higher-quality end products."
+            }
+        ],
+        "stats": [
+            {
+                "key": "Anomaly Detection Accuracy",
+                "value": "95%"
+            },
+            {
+                "key": "Real-Time Monitoring Response Time",
+                "value": "<100ms"
+            },
+            {
+                "key": "Operational Efficiency Gains",
+                "value": "20%"
+            },
+            {
+                "key": "Product Quality Improvement",
+                "value": "15%"
+            }
+        ],
+        "status": 'Completed',
+        "slug": "I completed the DUDE project, which stands for \"Detect Uncommon Data Events.\" This app identifies anomalies in manufacturing process quality data, aiding in quality control and process optimization.",
+        "title": "DUDE",
+        "img": "/projects/dude.png",
+        "order": 0,
+        "rollout": {
+            "seconds": 1685570400,
+            "nanoseconds": 455000000
+        },
+        "description": "DUDE (Detect Uncommon Data Events) is an advanced application for manufacturing quality control. It swiftly identifies anomalies in real-time process quality data, enhancing quality control and operational efficiency. With DUDE, manufacturing processes are optimized, and product consistency is improved, ensuring high-quality, reliable end products.",
+        "previewLink": "",
+        "id": "MCY6ucNmsf07AhdbLNW54"
+    },
+    {
         "client": "My own project",
         "keys": [
             {
-                "description": "some description",
+                "description": "",
                 "value": "Modern and beautiful UI"
             },
             {
                 "value": "Based on Angular and Symfony API Platform (PHP)",
-                "description": "some description"
+                "description": ""
             },
             {
                 "value": "Combines my hobbies",
-                "description": "some description"
+                "description": ""
             }
         ],
+        "status": 'On Hold',
         "slug": "To combine my love for flying my drone and developing my skills, I am working on a platform where pilots can sell their footage. For the development of the platform I use the programming language GO together in a microservice architecture. For the frontend Angular is used.",
         "title": "Dronegraphy",
         "img": "/projects/drone.svg",
@@ -31,6 +122,7 @@ export const Projects: ProjectModel[] = [
     },
     {
         "slug": "I built a web-app to manage inventory, optimize supply chain and communicate with suppliers and customers for a polymer company.",
+        "status": 'Completed',
         "keys": [
             {
                 "value": "Inventory Management",
@@ -83,6 +175,7 @@ export const Projects: ProjectModel[] = [
             "seconds": 1672441200,
             "nanoseconds": 89000000
         },
+        "status": 'Completed',
         "title": "Design Verification Process Platform",
         "description": "The web app is a platform used by over 500 engineers for verifying product design. It provides a variety of tools and features that are designed to help engineers ensure that their designs meet quality standards, including simulations, tests, and real-time collaboration. Additionally, it has an PTC Integrity Interface and a configuration matrix, which allow for easy integration with other tools and software, and easy testing and validation of different product configurations respectively. The app is user-friendly and intuitive, making it easy for engineers to access the tools and information they need.",
         "client": "Rolls Royce Power Systems",
@@ -130,6 +223,7 @@ export const Projects: ProjectModel[] = [
     {
         "slug": "A modern website for an employee coaching service using a karate principle, with resources, testimonials and easy communication. Developed as a one-man project",
         "img": "/projects/dkp.png",
+        "status": 'Completed',
         "description": "I am proud to present the new website for \"Das Karateprinzip\", a company specializing in employee coaching using a unique karate principle. I designed and developed this website from scratch, working alone on the project. The website showcases the client's coaching services and the benefits of incorporating karate principles into the workplace. The website features a modern design, easy navigation and includes resources such as client testimonials, blog posts and a contact form. My goal was to create a user-friendly and professional website that accurately represents the client's unique approach to employee coaching and I am proud to have delivered a final product that exceeds their expectations.",
         "rollout": {
             "seconds": 1640905200,
@@ -181,6 +275,7 @@ export const Projects: ProjectModel[] = [
             "seconds": 1638226800,
             "nanoseconds": 839000000
         },
+        "status": 'Completed',
         "client": "Rolls Royce Power Systems",
         "slug": "This is a tool for Rolls Royce Power Systems that simplifies project change management across multiple divisions with flexibility, increasing productivity, and improving efficiency.",
         "title": "Project Change Management",
@@ -227,6 +322,7 @@ export const Projects: ProjectModel[] = [
     },
     {
         "client": "newboxes GmbH",
+        "status": 'Completed',
         "keys": [
             {
                 "value": "Visually stunning design",
@@ -297,6 +393,7 @@ export const Projects: ProjectModel[] = [
                 "value": "Increased efficiency and effectiveness of HSE initiatives."
             }
         ],
+        "status": 'Completed',
         "rollout": {
             "seconds": 1601416800,
             "nanoseconds": 640000000
@@ -332,6 +429,7 @@ export const Projects: ProjectModel[] = [
             "seconds": 1598824800,
             "nanoseconds": 74000000
         },
+        "status": 'Completed',
         "client": "Rolls Royce Power Systems",
         "description": "I led the development of a global online platform for Rolls Royce Power Systems to track progress towards achieving company-wide environmental goals. The platform includes a dashboard with real-time data, reports and analytics, and educational resources. It helps the company to stay informed and make progress towards its environmental targets.",
         "previewLink": "",
@@ -378,6 +476,7 @@ export const Projects: ProjectModel[] = [
     },
     {
         "title": "Heat & Power Web Presence",
+        "status": 'Completed',
         "keys": [
             {
                 "description": "Website has been designed and developed for the company Heat & Power I",
@@ -444,6 +543,7 @@ export const Projects: ProjectModel[] = [
                 "value": "Efficiency"
             }
         ],
+        "status": 'Completed',
         "rollout": {
             "seconds": 1553986800,
             "nanoseconds": 991000000
@@ -476,6 +576,7 @@ export const Projects: ProjectModel[] = [
     },
     {
         "client": "Institute of Informationmanagement in Engineering at KIT",
+        "status": 'Completed',
         "img": "/projects/virtual.png",
         "slug": "Core developer in Virtual Engineering Internship, responsible for VR-game communication, navigation, camera perspectives, video editing, 3D modeling, and key team member.",
         "rollout": {

@@ -2,6 +2,21 @@ import {ExperienceModel} from "../components/models/experience.model";
 
 export const Experiences: ExperienceModel[] = [
     {
+        "company": "ThyssenKrupp Presta AG",
+        "description": "As a Senior Cloud Software Engineer at a prominent automotive company specializing in steering systems for cars, my role revolves around developing and maintaining critical applications that are integral to enhancing the manufacturing process.\n" +
+            "\n" +
+            "In this capacity, I employ a diverse set of technologies to create powerful software solutions. For the frontend, I utilize React to craft intuitive and user-friendly interfaces, ensuring a seamless user experience. On the backend, I harness the capabilities of Python to build the core of our applications. To manage and manipulate essential data, we rely on SAP HANA SQL for the database layer.\n" +
+            "\n" +
+            "What truly sets our work apart is the innovative microservice architecture we employ. This modular and highly scalable approach enables us to create applications that play a pivotal role in monitoring, optimizing, and boosting the manufacturing performance of our steering systems. These software solutions empower the company to maintain high standards of quality, efficiency, and innovation in the ever-evolving automotive industry.",
+        "companyUrl": "https://www.thyssenkrupp-automotive-technology.com",
+        "order": 8,
+        "role": "Senior Cloud Software Engineer",
+        "to": "Today",
+        "from": "Mar 2023",
+        "icon": {},
+        "id": "retR3iS9GROcbKwOMNnw12"
+    },
+    {
         "company": "newboxes GmbH",
         "description": "As the lead developer in cloud transformation, I am currently responsible for best practice development and implementing state-of-the-art technologies to help our organization move to the cloud. This includes leading a team of developers and working closely with other departments to understand their specific needs and requirements. I am also responsible for assessing the current state of our infrastructure and identifying areas where cloud migration would be beneficial.  One of the main aspects of my role is to stay up-to-date with the latest cloud technologies, such as AWS, Azure, and GCP. I evaluate their features, capabilities and pricing models to recommend the best solution for our organization. This requires me to have a deep understanding of cloud computing concepts and architectures, as well as the ability to communicate effectively with technical and non-technical stakeholders.  As part of this project, I also work on developing and implementing a comprehensive cloud migration strategy. This includes identifying and prioritizing applications and workloads that can be moved to the cloud, as well as creating a detailed plan for migrating data, applications, and services.  I am also responsible for ensuring that the migration is done in a secure and compliant manner, and that the organization's data is protected throughout the process. This includes working with security and compliance teams to ensure that the migration adheres to industry standards and regulations.  Throughout the project, I also work on providing training and guidance to the team, and to other departments within the organization, to help them understand the benefits of cloud computing and how to leverage it to improve their workflows.  Overall, this role allows me to work on a challenging and exciting project that provides an opportunity to learn about the latest technologies and gain hands-on experience in implementing them in a real-world setting. It also allows me to work with a diverse team of people and make a meaningful impact on the organization.",
         "companyUrl": "https://www.newboxes.com",

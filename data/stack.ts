@@ -10,6 +10,13 @@ export const StackData: StackModel[] =
             "id": "S3fpik3BJ3pPcLGHkNb2"
         },
         {
+            "icon": "/stack/sap.svg",
+            "name": "SAP Hana SQL",
+            "order": 0,
+            "url": "https://www.sap.com/swiss/products/erp/s4hana.html",
+            "id": "S3fpik3BJ3pPcLGHkNb23"
+        },
+        {
             "icon": "/stack/gcp.svg",
             "name": "Google Cloud Platform",
             "url": "https://cloud.google.com",
