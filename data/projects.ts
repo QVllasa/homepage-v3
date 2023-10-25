@@ -2,19 +2,109 @@ import {ProjectModel} from "../components/models/project.model";
 
 export const Projects: ProjectModel[] = [
     {
+        "client": "ThyssenKrupp Presta AG",
+        "keys": [
+            {
+                "description": "Users can effortlessly create customized dashboards to meet their specific data monitoring needs, even without advanced technical expertise.",
+                "value": "User-Friendly Dashboard Creation"
+            },
+            {
+                "value": "Versatile Data Monitoring",
+                "description": "The BI Reporting Platform accommodates a wide range of data types, making it adaptable for monitoring investments, operations, metadata, and more."
+            },
+            {
+                "value": "Streamlined Data Control",
+                "description": "This application simplifies data management, ensuring that individuals can maintain control over their information, regardless of the data type."
+            }
+        ],
+        "stats": [
+            {
+                "key": "Supported Data Types",
+                "value": "20+"
+            },
+            {
+                "key": "User-Created Dashboards",
+                "value": "Within Minutes"
+            },
+            {
+                "key": "Data Control Efficiency",
+                "value": "Up to 30% Improvement"
+            }
+        ],
+        "status": 'In Progress',
+        "slug": "The \"BI Reporting Platform\" simplifies data monitoring and dashboard creation. From investments to metadata, this user-friendly tool is your one-stop solution for tailored dashboards.",
+        "title": "BI Reporting Platform",
+        "img": "/projects/reporting.png",
+        "order": 0,
+        "rollout": {
+            "seconds": 1685570400,
+            "nanoseconds": 455000000
+        },
+        "description": "The \"BI Reporting Platform\" is a versatile and powerful application designed to streamline data monitoring and dashboard creation. This all-encompassing tool empowers users to monitor a wide array of data types, including investments, operations, process data, metadata, and more. What sets this platform apart is its user-friendly and generic approach, allowing individuals to craft customized dashboards tailored to their unique data needs. Whether you're tracking financial investments, optimizing operational processes, or diving into metadata analysis, the BI Reporting Platform simplifies data monitoring and reporting, making it a valuable asset for professionals in various industries.",
+        "previewLink": "",
+        "id": "MCY6ucNmsf07AhdbLNW53"
+    },
+    {
+        "client": "ThyssenKrupp Presta AG",
+        "keys": [
+            {
+                "description": "DUDE enables precise identification of anomalies in manufacturing data, ensuring a higher level of quality control by catching irregularities in real-time.",
+                "value": "Enhanced Quality Control"
+            },
+            {
+                "value": "Process Optimization",
+                "description": "The application contributes to process optimization by providing insights into data variations, helping streamline manufacturing operations and enhance efficiency."
+            },
+            {
+                "value": "Improved Product Consistency",
+                "description": "With DUDE, product consistency is bolstered as it helps maintain uniform quality standards across manufacturing processes, resulting in more reliable and higher-quality end products."
+            }
+        ],
+        "stats": [
+            {
+                "key": "Anomaly Detection Accuracy",
+                "value": "95%"
+            },
+            {
+                "key": "Real-Time Monitoring Response Time",
+                "value": "<100ms"
+            },
+            {
+                "key": "Operational Efficiency Gains",
+                "value": "20%"
+            },
+            {
+                "key": "Product Quality Improvement",
+                "value": "15%"
+            }
+        ],
+        "status": 'Completed',
+        "slug": "I completed the DUDE project, which stands for \"Detect Uncommon Data Events.\" This app identifies anomalies in manufacturing process quality data, aiding in quality control and process optimization.",
+        "title": "DUDE",
+        "img": "/projects/dude.png",
+        "order": 0,
+        "rollout": {
+            "seconds": 1685570400,
+            "nanoseconds": 455000000
+        },
+        "description": "DUDE (Detect Uncommon Data Events) is an advanced application for manufacturing quality control. It swiftly identifies anomalies in real-time process quality data, enhancing quality control and operational efficiency. With DUDE, manufacturing processes are optimized, and product consistency is improved, ensuring high-quality, reliable end products.",
+        "previewLink": "",
+        "id": "MCY6ucNmsf07AhdbLNW54"
+    },
+    {
         "client": "My own project",
         "keys": [
             {
-                "description": "some description",
+                "description": "",
                 "value": "Modern and beautiful UI"
             },
             {
                 "value": "Based on Angular and Symfony API Platform (PHP)",
-                "description": "some description"
+                "description": ""
             },
             {
                 "value": "Combines my hobbies",
-                "description": "some description"
+                "description": ""
             }
         ],
         "status": 'On Hold',
