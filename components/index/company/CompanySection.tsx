@@ -19,7 +19,7 @@ export default function CompanySection() {
                             {companies.map((item, index) =>
                                 <Tooltip key={index} title={item.name.toUpperCase()}>
                                     <Link href={item.url} target={'_blank'}
-                                          className={'flex items-center justify-center grayscale opacity-80 brightness-200 hover:scale-110 transition'}>
+                                          className={'cursor-pointer flex items-center justify-center grayscale opacity-80 brightness-200 hover:scale-110 '}>
                                         <Image width={300} height={300} className="h-auto w-24 max-h-12 aspect-auto"
                                                src={item.logo} alt="Tuple"/>
                                     </Link>
