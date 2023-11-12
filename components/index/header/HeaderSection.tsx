@@ -60,6 +60,7 @@ export default function HeaderSection() {
                             cursor
                             cursorStyle='_'
                             typeSpeed={70}
+                            loop={true}
                             deleteSpeed={50}
                             delaySpeed={600}
                         />
