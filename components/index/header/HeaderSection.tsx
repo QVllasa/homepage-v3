@@ -111,7 +111,7 @@ export default function HeaderSection() {
                                                 onClick={handleSubmit(onSubmit)}
                                                 className="block w-full rounded-md transition border border-transparent bg-blue-600 transition dark:bg-yellow-500 px-5 py-3 text-base font-medium text-white dark:text-slate-900 dark:hover:bg-yellow-600 hover:bg-blue-700 focus:outline-none focus:ring-2 dark:focus:ring-yellow-500 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 dark:focus:ring-offset-yellow-500 sm:px-10"
                                             >
-                                                Yes, contact me!
+                                                Reach out
                                             </button>
                                         </div>
                                     </div>
@@ -125,7 +125,7 @@ export default function HeaderSection() {
                         <Image width={600} height={600} src="/assets/yellow_background.svg" alt=""
                                className='absolute w-48 md:w-full h-auto'/>
                         <Image width={600} height={600} src="/assets/qendrim.png" alt=""
-                               className='h-auto md:w-144 w-96 mx-auto transform -scale-x-100 object-cover object-center'/>
+                               className='h-auto md:w-128 w-96 mx-auto transform  object-cover object-center'/>
                     </div>
                 </div>
             </div>
