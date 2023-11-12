@@ -125,7 +125,7 @@ export default function HeaderSection() {
                         <Image width={600} height={600} src="/assets/yellow_background.svg" alt=""
                                className='absolute w-48 md:w-full h-auto'/>
                         <Image width={600} height={600} src="/assets/qendrim.png" alt=""
-                               className='h-auto md:w-128 w-96 mx-auto transform  object-cover object-center'/>
+                               className='h-auto md:w-112 w-96 mx-auto transform  object-cover object-center'/>
                     </div>
                 </div>
             </div>
