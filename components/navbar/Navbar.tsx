@@ -55,7 +55,7 @@ const navigation = [
         children: [{
             name: 'Download CV',
             icon: DocumentArrowDownIcon,
-            link: '/cv/Qendrim_Vllasa_-_Software_Engineer_EN.pdf',
+            link: '/cv/Qendrim_Vllasa_-_Cloud_Software_Engineer_EN.pdf',
             storage: true
         }]
     }
