@@ -24,6 +24,13 @@ export const StackData: StackModel[] =
             "id": "F8i3En4idFKPaR1T82YZ"
         },
         {
+            "icon": "/stack/java.svg",
+            "name": "Java",
+            "url": "https://www.java.com/de/",
+            "order": 1,
+            "id": "F8i3En4idFKPaR1T82YZ567"
+        },
+        {
             "order": 1,
             "url": "https://angular.io",
             "name": "Angular",
