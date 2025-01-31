@@ -1,14 +1,13 @@
 import {ForwardedRef, forwardRef, Fragment, useImperativeHandle, useState} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
-import {getFirestore} from "firebase/firestore";
-import {useFirebaseApp, useFunctions} from "reactfire";
+import {addDoc, collection, getFirestore} from "firebase/firestore";
+import {useFirebaseApp} from "reactfire";
 import {TailSpin} from "react-loader-spinner";
 import {FieldValues, useForm} from "react-hook-form";
-import {httpsCallable} from "@firebase/functions";
 
 
 export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: ForwardedRef<any>) {
-    const functions = useFunctions();
+
     const [show, setShow] = useState(false);
     const [isSubmitted, setSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -16,25 +15,23 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
     const firestore = getFirestore(app);
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
 
-    const sendEmail = httpsCallable(functions, 'helloWorld');
 
     const onSubmit = async (data: FieldValues) => {
         setIsLoading(true);
-        // addDoc(collection(firestore, "mail"), {
-        //     to: ['qendrim.vllasa@gmail.com'],
-        //     message: {
-        //         subject: `Hello from ${data.name}`,
-        //         text: `Email from: ${data.email}
-        //         ${data.message}`,
-        //     }
-        // }).then(() => {
-        //     setIsLoading(false);
-        //     setSubmitted(true);
-        // }).catch((err) => {
-        //     console.error(err);
-        // });
-        const res = await sendEmail();
-        console.log("res: ", res);
+        addDoc(collection(firestore, "mail"), {
+            to: ['qendrim.vllasa@gmail.com'],
+            message: {
+                subject: `Hello from ${data.name}`,
+                text: `Email from: ${data.email}
+                ${data.message}`,
+            }
+        }).then(() => {
+            setIsLoading(false);
+            setSubmitted(true);
+        }).catch((err) => {
+            console.error(err);
+        });
+
 
     };
 

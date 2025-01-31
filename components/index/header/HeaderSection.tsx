@@ -59,9 +59,10 @@ export default function HeaderSection() {
                             words={['Software Engineer by ❤️', 'Technology Enthusiast 🚀', 'Drone Lover 🚁']}
                             cursor
                             cursorStyle='_'
-                            typeSpeed={70}
+                            typeSpeed={80}
+                            loop={true}
                             deleteSpeed={50}
-                            delaySpeed={600}
+                            delaySpeed={900}
                         />
                     </div>
                     <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
