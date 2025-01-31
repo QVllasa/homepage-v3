@@ -6,7 +6,7 @@ export const Experiences: ExperienceModel[] = [
     "description": "As the Datamanagement and Intelligence (DMI) Software Development Lead, I drive the development of data-driven software solutions that enhance manufacturing efficiency and decision-making. My role focuses on building and optimizing data infrastructure, ensuring platform scalability, and leveraging advanced analytics, machine learning, and artificial intelligence to transform complex data into actionable insights.\n\nI lead a cross-functional team, fostering collaboration between business and technical stakeholders to develop scalable data platforms and decision-making tools. Our work involves streamlining data pipelines, maintaining data quality through automated validation, and implementing solutions that empower business intelligence applications.\n\nWith expertise in cloud computing, Python, JavaScript, TypeScript, and agile methodologies, I ensure that our data management strategies align with industry best practices while supporting business teams in their digital transformation journey.",
     "companyUrl": "https://www.thyssenkrupp-automotive-technology.com",
     "order": 9,
-    "role": "Datamanagement and Intelligence (DMI) Software Development Lead",
+    "role": "Lead Software Engineer (DMI)",
     "to": "Today",
     "from": "Nov 2023",
     "icon": {},
