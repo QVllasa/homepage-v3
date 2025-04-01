@@ -8,7 +8,7 @@ export const Experiences: ExperienceModel[] = [
     "order": 9,
     "role": "Lead Software Engineer (DMI)",
     "to": "Today",
-    "from": "Nov 2023",
+    "from": "Jan 2024",
     "icon": {},
     "id": "DMILead-2023"
 }
