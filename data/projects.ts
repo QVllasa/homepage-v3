@@ -5,6 +5,57 @@ export const Projects: ProjectModel[] = [
         "client": "ThyssenKrupp Presta AG",
         "keys": [
             {
+                "description": "The platform provides complete visibility of components from initial manufacturing through final assembly, creating a digital history for each part.",
+                "value": "End-to-End Component Traceability"
+            },
+            {
+                "value": "Real-time Sensor Data Analysis",
+                "description": "The system continuously monitors and analyzes sensor measurements for each component, enabling immediate quality control interventions when deviations occur."
+            },
+            {
+                "value": "Manufacturing Process Insights",
+                "description": "By tracking components through various machines and processes, the platform generates valuable insights for optimizing production workflows and identifying bottlenecks."
+            },
+            {
+                "description": "The comprehensive traceability enables faster issue resolution, improved compliance reporting, and enhanced quality assurance throughout the manufacturing lifecycle.",
+                "value": "Enhanced Quality Assurance"
+            }
+        ],
+        "stats": [
+            {
+                "key": "Traceability Coverage",
+                "value": "98%"
+            },
+            {
+                "key": "Quality Control Improvement",
+                "value": "35%"
+            },
+            {
+                "key": "Issue Resolution Time",
+                "value": "60% Reduction"
+            },
+            {
+                "key": "Components Tracked Daily",
+                "value": "250,000+"
+            }
+        ],
+        "status": 'Completed',
+        "slug": "The Track and Trace platform enables complete component traceability throughout the manufacturing process, monitoring machine interactions and sensor data to ensure quality and provide valuable production insights.",
+        "title": "Track and Trace",
+        "img": "/projects/track-trace.png",
+        "order": 0,
+        "rollout": {
+            "seconds": 1685570400,
+            "nanoseconds": 455000000
+        },
+        "description": "The Track and Trace platform revolutionizes manufacturing traceability by creating a digital fingerprint for each component from production start to final assembly. This comprehensive system monitors each part's journey through various machines and processes, capturing critical sensor measurements at every stage. By maintaining this detailed component history, the platform enables unprecedented quality control capabilities, allowing teams to quickly identify and address production issues before they escalate. The system's advanced analytics provide valuable insights into manufacturing efficiency, helping optimize workflows and reduce bottlenecks. Whether investigating quality deviations, demonstrating regulatory compliance, or identifying opportunities for process improvement, Track and Trace transforms component data into actionable intelligence, making it an essential tool for modern manufacturing operations.",
+        "previewLink": "",
+        "id": "TR7k9qRnT14bKzLs5vJ45"
+    },
+    {
+        "client": "ThyssenKrupp Presta AG",
+        "keys": [
+            {
                 "description": "Users can effortlessly create customized dashboards to meet their specific data monitoring needs, even without advanced technical expertise.",
                 "value": "User-Friendly Dashboard Creation"
             },
@@ -31,7 +82,7 @@ export const Projects: ProjectModel[] = [
                 "value": "Up to 30% Improvement"
             }
         ],
-        "status": 'In Progress',
+        "status": 'Completed',
         "slug": "The \"BI Reporting Platform\" simplifies data monitoring and dashboard creation. From investments to metadata, this user-friendly tool is your one-stop solution for tailored dashboards.",
         "title": "BI Reporting Platform",
         "img": "/projects/reporting.png",
