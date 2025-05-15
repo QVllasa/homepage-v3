@@ -39,7 +39,7 @@ export default function HeaderSection() {
                 className="relative grid md:grid-cols-2 mx-auto w-full h-full max-w-screen-2xl  lg:text-left md:place-items-center px-4">
                 <div className='md:hidden flex items-center justify-center my-6'>
                     <Image width={600} height={600}
-                           className=" h-80 w-64 rounded-full  bg-yellow-300  object-top object-cover"
+                           className=" h-[22rem] w-64 rounded-full  bg-yellow-300  object-top object-cover"
                            src="/assets/qendrim.png"
                            alt=""/>
                 </div>
