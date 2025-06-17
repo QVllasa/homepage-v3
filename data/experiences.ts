@@ -23,7 +23,7 @@ export const Experiences: ExperienceModel[] = [
         "companyUrl": "https://www.thyssenkrupp-automotive-technology.com",
         "order": 8,
         "role": "Senior Cloud Software Engineer",
-        "to": "Today",
+        "to": "Nov 2023",
         "from": "Mar 2023",
         "icon": {},
         "id": "retR3iS9GROcbKwOMNnw12"

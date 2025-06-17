@@ -3,7 +3,7 @@ export interface ProjectModel {
     title: string,
     status: 'On Hold' | 'Canceled' | 'Completed' | 'In Progress',
     description: string,
-    slug: string,
+    shortDescription: string,
     keys: { icon?: any, value: string, description: string }[],
     stats?: { key: string, value: string }[],
     client: string,

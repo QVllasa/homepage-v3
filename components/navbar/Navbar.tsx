@@ -1,14 +1,5 @@
 import {Disclosure, Popover} from '@headlessui/react'
-import {
-    AcademicCapIcon,
-    Bars3Icon,
-    ChevronDownIcon,
-    ChevronRightIcon,
-    CodeBracketIcon,
-    DocumentArrowDownIcon,
-    PresentationChartLineIcon,
-    XMarkIcon
-} from '@heroicons/react/24/outline'
+import {AcademicCapIcon, Bars3Icon, ChevronDownIcon, ChevronRightIcon, CodeBracketIcon, PresentationChartLineIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
 import {PropsWithChildren, useRef} from "react";
 import Link from "next/link";
@@ -16,54 +7,54 @@ import Dropdown from "../menu/Dropdown";
 import {DarkModeSwitch} from "../DarkModeSwitch";
 import {LinkedinGithubComponent} from "../contact/LinkedinGithubComponent";
 import {QComponent} from "../icons/QComponent";
+import LanguageSelector from "../LanguageSelector";
+import {useTranslation} from 'next-i18next';
+import {useRouter} from 'next/router';
 
-
-const navigation = [
-    {name: 'Projects', href: '/#projects', current: false},
-    {name: 'Experience', href: '/#experience', current: false},
-    {
-        name: 'Services',
-        href: '/#services',
-        current: false,
-        popover: true,
-        children: [
-            {
-                name: 'Consulting',
-                icon: AcademicCapIcon,
-                link: "/services/consulting",
-                storage: false
-            },
-            {
-                name: 'App Development',
-                icon: CodeBracketIcon,
-                link: "/services/development",
-                storage: false,
-            },
-            {
-                name: 'Data Analytics',
-                icon: PresentationChartLineIcon,
-                link: "/services/analytics",
-                storage: false
-            }
-        ]
-    },
-    {
-        name: 'Downloads',
-        href: '',
-        current: false,
-        popover: true,
-        children: [{
-            name: 'Download CV',
-            icon: DocumentArrowDownIcon,
-            link: '/cv/Qendrim_Vllasa_-_Cloud_Software_Engineer_EN.pdf',
-            storage: true
-        }]
-    }
-]
-type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
 
 export default function Navbar() {
     const ref = useRef<ContactDialogProps>(null);
+    const {t} = useTranslation('common');
+    const router = useRouter();
+
+    // CV file path based on selected language
+    const cvFilePath = router.locale === 'de'
+        ? './cv/Qendrim_Vllasa_-_Cloud_Software_Engineer_DE.pdf'
+        : '/cv/Qendrim_Vllasa_-_Cloud_Software_Engineer_EN.pdf';
+
+    const navigation = [
+        {name: t('navbar.projects'), href: '/#projects', current: false},
+        {name: t('navbar.experience'), href: '/#experience', current: false},
+        {
+            name: t('navbar.services'),
+            href: '/#services',
+            current: false,
+            popover: true,
+            children: [
+                {
+                    name: 'Consulting',
+                    icon: AcademicCapIcon,
+                    link: "/services/consulting",
+                    storage: false
+                },
+                {
+                    name: 'App Development',
+                    icon: CodeBracketIcon,
+                    link: "/services/development",
+                    storage: false,
+                },
+                {
+                    name: 'Data Analytics',
+                    icon: PresentationChartLineIcon,
+                    link: "/services/analytics",
+                    storage: false
+                }
+            ]
+        },
+        {name: 'Download CV', href: cvFilePath, current: false, download: true}
+    ]
+
+    type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
 
     return (
         <div className={'lg:overflow-y-visible fixed top-0 z-40 w-full'}>
@@ -97,6 +88,8 @@ export default function Navbar() {
                                                         <Link
                                                             key={item.name}
                                                             href={item.href}
+                                                            download={item.download}
+                                                            target={item.download ? "_blank" : undefined}
                                                             className={`${item.current ? 'bg-gray-900 transition dark:bg-slate-100 dark:text-black text-white' : 'text-black transition dark:text-white hover:bg-black hover:text-white dark:hover:bg-slate-100 dark:hover:text-black'} px-3 py-2 rounded-md text-base font-medium`}
                                                             aria-current={item.current ? 'page' : undefined}
                                                         >
@@ -124,17 +117,17 @@ export default function Navbar() {
                                     </Popover.Button>
                                 </div>
                                 <div className="hidden lg:flex lg:items-center lg:justify-end lg:col-span-2">
-                                    <div className='flex items-center'>
+                                    <div className='flex items-center space-x-4'>
+                                        <LanguageSelector/>
                                         <DarkModeSwitch/>
                                         <LinkedinGithubComponent/>
                                         <button
                                             onClick={() => ref?.current?.open()}
-                                            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                                            className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                         >
-                                            Contact
+                                            {t('navbar.contact')}
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -198,6 +191,8 @@ export default function Navbar() {
                                                 <Link
                                                     key={item.name}
                                                     href={item.href}
+                                                    download={item.download}
+                                                    target={item.download ? "_blank" : undefined}
                                                     onClick={() => close()}
                                                     aria-current={item.current ? 'page' : undefined}
                                                     className={'block text-slate-900 dark:text-slate-100 rounded-md py-2 px-3 text-base font-medium'}
@@ -207,11 +202,16 @@ export default function Navbar() {
                                             )
                                     )}
 
+                                    {/* Add language selector to mobile menu */}
+                                    <div className="px-3 py-2 mt-4">
+                                        <LanguageSelector/>
+                                    </div>
+
                                     <button
                                         onClick={() => ref?.current?.open()}
-                                        className="mt-24 flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
+                                        className="mt-4 flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                                     >
-                                        Contact
+                                        {t('navbar.contact')}
                                     </button>
                                 </div>
                             )}
@@ -224,7 +224,3 @@ export default function Navbar() {
         </div>
     )
 }
-
-
-
-

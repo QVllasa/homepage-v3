@@ -5,9 +5,12 @@ import AboutMeSection from "../components/index/aboutme/AboutMeSection";
 import ServicesSection from "../components/index/service/ServicesSection";
 import ProjectSection from "../components/index/projects/ProjectSection";
 import CompanySection from "../components/index/company/CompanySection";
-
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {GetStaticProps} from 'next';
+import {useTranslation} from 'next-i18next';
 
 export default function Home() {
+    const {t} = useTranslation('common');
 
     return (
         <>
@@ -40,3 +43,10 @@ export default function Home() {
     )
 }
 
+export const getStaticProps: GetStaticProps = async ({locale}) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale || 'en', ['common'])),
+        },
+    };
+};

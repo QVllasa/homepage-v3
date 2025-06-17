@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
+const {i18n} = require('./next-i18next.config');
+
 const nextConfig = {
   reactStrictMode: true,
+    i18n,
   env: {
       apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
       authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,

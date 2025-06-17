@@ -4,6 +4,7 @@ import {FirebaseAppProvider} from "reactfire";
 import {FirebaseSDKProviders} from "../firebase/firebase-provider";
 import {DarkModeContextProvider} from "../stores/darkmode-context";
 import {Layout} from "../components/layout/Layout";
+import {appWithTranslation} from 'next-i18next';
 
 const firebaseConfig = {
     apiKey: process.env.apiKey,
@@ -15,8 +16,7 @@ const firebaseConfig = {
     measurementId: process.env.measurementId
 }
 
-export default function App({Component, pageProps}: AppProps) {
-
+function MyApp({Component, pageProps}: AppProps) {
     return (
         <DarkModeContextProvider>
             <FirebaseAppProvider firebaseConfig={firebaseConfig}>
@@ -27,7 +27,7 @@ export default function App({Component, pageProps}: AppProps) {
                 </FirebaseSDKProviders>
             </FirebaseAppProvider>
         </DarkModeContextProvider>
-
     )
 }
 
+export default appWithTranslation(MyApp);

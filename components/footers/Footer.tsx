@@ -1,26 +1,29 @@
 import {QComponent} from "../icons/QComponent";
 import {LinkedinGithubComponent} from "../contact/LinkedinGithubComponent";
-
-const navigation = {
-    sections: [
-        {name: 'About Me', href: '#aboutme'},
-        {name: 'Skills', href: '#skills'},
-        {name: 'Experience', href: '#experiences'},
-        {name: 'Education', href: '#education'},
-        {name: 'Stack', href: '#stack'},
-    ],
-    services: [
-        {name: 'IT Consulting', href: '/services/consulting'},
-        {name: 'App Development', href: '/services/development'},
-        {name: 'Analytics', href: '/services/analytics'},
-    ],
-    legal: [
-        {name: 'Privacy', href: '/legal/privacy'},
-        {name: 'Legal', href: '/legal'},
-    ],
-}
+import {useTranslation} from 'next-i18next';
 
 export default function Footer() {
+    const {t} = useTranslation('common');
+
+    const navigation = {
+        sections: [
+            {name: t('about.title'), href: '#aboutme'},
+            {name: t('about.skillsTitle'), href: '#skills'},
+            {name: t('experience.title'), href: '#experiences'},
+            {name: t('experience.education'), href: '#education'},
+            {name: 'Stack', href: '#stack'},
+        ],
+        services: [
+            {name: 'IT Consulting', href: '/services/consulting'},
+            {name: 'App Development', href: '/services/development'},
+            {name: 'Analytics', href: '/services/analytics'},
+        ],
+        legal: [
+            {name: t('footer.privacy'), href: '/legal/privacy'},
+            {name: t('footer.legal'), href: '/legal'},
+        ],
+    }
+
     return (
         <footer className="bg-white dark:bg-slate-900 transition" aria-labelledby="footer-heading">
             <h2 id="footer-heading" className="sr-only">
@@ -43,7 +46,7 @@ export default function Footer() {
                     <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
                         <div className="md:grid md:grid-cols-2 md:gap-8">
                             <div>
-                                <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">Sections</h3>
+                                <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">{t('navbar.sections')}</h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.sections.map((item, index) => (
                                         <li key={index}>
@@ -56,7 +59,7 @@ export default function Footer() {
                                 </ul>
                             </div>
                             <div className="mt-12 md:mt-0">
-                                <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">Services</h3>
+                                <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">{t('navbar.services')}</h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.services.map((item, index) => (
                                         <li key={index}>
@@ -84,7 +87,7 @@ export default function Footer() {
                             {/*    </ul>*/}
                             {/*</div>*/}
                             <div className="mt-12 md:mt-0">
-                                <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">Legal</h3>
+                                <h3 className="text-base font-medium text-gray-900 dark:text-slate-300 transition">{t('footer.legal')}</h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.legal.map((item) => (
                                         <li key={item.name}>
@@ -100,8 +103,9 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="mt-12 border-t border-gray-200 dark:border-slate-700 transition pt-8">
-                    <p className="text-base text-gray-400 dark:text-slate-400 transition xl:text-center">&copy; 2023
-                        Qendrim Vllasa. All rights reserved.</p>
+                    <p className="text-base text-gray-400 dark:text-slate-400 transition xl:text-center">
+                        {t('footer.copyright')}
+                    </p>
                 </div>
             </div>
         </footer>
