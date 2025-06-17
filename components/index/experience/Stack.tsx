@@ -5,9 +5,11 @@ import Link from "next/link";
 import {Tooltip} from "@mui/material";
 import Image from "next/image";
 import {StackData} from "../../../data/stack";
+import {useTranslation} from 'next-i18next';
 
 export default function Stack() {
     const [counter, setCounter] = useState(9)
+    const {t} = useTranslation('common');
 
     const stack: StackModel[] = StackData;
 
@@ -18,10 +20,10 @@ export default function Stack() {
                     className="lg:grid lg:grid-cols-3 lg:gap-8 mx-auto max-w-md  px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl">
                     <div className='col-span-1'>
                         <h2 className="text-3xl font-bold tracking-tight transition text-gray-900 sm:text-4xl dark:text-slate-100">
-                            Stack
+                            {t('experience.stack.title')}
                         </h2>
                         <p className="mt-3 max-w-3xl text-lg transition text-gray-500 dark:text-slate-300">
-                            Technologies which I regularly use
+                            {t('experience.stack.subtitle')}
                         </p>
                     </div>
                     <div className="mt-12 col-span-2 grid grid-cols-3 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-3">
@@ -50,9 +52,8 @@ export default function Stack() {
                             onClick={() => counter != stack.length ? setCounter(stack.length) : setCounter(9)}
                             className="inline-flex items-center rounded-md border transition border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-black px-4 py-2 text-sm font-medium text-white  hover:bg-blue-700 focus:outline-none"
                         >
-                            {counter != stack.length ? 'Show more' : 'Show less'}
+                            {counter != stack.length ? t('experience.stack.showMore') : t('experience.stack.showLess')}
                             {counter != stack.length ?  <ArrowSmallDownIcon className='h-5 w-5 ml-3'/> :  <ArrowSmallUpIcon className='h-5 w-5 ml-3'/>}
-
                         </button>
                     </div>
                 </div>

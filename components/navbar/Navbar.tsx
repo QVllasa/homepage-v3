@@ -1,15 +1,19 @@
-import {Disclosure, Popover} from '@headlessui/react'
-import {AcademicCapIcon, Bars3Icon, ChevronDownIcon, ChevronRightIcon, CodeBracketIcon, PresentationChartLineIcon, XMarkIcon} from '@heroicons/react/24/outline'
+import {AcademicCapIcon, Bars3Icon, ChevronRightIcon, CodeBracketIcon, PresentationChartLineIcon} from '@heroicons/react/24/outline'
 import {ContactDialog} from "../dialogs/ContactDialog";
 import {PropsWithChildren, useRef} from "react";
 import Link from "next/link";
-import Dropdown from "../menu/Dropdown";
 import {DarkModeSwitch} from "../DarkModeSwitch";
 import {LinkedinGithubComponent} from "../contact/LinkedinGithubComponent";
 import {QComponent} from "../icons/QComponent";
 import LanguageSelector from "../LanguageSelector";
 import {useTranslation} from 'next-i18next';
 import {useRouter} from 'next/router';
+
+// Import Shadcn UI components
+import {NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle} from "../ui/navigation-menu";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "../ui/dropdown-menu";
+import {Button} from "../ui/button";
+import {cn} from "../../lib/utils";
 
 
 export default function Navbar() {
@@ -19,7 +23,7 @@ export default function Navbar() {
 
     // CV file path based on selected language
     const cvFilePath = router.locale === 'de'
-        ? './cv/Qendrim_Vllasa_-_Cloud_Software_Engineer_DE.pdf'
+        ? '/cv/Qendrim_Vllasa_-_Cloud_Software_Engineer_DE.pdf'
         : '/cv/Qendrim_Vllasa_-_Cloud_Software_Engineer_EN.pdf';
 
     const navigation = [
@@ -32,26 +36,26 @@ export default function Navbar() {
             popover: true,
             children: [
                 {
-                    name: 'Consulting',
+                    name: t('services.items.consulting.title'),
                     icon: AcademicCapIcon,
                     link: "/services/consulting",
                     storage: false
                 },
                 {
-                    name: 'App Development',
+                    name: t('services.items.development.title'),
                     icon: CodeBracketIcon,
                     link: "/services/development",
                     storage: false,
                 },
                 {
-                    name: 'Data Analytics',
+                    name: t('services.items.analytics.title'),
                     icon: PresentationChartLineIcon,
                     link: "/services/analytics",
                     storage: false
                 }
             ]
         },
-        {name: 'Download CV', href: cvFilePath, current: false, download: true}
+        {name: t('navbar.downloadCV'), href: cvFilePath, current: false, download: true}
     ]
 
     type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
@@ -59,167 +63,145 @@ export default function Navbar() {
     return (
         <div className={'lg:overflow-y-visible fixed top-0 z-40 w-full'}>
             {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
-            <Popover
-                as="nav"
-                className={`shadow-sm  bg-white dark:bg-slate-800`
-                }
-            >
-                {({open}) => (
-                    <>
-
-                        {/*Desktop*/}
-                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
-                            <div className="relative flex justify-between lg:gap-8 lg:grid lg:grid-cols-12">
-                                <div className="flex lg:inset-y-0 lg:left-0 lg:static lg:col-span-2">
-                                    <div className="flex flex-shrink-0 items-center">
-                                        <QComponent/>
-                                    </div>
-                                </div>
-                                <div className="hidden lg:flex lg:px-8 lg:px-0 lg:col-span-8 lg:justify-center">
-                                    <div
-                                        className="flex items-center px-6 py-4 lg:mx-auto lg:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
-                                        <div className="hidden sm:ml-6 sm:block">
-                                            <div className="flex space-x-4">
-                                                {navigation.map((item, index) => (
-                                                    item.popover ?
-                                                        <Dropdown key={index} buttonText={item.name}
-                                                                  listItems={item.children}></Dropdown>
-                                                        :
-                                                        <Link
-                                                            key={item.name}
-                                                            href={item.href}
-                                                            download={item.download}
-                                                            target={item.download ? "_blank" : undefined}
-                                                            className={`${item.current ? 'bg-gray-900 transition dark:bg-slate-100 dark:text-black text-white' : 'text-black transition dark:text-white hover:bg-black hover:text-white dark:hover:bg-slate-100 dark:hover:text-black'} px-3 py-2 rounded-md text-base font-medium`}
-                                                            aria-current={item.current ? 'page' : undefined}
-                                                        >
-                                                            {item.name}
-                                                        </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={'flex items-center gap-5 mr-5 lg:hidden'}>
-                                    <DarkModeSwitch/>
-                                    <LinkedinGithubComponent/>
-                                </div>
-                                <div className="flex items-center lg:absolute lg:inset-y-0 lg:right-0 lg:hidden">
-                                    {/* Mobile menu button */}
-                                    <Popover.Button
-                                        className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 dark:text-slate-300 dark:hover:bg-slate-700 hover:bg-gray-100 dark:hover:text-slate-100 hover:text-gray-500 focus:outline-none">
-                                        <span className="sr-only">Open menu</span>
-                                        {open ? (
-                                            <XMarkIcon className="block h-6 w-6" aria-hidden="true"/>
-                                        ) : (
-                                            <Bars3Icon className="block h-6 w-6" aria-hidden="true"/>
-                                        )}
-                                    </Popover.Button>
-                                </div>
-                                <div className="hidden lg:flex lg:items-center lg:justify-end lg:col-span-2">
-                                    <div className='flex items-center space-x-4'>
-                                        <LanguageSelector/>
-                                        <DarkModeSwitch/>
-                                        <LinkedinGithubComponent/>
-                                        <button
-                                            onClick={() => ref?.current?.open()}
-                                            className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
-                                        >
-                                            {t('navbar.contact')}
-                                        </button>
-                                    </div>
-                                </div>
+            <div className="shadow-sm bg-white dark:bg-slate-800">
+                {/* Desktop */}
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+                    <div className="relative flex justify-between lg:gap-8 lg:grid lg:grid-cols-12">
+                        <div className="flex lg:inset-y-0 lg:left-0 lg:static lg:col-span-2">
+                            <div className="flex flex-shrink-0 items-center">
+                                <QComponent/>
                             </div>
                         </div>
 
-
-                        {/*Mobile*/}
-                        <Popover.Panel as="nav" className="lg:hidden " aria-label="Global">
-                            {({close}) => (
-                                <div className="mx-auto max-w-full space-y-1 px-2 pt-2 pb-3 sm:px-4">
-                                    {navigation.map((item) =>
-                                        item.popover ?
-                                            (<div key={item.name} className="w-full px-3 py-2">
-                                                    <div
-                                                        className="mx-auto w-full rounded-2xl bg-white dark:bg-slate-800">
-                                                        <Disclosure>
-                                                            {({open}) => (
-                                                                <>
-                                                                    <Disclosure.Button
-                                                                        className="flex w-full justify-between">
+                        {/* Desktop Navigation with Shadcn UI NavigationMenu */}
+                        <div className="hidden lg:flex lg:px-8 lg:px-0 lg:col-span-8 lg:justify-center">
+                            <div className="flex items-center px-6 py-4 lg:mx-auto lg:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
+                                <NavigationMenu>
+                                    <NavigationMenuList>
+                                        {navigation.map((item, idx) =>
+                                            item.popover ? (
+                                                <NavigationMenuItem key={idx}>
+                                                    <NavigationMenuTrigger>{item.name}</NavigationMenuTrigger>
+                                                    <NavigationMenuContent>
+                                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                                                            {item.children.map((child) => (
+                                                                <li key={child.name}>
+                                                                    <NavigationMenuLink asChild>
                                                                         <Link
-                                                                            key={item.name}
-                                                                            href={item.href}
-                                                                            onClick={() => close()}
-                                                                            className={`text-gray-900 dark:text-slate-100  block rounded-md  text-base font-medium`}
+                                                                            href={child.link}
+                                                                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-blue-600 hover:text-white dark:hover:bg-yellow-500 dark:hover:text-slate-900"
                                                                         >
-                                                                            {item.name}
+                                                                            <div className="flex items-center gap-2">
+                                                                                <child.icon className="h-5 w-5"/>
+                                                                                <div className="text-sm font-medium leading-none">{child.name}</div>
+                                                                            </div>
                                                                         </Link>
-                                                                        {open ? <ChevronDownIcon
-                                                                            className={`h-5 w-5 text-blue-600 dark:text-yellow-500`}
-                                                                        /> : <ChevronRightIcon
-                                                                            className={`h-5 w-5 text-blue-600 dark:text-yellow-500`}
-                                                                        />}
-
-                                                                    </Disclosure.Button>
-                                                                    <Disclosure.Panel
-                                                                        className="pl-3 pt-4 pb-2 text-sm text-slate-700 dark:text-slate-300   gap-4 flex flex-col ">
-                                                                        {item.children.map((child) => (
-                                                                            <Link
-                                                                                download={child.storage}
-                                                                                target={child.storage ? '_blank' : ''}
-                                                                                key={child.name}
-                                                                                href={child.link}
-                                                                                onClick={() => close()}
-                                                                                className={'group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-blue-600 hover:text-white'}
-                                                                            >
-                                                                                <child.icon
-                                                                                    className="mr-2 h-5 w-5"
-                                                                                    aria-hidden="true"/>
-                                                                                {child.name}
-                                                                            </Link>
-                                                                        ))}
-                                                                    </Disclosure.Panel>
-                                                                </>
-                                                            )}
-                                                        </Disclosure>
-                                                    </div>
-                                                </div>
+                                                                    </NavigationMenuLink>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </NavigationMenuContent>
+                                                </NavigationMenuItem>
+                                            ) : (
+                                                <NavigationMenuItem key={idx}>
+                                                    <Link
+                                                        href={item.href}
+                                                        download={item.download}
+                                                        target={item.download ? "_blank" : undefined}
+                                                        className={cn(
+                                                            navigationMenuTriggerStyle(),
+                                                            "hover:bg-black hover:text-white dark:hover:bg-slate-100 dark:hover:text-black"
+                                                        )}
+                                                    >
+                                                        {item.name}
+                                                    </Link>
+                                                </NavigationMenuItem>
                                             )
-                                            :
-                                            (
+                                        )}
+                                    </NavigationMenuList>
+                                </NavigationMenu>
+                            </div>
+                        </div>
+
+                        {/* Mobile icons */}
+                        <div className={'flex items-center gap-5 mr-5 lg:hidden'}>
+                            <DarkModeSwitch/>
+                            <LinkedinGithubComponent/>
+                        </div>
+
+                        {/* Mobile menu button */}
+                        <div className="flex items-center lg:absolute lg:inset-y-0 lg:right-0 lg:hidden">
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" size="icon" className="-mx-2 p-2 text-gray-400 dark:text-slate-300">
+                                        <span className="sr-only">Open menu</span>
+                                        <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" className="mt-2 w-60 bg-white dark:bg-slate-800">
+                                    {navigation.map((item) =>
+                                        item.popover ? (
+                                            <DropdownMenu key={item.name}>
+                                                <DropdownMenuTrigger asChild>
+                                                    <Button variant="ghost" className="w-full justify-between">
+                                                        {item.name}
+                                                        <ChevronRightIcon className="h-4 w-4 text-blue-600 dark:text-yellow-500"/>
+                                                    </Button>
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent>
+                                                    {item.children.map((child) => (
+                                                        <DropdownMenuItem key={child.name} asChild>
+                                                            <Link href={child.link} className="flex items-center gap-2">
+                                                                <child.icon className="h-5 w-5"/>
+                                                                {child.name}
+                                                            </Link>
+                                                        </DropdownMenuItem>
+                                                    ))}
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
+                                        ) : (
+                                            <DropdownMenuItem key={item.name} asChild>
                                                 <Link
-                                                    key={item.name}
                                                     href={item.href}
                                                     download={item.download}
                                                     target={item.download ? "_blank" : undefined}
-                                                    onClick={() => close()}
-                                                    aria-current={item.current ? 'page' : undefined}
-                                                    className={'block text-slate-900 dark:text-slate-100 rounded-md py-2 px-3 text-base font-medium'}
                                                 >
                                                     {item.name}
                                                 </Link>
-                                            )
+                                            </DropdownMenuItem>
+                                        )
                                     )}
-
-                                    {/* Add language selector to mobile menu */}
                                     <div className="px-3 py-2 mt-4">
                                         <LanguageSelector/>
                                     </div>
+                                    <div className="px-2 pt-2 pb-2">
+                                        <Button
+                                            onClick={() => ref?.current?.open()}
+                                            className="w-full"
+                                        >
+                                            {t('navbar.contact')}
+                                        </Button>
+                                    </div>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </div>
 
-                                    <button
-                                        onClick={() => ref?.current?.open()}
-                                        className="mt-4 flex w-full items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700"
-                                    >
-                                        {t('navbar.contact')}
-                                    </button>
-                                </div>
-                            )}
-
-                        </Popover.Panel>
-                    </>
-                )}
-            </Popover>
+                        {/* Desktop right section */}
+                        <div className="hidden lg:flex lg:items-center lg:justify-end lg:col-span-2">
+                            <div className='flex items-center space-x-4'>
+                                <LanguageSelector/>
+                                <DarkModeSwitch/>
+                                <LinkedinGithubComponent/>
+                                <Button
+                                    onClick={() => ref?.current?.open()}
+                                >
+                                    {t('navbar.contact')}
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <ContactDialog ref={ref}/>
         </div>
     )

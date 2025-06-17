@@ -1,20 +1,23 @@
 import {ContactDialog} from "../../dialogs/ContactDialog";
 import {PropsWithChildren, useRef} from "react";
 import Image from "next/image";
+import {useTranslation} from 'next-i18next';
 
 type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
 export default function AboutMeSection() {
     const ref = useRef<ContactDialogProps>(null);
+    const {t} = useTranslation('common');
+
     return (
         <div className=" bg-white transition dark:bg-slate-900 py-16 lg:py-24">
             <div className="relative mx-auto w-auto lg:max-w-7xl lg:px-8">
                 <div
                     className="relative lg:flex lg:flex-col lg:items-center mx-auto max-w-md space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0 mb-16">
                     <h2 className="text-3xl font-bold transition leading-8 tracking-tight text-gray-900 dark:text-slate-100 sm:text-4xl">
-                        How I work
+                        {t('about.howIWork')}
                     </h2>
                     <p className="mx-auto mt-4  text-xl transition text-gray-500 dark:text-slate-200">
-                        What drives me
+                        {t('about.whatDrivesMe')}
                     </p>
                 </div>
                 <div className="absolute inset-x-0 top-0 hidden h-1/2  lg:block" aria-hidden="true"/>
@@ -48,20 +51,17 @@ export default function AboutMeSection() {
                                 className="relative mx-auto max-w-md space-y-6 py-12 px-4 sm:max-w-3xl sm:py-16 sm:px-6 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0">
                                 <h2 className="text-3xl transition font-bold tracking-tight text-white dark:text-slate-900"
                                     id="join-heading">
-                                    Always turn a problem into an opportunity.
+                                    {t('about.motto')}
                                 </h2>
                                 <p className="text-lg transition text-white dark:text-slate-900">
-                                    With the experience of yesterday, the ambition and motivation of today, I am
-                                    fascinated for tomorrow and look almost euphorically towards a future in which IoT
-                                    is known to everyone, product development is no longer imaginable without Virtual
-                                    Twins and networked machines learn independently.
+                                    {t('about.philosophy')}
                                 </p>
                                 <button
                                     type='button'
                                     onClick={() => ref?.current?.open()}
                                     className="block w-full transition rounded-md border border-transparent bg-white dark:bg-blue-600 dark:text-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
                                 >
-                                    Contact
+                                    {t('navbar.contact')}
                                 </button>
                             </div>
                         </div>

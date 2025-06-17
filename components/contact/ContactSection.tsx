@@ -3,6 +3,7 @@ import {PropsWithChildren, useRef, useState} from "react";
 import {addDoc, collection, getFirestore} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
 import {SubmitHandler, useForm} from "react-hook-form";
+import {useTranslation} from 'next-i18next';
 
 type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
 
@@ -10,6 +11,7 @@ type Email = {
     email: string,
 };
 export default function ContactSection() {
+    const {t} = useTranslation('common');
     const [emailSubmitted, setEmailSubmitted] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const app = useFirebaseApp();
@@ -41,12 +43,12 @@ export default function ContactSection() {
                         <div className="relative">
                             <div className="sm:text-center">
                                 <h2 className="text-3xl transition font-bold tracking-tight text-slate-100 dark:text-black sm:text-4xl ">
-                                    Project in mind?
+                                    {t('contact.heading')}
                                     <br/>
-                                    Let&apos;s talk!
+                                    {t('contact.subheading')}
                                 </h2>
                                 <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300 dark:text-slate-900">
-                                    Let me reach out to you by droping your e-mail
+                                    {t('contact.description')}
                                 </p>
                             </div>
                             <div className="mt-12 sm:mx-auto sm:flex sm:max-w-lg justify-center">
@@ -59,7 +61,7 @@ export default function ContactSection() {
                                                         type="button"
                                                         className="cursor-default block w-full rounded-md border border-transparent bg-green-500 px-5 py-3 text-base font-medium text-white   sm:px-10">
                                                         <span className='text-2xl mr-3'>🎉</span>
-                                                        I will reach out to you!
+                                                        {t('header.messageSent')}
                                                     </button>
                                                 </div>
                                             </div>
@@ -67,23 +69,23 @@ export default function ContactSection() {
                                             <div className="sm:mx-auto sm:flex">
                                                 <div className="relative flex-1 min-w-72 sm:w-72">
                                                     <label htmlFor="cta-email" className="sr-only">
-                                                        Email address
+                                                        {t('contact.email')}
                                                     </label>
                                                     <input
                                                         {...register("email", {
                                                             required: {
                                                                 value: true,
-                                                                message: 'Field is required'
+                                                                message: t('contact.required')
                                                             },
                                                             pattern: {
                                                                 value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-                                                                message: 'Not a valid E-Mail'
+                                                                message: t('contact.emailInvalid')
                                                             }
                                                         })}
                                                         id="cta-email"
                                                         type="email"
                                                         className="block w-full rounded-md transition border-none ring-2 ring-blue-500 transition dark:ring-yellow-500 px-5 py-3 text-base text-gray-900 placeholder-gray-500  focus:border-transparent focus:outline-none focus:ring-2  focus:ring-blue-600 dark:focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-blue-600 dark:focus:ring-offset-yellow-500"
-                                                        placeholder="Enter your email"
+                                                        placeholder={t('contact.enterEmail')}
                                                     />
                                                     {errors.email && <ErrorMessage message={errors.email.message}/>}
                                                 </div>
@@ -95,7 +97,7 @@ export default function ContactSection() {
                                                         onClick={handleSubmit(onSubmit)}
                                                         className="block w-full rounded-md border border-transparent bg-black px-5 py-3 text-base font-medium text-white  hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
                                                     >
-                                                        Yes, contact me!
+                                                        {t('contact.submitButton')}
                                                     </button>
                                                 </div>
                                             </div>
@@ -103,15 +105,14 @@ export default function ContactSection() {
                                 </div>
                             </div>
                             <div className="flex flex-col items-center justify-center mt-8 ">
-                                <span className='text-black text-lg text-slate-300 dark:text-slate-900'>or contact me
-                                    directly</span>
+                                <span className='text-black text-lg text-slate-300 dark:text-slate-900'>{t('contact.orContact')}</span>
                                 <br/>
                                 <button
                                     type='button'
                                     onClick={() => ref?.current?.open()}
                                     className="block w-full rounded-md border border-transparent bg-white dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
                                 >
-                                    Contact
+                                    {t('contact.directContact')}
                                 </button>
                             </div>
                         </div>

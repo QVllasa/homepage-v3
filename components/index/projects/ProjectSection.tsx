@@ -4,9 +4,11 @@ import {useState} from "react";
 import {ArrowSmallDownIcon} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import {Projects} from "../../../data/projects";
+import {useTranslation} from 'next-i18next';
 
 
 export default function ProjectSection() {
+    const {t} = useTranslation('common');
     const projectData: ProjectModel[] = Projects;
     const [projects, setProjects] = useState<ProjectModel[]>(projectData);
     const [counter, setCounter] = useState(6);
@@ -26,11 +28,11 @@ export default function ProjectSection() {
                 </div>
                 <div className="relative mx-auto max-w-3xl lg:max-w-7xl">
                     <div className="text-left lg:text-center">
-                        <h2 className="text-3xl font-bold transition tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">Some
-                            of My latest
-                            Projects</h2>
+                        <h2 className="text-3xl font-bold transition tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
+                            {t('projects.heading')}
+                        </h2>
                         <p className="mx-auto mt-3 transition lg:max-w-2xl text-xl text-gray-500 sm:mt-4 dark:text-slate-300">
-                            Growing with every project
+                            {t('projects.subheading')}
                         </p>
                     </div>
                     <div className="mx-auto mt-12 grid  gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
@@ -54,7 +56,7 @@ export default function ProjectSection() {
                                                             <>
                                                                 <span
                                                                     className={'inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20'}>
-                                                                    {project?.status}
+                                                                    {t('projects.status.onHold')}
                                                                 </span>
                                                             </>
                                                         }
@@ -62,7 +64,7 @@ export default function ProjectSection() {
                                                             <>
                                                                 <span
                                                                     className={'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20'}>
-                                                                    {project?.status}
+                                                                    {t('projects.status.completed')}
                                                                 </span>
                                                             </>
                                                         }
@@ -70,7 +72,7 @@ export default function ProjectSection() {
                                                             <>
                                                                 <span
                                                                     className={'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}>
-                                                                    {project?.status}
+                                                                    {t('projects.status.canceled')}
                                                                 </span>
                                                             </>
                                                         }
@@ -78,7 +80,7 @@ export default function ProjectSection() {
                                                             <>
                                                                 <span
                                                                     className={'inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10'}>
-                                                                    {project?.status}
+                                                                    {t('projects.status.inProgress')}
                                                                 </span>
                                                             </>
                                                         }</div>
@@ -97,16 +99,12 @@ export default function ProjectSection() {
                             onClick={loadMore}
                             className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md transition border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white  hover:bg-blue-700"
                         >
-                            Load more
+                            {t('projects.loadMore')}
                             <ArrowSmallDownIcon className='h-5 w-5 ml-3'/>
-                        </button>
-                        }
-
+                        </button>}
                     </div>
-
                 </div>
             </div>
         </div>
-
     )
 }

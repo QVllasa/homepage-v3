@@ -1,28 +1,31 @@
 import {ChartBarSquareIcon, CodeBracketIcon, PresentationChartLineIcon} from "@heroicons/react/24/outline";
 import Link from "next/link";
-
-const services = [
-    {
-        name: 'IT Consulting',
-        description: 'Optimize you process.',
-        link: '/services/consulting',
-        icon: PresentationChartLineIcon,
-    },
-    {
-        name: 'Web Application Development',
-        description: 'Development of tailor-made software.',
-        link: '/services/development',
-        icon: CodeBracketIcon,
-    },
-    {
-        name: 'Business Research & Analytics',
-        description: 'Insight about your data.',
-        link: '/services/analytics',
-        icon: ChartBarSquareIcon,
-    },
-]
+import {useTranslation} from 'next-i18next';
 
 export default function ServicesSection() {
+    const {t} = useTranslation('common');
+
+    const services = [
+        {
+            name: t('services.items.consulting.title'),
+            description: t('services.items.consulting.description'),
+            link: '/services/consulting',
+            icon: PresentationChartLineIcon,
+        },
+        {
+            name: t('services.items.development.title'),
+            description: t('services.items.development.description'),
+            link: '/services/development',
+            icon: CodeBracketIcon,
+        },
+        {
+            name: t('services.items.analytics.title'),
+            description: t('services.items.analytics.description'),
+            link: '/services/analytics',
+            icon: ChartBarSquareIcon,
+        },
+    ]
+
     return (
         <div className="dark:bg-slate-900 py-16 lg:py-24" id={'services'}>
             <div className="relative mx-auto lg:max-w-7xl lg:px-8">
@@ -33,10 +36,10 @@ export default function ServicesSection() {
                         <div
                             className="relative z-10 lg:flex lg:flex-col lg:items-center mx-auto  space-y-6 px-4 sm:max-w-3xl sm:px-6 lg:col-span-6 lg:col-start-4 lg:p-0 mb-16">
                             <h2 className="text-3xl font-bold leading-8 transition tracking-tight text-white sm:text-4xl dark:text-slate-900">
-                                What I can do for you
+                                {t('services.heading')}
                             </h2>
                             <p className="mx-auto mt-4 transition text-xl text-gray-200 dark:text-slate-800">
-                                Using cutting edge technologies
+                                {t('services.subheading')}
                             </p>
                         </div>
                         <svg
@@ -87,7 +90,7 @@ export default function ServicesSection() {
                                                             className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:w-auto">
                                                             <p className="flex items-center justify-center rounded-md dark:bg-slate-700 dark:text-slate-300  bg-white px-4 py-2 text-sm font-medium text-blue-600  hover:bg-blue-50"
                                                             >
-                                                                Read more
+                                                                {t('services.readMore')}
                                                             </p>
                                                         </div>
                                                     </div>
