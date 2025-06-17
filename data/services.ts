@@ -2,67 +2,148 @@ import {ServiceModel} from "../components/models/service.model";
 
 export const Services: ServiceModel[] = [
     {
-        "title": "IT Consulting for Modern Businesses",
-        "slug": "Optimize you process.",
-        "description": "Unlock your full potential with my IT consulting services. Let me analyze your processes and recommend the best software and tools to optimize them and give you more time for the important things. Achieve maximum efficiency and productivity with my help.",
+        "title": {
+            "en": "IT Consulting for Modern Businesses",
+            "de": "IT-Beratung für moderne Unternehmen"
+        },
+        "slug": {
+            "en": "Optimize your process.",
+            "de": "Optimieren Sie Ihre Prozesse."
+        },
+        "description": {
+            "en": "Unlock your full potential with my IT consulting services. Let me analyze your processes and recommend the best software and tools to optimize them and give you more time for the important things. Achieve maximum efficiency and productivity with my help.",
+            "de": "Entfalten Sie Ihr volles Potenzial mit meinen IT-Beratungsdiensten. Lassen Sie mich Ihre Prozesse analysieren und die beste Software und Tools empfehlen, um sie zu optimieren und Ihnen mehr Zeit für die wichtigen Dinge zu geben. Erreichen Sie maximale Effizienz und Produktivität mit meiner Hilfe."
+        },
         "key": "consulting",
         "sections": [
             {
                 "keys": [
                     {
-                        "description": "Our web development consultation team is composed of experienced developers who have a deep understanding of the latest technologies and trends.",
-                        "title": "Expertise"
+                        "description": {
+                            "en": "Our web development consultation team is composed of experienced developers who have a deep understanding of the latest technologies and trends.",
+                            "de": "Unser Team für Webentwicklungsberatung besteht aus erfahrenen Entwicklern, die ein tiefes Verständnis der neuesten Technologien und Trends haben."
+                        },
+                        "title": {
+                            "en": "Expertise",
+                            "de": "Fachwissen"
+                        }
                     },
                     {
-                        "title": "Customization",
-                        "description": "We provide customized solutions to meet the specific needs of your business, ensuring that your website is tailored to your unique requirements."
+                        "title": {
+                            "en": "Customization",
+                            "de": "Anpassung"
+                        },
+                        "description": {
+                            "en": "We provide customized solutions to meet the specific needs of your business, ensuring that your website is tailored to your unique requirements.",
+                            "de": "Wir bieten maßgeschneiderte Lösungen, um die spezifischen Bedürfnisse Ihres Unternehmens zu erfüllen und sicherzustellen, dass Ihre Website auf Ihre einzigartigen Anforderungen zugeschnitten ist."
+                        }
                     },
                     {
-                        "title": "Results-Driven",
-                        "description": "Our consultation services are designed to help your business achieve its goals, whether it's increasing online sales, boosting website traffic, or improving customer engagement."
+                        "title": {
+                            "en": "Results-Driven",
+                            "de": "Ergebnisorientiert"
+                        },
+                        "description": {
+                            "en": "Our consultation services are designed to help your business achieve its goals, whether it's increasing online sales, boosting website traffic, or improving customer engagement.",
+                            "de": "Unsere Beratungsdienste sind darauf ausgerichtet, Ihrem Unternehmen zu helfen, seine Ziele zu erreichen, sei es die Steigerung des Online-Verkaufs, die Erhöhung des Website-Verkehrs oder die Verbesserung des Kundenkontakts."
+                        }
                     }
                 ],
-                "description": "I am a web developer with experience in developing and evaluating third-party web applications. I use this expertise to help people and organizations choose the best web apps for their specific needs. Let me guide you to make informed decisions and achieve your objectives.",
+                "description": {
+                    "en": "I am a web developer with experience in developing and evaluating third-party web applications. I use this expertise to help people and organizations choose the best web apps for their specific needs. Let me guide you to make informed decisions and achieve your objectives.",
+                    "de": "Ich bin ein Webentwickler mit Erfahrung in der Entwicklung und Bewertung von Web-Anwendungen von Drittanbietern. Ich nutze diese Expertise, um Menschen und Organisationen zu helfen, die besten Web-Apps für ihre spezifischen Bedürfnisse auszuwählen. Lassen Sie mich Sie führen, um fundierte Entscheidungen zu treffen und Ihre Ziele zu erreichen."
+                },
                 "img": "/services/wac.svg",
-                "title": "Web Application Consulting"
+                "title": {
+                    "en": "Web Application Consulting",
+                    "de": "Beratung zu Webanwendungen"
+                }
             },
             {
-                "description": "I help demystify IT and show people that it can be fun and exciting. My experience and guidance can help you see the opportunities IT provides and change your perception of it.",
-                "title": "Teaching",
+                "description": {
+                    "en": "I help demystify IT and show people that it can be fun and exciting. My experience and guidance can help you see the opportunities IT provides and change your perception of it.",
+                    "de": "Ich helfe, die IT zu entmystifizieren und den Menschen zu zeigen, dass sie Spaß machen und aufregend sein kann. Meine Erfahrung und Anleitung können Ihnen helfen, die Möglichkeiten zu erkennen, die die IT bietet, und Ihre Wahrnehmung davon zu ändern."
+                },
+                "title": {
+                    "en": "Teaching",
+                    "de": "Lehre"
+                },
                 "img": "/services/teaching.svg",
                 "keys": [
                     {
-                        "description": "Our IT consulting team provides training and education services to help organizations and individuals acquire the skills and knowledge they need to succeed in the ever-changing technology landscape.",
-                        "title": "Knowledge Transfer"
+                        "description": {
+                            "en": "Our IT consulting team provides training and education services to help organizations and individuals acquire the skills and knowledge they need to succeed in the ever-changing technology landscape.",
+                            "de": "Unser IT-Beratungsteam bietet Schulungs- und Bildungsdienste an, um Organisationen und Einzelpersonen zu helfen, die Fähigkeiten und das Wissen zu erwerben, die sie in der sich ständig verändernden Technologielandschaft zum Erfolg benötigen."
+                        },
+                        "title": {
+                            "en": "Knowledge Transfer",
+                            "de": "Wissenstransfer"
+                        }
                     },
                     {
-                        "description": "We offer customized training programs that are tailored to the specific needs of the organization or individual, ensuring that the content is relevant, engaging and effective.",
-                        "title": "Tailored Content"
+                        "description": {
+                            "en": "We offer customized training programs that are tailored to the specific needs of the organization or individual, ensuring that the content is relevant, engaging and effective.",
+                            "de": "Wir bieten maßgeschneiderte Schulungsprogramme an, die auf die spezifischen Bedürfnisse der Organisation oder des Einzelnen zugeschnitten sind, um sicherzustellen, dass die Inhalte relevant, ansprechend und effektiv sind."
+                        },
+                        "title": {
+                            "en": "Tailored Content",
+                            "de": "Maßgeschneiderte Inhalte"
+                        }
                     },
                     {
-                        "title": "Proven Results",
-                        "description": "Our training and consulting services have been proven to help organizations and individuals improve their performance, increase productivity, and achieve their goals."
+                        "title": {
+                            "en": "Proven Results",
+                            "de": "Bewährte Ergebnisse"
+                        },
+                        "description": {
+                            "en": "Our training and consulting services have been proven to help organizations and individuals improve their performance, increase productivity, and achieve their goals.",
+                            "de": "Unsere Schulungs- und Beratungsdienste haben sich als hilfreich erwiesen, um Organisationen und Einzelpersonen zu helfen, ihre Leistung zu verbessern, die Produktivität zu steigern und ihre Ziele zu erreichen."
+                        }
                     }
                 ]
             },
             {
                 "keys": [
                     {
-                        "description": "Our consulting team has extensive experience in developing and implementing desktop applications for various industries, giving us a deep understanding of the best practices and latest technologies in the field.",
-                        "title": "Experience"
+                        "description": {
+                            "en": "Our consulting team has extensive experience in developing and implementing desktop applications for various industries, giving us a deep understanding of the best practices and latest technologies in the field.",
+                            "de": "Unser Beratungsteam verfügt über umfangreiche Erfahrung in der Entwicklung und Implementierung von Desktop-Anwendungen für verschiedene Branchen, was uns ein tiefes Verständnis der besten Praktiken und neuesten Technologien auf diesem Gebiet vermittelt."
+                        },
+                        "title": {
+                            "en": "Experience",
+                            "de": "Erfahrung"
+                        }
                     },
                     {
-                        "title": "Scalability",
-                        "description": "We offer consulting services that can be tailored to the specific needs of your organization, whether you are looking to develop a single application or a suite of applications."
+                        "title": {
+                            "en": "Scalability",
+                            "de": "Skalierbarkeit"
+                        },
+                        "description": {
+                            "en": "We offer consulting services that can be tailored to the specific needs of your organization, whether you are looking to develop a single application or a suite of applications.",
+                            "de": "Wir bieten Beratungsdienste an, die auf die spezifischen Bedürfnisse Ihrer Organisation zugeschnitten werden können, unabhängig davon, ob Sie eine einzelne Anwendung oder eine Suite von Anwendungen entwickeln möchten."
+                        }
                     },
                     {
-                        "description": "Our desktop application consulting services are designed to help organizations increase productivity, streamline processes, and improve overall performance by leveraging the latest technologies and best practices in the field.",
-                        "title": "Productivity Boost"
+                        "description": {
+                            "en": "Our desktop application consulting services are designed to help organizations increase productivity, streamline processes, and improve overall performance by leveraging the latest technologies and best practices in the field.",
+                            "de": "Unsere Beratungsdienste für Desktop-Anwendungen sind darauf ausgelegt, Organisationen zu helfen, die Produktivität zu steigern, Prozesse zu optimieren und die Gesamtleistung zu verbessern, indem die neuesten Technologien und bewährte Verfahren auf diesem Gebiet genutzt werden."
+                        },
+                        "title": {
+                            "en": "Productivity Boost",
+                            "de": "Produktivitätssteigerung"
+                        }
                     }
                 ],
                 "img": "/services/desktop.svg",
-                "title": "Desktop Application Consulting",
-                "description": "I use my experience in developing and using various desktop applications to help people and organizations choose the best one for their needs. From simple management tools to complex construction software, I have the expertise to guide you to the right solution. Let me help you make the best use of desktop technologies."
+                "title": {
+                    "en": "Desktop Application Consulting",
+                    "de": "Beratung zu Desktop-Anwendungen"
+                },
+                "description": {
+                    "en": "I use my experience in developing and using various desktop applications to help people and organizations choose the best one for their needs. From simple management tools to complex construction software, I have the expertise to guide you to the right solution. Let me help you make the best use of desktop technologies.",
+                    "de": "Ich nutze meine Erfahrung in der Entwicklung und Nutzung verschiedener Desktop-Anwendungen, um Menschen und Organisationen zu helfen, die beste Lösung für ihre Bedürfnisse zu finden. Von einfachen Verwaltungstools bis hin zu komplexer Bausoftware habe ich das Fachwissen, um Sie zur richtigen Lösung zu führen. Lassen Sie mich Ihnen helfen, die Desktop-Technologien optimal zu nutzen."
+                }
             }
         ],
         "order": 0,

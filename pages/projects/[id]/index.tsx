@@ -4,16 +4,43 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import {Projects} from "../../../data/projects";
+import {useTranslatedContent} from "../../../lib/useTranslatedContent";
+import {useTranslation} from 'next-i18next';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {GetStaticPaths, GetStaticProps} from 'next';
 
 export default function ProjectDetails() {
     const projectData: ProjectModel[] = Projects;
-    const router = useRouter()
+    const router = useRouter();
+    const {t} = useTranslation('common');
     const {id} = router.query;
 
-    const data: ProjectModel = projectData.filter(obj => obj.id === id)[0]
+    const data = projectData.find(obj => obj.id === id);
 
-    if (!data) return null
+    if (!data) return null;
 
+    // Helper function for status translation
+    const getTranslatedStatus = (status: string) => {
+        switch (status) {
+            case 'In Progress':
+                return t('projects.status.inProgress');
+            case 'Completed':
+                return t('projects.status.completed');
+            case 'On Hold':
+                return t('projects.status.onHold');
+            case 'Canceled':
+                return t('projects.status.canceled');
+            default:
+                return status;
+        }
+    };
+
+    // Safe function to get Alt text for images
+    const getAltText = (text: any) => {
+        if (typeof text === 'string') return text;
+        if (text && typeof text === 'object' && 'en' in text) return text.en;
+        return '';
+    };
 
     return (
         <div className={''}>
@@ -48,110 +75,155 @@ export default function ProjectDetails() {
                                 <rect width={404} height={392} fill="url(#02f20b47-fd69-4224-a62a-4c9de5c763f7)"/>
                             </svg>
                         </div>
-                        <div
-                            className="relative lg:absolute lg:right-0 lg:w-[48rem] mx-auto max-w-md px-6 sm:max-w-3xl lg:max-w-none lg:px-0 lg:py-20 ">
-                            <div className="relative overflow-hidden rounded-2xl pt-[56.25%] pb-10 ">
-                                <Image width={640} height={400}
-                                       className="absolute inset-0 h-full w-full "
-                                       src={data?.img}
-                                       alt={data?.title}
+                        <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
+                            <div className="relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl">
+                                <Image
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                    src={data.img}
+                                    alt={getAltText(data.title)}
+                                    width={640}
+                                    height={400}
                                 />
+                                <div className="absolute inset-0 bg-gray-500 mix-blend-multiply"/>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black opacity-90"/>
+                                <div className="relative px-8">
+                                    <blockquote className="mt-8">
+                                        <div className="relative text-lg font-medium text-white md:flex-grow">
+                                            <svg
+                                                className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-gray-400"
+                                                fill="currentColor"
+                                                viewBox="0 0 32 32"
+                                                aria-hidden="true"
+                                            >
+                                                <path
+                                                    d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
+                                            </svg>
+                                            <p className="relative">
+                                                {useTranslatedContent(data.shortDescription)}
+                                            </p>
+                                        </div>
+                                    </blockquote>
+                                </div>
                             </div>
-                            <Link target="_blank" href={data?.previewLink ?? ''}
-                                  className={'flex mx-auto w-max h-max mt-4 relative'}>
-                                <button
-                                    disabled={!data?.previewLink}
-                                    type="button"
-                                    className="relative mx-auto disabled:bg-gray-300 dark:disabled:bg-slate-700 dark:disabled:text-slate-400 block dark:bg-yellow-500 dark:text-slate-900 rounded-md border border-transparent bg-blue-600 px-5 py-3 text-base font-medium text-white  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 sm:px-10"
-                                >
-                                    Live Preview
-                                </button>
-                            </Link>
-                            {data?.previewLink ? null :
-                                <p className={'w-full text-center mt-2 text-gray-400 dark:text-slate-600'}>Only visible
-                                    at the customers
-                                    site</p>}
                         </div>
                     </div>
 
-                    <div className="relative mx-auto max-w-md px-6 sm:max-w-3xl lg:px-0">
+                    <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
                         {/* Content area */}
                         <div className="pt-12 sm:pt-16 lg:pt-20">
-                            <div className={'flex justify-start items-start '}>
-                                <h2 className="mr-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
-                                    {data?.title}
-                                </h2>
-                                {data?.status === 'On Hold' &&
-                                    <>
-                                        <span
-                                            className={'inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20'}>
-                                            {data?.status}
-                                        </span>
-                                    </>
-                                }
-                                {data?.status === 'Completed' &&
-                                    <>
-                                        <span
-                                            className={'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20'}>
-                                            {data?.status}
-                                        </span>
-                                    </>
-                                }
-                                {data?.status === 'Canceled' &&
-                                    <>
-                                        <span
-                                            className={'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}>
-                                            {data?.status}
-                                        </span>
-                                    </>
-                                }
-                                {data?.status === 'In Progress' &&
-                                    <>
-                                        <span
-                                            className={'inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10'}>
-                                            {data?.status}
-                                        </span>
-                                    </>
-                                }
-                            </div>
+                            <div className="flex justify-between">
+                                <div className="flex flex-col">
+                                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                                        {useTranslatedContent(data.title)}
+                                    </h2>
+                                    <div className="bg-gray-50 dark:bg-slate-700 shadow-md rounded-lg mt-8 px-4 py-5 sm:px-6">
+                                        <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">Project
+                                            Information</h3>
 
-                            <div className="mt-6 space-y-6 text-gray-500 dark:text-slate-300">
-                                <p className="text-lg">
-                                    {data?.description}
+                                        <div className="mt-5 border-t border-gray-200">
+                                            <dl className="divide-y divide-gray-200">
+                                                <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Client</dt>
+                                                    <dd className="mt-1 flex text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+                                                        <span className="flex-grow">{useTranslatedContent(data.client)}</span>
+                                                    </dd>
+                                                </div>
+                                                <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Status</dt>
+                                                    <dd className="mt-1 flex text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+                                                        <span className="flex-grow">{getTranslatedStatus(data.status)}</span>
+                                                    </dd>
+                                                </div>
+                                                {data.stats && data.stats.map((stat, idx) => (
+                                                    <div key={idx}
+                                                         className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                                        <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">{useTranslatedContent(stat.key)}</dt>
+                                                        <dd className="mt-1 flex text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+                                                            <span className="flex-grow">{useTranslatedContent(stat.value)}</span>
+                                                        </dd>
+                                                    </div>
+                                                ))}
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="relative ml-4 flex-shrink-0 py-1 px-1 bg-white text-gray-600 hover:bg-gray-50 rounded-lg">
+                                        <Link href={'/'} className="group flex items-center py-2 px-3 text-sm font-medium">
+                                            <span>← Back</span>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                            {data.previewLink && (
+                                <a href={data.previewLink} target='_blank'
+                                   className="mt-4 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                    View Website
+                                </a>
+                            )}
+
+                            <div className="mt-6 space-y-6 text-gray-500 dark:text-gray-300">
+                                <p className="">
+                                    {useTranslatedContent(data.description)}
                                 </p>
                             </div>
                         </div>
 
-                        <div className="mt-10 space-y-10">
-                            {data?.keys.map((item, index) => (
-                                <div key={index} className="relative">
-                                    <dt>
-                                        <div
-                                            className="absolute flex h-8 w-8 items-start justify-start rounded-xl text-blue-600 dark:text-yellow-500">
-                                            <CheckIcon className="h-8 w-8" aria-hidden="true"/>
-                                        </div>
-                                        <p className="ml-12 text-lg font-medium leading-6 text-gray-900 dark:text-slate-100">{item.value}</p>
-                                    </dt>
-                                    <dd className="mt-2 ml-12 text-base text-gray-500 dark:text-slate-300">{item.description}</dd>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Stats section */}
+                        {/* Key Metrics section */}
                         <div className="mt-10">
                             <dl className="grid grid-cols-2 gap-x-4 gap-y-8">
-                                {data?.stats?.map((stat, index) => (
-                                    <div key={index} className="border-t-2 border-gray-100 dark:border-slate-700 pt-6">
-                                        <dt className="text-base font-medium text-gray-500 dark:text-slate-100">{stat.key}</dt>
-                                        <dd className="text-3xl font-bold tracking-tight text-gray-900 dark:text-yellow-500">{stat.value}</dd>
+                                {data.keys && data.keys.map((key, idx) => (
+                                    <div key={idx}
+                                         className="border-t border-gray-200 pt-6 dark:border-gray-600">
+                                        <dt className="text-base font-medium text-gray-900 dark:text-white">{useTranslatedContent(key.value)}</dt>
+                                        <dd className="mt-2 text-sm text-gray-500 dark:text-gray-300">{useTranslatedContent(key.description)}</dd>
                                     </div>
                                 ))}
                             </dl>
+                        </div>
+
+                        {/* Testimonial section */}
+                        <div className="mt-16">
+                            <div
+                                className="p-4 shadow-lg dark:shadow-none dark:border border-slate-600 rounded-md bg-gray-50 dark:bg-slate-800">
+                                <div className="relative flex items-center">
+                                    <div className="flex-shrink-0">
+                                        <span className="h-10 w-10 flex bg-blue-600 items-center justify-center rounded-full">
+                                            <CheckIcon className="h-6 w-6 text-white" aria-hidden="true"/>
+                                        </span>
+                                    </div>
+                                    <div className="ml-4 dark:text-gray-300">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     )
+}
+
+export const getStaticPaths: GetStaticPaths = async ({locales}) => {
+    const paths = Projects.flatMap(project =>
+        locales ?
+            locales.map(locale => ({
+                params: {id: project.id},
+                locale
+            })) :
+            [{params: {id: project.id}}]
+    );
+
+    return {
+        paths,
+        fallback: false,
+    };
+}
+
+export const getStaticProps: GetStaticProps = async ({locale}) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale || 'en', ['common'])),
+        },
+    };
 }

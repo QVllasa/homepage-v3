@@ -4,7 +4,10 @@ export interface ExperienceModel {
     company: string,
     companyUrl: string,
     order: number,
-    description: string,
+    description: {
+        en: string,
+        de: string
+    } | string, // Unterstützung für Legacy-Daten
     from: string,
     to: string,
     icon?: any,

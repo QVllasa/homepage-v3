@@ -5,6 +5,7 @@ import {ArrowSmallDownIcon} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import {Projects} from "../../../data/projects";
 import {useTranslation} from 'next-i18next';
+import {useTranslatedContent} from "../../../lib/useTranslatedContent";
 
 
 export default function ProjectSection() {
@@ -19,6 +20,21 @@ export default function ProjectSection() {
         setProjects(projectData)
     }
 
+    // Helper function for status translation
+    const getTranslatedStatus = (status: string) => {
+        switch (status) {
+            case 'In Progress':
+                return t('projects.status.inProgress');
+            case 'Completed':
+                return t('projects.status.completed');
+            case 'On Hold':
+                return t('projects.status.onHold');
+            case 'Canceled':
+                return t('projects.status.canceled');
+            default:
+                return status;
+        }
+    };
 
     return (
         <div className={'dark:bg-slate-900'}>
@@ -43,48 +59,37 @@ export default function ProjectSection() {
                                          className="flex transition flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:scale-101 transition">
                                         <div className="flex-shrink-0 bg-white">
                                             <Image className="h-48 w-full" width={640} height={400} src={project.img}
-                                                   alt=""/>
+                                                   alt={typeof project.title === 'string' ? project.title : project.title?.en || ''}/>
                                         </div>
                                         <div
                                             className="flex transition flex-1 flex-col justify-between bg-white dark:bg-slate-800 p-6">
                                             <div className="flex-1">
                                                 <div className="mt-2 block">
-                                                    <div
-                                                        className="flex justify-between items-center text-xl transition font-semibold text-gray-900 dark:text-slate-100">
-                                                        <p>{project.title}</p>
-                                                        {project?.status === 'On Hold' &&
-                                                            <>
-                                                                <span
-                                                                    className={'inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20'}>
-                                                                    {t('projects.status.onHold')}
-                                                                </span>
-                                                            </>
-                                                        }
-                                                        {project?.status === 'Completed' &&
-                                                            <>
-                                                                <span
-                                                                    className={'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20'}>
-                                                                    {t('projects.status.completed')}
-                                                                </span>
-                                                            </>
-                                                        }
-                                                        {project?.status === 'Canceled' &&
-                                                            <>
-                                                                <span
-                                                                    className={'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}>
-                                                                    {t('projects.status.canceled')}
-                                                                </span>
-                                                            </>
-                                                        }
-                                                        {project?.status === 'In Progress' &&
-                                                            <>
-                                                                <span
-                                                                    className={'inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10'}>
-                                                                    {t('projects.status.inProgress')}
-                                                                </span>
-                                                            </>
-                                                        }</div>
-                                                    <p className="mt-3 transition text-base text-gray-500 dark:text-slate-300">{project.slug}</p>
+                                                    <p className="text-xl transition font-semibold text-gray-900 dark:text-white">
+                                                        {useTranslatedContent(project.title)}
+                                                    </p>
+                                                    <div className="mt-3 flex items-center">
+                                                        <div className="flex-shrink-0">
+                                                            <span
+                                                                className="inline-flex transition items-center rounded-full bg-green-50 dark:bg-green-900 dark:text-green-100 px-2 py-1 text-xs font-medium text-green-700">
+                                                                {getTranslatedStatus(project.status)}
+                                                            </span>
+                                                        </div>
+                                                        <div className="ml-2">
+                                                            <p className="transition text-sm text-gray-500 dark:text-gray-400">
+                                                                {useTranslatedContent(project.client)}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <p className="my-3 transition text-base text-gray-500 dark:text-gray-400 line-clamp-4">
+                                                        {useTranslatedContent(project.shortDescription)}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className={'mt-4'}>
+                                                <div
+                                                    className="transition hover:bg-slate-200 flex w-full items-center justify-center rounded-md border border-transparent py-2 px-8 text-center text-sm font-medium dark:text-slate-100 dark:hover:bg-slate-700">
+                                                    {t('projects.viewDetails')}
                                                 </div>
                                             </div>
                                         </div>
@@ -93,15 +98,14 @@ export default function ProjectSection() {
                             }
                         })}
                     </div>
-                    <div className={'flex w-full justify-center mt-12'}>
-                        {hide ? null : <button
-                            type='button'
-                            onClick={loadMore}
-                            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md transition border border-transparent bg-blue-600 dark:bg-yellow-500 dark:text-slate-900 px-4 py-2 text-base font-medium text-white  hover:bg-blue-700"
-                        >
-                            {t('projects.loadMore')}
-                            <ArrowSmallDownIcon className='h-5 w-5 ml-3'/>
-                        </button>}
+                    <div className="flex justify-center mt-10">
+                        {!hide && projects.length > counter && (
+                            <div onClick={() => loadMore()}
+                                 className="flex flex-grow-0 cursor-pointer items-center justify-center rounded-md border-2 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 transition hover:bg-slate-200 dark:hover:bg-slate-700 border-gray-300 px-8 py-2 text-sm font-medium dark:text-slate-100">
+                                <ArrowSmallDownIcon className="mr-2 -ml-1 h-5 w-5"/>
+                                {t('projects.loadMore')}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

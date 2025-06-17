@@ -5,7 +5,8 @@
     "experience": "Erfahrung",
     "projects": "Projekte",
     "contact": "Kontakt",
-    "sections": "Bereiche"
+    "sections": "Bereiche",
+    "downloadCV": "Lebenslauf"
   },
   "header": {
     "greeting": "Hi, ich bin",
@@ -58,7 +59,7 @@
       "showLess": "Weniger anzeigen"
     },
     "heading": "Über meine Fähigkeiten und Erfahrungen",
-    "subheading": "Nur der Himmel ist die Grenze...",
+    "subheading": "Only the sky is the limit",
     "skills": {
       "title": "Top-Fähigkeiten.",
       "subtitle": "Was ich zur Problemlösung einsetze",
