@@ -1,0 +1,120 @@
+{
+  "navbar": {
+    "about": "Über mich",
+    "services": "Dienstleistungen",
+    "experience": "Erfahrung",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "sections": "Bereiche"
+  },
+  "header": {
+    "greeting": "Hi, ich bin",
+    "role": "Software-Ingenieur",
+    "introduction": "Ich bin spezialisiert auf die Entwicklung moderner Webanwendungen und Cloud-Lösungen.",
+    "contactButton": "Kontakt aufnehmen",
+    "projectsButton": "Projekte ansehen",
+    "messageSent": "Ich werde mich bei Ihnen melden!"
+  },
+  "about": {
+    "title": "Über mich",
+    "description": "Ich bin ein Software-Ingenieur mit Expertise in der Entwicklung umfassender Lösungen vom ersten Konzept bis zur Bereitstellung. Mit Fähigkeiten sowohl in Frontend- als auch Backend-Technologien entwickle ich gerne intuitive und effiziente Anwendungen, die reale Probleme lösen.",
+    "skillsTitle": "Fähigkeiten & Technologien",
+    "howIWork": "Wie ich arbeite",
+    "whatDrivesMe": "Was mich antreibt",
+    "motto": "Wandle stets ein Problem in eine Chance um.",
+    "philosophy": "Mit der Erfahrung von gestern, dem Ehrgeiz und der Motivation von heute blicke ich fasziniert auf morgen und fast euphorisch in eine Zukunft, in der IoT allen bekannt ist, Produktentwicklung ohne Digital Twins nicht mehr denkbar ist und vernetzte Maschinen selbstständig lernen."
+  },
+  "services": {
+    "title": "Meine Dienstleistungen",
+    "description": "Ich biete eine Reihe von Softwareentwicklungsdiensten an, um Unternehmen in der digitalen Welt erfolgreich zu machen.",
+    "heading": "Was ich für Sie tun kann",
+    "subheading": "Mit modernsten Technologien",
+    "readMore": "Mehr erfahren",
+    "items": {
+      "consulting": {
+        "title": "IT-Beratung",
+        "description": "Optimieren Sie Ihre Prozesse."
+      },
+      "development": {
+        "title": "Web-Anwendungsentwicklung",
+        "description": "Entwicklung maßgeschneiderter Software."
+      },
+      "analytics": {
+        "title": "Business Research & Analytics",
+        "description": "Erkenntnisse aus Ihren Daten."
+      }
+    }
+  },
+  "experience": {
+    "title": "Meine Erfahrung",
+    "education": {
+      "title": "Ausbildung.",
+      "subtitle": "Wo ich meine Grenzen erweitert habe"
+    },
+    "work": {
+      "title": "Erfahrung.",
+      "subtitle": "Wo ich meine Fähigkeiten angewendet und erworben habe",
+      "showMore": "Mehr anzeigen",
+      "showLess": "Weniger anzeigen"
+    },
+    "heading": "Über meine Fähigkeiten und Erfahrungen",
+    "subheading": "Nur der Himmel ist die Grenze...",
+    "skills": {
+      "title": "Top-Fähigkeiten.",
+      "subtitle": "Was ich zur Problemlösung einsetze",
+      "showMore": "Mehr anzeigen",
+      "showLess": "Weniger anzeigen"
+    },
+    "stack": {
+      "title": "Tech-Stack",
+      "subtitle": "Technologien, die ich regelmäßig einsetze",
+      "showMore": "Mehr anzeigen",
+      "showLess": "Weniger anzeigen"
+    },
+    "stats": {
+      "years": "Jahre",
+      "projects": "Projekte",
+      "languages": "Programmiersprachen"
+    }
+  },
+  "projects": {
+    "title": "Ausgewählte Projekte",
+    "viewAll": "Alle Projekte anzeigen",
+    "heading": "Einige meiner neuesten Projekte",
+    "subheading": "Mit jedem Projekt wachsen",
+    "loadMore": "Mehr laden",
+    "status": {
+      "completed": "Abgeschlossen",
+      "inProgress": "In Bearbeitung",
+      "onHold": "Pausiert",
+      "canceled": "Abgebrochen"
+    },
+    "viewDetails": "Details ansehen"
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen",
+    "description": "Ich melde mich bei Ihnen, wenn Sie mir Ihre E-Mail hinterlassen",
+    "heading": "Ein Projekt im Sinn?",
+    "subheading": "Sprechen wir darüber!",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "send": "Nachricht senden",
+    "required": "Erforderlich",
+    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "enterEmail": "Geben Sie Ihre E-Mail-Adresse ein",
+    "submitButton": "Ja, kontaktieren Sie mich!",
+    "orContact": "oder direkt über das Formular kontaktieren",
+    "directContact": "Kontaktformular"
+  },
+  "footer": {
+    "copyright": "© 2025 Qendrim Vllasa. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzrichtlinie",
+    "legal": "Impressum"
+  },
+  "languageSelector": {
+    "label": "Sprache",
+    "en": "Englisch",
+    "de": "Deutsch"
+  }
+}
