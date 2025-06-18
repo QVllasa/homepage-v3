@@ -3,6 +3,7 @@ import {addDoc, collection, getFirestore} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
 import {TailSpin} from "react-loader-spinner";
 import {FieldValues, useForm} from "react-hook-form";
+import {useTranslation} from 'next-i18next';
 
 // Import Shadcn UI components
 import {Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle} from "../../components/ui/dialog";
@@ -18,6 +19,7 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
     const app = useFirebaseApp();
     const firestore = getFirestore(app);
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const {t} = useTranslation('common');
 
     const onSubmit = async (data: FieldValues) => {
         setIsLoading(true);
@@ -51,13 +53,12 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
 
     return (
         <Dialog open={open} onOpenChange={handleClose}>
-            <DialogContent className="sm:max-w-md">
-                {isSubmitted && !isLoading ? (
+            <DialogContent className="sm:max-w-md">                {isSubmitted && !isLoading ? (
                     <div className='flex flex-col justify-center items-center text-xl'>
                         <span className='text-3xl mb-4'>🥳</span>
-                        <p className="mb-4">Danke für deine Nachricht!</p>
+                        <p className="mb-4">{t('contact.thankYou')}</p>
                         <Button onClick={() => setOpen(false)} className="w-full">
-                            Schließen
+                            {t('contact.close')}
                         </Button>
                     </div>
                 ) : isLoading ? (
@@ -73,52 +74,51 @@ export const ContactDialog = forwardRef(function ContactDialog(props: any, ref: 
                             visible={true}
                         />
                     </div>
-                ) : (
-                    <>
+                ) : (                    <>
                         <DialogHeader>
-                            <DialogTitle>Kontaktiere uns</DialogTitle>
+                            <DialogTitle>{t('contact.contactUs')}</DialogTitle>
                             <DialogDescription>
-                                Fülle das Formular aus, und wir werden uns so schnell wie möglich bei dir melden.
+                                {t('contact.formDescription')}
                             </DialogDescription>
                         </DialogHeader>
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                             <div className="grid gap-2">
-                                <Label htmlFor="name">Name</Label>
+                                <Label htmlFor="name">{t('contact.name')}</Label>
                                 <Input
                                     id="name"
                                     {...register('name', {required: true})}
                                     className={errors.name ? 'border-red-500' : ''}
-                                    placeholder="Dein Name"
+                                    placeholder={t('contact.yourName')}
                                 />
-                                {errors.name && <p className="text-red-500 text-xs">Name wird benötigt</p>}
+                                {errors.name && <p className="text-red-500 text-xs">{t('contact.nameRequired')}</p>}
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email</Label>
+                                <Label htmlFor="email">{t('contact.email')}</Label>
                                 <Input
                                     id="email"
                                     type="email"
                                     {...register('email', {required: true, pattern: /^\S+@\S+$/i})}
                                     className={errors.email ? 'border-red-500' : ''}
-                                    placeholder="deine@email.com"
+                                    placeholder={t('contact.yourEmail')}
                                 />
-                                {errors.email && <p className="text-red-500 text-xs">Gültige Email wird benötigt</p>}
+                                {errors.email && <p className="text-red-500 text-xs">{t('contact.validEmailRequired')}</p>}
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="message">Nachricht</Label>
+                                <Label htmlFor="message">{t('contact.message')}</Label>
                                 <Textarea
                                     id="message"
                                     {...register('message', {required: true})}
                                     className={errors.message ? 'border-red-500' : ''}
-                                    placeholder="Deine Nachricht..."
+                                    placeholder={t('contact.yourMessage')}
                                     rows={4}
                                 />
-                                {errors.message && <p className="text-red-500 text-xs">Nachricht wird benötigt</p>}
+                                {errors.message && <p className="text-red-500 text-xs">{t('contact.messageRequired')}</p>}
                             </div>
 
                             <DialogFooter>
-                                <Button type="submit" className="w-full">Senden</Button>
+                                <Button type="submit" className="w-full">{t('contact.sendButton')}</Button>
                             </DialogFooter>
                         </form>
                     </>

@@ -54,9 +54,8 @@ export default function HeaderSection() {
                             className="block transition font-bold xl:inline transition dark:text-slate-100">Qendrim</p>
                     </div>
                     <div
-                        className="mt-12 flex justify-center transition md:justify-start text-xl text-gray-500 transition dark:text-slate-100 sm:text-xl md:max-w-3xl">
-                        <Typewriter
-                            words={[t('header.role'), 'Technology Enthusiast 🚀', 'Drone Lover 🚁']}
+                        className="mt-12 flex justify-center transition md:justify-start text-xl text-gray-500 transition dark:text-slate-100 sm:text-xl md:max-w-3xl">                        <Typewriter
+                            words={[t('header.role'), t('header.techEnthusiast'), t('header.droneLover')]}
                             cursor
                             cursorStyle='_'
                             typeSpeed={80}

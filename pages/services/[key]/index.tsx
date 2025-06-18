@@ -12,10 +12,8 @@ export default function Service() {
     const {t} = useTranslation('common');
     const {key} = router.query;
 
-    const service = Services.find(service => service.key === key);
-
-    if (!service) {
-        return <div>Service not found</div>
+    const service = Services.find(service => service.key === key);    if (!service) {
+        return <div>{t('projects.serviceNotFound')}</div>
     }
 
     return (

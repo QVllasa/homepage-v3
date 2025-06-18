@@ -12,11 +12,10 @@ export default function Footer() {
             {name: t('experience.title'), href: '#experiences'},
             {name: t('experience.education'), href: '#education'},
             {name: 'Stack', href: '#stack'},
-        ],
-        services: [
-            {name: 'IT Consulting', href: '/services/consulting'},
-            {name: 'App Development', href: '/services/development'},
-            {name: 'Analytics', href: '/services/analytics'},
+        ],        services: [
+            {name: t('services.items.consulting.title'), href: '/services/consulting'},
+            {name: t('services.items.development.title'), href: '/services/development'},
+            {name: t('services.items.analytics.title'), href: '/services/analytics'},
         ],
         legal: [
             {name: t('footer.privacy'), href: '/legal/privacy'},
@@ -29,14 +28,13 @@ export default function Footer() {
             <h2 id="footer-heading" className="sr-only">
                 Footer
             </h2>
-            <div className="mx-auto mx-auto w-full h-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <div className="mx-auto w-full h-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
                 <div className="xl:grid xl:grid-cols-3 xl:gap-8">
                     <div className="space-y-8 xl:col-span-1">
                         <div className={'grayscale opacity-90'}>
                             <QComponent/>
-                        </div>
-                        <p className="text-base text-gray-500 dark:text-slate-400 transition">
-                            Always turn a problem into an opportunity.
+                        </div>                        <p className="text-base text-gray-500 dark:text-slate-400 transition">
+                            {t('about.motto')}
                         </p>
                         <div className={'max-w-fit'}>
                             <LinkedinGithubComponent/>

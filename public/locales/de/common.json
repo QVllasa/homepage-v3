@@ -7,14 +7,17 @@
     "contact": "Kontakt",
     "sections": "Bereiche",
     "downloadCV": "Lebenslauf"
-  },
-  "header": {
+  },  "header": {
     "greeting": "Hi, ich bin",
-    "role": "Software-Ingenieur",
+    "role": "Software-Ingenieur aus ❤️",
+    "techEnthusiast": "Technologie-Enthusiast 🚀",
+    "droneLover": "Drohnen-Liebhaber 🚁",
     "introduction": "Ich bin spezialisiert auf die Entwicklung moderner Webanwendungen und Cloud-Lösungen.",
     "contactButton": "Kontakt aufnehmen",
     "projectsButton": "Projekte ansehen",
-    "messageSent": "Ich werde mich bei Ihnen melden!"
+    "messageSent": "Ich werde mich bei Ihnen melden!",
+    "enterEmail": "Geben Sie Ihre E-Mail-Adresse ein",
+    "reachOut": "Kontakt aufnehmen"
   },
   "about": {
     "title": "Über mich",
@@ -47,10 +50,10 @@
     }
   },
   "experience": {
-    "title": "Meine Erfahrung",
-    "education": {
+    "title": "Meine Erfahrung",    "education": {
       "title": "Ausbildung.",
-      "subtitle": "Wo ich meine Grenzen erweitert habe"
+      "subtitle": "Wo ich meine Grenzen erweitert habe",
+      "whatIDone": "Was ich hier gemacht habe"
     },
     "work": {
       "title": "Erfahrung.",
@@ -77,8 +80,7 @@
       "projects": "Projekte",
       "languages": "Programmiersprachen"
     }
-  },
-  "projects": {
+  },  "projects": {
     "title": "Ausgewählte Projekte",
     "viewAll": "Alle Projekte anzeigen",
     "heading": "Einige meiner neuesten Projekte",
@@ -89,10 +91,17 @@
       "inProgress": "In Bearbeitung",
       "onHold": "Pausiert",
       "canceled": "Abgebrochen"
-    },
-    "viewDetails": "Details ansehen"
+    },    "viewDetails": "Details ansehen",
+    "viewWebsite": "Website ansehen", 
+    "backButton": "← Zurück",
+    "projectInformation": "Projektinformationen",
+    "client": "Kunde",
+    "statusLabel": "Status",
+    "serviceNotFound": "Service nicht gefunden"
   },
-  "contact": {
+  "companies": {
+    "heading": "Einige Unternehmen, die von meiner Arbeit profitiert haben"
+  },"contact": {
     "title": "Kontakt aufnehmen",
     "description": "Ich melde mich bei Ihnen, wenn Sie mir Ihre E-Mail hinterlassen",
     "heading": "Ein Projekt im Sinn?",
@@ -106,7 +115,18 @@
     "enterEmail": "Geben Sie Ihre E-Mail-Adresse ein",
     "submitButton": "Ja, kontaktieren Sie mich!",
     "orContact": "oder direkt über das Formular kontaktieren",
-    "directContact": "Kontaktformular"
+    "directContact": "Kontaktformular",
+    "contactUs": "Kontaktiere uns",
+    "formDescription": "Fülle das Formular aus, und wir werden uns so schnell wie möglich bei dir melden.",
+    "yourName": "Dein Name",
+    "yourEmail": "deine@email.com",
+    "yourMessage": "Deine Nachricht...",
+    "sendButton": "Senden",
+    "nameRequired": "Name wird benötigt",
+    "validEmailRequired": "Gültige Email wird benötigt",
+    "messageRequired": "Nachricht wird benötigt",
+    "thankYou": "Danke für deine Nachricht!",
+    "close": "Schließen"
   },
   "footer": {
     "copyright": "© 2025 Qendrim Vllasa. Alle Rechte vorbehalten.",

@@ -1,3 +1,6 @@
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {GetStaticProps} from 'next';
+
 export default function Legal() {
     return (
         <div className="relative overflow-hidden bg-white transition dark:bg-slate-900 py-16">
@@ -152,11 +155,17 @@ export default function Legal() {
                         Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche
                         gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden,
                         bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden
-                        wir derartige Inhalte umgehend entfernen.</p>
-
-                    <p>Quelle: <a href="https://www.e-recht24.de">e-recht24.de</a></p>
+                        wir derartige Inhalte umgehend entfernen.</p>                    <p>Quelle: <a href="https://www.e-recht24.de">e-recht24.de</a></p>
                 </div>
             </div>
         </div>
     )
+}
+
+export const getStaticProps: GetStaticProps = async ({locale}) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale || 'en', ['common'])),
+        },
+    };
 }

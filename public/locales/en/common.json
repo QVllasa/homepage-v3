@@ -7,14 +7,17 @@
     "contact": "Contact",
     "sections": "Sections",
     "downloadCV": "Download CV"
-  },
-  "header": {
+  },  "header": {
     "greeting": "Hi, I'm",
-    "role": "Software Engineer",
+    "role": "Software Engineer by ❤️",
+    "techEnthusiast": "Technology Enthusiast 🚀",
+    "droneLover": "Drone Lover 🚁",
     "introduction": "I specialize in developing modern web applications and cloud solutions.",
     "contactButton": "Get in touch",
     "projectsButton": "View projects",
-    "messageSent": "I will reach out to you!"
+    "messageSent": "I will reach out to you!",
+    "enterEmail": "Enter your email",
+    "reachOut": "Reach out"
   },
   "about": {
     "title": "About Me",
@@ -45,12 +48,12 @@
         "description": "Insight about your data."
       }
     }
-  },
-  "experience": {
+  },  "experience": {
     "title": "My Experience",
     "education": {
       "title": "Education.",
-      "subtitle": "Where I shifted my limits"
+      "subtitle": "Where I shifted my limits",
+      "whatIDone": "What I have done here"
     },
     "work": {
       "title": "Experience.",
@@ -77,8 +80,7 @@
       "projects": "Projects",
       "languages": "Code Languages"
     }
-  },
-  "projects": {
+  },  "projects": {
     "title": "Featured Projects",
     "viewAll": "View all projects",
     "heading": "Some of My latest Projects",
@@ -89,10 +91,17 @@
       "inProgress": "In Progress",
       "onHold": "On Hold",
       "canceled": "Canceled"
-    },
-    "viewDetails": "View Details"
+    },    "viewDetails": "View Details",
+    "viewWebsite": "View Website",
+    "backButton": "← Back",
+    "projectInformation": "Project Information",
+    "client": "Client",
+    "statusLabel": "Status",
+    "serviceNotFound": "Service not found"
   },
-  "contact": {
+  "companies": {
+    "heading": "Some companies which profited from my work"
+  },"contact": {
     "title": "Get In Touch",
     "description": "Let me reach out to you by dropping your e-mail",
     "heading": "Project in mind?",
@@ -106,7 +115,18 @@
     "enterEmail": "Enter your email",
     "submitButton": "Yes, contact me!",
     "orContact": "or contact directly via form",
-    "directContact": "Contact Form"
+    "directContact": "Contact Form",
+    "contactUs": "Contact us",
+    "formDescription": "Fill out the form and we'll get back to you as soon as possible.",
+    "yourName": "Your name",
+    "yourEmail": "your@email.com",
+    "yourMessage": "Your message...",
+    "sendButton": "Send",
+    "nameRequired": "Name is required",
+    "validEmailRequired": "Valid email is required", 
+    "messageRequired": "Message is required",
+    "thankYou": "Thank you for your message!",
+    "close": "Close"
   },
   "footer": {
     "copyright": "© 2025 Qendrim Vllasa. All rights reserved.",

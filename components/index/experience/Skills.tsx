@@ -3,6 +3,7 @@ import {useState} from "react";
 import {SkillModel} from "../../models/skill.model";
 import {SkillsData} from "../../../data/skills";
 import {useTranslation} from 'next-i18next';
+import {useTranslatedContent} from "../../../lib/useTranslatedContent";
 
 
 export default function Skills() {
@@ -35,7 +36,7 @@ export default function Skills() {
                                             aria-hidden="true"/>
                                         <p className="ml-12 text-lg font-semibold transition leading-8 text-gray-900 dark:text-slate-100">{item.name}</p>
                                     </dt>
-                                    <dd className="mt-3 ml-12 text-sm transition leading-7 text-gray-600 dark:text-slate-300">{item.description}</dd>
+                                    <dd className="mt-3 ml-12 text-sm transition leading-7 text-gray-600 dark:text-slate-300">{useTranslatedContent(item.description)}</dd>
                                 </div>
                             }
                         })}
@@ -60,7 +61,7 @@ export default function Skills() {
                                     aria-hidden="true"/>
                                 <p className="ml-10 text-sm font-semibold transition leading-8 text-gray-900 dark:text-slate-100">{item.name}</p>
                             </dt>
-                            <dd className="mt-2 ml-10 text-sm transition leading-7 text-gray-600 dark:text-slate-300">{item.description}</dd>
+                            <dd className="mt-2 ml-10 text-sm transition leading-7 text-gray-600 dark:text-slate-300">{useTranslatedContent(item.description)}</dd>
                         </div>
                     })}
                 </dl> : null}

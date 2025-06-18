@@ -1,6 +1,12 @@
 import {ProjectModel} from "../../../components/models/project.model";
-import {CheckIcon} from "@heroicons/react/24/outline";
-import {useRouter} from "next/router";
+import {CheckIcon} from "@heroicons/react/24/outli                                                <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">{t('projects.client')}</dt>
+                                                    <dd className="mt-1 flex text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+                                                        <span className="flex-grow">{useTranslatedContent(data.client)}</span>
+                                                    </dd>
+                                                </div>
+                                                <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">{t('projects.statusLabel')}</dt>port {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import {Projects} from "../../../data/projects";
@@ -115,21 +121,18 @@ export default function ProjectDetails() {
                                 <div className="flex flex-col">
                                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
                                         {useTranslatedContent(data.title)}
-                                    </h2>
-                                    <div className="bg-gray-50 dark:bg-slate-700 shadow-md rounded-lg mt-8 px-4 py-5 sm:px-6">
-                                        <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">Project
-                                            Information</h3>
+                                    </h2>                                    <div className="bg-gray-50 dark:bg-slate-700 shadow-md rounded-lg mt-8 px-4 py-5 sm:px-6">
+                                        <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">{t('projects.projectInformation')}</h3>
 
                                         <div className="mt-5 border-t border-gray-200">
                                             <dl className="divide-y divide-gray-200">
                                                 <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Client</dt>
+                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">{t('projects.client')}</dt>
                                                     <dd className="mt-1 flex text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
                                                         <span className="flex-grow">{useTranslatedContent(data.client)}</span>
                                                     </dd>
-                                                </div>
-                                                <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">Status</dt>
+                                                </div>                                                <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">{t('projects.statusLabel')}</dt>
                                                     <dd className="mt-1 flex text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
                                                         <span className="flex-grow">{getTranslatedStatus(data.status)}</span>
                                                     </dd>
@@ -148,17 +151,15 @@ export default function ProjectDetails() {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="relative ml-4 flex-shrink-0 py-1 px-1 bg-white text-gray-600 hover:bg-gray-50 rounded-lg">
-                                        <Link href={'/'} className="group flex items-center py-2 px-3 text-sm font-medium">
-                                            <span>← Back</span>
+                                    <div className="relative ml-4 flex-shrink-0 py-1 px-1 bg-white text-gray-600 hover:bg-gray-50 rounded-lg">                                        <Link href={'/'} className="group flex items-center py-2 px-3 text-sm font-medium">
+                                            <span>{t('projects.backButton')}</span>
                                         </Link>
                                     </div>
                                 </div>
                             </div>
-                            {data.previewLink && (
-                                <a href={data.previewLink} target='_blank'
+                            {data.previewLink && (                                <a href={data.previewLink} target='_blank'
                                    className="mt-4 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                    View Website
+                                    {t('projects.viewWebsite')}
                                 </a>
                             )}
 

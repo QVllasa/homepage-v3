@@ -2,6 +2,7 @@ import {BuildingOfficeIcon, ChevronDownIcon, ChevronRightIcon} from "@heroicons/
 import {useState} from "react";
 import {ExperienceModel} from "../models/experience.model";
 import Link from "next/link";
+import {useTranslatedContent} from "../../lib/useTranslatedContent";
 
 
 export default function ExperienceAccordion(data: { item: ExperienceModel }) {
@@ -43,9 +44,8 @@ export default function ExperienceAccordion(data: { item: ExperienceModel }) {
                     </div>
                     {open ?
                         <div
-                            className='col-span-full transition mt-6 text-xs sm:text-sm md:text-md dark:text-slate-300'>
-                            <p className='leading-6'>
-                                {data.item.description}
+                            className='col-span-full transition mt-6 text-xs sm:text-sm md:text-md dark:text-slate-300'>                            <p className='leading-6'>
+                                {useTranslatedContent(data.item.description)}
                             </p>
                         </div>
                         :

@@ -1,3 +1,6 @@
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {GetStaticProps} from 'next';
+
 export default function Privacy() {
     return (
         <div className="relative overflow-hidden bg-white transition dark:bg-slate-900 py-16">
@@ -549,12 +552,19 @@ export default function Privacy() {
                         rel="noopener noreferrer">https://developers.google.com/fonts/faq</a><br/>
                         und in der Datenschutzerkl&auml;rung von Google: <a
                             href="https://policies.google.com/privacy?hl=de" target="_blank"
-                            rel="noopener noreferrer">https://policies.google.com/privacy?hl=de</a>.</p>
-                    <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
+                            rel="noopener noreferrer">https://policies.google.com/privacy?hl=de</a>.</p>                    <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
 
 
                 </div>
             </div>
         </div>
     )
+}
+
+export const getStaticProps: GetStaticProps = async ({locale}) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale || 'en', ['common'])),
+        },
+    };
 }
