@@ -1,12 +1,6 @@
 import {ProjectModel} from "../../../components/models/project.model";
-import {CheckIcon} from "@heroicons/react/24/outli                                                <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">{t('projects.client')}</dt>
-                                                    <dd className="mt-1 flex text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-                                                        <span className="flex-grow">{useTranslatedContent(data.client)}</span>
-                                                    </dd>
-                                                </div>
-                                                <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                                                    <dt className="text-sm font-medium text-gray-500 dark:text-gray-300">{t('projects.statusLabel')}</dt>port {useRouter} from "next/router";
+import {CheckIcon} from "@heroicons/react/24/outline";
+import {useRouter} from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import {Projects} from "../../../data/projects";

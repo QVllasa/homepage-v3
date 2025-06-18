@@ -30,9 +30,9 @@ export default function EducationAccordion(data: { item: EducationModel}) {
                         <span>{data.item.from} - {data.item.to}</span> <span>|</span> <Link target='_blank' passHref
                                                                                             href={data.item.url}
                                                                                             className={'font-semibold hover:text-blue-600 transition dark:hover:text-yellow-500'}>{data.item.name}</Link>
-                    </div>
-                </div>
-                <div className="col-span-2 md:col-span-4 w-auto flex  sm:mt-0 justify-self-end">                    <button onClick={() => setOpen(!open)}
+                    </div>                </div>
+                <div className="col-span-2 md:col-span-4 w-auto flex  sm:mt-0 justify-self-end">
+                    <button onClick={() => setOpen(!open)}
                             className="hidden lg:flex items-center justify-center rounded-md border transition dark:border-slate-800 px-4 py-2 text-sm font-medium text-blue-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-800">
                         {t('experience.education.whatIDone')}
                     </button>
@@ -40,7 +40,8 @@ export default function EducationAccordion(data: { item: EducationModel}) {
                             className=" flex lg:hidden items-center justify-center  rounded-md   bg-white px-4 py-2 text-sm font-medium text-blue-600  hover:bg-blue-50">
                         {open ? <ChevronDownIcon className='h-5 w-5'/> : <ChevronRightIcon className='h-5 w-5'/>}
                     </button>
-                </div>                {open ?
+                </div>
+                {open ?
                     <div className='col-span-full transition mt-6 text-xs sm:text-sm md:text-md dark:text-slate-300'>
                         <p>
                             {useTranslatedContent(data.item.description)}

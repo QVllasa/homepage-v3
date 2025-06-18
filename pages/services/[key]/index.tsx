@@ -10,9 +10,9 @@ import {GetStaticPaths, GetStaticProps} from 'next';
 export default function Service() {
     const router = useRouter();
     const {t} = useTranslation('common');
-    const {key} = router.query;
-
-    const service = Services.find(service => service.key === key);    if (!service) {
+    const {key} = router.query;    const service = Services.find(service => service.key === key);
+    
+    if (!service) {
         return <div>{t('projects.serviceNotFound')}</div>
     }
 
