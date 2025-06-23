@@ -1,7 +1,7 @@
 {
   "navbar": {
     "about": "Über mich",
-    "services": "Dienstleistungen",
+    "services": "Skills",
     "experience": "Erfahrung",
     "projects": "Projekte",
     "contact": "Kontakt",
@@ -30,7 +30,7 @@
     "philosophy": "Mit der Erfahrung von gestern, dem Ehrgeiz und der Motivation von heute blicke ich fasziniert auf morgen und fast euphorisch in eine Zukunft, in der IoT allen bekannt ist, Produktentwicklung ohne Digital Twins nicht mehr denkbar ist und vernetzte Maschinen selbstständig lernen."
   },
   "services": {
-    "title": "Meine Dienstleistungen",
+    "title": "Meine Skills",
     "description": "Ich biete eine Reihe von Softwareentwicklungsdiensten an, um Unternehmen in der digitalen Welt erfolgreich zu machen.",
     "heading": "Womit ich dienen kann",
     "subheading": "Mit modernsten Technologien",

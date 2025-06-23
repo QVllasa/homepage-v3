@@ -236,15 +236,24 @@ export const Projects: ProjectModel[] = [
             }
         ],
         status: 'Completed',
-        shortDescription: "The \"BI Reporting Platform\" simplifies data monitoring and dashboard creation. From investments to metadata, this user-friendly tool is your one-stop solution for tailored dashboards.",
-        title: "BI Reporting Platform",
+        shortDescription: {
+            en: "The \"BI Reporting Platform\" simplifies data monitoring and dashboard creation. From investments to metadata, this user-friendly tool is your one-stop solution for tailored dashboards.",
+            de: "Die \"BI Reporting Platform\" vereinfacht die Datenüberwachung und Dashboard-Erstellung. Von Investitionen bis zu Metadaten ist dieses benutzerfreundliche Tool Ihre Komplettlösung für maßgeschneiderte Dashboards."
+        },
+        title: {
+            en: "BI Reporting Platform",
+            de: "BI Reporting-Plattform"
+        },
         img: "/projects/reporting.png",
         order: 0,
         rollout: {
             seconds: 1685570400,
             nanoseconds: 455000000
         },
-        description: "The \"BI Reporting Platform\" is a versatile and powerful application designed to streamline data monitoring and dashboard creation. This all-encompassing tool empowers users to monitor a wide array of data types, including investments, operations, process data, metadata, and more. What sets this platform apart is its user-friendly and generic approach, allowing individuals to craft customized dashboards tailored to their unique data needs. Whether you're tracking financial investments, optimizing operational processes, or diving into metadata analysis, the BI Reporting Platform simplifies data monitoring and reporting, making it a valuable asset for professionals in various industries.",
+        description: {
+            en: "The \"BI Reporting Platform\" is a versatile and powerful application designed to streamline data monitoring and dashboard creation. This all-encompassing tool empowers users to monitor a wide array of data types, including investments, operations, process data, metadata, and more. What sets this platform apart is its user-friendly and generic approach, allowing individuals to craft customized dashboards tailored to their unique data needs. Whether you're tracking financial investments, optimizing operational processes, or diving into metadata analysis, the BI Reporting Platform simplifies data monitoring and reporting, making it a valuable asset for professionals in various industries.",
+            de: "Die \"BI Reporting-Plattform\" ist eine vielseitige und leistungsstarke Anwendung zur Optimierung der Datenüberwachung und Dashboard-Erstellung. Dieses umfassende Tool ermöglicht Benutzern die Überwachung einer Vielzahl von Datentypen, einschließlich Investitionen, Betriebsabläufen, Prozessdaten, Metadaten und mehr. Was diese Plattform auszeichnet, ist ihr benutzerfreundlicher und generischer Ansatz, der es Einzelpersonen ermöglicht, maßgeschneiderte Dashboards entsprechend ihrer individuellen Datenanforderungen zu erstellen. Ob Sie finanzielle Investitionen verfolgen, Betriebsprozesse optimieren oder Metadatenanalysen durchführen, die BI Reporting-Plattform vereinfacht die Datenüberwachung und Berichterstellung und macht sie zu einem wertvollen Instrument für Fachleute in verschiedenen Branchen."
+        },
         previewLink: "",
         id: "bi-reporting-platform"
     },
@@ -335,31 +344,61 @@ export const Projects: ProjectModel[] = [
         id: "dude"
     },
     {
-        client: "My own project",
+        client: {
+            en: "My own project",
+            de: "Mein eigenes Projekt"
+        },
         keys: [
             {
-                description: "",
-                value: "Modern and beautiful UI"
+                description: {
+                    en: "",
+                    de: ""
+                },
+                value: {
+                    en: "Modern and beautiful UI",
+                    de: "Moderne und ansprechende Benutzeroberfläche"
+                }
             },
             {
-                value: "Based on Angular and Symfony API Platform (PHP)",
-                description: ""
+                value: {
+                    en: "Based on Angular and Symfony API Platform (PHP)",
+                    de: "Basierend auf Angular und Symfony API Platform (PHP)"
+                },
+                description: {
+                    en: "",
+                    de: ""
+                }
             },
             {
-                value: "Combines my hobbies",
-                description: ""
+                value: {
+                    en: "Combines my hobbies",
+                    de: "Verbindet meine Hobbys"
+                },
+                description: {
+                    en: "",
+                    de: ""
+                }
             }
         ],
         status: 'On Hold',
-        shortDescription: "To combine my love for flying my drone and developing my skills, I am working on a platform where pilots can sell their footage. For the development of the platform I use the programming language GO together in a microservice architecture. For the frontend Angular is used.",
-        title: "Dronegraphy",
+        shortDescription: {
+            en: "To combine my love for flying my drone and developing my skills, I am working on a platform where pilots can sell their footage. For the development of the platform I use the programming language GO together in a microservice architecture. For the frontend Angular is used.",
+            de: "Um meine Leidenschaft für das Fliegen meiner Drohne und die Entwicklung meiner Fähigkeiten zu verbinden, arbeite ich an einer Plattform, auf der Piloten ihre Aufnahmen verkaufen können. Für die Entwicklung der Plattform verwende ich die Programmiersprache GO in einer Microservice-Architektur. Für das Frontend wird Angular verwendet."
+        },
+        title: {
+            en: "Dronegraphy",
+            de: "Dronegraphy"
+        },
         img: "/projects/drone.svg",
         order: 0,
         rollout: {
             seconds: 1685570400,
             nanoseconds: 455000000
         },
-        description: "With dronegraphy I combine multiple passions of mine. As I love making impressing films and know how to code, this was some kind of natural outcome. Dronegraphy will be some kind of platform, in which people can buy and sell drone footage. In addition a forum will help drone lovers come together. As of now, dronegraphy is still in development as a side project of mine.",
+        description: {
+            en: "With dronegraphy I combine multiple passions of mine. As I love making impressing films and know how to code, this was some kind of natural outcome. Dronegraphy will be some kind of platform, in which people can buy and sell drone footage. In addition a forum will help drone lovers come together. As of now, dronegraphy is still in development as a side project of mine.",
+            de: "Mit Dronegraphy verbinde ich mehrere meiner Leidenschaften. Da ich es liebe, beeindruckende Filme zu machen und weiß, wie man programmiert, war dies eine Art natürliches Ergebnis. Dronegraphy wird eine Art Plattform sein, auf der Menschen Drohnenaufnahmen kaufen und verkaufen können. Zusätzlich wird ein Forum dabei helfen, Drohnenliebhaber zusammenzubringen. Derzeit befindet sich Dronegraphy noch in der Entwicklung als eines meiner Nebenprojekte."
+        },
         previewLink: "",
         id: "dronegraphy"
     },
@@ -410,7 +449,101 @@ export const Projects: ProjectModel[] = [
         description: "I built a web-based merchandise management system for a global medium-sized enterprise that specializes in the polymer industry. The system, which I developed, allows the company to effectively manage and track their merchandise inventory including products, stock levels, and orders. It also provides real-time reporting and analysis on sales and inventory data, enabling the company to make informed business decisions and optimize their supply chain operations. Additionally, the system facilitates easy communication with suppliers and customers, streamlining the ordering and fulfillment process. Overall, this system which I created, is a powerful tool for managing and growing the company's polymer-based business.",
         img: "/projects/nsb.png",
         previewLink: "",
-        client: "NSB Polymers GmbH",
+        client: {
+            en: "NSB Polymers GmbH",
+            de: "NSB Polymers GmbH"
+        },
+        shortDescription: {
+            en: "I built a web-app to manage inventory, optimize supply chain and communicate with suppliers and customers for a polymer company.",
+            de: "Ich entwickelte eine Web-App für ein Polymerunternehmen zur Bestandsverwaltung, Optimierung der Lieferkette und Kommunikation mit Lieferanten und Kunden."
+        },
+        status: 'Completed',
+        keys: [
+            {
+                value: {
+                    en: "Inventory Management",
+                    de: "Bestandsverwaltung"
+                },
+                description: {
+                    en: "The system allows for real-time tracking and management of merchandise inventory, including products, stock levels, and orders.",
+                    de: "Das System ermöglicht die Echtzeit-Verfolgung und -Verwaltung des Warenbestands, einschließlich Produkten, Lagerbeständen und Bestellungen."
+                }
+            },
+            {
+                description: {
+                    en: "The system provides real-time reporting and analysis on sales and inventory data, enabling the company to make informed business decisions.",
+                    de: "Das System bietet Echtzeit-Berichte und -Analysen zu Verkaufs- und Bestandsdaten, was dem Unternehmen ermöglicht, fundierte Geschäftsentscheidungen zu treffen."
+                },
+                value: {
+                    en: "Data Analysis and Reporting",
+                    de: "Datenanalyse und Berichterstattung"
+                }
+            },
+            {
+                description: {
+                    en: "It allows the company to optimize their supply chain operations and make better decisions.",
+                    de: "Es ermöglicht dem Unternehmen, seine Lieferkettenabläufe zu optimieren und bessere Entscheidungen zu treffen."
+                },
+                value: {
+                    en: "Supply Chain Optimization",
+                    de: "Optimierung der Lieferkette"
+                }
+            },
+            {
+                value: {
+                    en: "Communication",
+                    de: "Kommunikation"
+                },
+                description: {
+                    en: "The system facilitates easy communication with suppliers and customers, streamlining the ordering and fulfillment process.",
+                    de: "Das System erleichtert die Kommunikation mit Lieferanten und Kunden und rationalisiert den Bestell- und Erfüllungsprozess."
+                }
+            }
+        ],
+        stats: [
+            {
+                key: {
+                    en: "Increased Sales",
+                    de: "Umsatzsteigerung"
+                },
+                value: "15%"
+            },
+            {
+                value: "25%",
+                key: {
+                    en: "Increased Efficiency",
+                    de: "Erhöhte Effizienz"
+                }
+            },
+            {
+                value: "10%",
+                key: {
+                    en: "Reduced Costs",
+                    de: "Reduzierte Kosten"
+                }
+            },
+            {
+                value: "20%",
+                key: {
+                    en: "Increased Customer Satisfaction",
+                    de: "Erhöhte Kundenzufriedenheit"
+                }
+            }
+        ],
+        rollout: {
+            seconds: 1672527600,
+            nanoseconds: 588000000
+        },
+        title: {
+            en: "NSB Platform",
+            de: "NSB Platform"
+        },
+        description: {
+            en: "I built a web-based merchandise management system for a global medium-sized enterprise that specializes in the polymer industry. The system, which I developed, allows the company to effectively manage and track their merchandise inventory including products, stock levels, and orders. It also provides real-time reporting and analysis on sales and inventory data, enabling the company to make informed business decisions and optimize their supply chain operations. Additionally, the system facilitates easy communication with suppliers and customers, streamlining the ordering and fulfillment process. Overall, this system which I created, is a powerful tool for managing and growing the company's polymer-based business.",
+            de: "Ich habe ein webbasiertes Warenwirtschaftssystem für ein global tätiges mittelständisches Unternehmen entwickelt, das sich auf die Polymerindustrie spezialisiert hat. Das von mir entwickelte System ermöglicht dem Unternehmen die effektive Verwaltung und Verfolgung seines Warenbestands, einschließlich Produkte, Lagerbestände und Bestellungen. Es bietet auch Echtzeit-Berichte und -Analysen zu Verkaufs- und Bestandsdaten, wodurch das Unternehmen fundierte Geschäftsentscheidungen treffen und seine Lieferkettenabläufe optimieren kann. Darüber hinaus erleichtert das System die Kommunikation mit Lieferanten und Kunden und rationalisiert den Bestell- und Erfüllungsprozess. Insgesamt ist dieses von mir erstellte System ein leistungsstarkes Werkzeug für die Verwaltung und das Wachstum des Polymergeschäfts des Unternehmens."
+        },
+        img: "/projects/nsb.png",
+        previewLink: "",
         id: "nsb-platform"
     },
     {
@@ -419,46 +552,94 @@ export const Projects: ProjectModel[] = [
             nanoseconds: 89000000
         },
         status: 'Completed',
-        title: "Design Verification Process Platform",
-        description: "The web app is a platform used by over 500 engineers for verifying product design. It provides a variety of tools and features that are designed to help engineers ensure that their designs meet quality standards, including simulations, tests, and real-time collaboration. Additionally, it has an PTC Integrity Interface and a configuration matrix, which allow for easy integration with other tools and software, and easy testing and validation of different product configurations respectively. The app is user-friendly and intuitive, making it easy for engineers to access the tools and information they need.",
-        client: "Rolls Royce Power Systems",
+        title: {
+            en: "Design Verification Process Platform",
+            de: "Design-Verifizierungsprozess-Plattform"
+        },
+        description: {
+            en: "The web app is a platform used by over 500 engineers for verifying product design. It provides a variety of tools and features that are designed to help engineers ensure that their designs meet quality standards, including simulations, tests, and real-time collaboration. Additionally, it has an PTC Integrity Interface and a configuration matrix, which allow for easy integration with other tools and software, and easy testing and validation of different product configurations respectively. The app is user-friendly and intuitive, making it easy for engineers to access the tools and information they need.",
+            de: "Die Web-App ist eine Plattform, die von über 500 Ingenieuren zur Überprüfung von Produktdesigns verwendet wird. Sie bietet eine Vielzahl von Werkzeugen und Funktionen, die Ingenieuren dabei helfen, sicherzustellen, dass ihre Designs Qualitätsstandards erfüllen, einschließlich Simulationen, Tests und Echtzeit-Zusammenarbeit. Darüber hinaus verfügt sie über eine PTC Integrity-Schnittstelle und eine Konfigurationsmatrix, die eine einfache Integration mit anderen Tools und Software sowie eine einfache Prüfung und Validierung verschiedener Produktkonfigurationen ermöglichen. Die Anwendung ist benutzerfreundlich und intuitiv, sodass Ingenieure leicht auf die benötigten Werkzeuge und Informationen zugreifen können."
+        },
+        client: {
+            en: "Rolls Royce Power Systems",
+            de: "Rolls Royce Power Systems"
+        },
         keys: [
             {
-                value: "Quality assurance tools and features",
-                description: "The web app provides a variety of tools and features to help engineers ensure their designs meet quality standards."
+                value: {
+                    en: "Quality assurance tools and features",
+                    de: "Qualitätssicherungswerkzeuge und -funktionen"
+                },
+                description: {
+                    en: "The web app provides a variety of tools and features to help engineers ensure their designs meet quality standards.",
+                    de: "Die Web-App bietet eine Vielzahl von Werkzeugen und Funktionen, um Ingenieuren zu helfen, sicherzustellen, dass ihre Designs Qualitätsstandards erfüllen."
+                }
             },
             {
-                value: "Easy integration with other tools",
-                description: "The PTC Integrity Interface allows for easy integration with other tools and software."
+                value: {
+                    en: "Easy integration with other tools",
+                    de: "Einfache Integration mit anderen Tools"
+                },
+                description: {
+                    en: "The PTC Integrity Interface allows for easy integration with other tools and software.",
+                    de: "Die PTC Integrity-Schnittstelle ermöglicht eine einfache Integration mit anderen Tools und Software."
+                }
             },
             {
-                description: "The Configuration matrix allows for easy testing and validation of different product configurations.",
-                value: "Test and validate product configurations"
+                description: {
+                    en: "The Configuration matrix allows for easy testing and validation of different product configurations.",
+                    de: "Die Konfigurationsmatrix ermöglicht eine einfache Prüfung und Validierung verschiedener Produktkonfigurationen."
+                },
+                value: {
+                    en: "Test and validate product configurations",
+                    de: "Testen und Validieren von Produktkonfigurationen"
+                }
             },
             {
-                value: "User-friendly interface",
-                description: "The app is user-friendly and intuitive, making it easy for engineers to access the tools and information they need."
+                value: {
+                    en: "User-friendly interface",
+                    de: "Benutzerfreundliche Oberfläche"
+                },
+                description: {
+                    en: "The app is user-friendly and intuitive, making it easy for engineers to access the tools and information they need.",
+                    de: "Die App ist benutzerfreundlich und intuitiv, was es Ingenieuren leicht macht, auf die benötigten Werkzeuge und Informationen zuzugreifen."
+                }
             }
         ],
         stats: [
             {
-                key: " Time reduction",
+                key: {
+                    en: "Time reduction",
+                    de: "Zeitersparnis"
+                },
                 value: "40%"
             },
             {
                 value: "98%",
-                key: "Efficiency increase"
+                key: {
+                    en: "Efficiency increase",
+                    de: "Effizienzsteigerung"
+                }
             },
             {
-                key: "Error reduction",
+                key: {
+                    en: "Error reduction",
+                    de: "Fehlerreduzierung"
+                },
                 value: "25%"
             },
             {
                 value: "2000",
-                key: "Users"
+                key: {
+                    en: "Users",
+                    de: "Benutzer"
+                }
             }
         ],
-        shortDescription: "The DVP Platform provides engineers with tools and features to verify product designs, including PTC Integrity Interface and Configuration Matrix for easy integration and testing. User-friendly interface is also included.",
+        shortDescription: {
+            en: "The DVP Platform provides engineers with tools and features to verify product designs, including PTC Integrity Interface and Configuration Matrix for easy integration and testing. User-friendly interface is also included.",
+            de: "Die DVP-Plattform bietet Ingenieuren Werkzeuge und Funktionen zur Überprüfung von Produktdesigns, einschließlich PTC Integrity-Schnittstelle und Konfigurationsmatrix für einfache Integration und Tests. Eine benutzerfreundliche Oberfläche ist ebenfalls enthalten."
+        },
         img: "/projects/dvp.png",
         previewLink: "",
         id: "design-verification-process-platform"
@@ -467,48 +648,93 @@ export const Projects: ProjectModel[] = [
         shortDescription: "A modern website for an employee coaching service using a karate principle, with resources, testimonials and easy communication. Developed as a one-man project",
         img: "/projects/dkp.png",
         status: 'Completed',
-        description: "I am proud to present the new website for \"Das Karateprinzip\", a company specializing in employee coaching using a unique karate principle. I designed and developed this website from scratch, working alone on the project. The website showcases the client's coaching services and the benefits of incorporating karate principles into the workplace. The website features a modern design, easy navigation and includes resources such as client testimonials, blog posts and a contact form. My goal was to create a user-friendly and professional website that accurately represents the client's unique approach to employee coaching and I am proud to have delivered a final product that exceeds their expectations.",
+        description: {
+            en: "I am proud to present the new website for \"Das Karateprinzip\", a company specializing in employee coaching using a unique karate principle. I designed and developed this website from scratch, working alone on the project. The website showcases the client's coaching services and the benefits of incorporating karate principles into the workplace. The website features a modern design, easy navigation and includes resources such as client testimonials, blog posts and a contact form. My goal was to create a user-friendly and professional website that accurately represents the client's unique approach to employee coaching and I am proud to have delivered a final product that exceeds their expectations.",
+            de: "Ich bin stolz darauf, die neue Website für \"Das Karateprinzip\" zu präsentieren, ein Unternehmen, das sich auf Mitarbeiter-Coaching mit einem einzigartigen Karate-Prinzip spezialisiert hat. Ich habe diese Website von Grund auf neu gestaltet und entwickelt und dabei alleine an dem Projekt gearbeitet. Die Website präsentiert die Coaching-Dienstleistungen des Kunden und die Vorteile der Integration von Karate-Prinzipien in den Arbeitsplatz. Die Website verfügt über ein modernes Design, einfache Navigation und enthält Ressourcen wie Kundenstimmen, Blogbeiträge und ein Kontaktformular. Mein Ziel war es, eine benutzerfreundliche und professionelle Website zu erstellen, die den einzigartigen Ansatz des Kunden im Bereich Mitarbeiter-Coaching genau widerspiegelt, und ich bin stolz darauf, ein Endprodukt geliefert zu haben, das die Erwartungen übertrifft."
+        },
         order: 0,
         rollout: {
             seconds: 1640905200,
             nanoseconds: 707000000
         },
-        title: "Das Karateprinzip",
-        client: "Markus Sauter",
+        title: {
+            en: "Das Karateprinzip",
+            de: "Das Karateprinzip"
+        },
+        client: {
+            en: "Markus Sauter",
+            de: "Markus Sauter"
+        },
         keys: [
             {
-                value: "Unique approach",
-                description: "The website highlights the client's unique approach to employee coaching using a special karate principle."
+                value: {
+                    en: "Unique approach",
+                    de: "Einzigartiger Ansatz"
+                },
+                description: {
+                    en: "The website highlights the client's unique approach to employee coaching using a special karate principle.",
+                    de: "Die Website hebt den einzigartigen Ansatz des Kunden für Mitarbeiter-Coaching hervor, der auf einem speziellen Karate-Prinzip basiert."
+                }
             },
             {
-                description: "The website features a modern and professional design, which enhances the user experience.",
-                value: "Modern design"
+                description: {
+                    en: "The website features a modern and professional design, which enhances the user experience.",
+                    de: "Die Website verfügt über ein modernes und professionelles Design, das die Benutzererfahrung verbessert."
+                },
+                value: {
+                    en: "Modern design",
+                    de: "Modernes Design"
+                }
             },
             {
-                description: "The website includes resources such as client testimonials, blog posts and a contact form, providing valuable information and making it easy for customers to get in touch with the client.",
-                value: "Resources"
+                description: {
+                    en: "The website includes resources such as client testimonials, blog posts and a contact form, providing valuable information and making it easy for customers to get in touch with the client.",
+                    de: "Die Website enthält Ressourcen wie Kundenstimmen, Blogbeiträge und ein Kontaktformular, bietet wertvolle Informationen und ermöglicht es Kunden, leicht mit dem Kunden in Kontakt zu treten."
+                },
+                value: {
+                    en: "Resources",
+                    de: "Ressourcen"
+                }
             },
             {
-                value: "Personalized experience",
-                description: "The website was developed as a one-man project, providing a personalized experience tailored to the client's needs."
+                value: {
+                    en: "Personalized experience",
+                    de: "Personalisierte Erfahrung"
+                },
+                description: {
+                    en: "The website was developed as a one-man project, providing a personalized experience tailored to the client's needs.",
+                    de: "Die Website wurde als Ein-Mann-Projekt entwickelt und bietet ein personalisiertes Erlebnis, das auf die Bedürfnisse des Kunden zugeschnitten ist."
+                }
             }
         ],
         stats: [
             {
                 value: "50%",
-                key: "Website traffic increased"
+                key: {
+                    en: "Website traffic increased",
+                    de: "Steigerung des Website-Verkehrs"
+                }
             },
             {
                 value: "20 per week",
-                key: "Contact form submissions"
+                key: {
+                    en: "Contact form submissions",
+                    de: "Kontaktformular-Einsendungen"
+                }
             },
             {
-                key: "Blog post views",
+                key: {
+                    en: "Blog post views",
+                    de: "Blog-Beitragsaufrufe"
+                },
                 value: "100 per post"
             },
             {
                 value: "75%",
-                key: "Client retention rate"
+                key: {
+                    en: "Client retention rate",
+                    de: "Kundenbindungsrate"
+                }
             }
         ],
         previewLink: "",
@@ -520,46 +746,94 @@ export const Projects: ProjectModel[] = [
             nanoseconds: 839000000
         },
         status: 'Completed',
-        client: "Rolls Royce Power Systems",
-        shortDescription: "This is a tool for Rolls Royce Power Systems that simplifies project change management across multiple divisions with flexibility, increasing productivity, and improving efficiency.",
-        title: "Project Change Management",
+        client: {
+            en: "Rolls Royce Power Systems",
+            de: "Rolls Royce Power Systems"
+        },
+        shortDescription: {
+            en: "This is a tool for Rolls Royce Power Systems that simplifies project change management across multiple divisions with flexibility, increasing productivity, and improving efficiency.",
+            de: "Dies ist ein Tool für Rolls Royce Power Systems, das das Projektänderungsmanagement über mehrere Abteilungen hinweg flexibel vereinfacht, die Produktivität steigert und die Effizienz verbessert."
+        },
+        title: {
+            en: "Project Change Management",
+            de: "Projektänderungsmanagement"
+        },
         previewLink: "",
         img: "/projects/pcm.png",
         stats: [
             {
-                key: "Time-saving",
+                key: {
+                    en: "Time-saving",
+                    de: "Zeitersparnis"
+                },
                 value: "30%"
             },
             {
                 value: "40%",
-                key: "Error reduction"
+                key: {
+                    en: "Error reduction",
+                    de: "Fehlerreduzierung"
+                }
             },
             {
                 value: "25%",
-                key: "Increased collaboration"
+                key: {
+                    en: "Increased collaboration",
+                    de: "Verbesserte Zusammenarbeit"
+                }
             },
             {
-                key: "mproved communication",
+                key: {
+                    en: "Improved communication",
+                    de: "Verbesserte Kommunikation"
+                },
                 value: "45%"
             }
         ],
-        description: "This is a cutting-edge tool that was developed specifically for Rolls Royce Power Systems. The tool is designed to streamline the process of project change management, allowing users to easily and efficiently manage changes to projects across multiple divisions. The tool has been developed with flexibility in mind, enabling users to easily implement changes and ensure that all projects remain on track. With this tool, users can now perform proper project change management on every project in multiple divisions, which will help to increase productivity and reduce the risk of delays or other issues arising. The tool is user-friendly, easy to use, and will help to improve the overall efficiency of the project management process. This tool is a valuable addition to the Rolls Royce Power Systems project management toolkit, and will help to ensure that projects are delivered on time and to the highest possible standard.",
+        description: {
+            en: "This is a cutting-edge tool that was developed specifically for Rolls Royce Power Systems. The tool is designed to streamline the process of project change management, allowing users to easily and efficiently manage changes to projects across multiple divisions. The tool has been developed with flexibility in mind, enabling users to easily implement changes and ensure that all projects remain on track. With this tool, users can now perform proper project change management on every project in multiple divisions, which will help to increase productivity and reduce the risk of delays or other issues arising. The tool is user-friendly, easy to use, and will help to improve the overall efficiency of the project management process. This tool is a valuable addition to the Rolls Royce Power Systems project management toolkit, and will help to ensure that projects are delivered on time and to the highest possible standard.",
+            de: "Dies ist ein hochmodernes Tool, das speziell für Rolls Royce Power Systems entwickelt wurde. Das Tool soll den Prozess des Projektänderungsmanagements optimieren und es Benutzern ermöglichen, Änderungen an Projekten über mehrere Abteilungen hinweg einfach und effizient zu verwalten. Das Tool wurde mit Blick auf Flexibilität entwickelt, sodass Benutzer Änderungen einfach umsetzen und sicherstellen können, dass alle Projekte auf Kurs bleiben. Mit diesem Tool können Benutzer nun ein ordnungsgemäßes Projektänderungsmanagement für jedes Projekt in mehreren Abteilungen durchführen, was dazu beiträgt, die Produktivität zu steigern und das Risiko von Verzögerungen oder anderen Problemen zu reduzieren. Das Tool ist benutzerfreundlich, einfach zu bedienen, und trägt dazu bei, die Gesamteffizienz des Projektmanagementprozesses zu verbessern. Dieses Tool ist eine wertvolle Ergänzung zum Projektmanagement-Toolkit von Rolls Royce Power Systems und trägt dazu bei, sicherzustellen, dass Projekte pünktlich und nach höchstmöglichem Standard geliefert werden."
+        },
         keys: [
             {
-                description: "The tool simplifies the process of managing changes to projects across multiple divisions.",
-                value: "Streamlines project change management"
+                description: {
+                    en: "The tool simplifies the process of managing changes to projects across multiple divisions.",
+                    de: "Das Tool vereinfacht den Prozess der Verwaltung von Änderungen an Projekten über mehrere Abteilungen hinweg."
+                },
+                value: {
+                    en: "Streamlines project change management",
+                    de: "Optimiert das Projektänderungsmanagement"
+                }
             },
             {
-                description: "The tool has been designed with flexibility in mind, allowing users to easily implement changes and ensure that all projects remain on track.",
-                value: "Flexibility"
+                description: {
+                    en: "The tool has been designed with flexibility in mind, allowing users to easily implement changes and ensure that all projects remain on track.",
+                    de: "Das Tool wurde mit Blick auf Flexibilität entwickelt und ermöglicht es Benutzern, Änderungen einfach umzusetzen und sicherzustellen, dass alle Projekte auf Kurs bleiben."
+                },
+                value: {
+                    en: "Flexibility",
+                    de: "Flexibilität"
+                }
             },
             {
-                description: " With this tool, users can now perform proper project change management on every project in multiple divisions, which will help to increase productivity.",
-                value: "Increased productivity"
+                description: {
+                    en: "With this tool, users can now perform proper project change management on every project in multiple divisions, which will help to increase productivity.",
+                    de: "Mit diesem Tool können Benutzer nun ein ordnungsgemäßes Projektänderungsmanagement für jedes Projekt in mehreren Abteilungen durchführen, was zur Steigerung der Produktivität beiträgt."
+                },
+                value: {
+                    en: "Increased productivity",
+                    de: "Gesteigerte Produktivität"
+                }
             },
             {
-                value: "Improved efficiency",
-                description: "The tool is user-friendly, easy to use, and will help to improve the overall efficiency of the project management process."
+                value: {
+                    en: "Improved efficiency",
+                    de: "Verbesserte Effizienz"
+                },
+                description: {
+                    en: "The tool is user-friendly, easy to use, and will help to improve the overall efficiency of the project management process.",
+                    de: "Das Tool ist benutzerfreundlich, einfach zu bedienen und trägt dazu bei, die Gesamteffizienz des Projektmanagementprozesses zu verbessern."
+                }
             }
         ],
         id: "project-change-management"
@@ -569,20 +843,44 @@ export const Projects: ProjectModel[] = [
         status: 'Completed',
         keys: [
             {
-                value: "Visually stunning design",
-                description: "The website has a clean and modern design that is visually appealing, making it easy for visitors to navigate and find the information they need."
+                value: {
+                    en: "Visually stunning design",
+                    de: "Visuell beeindruckendes Design"
+                },
+                description: {
+                    en: "The website has a clean and modern design that is visually appealing, making it easy for visitors to navigate and find the information they need.",
+                    de: "Die Website verfügt über ein klares und modernes Design, das visuell ansprechend ist und es Besuchern leicht macht, zu navigieren und die benötigten Informationen zu finden."
+                }
             },
             {
-                description: "The website includes a portfolio section that showcases the company's past and current projects and use cases, highlighting their expertise and capabilities in the technology field.",
-                value: "Highlighting of company expertise"
+                description: {
+                    en: "The website includes a portfolio section that showcases the company's past and current projects and use cases, highlighting their expertise and capabilities in the technology field.",
+                    de: "Die Website enthält einen Portfolio-Bereich, der die vergangenen und aktuellen Projekte sowie Anwendungsfälle des Unternehmens präsentiert und deren Fachwissen und Fähigkeiten im Technologiebereich hervorhebt."
+                },
+                value: {
+                    en: "Highlighting of company expertise",
+                    de: "Hervorhebung der Unternehmenskompetenz"
+                }
             },
             {
-                description: "The website is designed with easy navigation in mind, making it simple for visitors to find the information they need quickly and easily.",
-                value: "Easy navigation"
+                description: {
+                    en: "The website is designed with easy navigation in mind, making it simple for visitors to find the information they need quickly and easily.",
+                    de: "Die Website wurde mit Blick auf einfache Navigation gestaltet, sodass Besucher die benötigten Informationen schnell und einfach finden können."
+                },
+                value: {
+                    en: "Easy navigation",
+                    de: "Einfache Navigation"
+                }
             },
             {
-                value: "Marketing tool",
-                description: "The website serves as an effective tool for promoting the company and its services to potential clients and partners."
+                value: {
+                    en: "Marketing tool",
+                    de: "Marketinginstrument"
+                },
+                description: {
+                    en: "The website serves as an effective tool for promoting the company and its services to potential clients and partners.",
+                    de: "Die Website dient als effektives Werkzeug zur Förderung des Unternehmens und seiner Dienstleistungen für potenzielle Kunden und Partner."
+                }
             }
         ],
         previewLink: "https://newboxes.com",
@@ -591,50 +889,101 @@ export const Projects: ProjectModel[] = [
             nanoseconds: 357000000
         },
         img: "/projects/nb.png",
-        shortDescription: "I have developed a website for my current employer that showcases their technology projects and use cases, featuring a clean, modern design and easy navigation, with a portfolio section to highlight their capabilities and expertise in the field.",
+        shortDescription: {
+            en: "I have developed a website for my current employer that showcases their technology projects and use cases, featuring a clean, modern design and easy navigation, with a portfolio section to highlight their capabilities and expertise in the field.",
+            de: "Ich habe eine Website für meinen aktuellen Arbeitgeber entwickelt, die deren Technologieprojekte und Anwendungsfälle präsentiert, mit einem klaren, modernen Design und einfacher Navigation sowie einem Portfolio-Bereich, der ihre Fähigkeiten und Fachwissen in diesem Bereich hervorhebt."
+        },
         stats: [
             {
-                key: "Bounce rate",
+                key: {
+                    en: "Bounce rate",
+                    de: "Absprungrate"
+                },
                 value: "25%"
             },
             {
                 value: "3 minutes",
-                key: "Average session duration"
+                key: {
+                    en: "Average session duration",
+                    de: "Durchschnittliche Sitzungsdauer"
+                }
             },
             {
                 value: "100",
-                key: "Unique visitors per day"
+                key: {
+                    en: "Unique visitors per day",
+                    de: "Eindeutige Besucher pro Tag"
+                }
             },
             {
                 value: "5%",
-                key: "Conversion rate"
+                key: {
+                    en: "Conversion rate",
+                    de: "Konversionsrate"
+                }
             }
         ],
-        description: "​ I have created a new and visually stunning website for my current employer, which showcases our company's various projects and use cases in technology. The website features a clean, modern design and easy navigation, making it easy for visitors to find the information they need. The website also includes a portfolio section where we showcase our past and current projects and use cases, highlighting our expertise and capabilities in the technology field. Overall, the website serves as an effective tool for promoting our company and its services to potential clients and partners.",
-        title: "newboxes Website",
+        description: {
+            en: "I have created a new and visually stunning website for my current employer, which showcases our company's various projects and use cases in technology. The website features a clean, modern design and easy navigation, making it easy for visitors to find the information they need. The website also includes a portfolio section where we showcase our past and current projects and use cases, highlighting our expertise and capabilities in the technology field. Overall, the website serves as an effective tool for promoting our company and its services to potential clients and partners.",
+            de: "Ich habe eine neue und visuell beeindruckende Website für meinen aktuellen Arbeitgeber erstellt, die die verschiedenen Projekte und Anwendungsfälle unseres Unternehmens im Technologiebereich präsentiert. Die Website verfügt über ein klares, modernes Design und einfache Navigation, was es Besuchern leicht macht, die benötigten Informationen zu finden. Die Website enthält auch einen Portfolio-Bereich, in dem wir unsere vergangenen und aktuellen Projekte sowie Anwendungsfälle präsentieren und unser Fachwissen und unsere Fähigkeiten im Technologiebereich hervorheben. Insgesamt dient die Website als effektives Instrument zur Förderung unseres Unternehmens und seiner Dienstleistungen für potenzielle Kunden und Partner."
+        },
+        title: {
+            en: "newboxes Website",
+            de: "newboxes Website"
+        },
         id: "newboxes-website"
     },
     {
         keys: [
             {
-                value: "Improved communication and collaboration",
-                description: "Improved communication and collaboration among safety officers within the company"
+                value: {
+                    en: "Improved communication and collaboration",
+                    de: "Verbesserte Kommunikation und Zusammenarbeit"
+                },
+                description: {
+                    en: "Improved communication and collaboration among safety officers within the company",
+                    de: "Verbesserte Kommunikation und Zusammenarbeit zwischen Sicherheitsbeauftragten innerhalb des Unternehmens"
+                }
             },
             {
-                value: "Easy sharing of incidents and lessons learned",
-                description: "Easy sharing of incidents and lessons learned, leading to better risk management and prevention of similar incidents in the future"
+                value: {
+                    en: "Easy sharing of incidents and lessons learned",
+                    de: "Einfacher Austausch von Vorfällen und gewonnenen Erkenntnissen"
+                },
+                description: {
+                    en: "Easy sharing of incidents and lessons learned, leading to better risk management and prevention of similar incidents in the future",
+                    de: "Einfacher Austausch von Vorfällen und gewonnenen Erkenntnissen, was zu einem besseren Risikomanagement und zur Vermeidung ähnlicher Vorfälle in der Zukunft führt"
+                }
             },
             {
-                value: "User-friendly interface",
-                description: "A more user-friendly interface that makes it easier for safety officers to access and share information"
+                value: {
+                    en: "User-friendly interface",
+                    de: "Benutzerfreundliche Oberfläche"
+                },
+                description: {
+                    en: "A more user-friendly interface that makes it easier for safety officers to access and share information",
+                    de: "Eine benutzerfreundlichere Oberfläche, die es Sicherheitsbeauftragten erleichtert, auf Informationen zuzugreifen und diese zu teilen"
+                }
             },
             {
-                description: "Better ability for the company to stay informed about and respond to safety issues in a timely manner",
-                value: "Timely response to safety issues"
+                description: {
+                    en: "Better ability for the company to stay informed about and respond to safety issues in a timely manner",
+                    de: "Bessere Möglichkeit für das Unternehmen, sich über Sicherheitsprobleme zu informieren und zeitnah darauf zu reagieren"
+                },
+                value: {
+                    en: "Timely response to safety issues",
+                    de: "Zeitnahe Reaktion auf Sicherheitsprobleme"
+                }
             },
             {
-                description: "Increased efficiency and effectiveness of the company's health, safety, and environmental initiatives.",
-                value: "Increased efficiency and effectiveness of HSE initiatives."
+                description: {
+                    en: "Increased efficiency and effectiveness of the company's health, safety, and environmental initiatives.",
+                    de: "Erhöhte Effizienz und Effektivität der Gesundheits-, Sicherheits- und Umweltinitiativen des Unternehmens."
+                },
+                value: {
+                    en: "Increased efficiency and effectiveness of HSE initiatives",
+                    de: "Erhöhte Effizienz und Effektivität von HSE-Initiativen"
+                }
             }
         ],
         status: 'Completed',
@@ -646,25 +995,49 @@ export const Projects: ProjectModel[] = [
         stats: [
             {
                 value: "95%",
-                key: "user satisfaction"
+                key: {
+                    en: "User satisfaction",
+                    de: "Benutzerzufriedenheit"
+                }
             },
             {
                 value: "75%",
-                key: "reduction in incidents"
+                key: {
+                    en: "Reduction in incidents",
+                    de: "Reduzierung der Vorfälle"
+                }
             },
             {
-                key: "improved communication and collaboration",
+                key: {
+                    en: "Improved communication and collaboration",
+                    de: "Verbesserte Kommunikation und Zusammenarbeit"
+                },
                 value: "90%"
             },
             {
                 value: "50%",
-                key: "decrease in response time"
+                key: {
+                    en: "Decrease in response time",
+                    de: "Verringerung der Reaktionszeit"
+                }
             }
         ],
-        shortDescription: "A new intranet to enhance communication, sharing, user-friendliness, timely response, and efficiency in HSE matters for Rolls Royce Power Systems.",
-        title: "Company-wide Intranet for Health, Safety & Environment",
-        description: "The project was the creation of a new intranet for the Health, Safety & Environment Community within Rolls Royce Power Systems. The intranet features a new user interface and multiple new features such as the ability to share incidents and lessons learned. The new intranet makes it easier for safety officers from around the world within the company to connect and stay up to date.",
-        client: "Rolls Royce Power Systems",
+        shortDescription: {
+            en: "A new intranet to enhance communication, sharing, user-friendliness, timely response, and efficiency in HSE matters for Rolls Royce Power Systems.",
+            de: "Ein neues Intranet zur Verbesserung der Kommunikation, des Austauschs, der Benutzerfreundlichkeit, der zeitnahen Reaktion und der Effizienz in HSE-Angelegenheiten für Rolls Royce Power Systems."
+        },
+        title: {
+            en: "Company-wide Intranet for Health, Safety & Environment",
+            de: "Unternehmensweites Intranet für Gesundheit, Sicherheit & Umwelt"
+        },
+        description: {
+            en: "The project was the creation of a new intranet for the Health, Safety & Environment Community within Rolls Royce Power Systems. The intranet features a new user interface and multiple new features such as the ability to share incidents and lessons learned. The new intranet makes it easier for safety officers from around the world within the company to connect and stay up to date.",
+            de: "Das Projekt beinhaltete die Erstellung eines neuen Intranets für die Gesundheits-, Sicherheits- und Umweltgemeinschaft innerhalb von Rolls Royce Power Systems. Das Intranet verfügt über eine neue Benutzeroberfläche und mehrere neue Funktionen, wie die Möglichkeit, Vorfälle und gewonnene Erkenntnisse zu teilen. Das neue Intranet erleichtert es Sicherheitsbeauftragten aus der ganzen Welt innerhalb des Unternehmens, sich zu vernetzen und auf dem neuesten Stand zu bleiben."
+        },
+        client: {
+            en: "Rolls Royce Power Systems",
+            de: "Rolls Royce Power Systems"
+        },
         img: "/projects/intranet.svg",
         id: "company-wide-intranet-for-hse"
     },
@@ -674,45 +1047,93 @@ export const Projects: ProjectModel[] = [
             nanoseconds: 74000000
         },
         status: 'Completed',
-        client: "Rolls Royce Power Systems",
-        description: "I led the development of a global online platform for Rolls Royce Power Systems to track progress towards achieving company-wide environmental goals. The platform includes a dashboard with real-time data, reports and analytics, and educational resources. It helps the company to stay informed and make progress towards its environmental targets.",
+        client: {
+            en: "Rolls Royce Power Systems",
+            de: "Rolls Royce Power Systems"
+        },
+        description: {
+            en: "I led the development of a global online platform for Rolls Royce Power Systems to track progress towards achieving company-wide environmental goals. The platform includes a dashboard with real-time data, reports and analytics, and educational resources. It helps the company to stay informed and make progress towards its environmental targets.",
+            de: "Ich leitete die Entwicklung einer globalen Online-Plattform für Rolls Royce Power Systems zur Verfolgung des Fortschritts bei der Erreichung unternehmensweiter Umweltziele. Die Plattform umfasst ein Dashboard mit Echtzeit-Daten, Berichten und Analysen sowie Bildungsressourcen. Sie hilft dem Unternehmen, informiert zu bleiben und Fortschritte bei der Erreichung seiner Umweltziele zu erzielen."
+        },
         previewLink: "",
-        shortDescription: "A global platform to track and measure Rolls Royce Power Systems' environmental progress with real-time data, analytics and educational resources.",
+        shortDescription: {
+            en: "A global platform to track and measure Rolls Royce Power Systems' environmental progress with real-time data, analytics and educational resources.",
+            de: "Eine globale Plattform zur Verfolgung und Messung des Umweltfortschritts von Rolls Royce Power Systems mit Echtzeit-Daten, Analysen und Bildungsressourcen."
+        },
         keys: [
             {
-                value: "Real-time tracking",
-                description: "The platform provides real-time data and updates on key environmental metrics, enabling the company to quickly identify areas where progress is being made and areas where additional efforts are needed."
+                value: {
+                    en: "Real-time tracking",
+                    de: "Echtzeit-Verfolgung"
+                },
+                description: {
+                    en: "The platform provides real-time data and updates on key environmental metrics, enabling the company to quickly identify areas where progress is being made and areas where additional efforts are needed.",
+                    de: "Die Plattform liefert Echtzeit-Daten und Aktualisierungen zu wichtigen Umweltkennzahlen und ermöglicht es dem Unternehmen, Bereiche, in denen Fortschritte erzielt werden, und Bereiche, in denen zusätzliche Anstrengungen erforderlich sind, schnell zu identifizieren."
+                }
             },
             {
-                value: "Global accessibility",
-                description: "The platform is designed to be accessible to users globally, allowing employees and stakeholders from different regions to stay informed about the company's environmental goals and progress."
+                value: {
+                    en: "Global accessibility",
+                    de: "Globale Zugänglichkeit"
+                },
+                description: {
+                    en: "The platform is designed to be accessible to users globally, allowing employees and stakeholders from different regions to stay informed about the company's environmental goals and progress.",
+                    de: "Die Plattform ist so konzipiert, dass sie Benutzern weltweit zugänglich ist, sodass Mitarbeiter und Interessengruppen aus verschiedenen Regionen über die Umweltziele und den Fortschritt des Unternehmens informiert bleiben können."
+                }
             },
             {
-                value: "Educational resources",
-                description: "The platform includes a range of educational resources and training materials to help employees understand the importance of environmental sustainability and how they can contribute to the company's efforts."
+                value: {
+                    en: "Educational resources",
+                    de: "Bildungsressourcen"
+                },
+                description: {
+                    en: "The platform includes a range of educational resources and training materials to help employees understand the importance of environmental sustainability and how they can contribute to the company's efforts.",
+                    de: "Die Plattform enthält eine Reihe von Bildungsressourcen und Schulungsmaterialien, um den Mitarbeitern die Bedeutung der ökologischen Nachhaltigkeit zu vermitteln und wie sie zu den Bemühungen des Unternehmens beitragen können."
+                }
             },
             {
-                description: "The platform includes a range of reports and analytics that can be used to identify areas where the company is making progress, and areas where additional efforts are needed, this help the company to make data-driven decision making.",
-                value: "Data-driven decision making"
+                description: {
+                    en: "The platform includes a range of reports and analytics that can be used to identify areas where the company is making progress, and areas where additional efforts are needed, this help the company to make data-driven decision making.",
+                    de: "Die Plattform enthält eine Reihe von Berichten und Analysen, die verwendet werden können, um Bereiche zu identifizieren, in denen das Unternehmen Fortschritte macht, und Bereiche, in denen zusätzliche Anstrengungen erforderlich sind, dies hilft dem Unternehmen bei der datengesteuerten Entscheidungsfindung."
+                },
+                value: {
+                    en: "Data-driven decision making",
+                    de: "Datengesteuerte Entscheidungsfindung"
+                }
             }
         ],
-        title: "Environmental Management Platform",
+        title: {
+            en: "Environmental Management Platform",
+            de: "Umweltmanagement-Plattform"
+        },
         stats: [
             {
-                key: "Users",
+                key: {
+                    en: "Users",
+                    de: "Benutzer"
+                },
                 value: "15000"
             },
             {
-                key: "Carbon footprint reduction",
+                key: {
+                    en: "Carbon footprint reduction",
+                    de: "Reduzierung des CO2-Fußabdrucks"
+                },
                 value: "12%"
             },
             {
-                key: "user engagement rate",
+                key: {
+                    en: "User engagement rate",
+                    de: "Nutzer-Engagement-Rate"
+                },
                 value: "85%"
             },
             {
                 value: "20%",
-                key: "increase in environmental performance score"
+                key: {
+                    en: "Increase in environmental performance score",
+                    de: "Steigerung der Umweltleistungspunkte"
+                }
             }
         ],
         img: "/projects/env.svg",
@@ -723,49 +1144,94 @@ export const Projects: ProjectModel[] = [
         status: 'Completed',
         keys: [
             {
-                description: "Website has been designed and developed for the company Heat & Power I",
-                value: "Website creation"
+                description: {
+                    en: "Website has been designed and developed for the company Heat & Power I",
+                    de: "Website wurde für das Unternehmen Heat & Power I gestaltet und entwickelt"
+                },
+                value: {
+                    en: "Website creation",
+                    de: "Website-Erstellung"
+                }
             },
             {
-                description: "Website presents all the company's services and allows potential customers to contact the company",
-                value: "Services presentation"
+                description: {
+                    en: "Website presents all the company's services and allows potential customers to contact the company",
+                    de: "Website präsentiert alle Dienstleistungen des Unternehmens und ermöglicht es potenziellen Kunden, das Unternehmen zu kontaktieren"
+                },
+                value: {
+                    en: "Services presentation",
+                    de: "Darstellung der Dienstleistungen"
+                }
             },
             {
-                value: "Unique branding",
-                description: "A unique company logo has been designed for the website and all other branding materials"
+                value: {
+                    en: "Unique branding",
+                    de: "Einzigartiges Branding"
+                },
+                description: {
+                    en: "A unique company logo has been designed for the website and all other branding materials",
+                    de: "Ein einzigartiges Unternehmenslogo wurde für die Website und alle anderen Branding-Materialien entworfen"
+                }
             },
             {
-                description: "The goal of the project is to establish a strong online presence for the company, making it easy for clients to learn about their services and get in touch with them.",
-                value: "Online presence"
+                description: {
+                    en: "The goal of the project is to establish a strong online presence for the company, making it easy for clients to learn about their services and get in touch with them.",
+                    de: "Das Ziel des Projekts ist es, eine starke Online-Präsenz für das Unternehmen aufzubauen, damit Kunden leicht etwas über ihre Dienstleistungen erfahren und mit ihnen in Kontakt treten können."
+                },
+                value: {
+                    en: "Online presence",
+                    de: "Online-Präsenz"
+                }
             }
         ],
         img: "/projects/hp.png",
-        shortDescription: "This project created a website for Heat & Power I, including a unique logo, to showcase services and allow for customer contact, to establish a strong online presence for the company.",
+        shortDescription: {
+            en: "This project created a website for Heat & Power I, including a unique logo, to showcase services and allow for customer contact, to establish a strong online presence for the company.",
+            de: "Dieses Projekt umfasste die Erstellung einer Website für Heat & Power I, einschließlich eines einzigartigen Logos, um Dienstleistungen zu präsentieren und Kundenkontakte zu ermöglichen, um eine starke Online-Präsenz für das Unternehmen aufzubauen."
+        },
         rollout: {
             seconds: 1582930800,
             nanoseconds: 876000000
         },
         previewLink: "https://hp-heizungsbau.de/",
-        description: "This project involved creating a comprehensive website for the company Heat & Power I, featuring all of their services and providing a platform for potential customers to contact them. The project also included designing a unique company logo to be used on the website and all other branding materials. The goal was to establish a strong online presence for the company, making it easy for clients to learn about their services and get in touch with them.",
+        description: {
+            en: "This project involved creating a comprehensive website for the company Heat & Power I, featuring all of their services and providing a platform for potential customers to contact them. The project also included designing a unique company logo to be used on the website and all other branding materials. The goal was to establish a strong online presence for the company, making it easy for clients to learn about their services and get in touch with them.",
+            de: "Dieses Projekt umfasste die Erstellung einer umfassenden Website für das Unternehmen Heat & Power I, auf der alle ihre Dienstleistungen dargestellt werden und eine Plattform für potenzielle Kunden bereitgestellt wird, um mit ihnen in Kontakt zu treten. Das Projekt umfasste auch die Gestaltung eines einzigartigen Unternehmenslogos, das auf der Website und allen anderen Markenmaterialien verwendet werden sollte. Das Ziel war, eine starke Online-Präsenz für das Unternehmen aufzubauen, damit Kunden leicht etwas über ihre Dienstleistungen erfahren und mit ihnen in Kontakt treten können."
+        },
         stats: [
             {
                 value: "5 minutes",
-                key: "Visit duration"
+                key: {
+                    en: "Visit duration",
+                    de: "Besuchsdauer"
+                }
             },
             {
-                key: "Mobile users",
+                key: {
+                    en: "Mobile users",
+                    de: "Mobile Nutzer"
+                },
                 value: "75%"
             },
             {
                 value: "40%",
-                key: "Bounce rate"
+                key: {
+                    en: "Bounce rate",
+                    de: "Absprungrate"
+                }
             },
             {
                 value: "1000",
-                key: "Daily visitors"
+                key: {
+                    en: "Daily visitors",
+                    de: "Tägliche Besucher"
+                }
             }
         ],
-        client: "Heat & Power",
+        client: {
+            en: "Heat & Power",
+            de: "Heat & Power"
+        },
         id: "heat-and-power-web-presence"
     },
     {
