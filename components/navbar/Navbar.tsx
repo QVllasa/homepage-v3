@@ -1,6 +1,4 @@
 import {AcademicCapIcon, Bars3Icon, ChevronRightIcon, CodeBracketIcon, PresentationChartLineIcon} from '@heroicons/react/24/outline'
-import {ContactDialog} from "../dialogs/ContactDialog";
-import {PropsWithChildren, useRef} from "react";
 import Link from "next/link";
 import {DarkModeSwitch} from "../DarkModeSwitch";
 import {LinkedinGithubComponent} from "../contact/LinkedinGithubComponent";
@@ -17,7 +15,6 @@ import {cn} from "../../lib/utils";
 
 
 export default function Navbar() {
-    const ref = useRef<ContactDialogProps>(null);
     const {t} = useTranslation('common');
     const router = useRouter();
 
@@ -58,7 +55,16 @@ export default function Navbar() {
         {name: t('navbar.downloadCV'), href: cvFilePath, current: false, download: true}
     ]
 
-    type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
+    // Function to scroll to contact section
+    const scrollToContact = () => {
+        const contactSection = document.getElementById('contact-section');
+        if (contactSection) {
+            contactSection.scrollIntoView({behavior: 'smooth'});
+        } else {
+            // If we're not on the main page, navigate to the home page and scroll to contact
+            window.location.href = '/#contact-section';
+        }
+    };
 
     return (
         <div className={'lg:overflow-y-visible fixed top-0 z-40 w-full'}>
@@ -176,8 +182,8 @@ export default function Navbar() {
                                     </div>
                                     <div className="px-2 pt-2 pb-2">
                                         <Button
-                                            onClick={() => ref?.current?.open()}
                                             className="w-full"
+                                            onClick={scrollToContact}
                                         >
                                             {t('navbar.contact')}
                                         </Button>
@@ -193,7 +199,7 @@ export default function Navbar() {
                                 <DarkModeSwitch/>
                                 <LinkedinGithubComponent/>
                                 <Button
-                                    onClick={() => ref?.current?.open()}
+                                    onClick={scrollToContact}
                                 >
                                     {t('navbar.contact')}
                                 </Button>
@@ -202,7 +208,6 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-            <ContactDialog ref={ref}/>
         </div>
     )
 }

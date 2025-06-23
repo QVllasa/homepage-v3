@@ -3,47 +3,99 @@ import {ProjectModel} from "../components/models/project.model";
 export const Projects: ProjectModel[] = [
     {
         id: 'guru-ai',
-        title: 'Guru AI – Universal Price-Comparison Framework',
+        title: {
+            en: 'Guru AI – Universal Price-Comparison Framework',
+            de: 'Guru AI – Universelles Preisvergleichs-Framework'
+        },
         status: 'In Progress',
-        description:
-            'Guru AI is a modular framework that turns any product vertical into a full-blown price-comparison portal in days. ' +
-            'It couples rock-solid data pipelines with AI-native content generation and SEO-first Next.js front-ends. ' +
-            'The first showcase, "moebelguru", indexes 600+ furniture categories and serves millisecond-fast price & trend insights.',
-        shortDescription: 'A modular framework to rapidly deploy vertical price-comparison platforms with AI-powered content generation, showcasing furniture comparison through moebelguru with 600+ categories',
+        description: {
+            en: 'Guru AI is a modular framework that turns any product vertical into a full-blown price-comparison portal in days. ' +
+                'It couples rock-solid data pipelines with AI-native content generation and SEO-first Next.js front-ends. ' +
+                'The first showcase, "moebelguru", indexes 600+ furniture categories and serves millisecond-fast price & trend insights.',
+            de: 'Guru AI ist ein modulares Framework, das jede Produktkategorie innerhalb weniger Tage in ein vollständiges Preisvergleichsportal verwandelt. ' +
+                'Es kombiniert robuste Datenpipelines mit KI-gestützter Inhaltserstellung und SEO-optimierten Next.js-Frontends. ' +
+                'Das erste Vorzeigeprojekt, "moebelguru", indexiert über 600 Möbelkategorien und liefert blitzschnelle Preis- und Trend-Informationen.'
+        },
+        shortDescription: {
+            en: 'A modular framework to rapidly deploy vertical price-comparison platforms with AI-powered content generation, showcasing furniture comparison through moebelguru with 600+ categories',
+            de: 'Ein modulares Framework zur schnellen Bereitstellung vertikaler Preisvergleichsplattformen mit KI-gestützter Inhaltserstellung, dargestellt durch den Möbelvergleich moebelguru mit über 600 Kategorien'
+        },
         keys: [
             {
                 icon: 'Database',
                 value: 'Supabase + PostgreSQL',
-                description: 'Raw feeds, price history & AI-enriched features are stored loss-lessly.'
+                description: {
+                    en: 'Raw feeds, price history & AI-enriched features are stored loss-lessly.',
+                    de: 'Rohdaten, Preisverlauf und KI-angereicherte Funktionen werden verlustfrei gespeichert.'
+                }
             },
             {
                 icon: 'Search',
                 value: 'Meilisearch',
-                description: 'Realtime faceted search; <200 ms global TTFB on Vercel Edge.'
+                description: {
+                    en: 'Realtime faceted search; <200 ms global TTFB on Vercel Edge.',
+                    de: 'Echtzeit-Facettensuche; <200 ms globale TTFB auf Vercel Edge.'
+                }
             },
             {
                 icon: 'Cpu',
                 value: 'LLM Pipelines',
-                description: 'Ollama & GPT-4.5 enrich attributes, detect trends and draft long-form content.'
+                description: {
+                    en: 'Ollama & GPT-4.5 enrich attributes, detect trends and draft long-form content.',
+                    de: 'Ollama & GPT-4.5 reichern Attribute an, erkennen Trends und erstellen Langtexte.'
+                }
             },
             {
                 icon: 'Layers',
                 value: 'Next.js 15 App Router',
-                description: 'Incremental Static Regeneration + Server Components for SEO-perfect pages.'
+                description: {
+                    en: 'Incremental Static Regeneration + Server Components for SEO-perfect pages.',
+                    de: 'Inkrementelle statische Regenerierung + Server-Komponenten für SEO-optimierte Seiten.'
+                }
             },
             {
                 icon: 'Repeat',
                 value: 'Vertical-agnostic',
-                description: 'Swap feed mappings & UI theme to launch Electronics, Fashion, Pets…'
+                description: {
+                    en: 'Swap feed mappings & UI theme to launch Electronics, Fashion, Pets…',
+                    de: 'Tausche Feed-Mappings und UI-Designs aus, um Elektronik, Mode, Haustiere usw. zu starten...'
+                }
             }
         ],
         stats: [
-            {key: 'Product categories', value: '606+'},
-            {key: 'Article sub-categories', value: '118'},
-            {key: 'AI articles / week', value: '~60'},
-            {key: 'Search TTFB', value: '< 200 ms'}
+            {
+                key: {
+                    en: 'Product categories',
+                    de: 'Produktkategorien'
+                },
+                value: '606+'
+            },
+            {
+                key: {
+                    en: 'Article sub-categories',
+                    de: 'Artikel-Unterkategorien'
+                },
+                value: '118'
+            },
+            {
+                key: {
+                    en: 'AI articles / week',
+                    de: 'KI-Artikel / Woche'
+                },
+                value: '~60'
+            },
+            {
+                key: {
+                    en: 'Search TTFB',
+                    de: 'Such-TTFB'
+                },
+                value: '< 200 ms'
+            }
         ],
-        client: 'Personal / R&D',
+        client: {
+            en: 'Personal / R&D',
+            de: 'Persönlich / F&E'
+        },
         previewLink: 'https://dev.moebelguru.com',
         img: '/projects/moebelguru.png',
         createAt: new Date('2025-05-10'),
@@ -55,53 +107,101 @@ export const Projects: ProjectModel[] = [
         }
     },
     {
-        client: "ThyssenKrupp Presta AG",
+        client: {
+            en: "ThyssenKrupp Presta AG",
+            de: "ThyssenKrupp Presta AG"
+        },
         keys: [
             {
-                description: "The platform provides complete visibility of components from initial manufacturing through final assembly, creating a digital history for each part.",
-                value: "End-to-End Component Traceability"
+                description: {
+                    en: "The platform provides complete visibility of components from initial manufacturing through final assembly, creating a digital history for each part.",
+                    de: "Die Plattform bietet vollständige Transparenz von Komponenten, von der ersten Fertigung bis zur Endmontage, und erstellt eine digitale Historie für jedes Teil."
+                },
+                value: {
+                    en: "End-to-End Component Traceability",
+                    de: "Ende-zu-Ende-Rückverfolgbarkeit von Komponenten"
+                }
             },
             {
-                value: "Real-time Sensor Data Analysis",
-                description: "The system continuously monitors and analyzes sensor measurements for each component, enabling immediate quality control interventions when deviations occur."
+                value: {
+                    en: "Real-time Sensor Data Analysis",
+                    de: "Echtzeit-Sensordatenanalyse"
+                },
+                description: {
+                    en: "The system continuously monitors and analyzes sensor measurements for each component, enabling immediate quality control interventions when deviations occur.",
+                    de: "Das System überwacht und analysiert kontinuierlich Sensormessungen für jede Komponente und ermöglicht sofortige Qualitätskontrolleingriffe, wenn Abweichungen auftreten."
+                }
             },
             {
-                value: "Manufacturing Process Insights",
-                description: "By tracking components through various machines and processes, the platform generates valuable insights for optimizing production workflows and identifying bottlenecks."
+                value: {
+                    en: "Manufacturing Process Insights",
+                    de: "Erkenntnisse zum Fertigungsprozess"
+                },
+                description: {
+                    en: "By tracking components through various machines and processes, the platform generates valuable insights for optimizing production workflows and identifying bottlenecks.",
+                    de: "Durch die Verfolgung von Komponenten durch verschiedene Maschinen und Prozesse liefert die Plattform wertvolle Erkenntnisse zur Optimierung von Produktionsabläufen und zur Identifizierung von Engpässen."
+                }
             },
             {
-                description: "The comprehensive traceability enables faster issue resolution, improved compliance reporting, and enhanced quality assurance throughout the manufacturing lifecycle.",
-                value: "Enhanced Quality Assurance"
+                description: {
+                    en: "The comprehensive traceability enables faster issue resolution, improved compliance reporting, and enhanced quality assurance throughout the manufacturing lifecycle.",
+                    de: "Die umfassende Rückverfolgbarkeit ermöglicht eine schnellere Problemlösung, verbesserte Compliance-Berichterstattung und verbesserte Qualitätssicherung während des gesamten Fertigungslebenszyklus."
+                },
+                value: {
+                    en: "Enhanced Quality Assurance",
+                    de: "Verbesserte Qualitätssicherung"
+                }
             }
         ],
         stats: [
             {
-                key: "Traceability Coverage",
+                key: {
+                    en: "Traceability Coverage",
+                    de: "Rückverfolgbarkeitsabdeckung"
+                },
                 value: "98%"
             },
             {
-                key: "Quality Control Improvement",
+                key: {
+                    en: "Quality Control Improvement",
+                    de: "Verbesserung der Qualitätskontrolle"
+                },
                 value: "35%"
             },
             {
-                key: "Issue Resolution Time",
+                key: {
+                    en: "Issue Resolution Time",
+                    de: "Zeit zur Problemlösung"
+                },
                 value: "60% Reduction"
             },
             {
-                key: "Components Tracked Daily",
+                key: {
+                    en: "Components Tracked Daily",
+                    de: "Täglich verfolgte Komponenten"
+                },
                 value: "250,000+"
             }
         ],
         status: 'Completed',
-        shortDescription: "The Track and Trace platform enables complete component traceability throughout the manufacturing process, monitoring machine interactions and sensor data to ensure quality and provide valuable production insights.",
-        title: "Track and Trace",
+        shortDescription: {
+            en: "The Track and Trace platform enables complete component traceability throughout the manufacturing process, monitoring machine interactions and sensor data to ensure quality and provide valuable production insights.",
+            de: "Die Track-and-Trace-Plattform ermöglicht eine vollständige Rückverfolgbarkeit von Komponenten im gesamten Fertigungsprozess, überwacht Maschineninteraktionen und Sensordaten, um die Qualität zu sichern und wertvolle Produktionseinblicke zu liefern."
+        },
+        title: {
+            en: "Track and Trace",
+            de: "Track and Trace"
+        },
         img: "/projects/track-trace.png",
         order: 0,
         rollout: {
             seconds: 1685570400,
             nanoseconds: 455000000
         },
-        description: "The Track and Trace platform revolutionizes manufacturing traceability by creating a digital fingerprint for each component from production start to final assembly. This comprehensive system monitors each part's journey through various machines and processes, capturing critical sensor measurements at every stage. By maintaining this detailed component history, the platform enables unprecedented quality control capabilities, allowing teams to quickly identify and address production issues before they escalate. The system's advanced analytics provide valuable insights into manufacturing efficiency, helping optimize workflows and reduce bottlenecks. Whether investigating quality deviations, demonstrating regulatory compliance, or identifying opportunities for process improvement, Track and Trace transforms component data into actionable intelligence, making it an essential tool for modern manufacturing operations.",
+        description: {
+            en: "The Track and Trace platform revolutionizes manufacturing traceability by creating a digital fingerprint for each component from production start to final assembly. This comprehensive system monitors each part's journey through various machines and processes, capturing critical sensor measurements at every stage. By maintaining this detailed component history, the platform enables unprecedented quality control capabilities, allowing teams to quickly identify and address production issues before they escalate. The system's advanced analytics provide valuable insights into manufacturing efficiency, helping optimize workflows and reduce bottlenecks. Whether investigating quality deviations, demonstrating regulatory compliance, or identifying opportunities for process improvement, Track and Trace transforms component data into actionable intelligence, making it an essential tool for modern manufacturing operations.",
+            de: "Die Track-and-Trace-Plattform revolutioniert die Rückverfolgbarkeit in der Fertigung, indem sie einen digitalen Fingerabdruck für jede Komponente vom Produktionsstart bis zur Endmontage erstellt. Dieses umfassende System überwacht den Weg jedes Teils durch verschiedene Maschinen und Prozesse und erfasst kritische Sensormessungen in jeder Phase. Durch die Aufrechterhaltung dieser detaillierten Komponentenhistorie ermöglicht die Plattform beispiellose Qualitätskontrollfunktionen, sodass Teams Produktionsprobleme schnell identifizieren und beheben können, bevor sie eskalieren. Die fortschrittlichen Analysen des Systems liefern wertvolle Erkenntnisse zur Fertigungseffizienz und helfen dabei, Arbeitsabläufe zu optimieren und Engpässe zu reduzieren. Ob bei der Untersuchung von Qualitätsabweichungen, dem Nachweis der Einhaltung von Vorschriften oder der Identifizierung von Möglichkeiten zur Prozessverbesserung – Track and Trace verwandelt Komponentendaten in umsetzbare Informationen und macht es zu einem unverzichtbaren Werkzeug für moderne Fertigungsprozesse."
+        },
         previewLink: "",
         id: "track-and-trace"
     },
@@ -152,46 +252,85 @@ export const Projects: ProjectModel[] = [
         client: "ThyssenKrupp Presta AG",
         keys: [
             {
-                description: "DUDE enables precise identification of anomalies in manufacturing data, ensuring a higher level of quality control by catching irregularities in real-time.",
-                value: "Enhanced Quality Control"
+                description: {
+                    en: "DUDE enables precise identification of anomalies in manufacturing data, ensuring a higher level of quality control by catching irregularities in real-time.",
+                    de: "DUDE ermöglicht die präzise Identifizierung von Anomalien in Fertigungsdaten und gewährleistet ein höheres Maß an Qualitätskontrolle, indem Unregelmäßigkeiten in Echtzeit erkannt werden."
+                },
+                value: {
+                    en: "Enhanced Quality Control",
+                    de: "Verbesserte Qualitätskontrolle"
+                }
             },
             {
-                value: "Process Optimization",
-                description: "The application contributes to process optimization by providing insights into data variations, helping streamline manufacturing operations and enhance efficiency."
+                value: {
+                    en: "Process Optimization",
+                    de: "Prozessoptimierung"
+                },
+                description: {
+                    en: "The application contributes to process optimization by providing insights into data variations, helping streamline manufacturing operations and enhance efficiency.",
+                    de: "Die Anwendung trägt zur Prozessoptimierung bei, indem sie Einblicke in Datenvariationen liefert, was hilft, Fertigungsabläufe zu optimieren und die Effizienz zu steigern."
+                }
             },
             {
-                value: "Improved Product Consistency",
-                description: "With DUDE, product consistency is bolstered as it helps maintain uniform quality standards across manufacturing processes, resulting in more reliable and higher-quality end products."
+                value: {
+                    en: "Improved Product Consistency",
+                    de: "Verbesserte Produktkonsistenz"
+                },
+                description: {
+                    en: "With DUDE, product consistency is bolstered as it helps maintain uniform quality standards across manufacturing processes, resulting in more reliable and higher-quality end products.",
+                    de: "Mit DUDE wird die Produktkonsistenz gestärkt, da es hilft, einheitliche Qualitätsstandards in den Fertigungsprozessen aufrechtzuerhalten, was zu zuverlässigeren und qualitativ hochwertigeren Endprodukten führt."
+                }
             }
         ],
         stats: [
             {
-                key: "Anomaly Detection Accuracy",
+                key: {
+                    en: "Anomaly Detection Accuracy",
+                    de: "Genauigkeit der Anomalieerkennung"
+                },
                 value: "95%"
             },
             {
-                key: "Real-Time Monitoring Response Time",
+                key: {
+                    en: "Real-Time Monitoring Response Time",
+                    de: "Reaktionszeit der Echtzeit-Überwachung"
+                },
                 value: "<100ms"
             },
             {
-                key: "Operational Efficiency Gains",
+                key: {
+                    en: "Operational Efficiency Gains",
+                    de: "Steigerung der betrieblichen Effizienz"
+                },
                 value: "20%"
             },
             {
-                key: "Product Quality Improvement",
+                key: {
+                    en: "Product Quality Improvement",
+                    de: "Verbesserung der Produktqualität"
+                },
                 value: "15%"
             }
         ],
         status: 'Completed',
-        shortDescription: "I completed the DUDE project, which stands for \"Detect Uncommon Data Events.\" This app identifies anomalies in manufacturing process quality data, aiding in quality control and process optimization.",
-        title: "DUDE",
+        shortDescription: {
+            en: "I completed the DUDE project, which stands for \"Detect Uncommon Data Events.\" This app identifies anomalies in manufacturing process quality data, aiding in quality control and process optimization.",
+            de: "Ich habe das DUDE-Projekt abgeschlossen, das für \"Detect Uncommon Data Events\" steht. Diese App identifiziert Anomalien in Qualitätsdaten von Fertigungsprozessen und unterstützt bei der Qualitätskontrolle und Prozessoptimierung."
+        },
+        title: {
+            en: "DUDE",
+            de: "DUDE"
+        },
         img: "/projects/dude.png",
         order: 0,
         rollout: {
             seconds: 1685570400,
             nanoseconds: 455000000
         },
-        description: "DUDE (Detect Uncommon Data Events) is an advanced application for manufacturing quality control. It swiftly identifies anomalies in real-time process quality data, enhancing quality control and operational efficiency. With DUDE, manufacturing processes are optimized, and product consistency is improved, ensuring high-quality, reliable end products.",
+        description: {
+            en: "DUDE (Detect Uncommon Data Events) is an advanced application for manufacturing quality control. It swiftly identifies anomalies in real-time process quality data, enhancing quality control and operational efficiency. With DUDE, manufacturing processes are optimized, and product consistency is improved, ensuring high-quality, reliable end products.",
+            de: "DUDE (Detect Uncommon Data Events) ist eine fortschrittliche Anwendung für die Fertigungsqualitätskontrolle. Sie identifiziert schnell Anomalien in Echtzeit-Prozessqualitätsdaten, verbessert die Qualitätskontrolle und die betriebliche Effizienz. Mit DUDE werden Fertigungsprozesse optimiert und die Produktkonsistenz verbessert, was hochwertige, zuverlässige Endprodukte gewährleistet."
+        },
         previewLink: "",
         id: "dude"
     },

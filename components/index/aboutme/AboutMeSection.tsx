@@ -1,11 +1,8 @@
-import {ContactDialog} from "../../dialogs/ContactDialog";
-import {PropsWithChildren, useRef} from "react";
 import Image from "next/image";
 import {useTranslation} from 'next-i18next';
+import Link from "next/link";
 
-type ContactDialogProps = PropsWithChildren<{ open: ()=>{} }>;
 export default function AboutMeSection() {
-    const ref = useRef<ContactDialogProps>(null);
     const {t} = useTranslation('common');
 
     return (
@@ -56,19 +53,17 @@ export default function AboutMeSection() {
                                 <p className="text-lg transition text-white dark:text-slate-900">
                                     {t('about.philosophy')}
                                 </p>
-                                <button
-                                    type='button'
-                                    onClick={() => ref?.current?.open()}
+                                <Link
+                                    href="/#"
                                     className="block w-full transition rounded-md border border-transparent bg-white dark:bg-blue-600 dark:text-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
                                 >
                                     {t('navbar.contact')}
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <ContactDialog ref={ref}/>
         </div>
     )
 }

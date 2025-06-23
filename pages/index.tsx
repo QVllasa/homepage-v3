@@ -4,6 +4,7 @@ import ExperienceSection from "../components/index/experience/ExperienceSection"
 import AboutMeSection from "../components/index/aboutme/AboutMeSection";
 import ServicesSection from "../components/index/service/ServicesSection";
 import ProjectSection from "../components/index/projects/ProjectSection";
+import ProjectHighlightSection from "../components/index/projects/ProjectHighlightSection";
 import CompanySection from "../components/index/company/CompanySection";
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {GetStaticProps} from 'next';
@@ -33,8 +34,9 @@ export default function Home() {
             </Head>
             <main className='relative'>
                 <HeaderSection/>
-                <AboutMeSection/>
+                <ProjectHighlightSection/>
                 <ExperienceSection/>
+                <AboutMeSection/>
                 <ServicesSection/>
                 <ProjectSection/>
                 <CompanySection/>

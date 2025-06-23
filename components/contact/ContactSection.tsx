@@ -1,11 +1,8 @@
-import {ContactDialog} from "../dialogs/ContactDialog";
-import {PropsWithChildren, useRef, useState} from "react";
+import {useState} from "react";
 import {addDoc, collection, getFirestore} from "firebase/firestore";
 import {useFirebaseApp} from "reactfire";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useTranslation} from 'next-i18next';
-
-type ContactDialogProps = PropsWithChildren<{ open: () => {} }>;
 
 type Email = {
     email: string,
@@ -16,8 +13,7 @@ export default function ContactSection() {
     const [isLoading, setIsLoading] = useState(false)
     const app = useFirebaseApp();
     const firestore = getFirestore(app);
-    const ref = useRef<ContactDialogProps>(null);
-    const {register, handleSubmit, watch, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const onSubmit: SubmitHandler<Email> = (data: { email: string }) => {
         console.log("data:", data);
         if (!data.email) return
@@ -25,8 +21,8 @@ export default function ContactSection() {
         addDoc(collection(firestore, "mail"), {
             to: ['qendrim.vllasa@gmail.com'],
             message: {
-                subject: `Contact Me: ${data.email}`,
-                text: "Kontaktiere mich: " + data.email,
+                subject: `Contact Request: ${data.email}`,
+                text: "Kontaktanfrage von: " + data.email,
             }
         }).then(() => {
             setIsLoading(false);
@@ -35,7 +31,7 @@ export default function ContactSection() {
     };
 
     return (
-        <div className={'dark:bg-slate-900'}>
+        <div className={'dark:bg-slate-900'} id="contact-section">
             <div className="relative mx-auto py-16 lg:py-24 px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative mx-auto max-w-xl  lg:max-w-7xl lg:px-8">
                     <div
@@ -104,29 +100,15 @@ export default function ContactSection() {
                                     }
                                 </div>
                             </div>
-                            <div className="flex flex-col items-center justify-center mt-8 ">
-                                <span className='text-black text-lg text-slate-300 dark:text-slate-900'>{t('contact.orContact')}</span>
-                                <br/>
-                                <button
-                                    type='button'
-                                    onClick={() => ref?.current?.open()}
-                                    className="block w-full rounded-md border border-transparent bg-white dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-white py-3 px-5 text-center text-base font-medium text-blue-700  hover:bg-gray-50 sm:inline-block sm:w-auto"
-                                >
-                                    {t('contact.directContact')}
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <ContactDialog ref={ref}/>
             </div>
         </div>
-
     )
 }
 
-
 const ErrorMessage = (props: any) => {
     const {message} = props;
-    return (<span className={'absolute top-8 text-red-600 font-light mt-6'}>{message}</span>)
+    return (<span className={'absolute top-12 text-red-600 font-light'}>{message}</span>)
 }

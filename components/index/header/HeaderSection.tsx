@@ -14,7 +14,7 @@ export default function HeaderSection() {
     const [isLoading, setIsLoading] = useState(false)
     const app = useFirebaseApp();
     const firestore = getFirestore(app);
-    const {register, handleSubmit, watch, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const {t} = useTranslation('common');
 
     const onSubmit: SubmitHandler<Email> = (data: { email: string }) => {
@@ -24,8 +24,8 @@ export default function HeaderSection() {
         addDoc(collection(firestore, "mail"), {
             to: ['qendrim.vllasa@gmail.com'],
             message: {
-                subject: `Contact Me: ${data.email}`,
-                text: "Kontaktiere mich: " + data.email,
+                subject: `Contact Request: ${data.email}`,
+                text: "Kontaktanfrage von: " + data.email,
             }
         }).then(() => {
             setIsLoading(false);
@@ -64,6 +64,9 @@ export default function HeaderSection() {
                             delaySpeed={900}
                         />
                     </div>
+                    <div className="mt-5 text-center md:text-left">
+                        <p className="text-md text-gray-600 dark:text-gray-300">{t('header.introduction')}</p>
+                    </div>
                     <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                         <div>
                             {
@@ -82,7 +85,7 @@ export default function HeaderSection() {
                                     <div className="mt-12 sm:mx-auto sm:flex">
                                         <div className="relative flex-1 min-w-72 sm:w-72">
                                             <label htmlFor="cta-email" className="sr-only">
-                                                {t('contact.email')}
+                                                {t('header.enterEmail')}
                                             </label>
                                             <input
                                                 {...register("email", {
@@ -98,7 +101,7 @@ export default function HeaderSection() {
                                                 id="cta-email"
                                                 type="email"
                                                 className="block w-full rounded-md transition border-none ring-2 ring-blue-500 transition dark:ring-yellow-500 px-5 py-3 text-base text-gray-900 placeholder-gray-500  focus:border-transparent focus:outline-none focus:ring-2  focus:ring-blue-600 dark:focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-blue-600 dark:focus:ring-offset-yellow-500"
-                                                placeholder={t('contact.email')}
+                                                placeholder={t('header.enterEmail')}
                                             />
                                             {errors.email && <ErrorMessage message={errors.email.message}/>}
                                         </div>
@@ -111,7 +114,7 @@ export default function HeaderSection() {
                                                 onClick={handleSubmit(onSubmit)}
                                                 className="block w-full rounded-md transition border border-transparent bg-blue-600 transition dark:bg-yellow-500 px-5 py-3 text-base font-medium text-white dark:text-slate-900 dark:hover:bg-yellow-600 hover:bg-blue-700 focus:outline-none focus:ring-2 dark:focus:ring-yellow-500 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 dark:focus:ring-offset-yellow-500 sm:px-10"
                                             >
-                                                {t('header.contactButton')}
+                                                {t('header.reachOut')}
                                             </button>
                                         </div>
                                     </div>

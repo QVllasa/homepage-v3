@@ -7,16 +7,17 @@
     "contact": "Kontakt",
     "sections": "Bereiche",
     "downloadCV": "Lebenslauf"
-  },  "header": {
+  },
+  "header": {
     "greeting": "Hi, ich bin",
     "role": "Software-Ingenieur aus ❤️",
     "techEnthusiast": "Technologie-Enthusiast 🚀",
     "droneLover": "Drohnen-Liebhaber 🚁",
-    "introduction": "Ich bin spezialisiert auf die Entwicklung moderner Webanwendungen und Cloud-Lösungen.",
+    "introduction": "Ich bin spezialisiert auf die Entwicklung moderner Webanwendungen und Cloud-Lösungen. Bei Interesse an meinen Fähigkeiten oder wenn du ein Projekt im Sinn hast, kontaktiere mich gerne.",
     "contactButton": "Kontakt aufnehmen",
     "projectsButton": "Projekte ansehen",
-    "messageSent": "Ich werde mich bei Ihnen melden!",
-    "enterEmail": "Geben Sie Ihre E-Mail-Adresse ein",
+    "messageSent": "Vielen Dank! Ich melde mich bald.",
+    "enterEmail": "Deine E-Mail-Adresse",
     "reachOut": "Kontakt aufnehmen"
   },
   "about": {
@@ -31,13 +32,13 @@
   "services": {
     "title": "Meine Dienstleistungen",
     "description": "Ich biete eine Reihe von Softwareentwicklungsdiensten an, um Unternehmen in der digitalen Welt erfolgreich zu machen.",
-    "heading": "Was ich für Sie tun kann",
+    "heading": "Womit ich dienen kann",
     "subheading": "Mit modernsten Technologien",
     "readMore": "Mehr erfahren",
     "items": {
       "consulting": {
         "title": "IT-Beratung",
-        "description": "Optimieren Sie Ihre Prozesse."
+        "description": "Optimierung von Prozessen."
       },
       "development": {
         "title": "Web-Anwendungsentwicklung",
@@ -45,12 +46,13 @@
       },
       "analytics": {
         "title": "Business Research & Analytics",
-        "description": "Erkenntnisse aus Ihren Daten."
+        "description": "Datengetriebene Analysen und Schlussfolgerung."
       }
     }
   },
   "experience": {
-    "title": "Meine Erfahrung",    "education": {
+    "title": "Meine Erfahrung",
+    "education": {
       "title": "Ausbildung.",
       "subtitle": "Wo ich meine Grenzen erweitert habe",
       "whatIDone": "Was ich hier gemacht habe"
@@ -62,7 +64,7 @@
       "showLess": "Weniger anzeigen"
     },
     "heading": "Über meine Fähigkeiten und Erfahrungen",
-    "subheading": "Only the sky is the limit",
+    "subheading": "Nur der Himmel ist die Grenze",
     "skills": {
       "title": "Top-Fähigkeiten.",
       "subtitle": "Was ich zur Problemlösung einsetze",
@@ -80,19 +82,23 @@
       "projects": "Projekte",
       "languages": "Programmiersprachen"
     }
-  },  "projects": {
+  },
+  "projects": {
     "title": "Ausgewählte Projekte",
     "viewAll": "Alle Projekte anzeigen",
     "heading": "Einige meiner neuesten Projekte",
     "subheading": "Mit jedem Projekt wachsen",
+    "highlightsHeading": "Ausgewählte Projekte",
+    "highlightsSubheading": "Einige meiner besten Arbeiten",
     "loadMore": "Mehr laden",
     "status": {
       "completed": "Abgeschlossen",
       "inProgress": "In Bearbeitung",
       "onHold": "Pausiert",
       "canceled": "Abgebrochen"
-    },    "viewDetails": "Details ansehen",
-    "viewWebsite": "Website ansehen", 
+    },
+    "viewDetails": "Details ansehen",
+    "viewWebsite": "Website ansehen",
     "backButton": "← Zurück",
     "projectInformation": "Projektinformationen",
     "client": "Kunde",
@@ -101,23 +107,24 @@
   },
   "companies": {
     "heading": "Einige Unternehmen, die von meiner Arbeit profitiert haben"
-  },"contact": {
-    "title": "Kontakt aufnehmen",
-    "description": "Ich melde mich bei Ihnen, wenn Sie mir Ihre E-Mail hinterlassen",
-    "heading": "Ein Projekt im Sinn?",
-    "subheading": "Sprechen wir darüber!",
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Interesse an meinen Fähigkeiten? Hinterlasse deine E-Mail und ich melde mich bei dir.",
+    "heading": "Interesse an Zusammenarbeit?",
+    "subheading": "Lass uns in Kontakt treten!",
     "name": "Name",
     "email": "E-Mail",
     "message": "Nachricht",
     "send": "Nachricht senden",
     "required": "Erforderlich",
-    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-    "enterEmail": "Geben Sie Ihre E-Mail-Adresse ein",
-    "submitButton": "Ja, kontaktieren Sie mich!",
-    "orContact": "oder direkt über das Formular kontaktieren",
+    "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse ein",
+    "enterEmail": "Gib deine E-Mail-Adresse ein",
+    "submitButton": "Kontaktiere mich",
+    "orContact": "oder hinterlasse deine E-Mail-Adresse",
     "directContact": "Kontaktformular",
-    "contactUs": "Kontaktiere uns",
-    "formDescription": "Fülle das Formular aus, und wir werden uns so schnell wie möglich bei dir melden.",
+    "contactUs": "Kontakt aufnehmen",
+    "formDescription": "Interesse an meiner Arbeit? Hinterlasse deine E-Mail und ich melde mich bei dir.",
     "yourName": "Dein Name",
     "yourEmail": "deine@email.com",
     "yourMessage": "Deine Nachricht...",

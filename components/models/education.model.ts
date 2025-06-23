@@ -4,7 +4,10 @@ export interface EducationModel {
     from: string,
     to: string,
     name: string,
-    description: string,
+    description: {
+        en: string,
+        de: string
+    } | string, // Unterstützung für Legacy-Daten
     order: number,
     url: string,
     icon?: any,
