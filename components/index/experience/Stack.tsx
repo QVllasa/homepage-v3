@@ -9,7 +9,7 @@ import {useTranslation} from 'next-i18next';
 
 export default function Stack() {
     const [counter, setCounter] = useState(9)
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     const stack: StackModel[] = StackData;
 

@@ -3,19 +3,17 @@ import {LinkedinGithubComponent} from "../contact/LinkedinGithubComponent";
 import {useTranslation} from 'next-i18next';
 
 export default function Footer() {
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     const navigation = {
-        sections: [
-            {name: t('about.title'), href: '#aboutme'},
+        sections: [            {name: t('about.title'), href: '#aboutme'},
             {name: t('about.skillsTitle'), href: '#skills'},
             {name: t('experience.title'), href: '#experiences'},
-            {name: t('experience.education'), href: '#education'},
+            {name: t('experience.education.title'), href: '#education'},
             {name: 'Stack', href: '#stack'},
-        ],        services: [
-            {name: t('services.items.consulting.title'), href: '/services/consulting'},
-            {name: t('services.items.development.title'), href: '/services/development'},
-            {name: t('services.items.analytics.title'), href: '/services/analytics'},
+        ],        services: [            {name: t('services.items.consulting.title'), href: '/skills/consulting'},
+            {name: t('services.items.development.title'), href: '/skills/development'},
+            {name: t('services.items.analytics.title'), href: '/skills/analytics'},
         ],
         legal: [
             {name: t('footer.privacy'), href: '/legal/privacy'},

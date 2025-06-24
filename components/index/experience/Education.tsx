@@ -4,7 +4,7 @@ import {useTranslation} from 'next-i18next';
 
 export default function Education() {
     const educations = Educations;
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     return (
         <div className="" id={'education'}>

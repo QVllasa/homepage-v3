@@ -3,7 +3,7 @@ import {useTranslation} from 'next-i18next';
 import Link from "next/link";
 
 export default function AboutMeSection() {
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     return (
         <div className=" bg-white transition dark:bg-slate-900 py-16 lg:py-24">

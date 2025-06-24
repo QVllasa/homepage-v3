@@ -7,7 +7,7 @@ import {useTranslation} from 'next-i18next';
 
 
 export default function ExperienceSection() {
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     return (
         <div className=" bg-white transition dark:bg-slate-900 py-16 lg:py-24" id={'experience'}>

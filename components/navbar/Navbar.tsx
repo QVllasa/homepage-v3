@@ -15,7 +15,7 @@ import {cn} from "../../lib/utils";
 
 
 export default function Navbar() {
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
     const router = useRouter();
 
     // CV file path based on selected language
@@ -35,19 +35,19 @@ export default function Navbar() {
                 {
                     name: t('services.items.consulting.title'),
                     icon: AcademicCapIcon,
-                    link: "/services/consulting",
+                    link: "/skills/consulting",
                     storage: false
                 },
                 {
                     name: t('services.items.development.title'),
                     icon: CodeBracketIcon,
-                    link: "/services/development",
+                    link: "/skills/development",
                     storage: false,
                 },
                 {
                     name: t('services.items.analytics.title'),
                     icon: PresentationChartLineIcon,
-                    link: "/services/analytics",
+                    link: "/skills/analytics",
                     storage: false
                 }
             ]

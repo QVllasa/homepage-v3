@@ -3,25 +3,25 @@ import Link from "next/link";
 import {useTranslation} from 'next-i18next';
 
 export default function ServicesSection() {
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     const services = [
         {
             name: t('services.items.consulting.title'),
             description: t('services.items.consulting.description'),
-            link: '/services/consulting',
+            link: '/skills/consulting',
             icon: PresentationChartLineIcon,
         },
         {
             name: t('services.items.development.title'),
             description: t('services.items.development.description'),
-            link: '/services/development',
+            link: '/skills/development',
             icon: CodeBracketIcon,
         },
         {
             name: t('services.items.analytics.title'),
             description: t('services.items.analytics.description'),
-            link: '/services/analytics',
+            link: '/skills/analytics',
             icon: ChartBarSquareIcon,
         },
     ]
@@ -71,7 +71,7 @@ export default function ServicesSection() {
                                     {services.map((feature, index) => (
                                         <div key={index} className="pt-6">
                                             <Link href={feature.link}
-                                                  className="flow-root transition rounded-lg bg-white dark:bg-slate-800 px-6 pb-8 border dark:border-slate-800 transition-all hover:scale-105 cursor-pointer">
+                                                  className="flow-root transition-colors rounded-lg bg-white dark:bg-slate-800 px-6 pb-8 border dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-400 cursor-pointer">
                                                 <div className="-mt-6">
                                                     <div>
                                                         <span

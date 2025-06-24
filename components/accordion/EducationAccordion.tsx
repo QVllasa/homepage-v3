@@ -7,7 +7,7 @@ import {useTranslatedContent} from "../../lib/useTranslatedContent";
 
 export default function EducationAccordion(data: { item: EducationModel}) {
     const [open, setOpen] = useState(false)
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     return (
         <div className="mx-auto w-full">

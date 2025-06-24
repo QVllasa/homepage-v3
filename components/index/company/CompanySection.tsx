@@ -7,7 +7,7 @@ import {useTranslation} from 'next-i18next';
 
 export default function CompanySection() {
     const companies: CompanyModel[] = Companies;
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     return (
         <>

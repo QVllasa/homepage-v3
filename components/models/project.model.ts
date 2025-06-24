@@ -47,4 +47,38 @@ export interface ProjectModel {
         seconds: number,
         nanoseconds: number
     },
+    techStack?: {
+        category: string | {
+            en: string,
+            de: string
+        },
+        technologies: string[]
+    }[],
+    skills?: {
+        category: string | {
+            en: string,
+            de: string
+        },
+        items: string[]
+    }[],
+    challenges?: {
+        title: string | {
+            en: string,
+            de: string
+        },
+        description: string | {
+            en: string,
+            de: string
+        }
+    }[],
+    learnings?: {
+        title: string | {
+            en: string,
+            de: string
+        },
+        description: string | {
+            en: string,
+            de: string
+        }
+    }[]
 }

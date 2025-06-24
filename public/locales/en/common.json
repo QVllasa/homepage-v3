@@ -1,13 +1,12 @@
-{
-  "navbar": {
+{  "navbar": {
     "about": "About",
-    "services": "Services",
+    "services": "Skills",
     "experience": "Experience",
     "projects": "Projects",
     "contact": "Contact",
     "sections": "Sections",
-    "downloadCV": "Download CV"
-  },  "header": {
+    "downloadCV": "Download Resume"
+  },"header": {
     "greeting": "Hi, I'm",
     "role": "Software Engineer by ❤️",
     "techEnthusiast": "Technology Enthusiast 🚀",

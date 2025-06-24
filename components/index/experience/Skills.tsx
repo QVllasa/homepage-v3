@@ -8,7 +8,7 @@ import {useTranslatedContent} from "../../../lib/useTranslatedContent";
 
 export default function Skills() {
     const [showMore, setShowMore] = useState(false);
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     const skills: SkillModel[] = SkillsData;
 

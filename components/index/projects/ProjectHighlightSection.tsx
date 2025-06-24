@@ -7,7 +7,7 @@ import {useTranslatedContent} from "../../../lib/useTranslatedContent";
 
 
 export default function ProjectHighlightSection() {
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
     // Wir nehmen nur die ersten 3 Projekte oder die mit den höchsten Prioritäten
     const highlightProjects: ProjectModel[] = Projects.slice(0, 3);
 
@@ -25,15 +25,9 @@ export default function ProjectHighlightSection() {
             default:
                 return status;
         }
-    };
-
-    return (
-        <div className={'dark:bg-slate-900'}>
-            <div className="relative mx-auto py-16 lg:py-24 px-6 lg:max-w-7xl lg:px-8" id='project-highlights'>
-                <div className="absolute inset-0 ">
-                    <div className="h-1/3  sm:h-2/3"/>
-                </div>
-                <div className="relative mx-auto max-w-3xl lg:max-w-7xl">
+    };    return (
+        <div className={'dark:bg-slate-900 pt-16 sm:pt-24 lg:pt-32'}>            <div className="relative mx-auto py-24 lg:py-32 px-6 lg:max-w-7xl lg:px-8" id='project-highlights'>
+                <div className="relative mx-auto max-w-3xl lg:max-w-7xl z-10">
                     <div className="text-left lg:text-center">
                         <h2 className="text-3xl font-bold transition tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
                             {t('projects.highlightsHeading')}
@@ -45,9 +39,8 @@ export default function ProjectHighlightSection() {
                     <div className="mx-auto mt-12 grid gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
                         {highlightProjects?.map((project, index) => (
                             <Link key={index} href={`projects/${encodeURIComponent(project.id)}`}
-                                  className="flex transition flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:scale-101 transition">
-                                <div className="flex-shrink-0 bg-white">
-                                    <Image className="h-48 w-full" width={640} height={400} src={project.img}
+                                  className="flex flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+                                <div className="flex-shrink-0 bg-white">                                    <Image className="h-48 w-full object-cover" width={640} height={400} src={project.img}
                                            alt={typeof project.title === 'string' ? project.title : project.title?.en || ''}/>
                                 </div>
                                 <div

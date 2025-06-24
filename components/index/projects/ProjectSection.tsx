@@ -9,7 +9,7 @@ import {useTranslatedContent} from "../../../lib/useTranslatedContent";
 
 
 export default function ProjectSection() {
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
     const projectData: ProjectModel[] = Projects;
     const [projects, setProjects] = useState<ProjectModel[]>(projectData);
     const [counter, setCounter] = useState(6);
@@ -56,9 +56,8 @@ export default function ProjectSection() {
                             if (index < counter && index < projects.length) {
                                 return (
                                     <Link key={index} href={`projects/${encodeURIComponent(project.id)}`}
-                                         className="flex transition flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:scale-101 transition">
-                                        <div className="flex-shrink-0 bg-white">
-                                            <Image className="h-48 w-full" width={640} height={400} src={project.img}
+                                         className="flex flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
+                                        <div className="flex-shrink-0 bg-white">                                            <Image className="h-48 w-full object-cover" width={640} height={400} src={project.img}
                                                    alt={typeof project.title === 'string' ? project.title : project.title?.en || ''}/>
                                         </div>
                                         <div

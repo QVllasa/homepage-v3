@@ -90,11 +90,9 @@ export const Projects: ProjectModel[] = [
                     de: 'Such-TTFB'
                 },
                 value: '< 200 ms'
-            }
-        ],
-        client: {
-            en: 'Personal / R&D',
-            de: 'Persönlich / F&E'
+            }        ],        client: {
+            en: 'Research, Development & Training',
+            de: 'Forschung, Entwicklung und Weiterbildung'
         },
         previewLink: 'https://dev.moebelguru.com',
         img: '/projects/moebelguru.png',
@@ -104,7 +102,75 @@ export const Projects: ProjectModel[] = [
         rollout: {
             seconds: 1750204800,   // 2025-06-17T00:00:00Z
             nanoseconds: 0
-        }
+        },
+        techStack: [
+            {
+                category: { en: 'Frontend', de: 'Frontend' },
+                technologies: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'React Query']
+            },
+            {
+                category: { en: 'Backend & Database', de: 'Backend & Datenbank' },
+                technologies: ['Supabase', 'PostgreSQL', 'Python FastAPI', 'Redis']
+            },
+            {
+                category: { en: 'AI & Search', de: 'KI & Suche' },
+                technologies: ['GPT-4.5', 'Ollama', 'Meilisearch', 'OpenAI Embeddings']
+            },
+            {
+                category: { en: 'Infrastructure', de: 'Infrastruktur' },
+                technologies: ['Vercel', 'Docker', 'GitHub Actions', 'Cloudflare']
+            }
+        ],
+        skills: [
+            {
+                category: { en: 'Full-Stack Development', de: 'Full-Stack-Entwicklung' },
+                items: ['Next.js App Router', 'Server Components', 'TypeScript', 'API Design', 'Database Schema Design']
+            },
+            {
+                category: { en: 'AI Integration', de: 'KI-Integration' },
+                items: ['LLM Prompt Engineering', 'RAG Implementation', 'AI Content Generation', 'Embedding-based Search']
+            },
+            {
+                category: { en: 'Performance Optimization', de: 'Performance-Optimierung' },
+                items: ['Edge Functions', 'Caching Strategies', 'Database Indexing', 'Search Performance Tuning']
+            },
+            {
+                category: { en: 'Product Strategy', de: 'Produktstrategie' },
+                items: ['Market Research', 'Competitive Analysis', 'SEO Strategy', 'User Experience Design']
+            }
+        ],
+        challenges: [
+            {
+                title: { en: 'Real-time Price Synchronization', de: 'Echtzeit-Preissynchronisation' },
+                description: { 
+                    en: 'Handling 600+ product categories with millions of price changes daily while maintaining data consistency and sub-200ms search response times.',
+                    de: 'Verarbeitung von über 600 Produktkategorien mit Millionen von täglichen Preisänderungen bei gleichzeitiger Wahrung der Datenkonsistenz und Sub-200ms Suchantwortzeiten.'
+                }
+            },
+            {
+                title: { en: 'AI Content Quality & Scale', de: 'KI-Inhaltsqualität & Skalierung' },
+                description: {
+                    en: 'Generating high-quality, SEO-optimized content for thousands of products while avoiding AI detection and maintaining brand consistency.',
+                    de: 'Generierung hochwertiger, SEO-optimierter Inhalte für Tausende von Produkten bei gleichzeitiger Vermeidung von KI-Erkennung und Wahrung der Markenkonsistenz.'
+                }
+            }
+        ],
+        learnings: [
+            {
+                title: { en: 'Edge-First Architecture', de: 'Edge-First-Architektur' },
+                description: {
+                    en: 'Learned to design applications from the ground up for edge deployment, achieving global sub-200ms response times through strategic caching and data distribution.',
+                    de: 'Gelernt, Anwendungen von Grund auf für Edge-Deployment zu entwickeln und globale Sub-200ms Antwortzeiten durch strategisches Caching und Datenverteilung zu erreichen.'
+                }
+            },
+            {
+                title: { en: 'LLM Pipeline Optimization', de: 'LLM-Pipeline-Optimierung' },
+                description: {
+                    en: 'Developed expertise in combining multiple AI models (GPT-4.5, Ollama) to create cost-effective, high-quality content generation pipelines that scale to millions of products.',
+                    de: 'Expertise in der Kombination mehrerer KI-Modelle (GPT-4.5, Ollama) entwickelt, um kosteneffektive, hochwertige Content-Generierungspipelines zu erstellen, die auf Millionen von Produkten skalieren.'
+                }
+            }
+        ]
     },
     {
         client: {
@@ -200,10 +266,77 @@ export const Projects: ProjectModel[] = [
         },
         description: {
             en: "The Track and Trace platform revolutionizes manufacturing traceability by creating a digital fingerprint for each component from production start to final assembly. This comprehensive system monitors each part's journey through various machines and processes, capturing critical sensor measurements at every stage. By maintaining this detailed component history, the platform enables unprecedented quality control capabilities, allowing teams to quickly identify and address production issues before they escalate. The system's advanced analytics provide valuable insights into manufacturing efficiency, helping optimize workflows and reduce bottlenecks. Whether investigating quality deviations, demonstrating regulatory compliance, or identifying opportunities for process improvement, Track and Trace transforms component data into actionable intelligence, making it an essential tool for modern manufacturing operations.",
-            de: "Die Track-and-Trace-Plattform revolutioniert die Rückverfolgbarkeit in der Fertigung, indem sie einen digitalen Fingerabdruck für jede Komponente vom Produktionsstart bis zur Endmontage erstellt. Dieses umfassende System überwacht den Weg jedes Teils durch verschiedene Maschinen und Prozesse und erfasst kritische Sensormessungen in jeder Phase. Durch die Aufrechterhaltung dieser detaillierten Komponentenhistorie ermöglicht die Plattform beispiellose Qualitätskontrollfunktionen, sodass Teams Produktionsprobleme schnell identifizieren und beheben können, bevor sie eskalieren. Die fortschrittlichen Analysen des Systems liefern wertvolle Erkenntnisse zur Fertigungseffizienz und helfen dabei, Arbeitsabläufe zu optimieren und Engpässe zu reduzieren. Ob bei der Untersuchung von Qualitätsabweichungen, dem Nachweis der Einhaltung von Vorschriften oder der Identifizierung von Möglichkeiten zur Prozessverbesserung – Track and Trace verwandelt Komponentendaten in umsetzbare Informationen und macht es zu einem unverzichtbaren Werkzeug für moderne Fertigungsprozesse."
-        },
+            de: "Die Track-and-Trace-Plattform revolutioniert die Rückverfolgbarkeit in der Fertigung, indem sie einen digitalen Fingerabdruck für jede Komponente vom Produktionsstart bis zur Endmontage erstellt. Dieses umfassende System überwacht den Weg jedes Teils durch verschiedene Maschinen und Prozesse und erfasst kritische Sensormessungen in jeder Phase. Durch die Aufrechterhaltung dieser detaillierten Komponentenhistorie ermöglicht die Plattform beispiellose Qualitätskontrollfunktionen, sodass Teams Produktionsprobleme schnell identifizieren und beheben können, bevor sie eskalieren. Die fortschrittlichen Analysen des Systems liefern wertvolle Erkenntnisse zur Fertigungseffizienz und helfen dabei, Arbeitsabläufe zu optimieren und Engpässe zu reduzieren. Ob bei der Untersuchung von Qualitätsabweichungen, dem Nachweis der Einhaltung von Vorschriften oder der Identifizierung von Möglichkeiten zur Prozessverbesserung – Track and Trace verwandelt Komponentendaten in umsetzbare Informationen und macht es zu einem unverzichtbaren Werkzeug für moderne Fertigungsprozesse."        },
         previewLink: "",
-        id: "track-and-trace"
+        id: "track-and-trace",
+        techStack: [
+            {
+                category: { en: 'Frontend', de: 'Frontend' },
+                technologies: ['React', 'TypeScript', 'Material-UI', 'Chart.js', 'Redux Toolkit']
+            },
+            {
+                category: { en: 'Backend & APIs', de: 'Backend & APIs' },
+                technologies: ['Node.js', 'Express', 'REST APIs', 'WebSocket', 'JWT Authentication']
+            },
+            {
+                category: { en: 'Database & Analytics', de: 'Datenbank & Analytics' },
+                technologies: ['PostgreSQL', 'InfluxDB', 'Redis', 'Grafana', 'Custom Analytics Engine']
+            },
+            {
+                category: { en: 'Industrial IoT', de: 'Industrie-IoT' },
+                technologies: ['MQTT', 'OPC-UA', 'ModBus', 'Sensor Integration', 'PLC Communication']
+            }
+        ],
+        skills: [
+            {
+                category: { en: 'Industrial Software Development', de: 'Industrielle Softwareentwicklung' },
+                items: ['Manufacturing Process Analysis', 'Sensor Data Processing', 'Real-time Systems', 'Quality Control Systems']
+            },
+            {
+                category: { en: 'Data Engineering', de: 'Data Engineering' },
+                items: ['Time-series Database Design', 'Data Pipeline Architecture', 'Real-time Analytics', 'Data Visualization']
+            },
+            {
+                category: { en: 'IoT & Integration', de: 'IoT & Integration' },
+                items: ['Industrial Protocol Implementation', 'Machine-to-Machine Communication', 'Edge Computing', 'Distributed Systems']
+            },
+            {
+                category: { en: 'Enterprise Solutions', de: 'Unternehmenslösungen' },
+                items: ['Scalable Architecture Design', 'Multi-tenant Systems', 'Enterprise Integration', 'Compliance & Auditing']
+            }
+        ],
+        challenges: [
+            {
+                title: { en: 'Real-time Data Processing at Scale', de: 'Echtzeit-Datenverarbeitung im großen Maßstab' },
+                description: {
+                    en: 'Processing 250,000+ component movements daily with millisecond precision while maintaining data integrity across multiple production lines and sensor systems.',
+                    de: 'Verarbeitung von über 250.000 Komponentenbewegungen täglich mit millisekundengenauer Präzision bei gleichzeitiger Wahrung der Datenintegrität über mehrere Produktionslinien und Sensorsysteme hinweg.'
+                }
+            },
+            {
+                title: { en: 'Industrial System Integration', de: 'Integration industrieller Systeme' },
+                description: {
+                    en: 'Seamlessly connecting legacy manufacturing equipment with modern software systems, bridging protocols like OPC-UA, MQTT, and ModBus while ensuring zero production downtime.',
+                    de: 'Nahtlose Verbindung von Legacy-Fertigungsanlagen mit modernen Softwaresystemen, Überbrückung von Protokollen wie OPC-UA, MQTT und ModBus bei gleichzeitiger Gewährleistung von null Produktionsausfallzeiten.'
+                }
+            }
+        ],
+        learnings: [
+            {
+                title: { en: 'Time-series Database Optimization', de: 'Zeitreihen-Datenbank-Optimierung' },
+                description: {
+                    en: 'Mastered InfluxDB and time-series data modeling to achieve sub-second query performance on billions of sensor readings, enabling real-time quality control dashboards.',
+                    de: 'InfluxDB und Zeitreihen-Datenmodellierung gemeistert, um Sub-Sekunden-Abfrageleistung bei Milliarden von Sensormesswerten zu erreichen und Echtzeit-Qualitätskontroll-Dashboards zu ermöglichen.'
+                }
+            },
+            {
+                title: { en: 'Manufacturing Domain Expertise', de: 'Fertigungs-Domain-Expertise' },
+                description: {
+                    en: 'Developed deep understanding of automotive manufacturing processes, quality standards (ISO 9001, TS 16949), and regulatory compliance requirements in industrial environments.',
+                    de: 'Tiefes Verständnis für Automobilfertigungsprozesse, Qualitätsstandards (ISO 9001, TS 16949) und regulatorische Compliance-Anforderungen in industriellen Umgebungen entwickelt.'
+                }
+            }
+        ]
     },
     {
         client: "ThyssenKrupp Presta AG",
@@ -252,10 +385,73 @@ export const Projects: ProjectModel[] = [
         },
         description: {
             en: "The \"BI Reporting Platform\" is a versatile and powerful application designed to streamline data monitoring and dashboard creation. This all-encompassing tool empowers users to monitor a wide array of data types, including investments, operations, process data, metadata, and more. What sets this platform apart is its user-friendly and generic approach, allowing individuals to craft customized dashboards tailored to their unique data needs. Whether you're tracking financial investments, optimizing operational processes, or diving into metadata analysis, the BI Reporting Platform simplifies data monitoring and reporting, making it a valuable asset for professionals in various industries.",
-            de: "Die \"BI Reporting-Plattform\" ist eine vielseitige und leistungsstarke Anwendung zur Optimierung der Datenüberwachung und Dashboard-Erstellung. Dieses umfassende Tool ermöglicht Benutzern die Überwachung einer Vielzahl von Datentypen, einschließlich Investitionen, Betriebsabläufen, Prozessdaten, Metadaten und mehr. Was diese Plattform auszeichnet, ist ihr benutzerfreundlicher und generischer Ansatz, der es Einzelpersonen ermöglicht, maßgeschneiderte Dashboards entsprechend ihrer individuellen Datenanforderungen zu erstellen. Ob Sie finanzielle Investitionen verfolgen, Betriebsprozesse optimieren oder Metadatenanalysen durchführen, die BI Reporting-Plattform vereinfacht die Datenüberwachung und Berichterstellung und macht sie zu einem wertvollen Instrument für Fachleute in verschiedenen Branchen."
-        },
+            de: "Die \"BI Reporting-Plattform\" ist eine vielseitige und leistungsstarke Anwendung zur Optimierung der Datenüberwachung und Dashboard-Erstellung. Dieses umfassende Tool ermöglicht Benutzern die Überwachung einer Vielzahl von Datentypen, einschließlich Investitionen, Betriebsabläufen, Prozessdaten, Metadaten und mehr. Was diese Plattform auszeichnet, ist ihr benutzerfreundlicher und generischer Ansatz, der es Einzelpersonen ermöglicht, maßgeschneiderte Dashboards entsprechend ihrer individuellen Datenanforderungen zu erstellen. Ob Sie finanzielle Investitionen verfolgen, Betriebsprozesse optimieren oder Metadatenanalysen durchführen, die BI Reporting-Plattform vereinfacht die Datenüberwachung und Berichterstellung und macht sie zu einem wertvollen Instrument für Fachleute in verschiedenen Branchen."        },
         previewLink: "",
-        id: "bi-reporting-platform"
+        id: "bi-reporting-platform",
+        techStack: [
+            {
+                category: { en: 'Frontend', de: 'Frontend' },
+                technologies: ['React', 'TypeScript', 'Material-UI', 'D3.js', 'React Query']
+            },
+            {
+                category: { en: 'Backend & Database', de: 'Backend & Datenbank' },
+                technologies: ['Node.js', 'Express', 'PostgreSQL', 'Redis', 'Prisma ORM']
+            },
+            {
+                category: { en: 'Data Processing', de: 'Datenverarbeitung' },
+                technologies: ['Python', 'Pandas', 'Apache Kafka', 'ETL Pipelines']
+            },
+            {
+                category: { en: 'Infrastructure', de: 'Infrastruktur' },
+                technologies: ['Docker', 'Azure', 'GitHub Actions', 'Nginx']
+            }
+        ],
+        skills: [
+            {
+                category: { en: 'Data Visualization', de: 'Datenvisualisierung' },
+                items: ['Dashboard Design', 'Interactive Charts', 'Real-time Dashboards', 'Custom Chart Components']
+            },
+            {
+                category: { en: 'Business Intelligence', de: 'Business Intelligence' },
+                items: ['KPI Development', 'Data Modeling', 'Performance Metrics', 'Report Automation']
+            },
+            {
+                category: { en: 'Full-Stack Development', de: 'Full-Stack-Entwicklung' },
+                items: ['API Design', 'Database Optimization', 'User Experience Design', 'Performance Optimization']
+            }
+        ],
+        challenges: [
+            {
+                title: { en: 'Generic Dashboard Framework', de: 'Generisches Dashboard-Framework' },
+                description: { 
+                    en: 'Creating a flexible framework that allows users to build custom dashboards for any data type while maintaining performance and usability across different use cases.',
+                    de: 'Erstellen eines flexiblen Frameworks, das es Benutzern ermöglicht, benutzerdefinierte Dashboards für jeden Datentyp zu erstellen, während Performance und Benutzerfreundlichkeit in verschiedenen Anwendungsfällen gewährleistet bleiben.'
+                }
+            },
+            {
+                title: { en: 'Real-time Data Synchronization', de: 'Echtzeit-Datensynchronisation' },
+                description: {
+                    en: 'Implementing efficient real-time updates across multiple dashboard components while handling large datasets and maintaining responsive user experience.',
+                    de: 'Implementierung effizienter Echtzeit-Updates über mehrere Dashboard-Komponenten hinweg bei gleichzeitiger Verarbeitung großer Datensätze und Beibehaltung einer responsiven Benutzererfahrung.'
+                }
+            }
+        ],
+        learnings: [
+            {
+                title: { en: 'Data-Driven UX Design', de: 'Datengetriebenes UX-Design' },
+                description: {
+                    en: 'Learned to design user interfaces that adapt to different data structures and visualization requirements, creating intuitive experiences for non-technical users.',
+                    de: 'Gelernt, Benutzeroberflächen zu entwerfen, die sich an verschiedene Datenstrukturen und Visualisierungsanforderungen anpassen und intuitive Erfahrungen für nicht-technische Benutzer schaffen.'
+                }
+            },
+            {
+                title: { en: 'Scalable Architecture Patterns', de: 'Skalierbare Architekturmuster' },
+                description: {
+                    en: 'Mastered the design of modular, plugin-based architectures that allow for easy extension of functionality while maintaining code quality and performance.',
+                    de: 'Die Gestaltung modularer, plugin-basierter Architekturen gemeistert, die eine einfache Erweiterung der Funktionalität ermöglichen und gleichzeitig Codequalität und Performance beibehalten.'
+                }
+            }
+        ]
     },
     {
         client: "ThyssenKrupp Presta AG",
@@ -338,10 +534,73 @@ export const Projects: ProjectModel[] = [
         },
         description: {
             en: "DUDE (Detect Uncommon Data Events) is an advanced application for manufacturing quality control. It swiftly identifies anomalies in real-time process quality data, enhancing quality control and operational efficiency. With DUDE, manufacturing processes are optimized, and product consistency is improved, ensuring high-quality, reliable end products.",
-            de: "DUDE (Detect Uncommon Data Events) ist eine fortschrittliche Anwendung für die Fertigungsqualitätskontrolle. Sie identifiziert schnell Anomalien in Echtzeit-Prozessqualitätsdaten, verbessert die Qualitätskontrolle und die betriebliche Effizienz. Mit DUDE werden Fertigungsprozesse optimiert und die Produktkonsistenz verbessert, was hochwertige, zuverlässige Endprodukte gewährleistet."
-        },
+            de: "DUDE (Detect Uncommon Data Events) ist eine fortschrittliche Anwendung für die Fertigungsqualitätskontrolle. Sie identifiziert schnell Anomalien in Echtzeit-Prozessqualitätsdaten, verbessert die Qualitätskontrolle und die betriebliche Effizienz. Mit DUDE werden Fertigungsprozesse optimiert und die Produktkonsistenz verbessert, was hochwertige, zuverlässige Endprodukte gewährleistet."        },
         previewLink: "",
-        id: "dude"
+        id: "dude",
+        techStack: [
+            {
+                category: { en: 'Data Science & AI', de: 'Data Science & KI' },
+                technologies: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow']
+            },
+            {
+                category: { en: 'Backend & Database', de: 'Backend & Datenbank' },
+                technologies: ['FastAPI', 'PostgreSQL', 'Redis', 'SQLAlchemy']
+            },
+            {
+                category: { en: 'Frontend', de: 'Frontend' },
+                technologies: ['React', 'TypeScript', 'Chart.js', 'Tailwind CSS']
+            },
+            {
+                category: { en: 'Infrastructure', de: 'Infrastruktur' },
+                technologies: ['Docker', 'Azure', 'CI/CD Pipelines']
+            }
+        ],
+        skills: [
+            {
+                category: { en: 'Machine Learning', de: 'Maschinelles Lernen' },
+                items: ['Anomaly Detection', 'Time Series Analysis', 'Statistical Modeling', 'Feature Engineering']
+            },
+            {
+                category: { en: 'Manufacturing Excellence', de: 'Fertigungsexzellenz' },
+                items: ['Quality Control Systems', 'Process Optimization', 'Real-time Monitoring', 'Industrial IoT']
+            },
+            {
+                category: { en: 'Data Engineering', de: 'Data Engineering' },
+                items: ['ETL Pipelines', 'Data Validation', 'Performance Tuning', 'Database Design']
+            }
+        ],
+        challenges: [
+            {
+                title: { en: 'Real-time Anomaly Detection', de: 'Echtzeit-Anomalieerkennung' },
+                description: { 
+                    en: 'Developing algorithms that can detect subtle anomalies in manufacturing data streams within 100ms while maintaining high accuracy and low false-positive rates.',
+                    de: 'Entwicklung von Algorithmen, die subtile Anomalien in Fertigungsdatenströmen innerhalb von 100ms erkennen können, während gleichzeitig hohe Genauigkeit und niedrige Falsch-Positiv-Raten beibehalten werden.'
+                }
+            },
+            {
+                title: { en: 'Industrial System Integration', de: 'Integration in Industriesysteme' },
+                description: {
+                    en: 'Seamlessly integrating the system with existing manufacturing infrastructure while ensuring zero downtime and maintaining strict security requirements.',
+                    de: 'Nahtlose Integration des Systems in die bestehende Fertigungsinfrastruktur bei gleichzeitiger Gewährleistung von null Ausfallzeiten und Einhaltung strenger Sicherheitsanforderungen.'
+                }
+            }
+        ],
+        learnings: [
+            {
+                title: { en: 'Domain-Specific ML Models', de: 'Domänenspezifische ML-Modelle' },
+                description: {
+                    en: 'Learned to develop machine learning models specifically tailored for manufacturing environments, understanding the unique challenges of industrial data patterns and quality requirements.',
+                    de: 'Gelernt, Machine-Learning-Modelle speziell für Fertigungsumgebungen zu entwickeln, und die einzigartigen Herausforderungen industrieller Datenmuster und Qualitätsanforderungen verstanden.'
+                }
+            },
+            {
+                title: { en: 'High-Performance Data Processing', de: 'Hochperformante Datenverarbeitung' },
+                description: {
+                    en: 'Mastered techniques for processing large volumes of sensor data in real-time, achieving sub-100ms response times through optimized algorithms and efficient data structures.',
+                    de: 'Techniken zur Verarbeitung großer Mengen von Sensordaten in Echtzeit gemeistert und Sub-100ms Antwortzeiten durch optimierte Algorithmen und effiziente Datenstrukturen erreicht.'
+                }
+            }
+        ]
     },
     {
         client: {
@@ -397,14 +656,82 @@ export const Projects: ProjectModel[] = [
         },
         description: {
             en: "With dronegraphy I combine multiple passions of mine. As I love making impressing films and know how to code, this was some kind of natural outcome. Dronegraphy will be some kind of platform, in which people can buy and sell drone footage. In addition a forum will help drone lovers come together. As of now, dronegraphy is still in development as a side project of mine.",
-            de: "Mit Dronegraphy verbinde ich mehrere meiner Leidenschaften. Da ich es liebe, beeindruckende Filme zu machen und weiß, wie man programmiert, war dies eine Art natürliches Ergebnis. Dronegraphy wird eine Art Plattform sein, auf der Menschen Drohnenaufnahmen kaufen und verkaufen können. Zusätzlich wird ein Forum dabei helfen, Drohnenliebhaber zusammenzubringen. Derzeit befindet sich Dronegraphy noch in der Entwicklung als eines meiner Nebenprojekte."
-        },
-        previewLink: "",
-        id: "dronegraphy"
-    },
-    {
-        shortDescription: "I built a web-app to manage inventory, optimize supply chain and communicate with suppliers and customers for a polymer company.",
+            de: "Mit Dronegraphy verbinde ich mehrere meiner Leidenschaften. Da ich es liebe, beeindruckende Filme zu machen und weiß, wie man programmiert, war dies eine Art natürliches Ergebnis. Dronegraphy wird eine Art Plattform sein, auf der Menschen Drohnenaufnahmen kaufen und verkaufen können. Zusätzlich wird ein Forum dabei helfen, Drohnenliebhaber zusammenzubringen. Derzeit befindet sich Dronegraphy noch in der Entwicklung als eines meiner Nebenprojekte."        },        previewLink: "",
+        id: "dronegraphy",
+        techStack: [
+            {
+                category: { en: 'Frontend', de: 'Frontend' },
+                technologies: ['Angular', 'TypeScript', 'Angular Material', 'RxJS', 'SCSS']
+            },
+            {
+                category: { en: 'Backend', de: 'Backend' },
+                technologies: ['Go', 'Gin Framework', 'PostgreSQL', 'JWT Authentication']
+            },
+            {
+                category: { en: 'Microservices', de: 'Microservices' },
+                technologies: ['Docker', 'Kubernetes', 'gRPC', 'Message Queues']
+            },
+            {
+                category: { en: 'Media & Storage', de: 'Medien & Speicher' },
+                technologies: ['FFmpeg', 'AWS S3', 'Content Delivery Network', 'Image Processing']
+            }
+        ],
+        skills: [
+            {
+                category: { en: 'Go Development', de: 'Go-Entwicklung' },
+                items: ['Concurrent Programming', 'Microservice Architecture', 'Performance Optimization', 'API Design']
+            },
+            {
+                category: { en: 'Media Technology', de: 'Medientechnik' },
+                items: ['Video Processing', 'Image Optimization', 'Streaming Protocols', 'Metadata Extraction']
+            },
+            {
+                category: { en: 'Marketplace Development', de: 'Marktplatz-Entwicklung' },
+                items: ['Payment Integration', 'User Management', 'Content Moderation', 'Search & Filtering']
+            }
+        ],
+        challenges: [
+            {
+                title: { en: 'Video Processing Pipeline', de: 'Video-Verarbeitungs-Pipeline' },
+                description: { 
+                    en: 'Building a scalable video processing system that can handle high-resolution drone footage uploads, transcoding, and optimization while maintaining quality and performance.',
+                    de: 'Aufbau eines skalierbaren Video-Verarbeitungssystems, das hochauflösende Drohnenaufnahmen-Uploads, Transcoding und Optimierung bewältigen kann, während Qualität und Performance erhalten bleiben.'
+                }
+            },
+            {
+                title: { en: 'Community & Commerce Balance', de: 'Balance zwischen Community und Commerce' },
+                description: {
+                    en: 'Creating a platform that serves both as a community forum for drone enthusiasts and a commercial marketplace, requiring careful UX design and feature balance.',
+                    de: 'Erstellen einer Plattform, die sowohl als Community-Forum für Drohnen-Enthusiasten als auch als kommerzieller Marktplatz fungiert, was sorgfältiges UX-Design und Feature-Balance erfordert.'
+                }
+            }
+        ],
+        learnings: [
+            {
+                title: { en: 'Go Microservices Architecture', de: 'Go-Microservices-Architektur' },
+                description: {
+                    en: 'Deepened expertise in Go programming and microservices architecture, learning to build high-performance, concurrent systems that can handle media-heavy workloads.',
+                    de: 'Vertiefte Expertise in Go-Programmierung und Microservices-Architektur entwickelt, gelernt, hochperformante, nebenläufige Systeme zu bauen, die medienintensive Arbeitslasten bewältigen können.'
+                }
+            },
+            {
+                title: { en: 'Product-Market Fit Research', de: 'Product-Market-Fit-Forschung' },
+                description: {
+                    en: 'Gained insights into market research and product validation for niche communities, understanding the importance of user feedback in product development.',
+                    de: 'Einblicke in Marktforschung und Produktvalidierung für Nischen-Communities gewonnen, die Bedeutung von Benutzer-Feedback in der Produktentwicklung verstanden.'
+                }
+            }
+        ]
+    },    {
         status: 'Completed',
+        client: {
+            en: "NSB Polymers GmbH",
+            de: "NSB Polymers GmbH"
+        },
+        shortDescription: {
+            en: "I built a web-app to manage inventory, optimize supply chain and communicate with suppliers and customers for a polymer company.",
+            de: "Ich entwickelte eine Web-App für ein Polymerunternehmen zur Bestandsverwaltung, Optimierung der Lieferkette und Kommunikation mit Lieferanten und Kunden."
+        },
         keys: [
             {
                 value: "Inventory Management",
@@ -440,8 +767,7 @@ export const Projects: ProjectModel[] = [
                 value: "20%",
                 key: "Increased Customer Satisfaction"
             }
-        ],
-        rollout: {
+        ],        rollout: {
             seconds: 1672527600,
             nanoseconds: 588000000
         },
@@ -449,6 +775,9 @@ export const Projects: ProjectModel[] = [
         description: "I built a web-based merchandise management system for a global medium-sized enterprise that specializes in the polymer industry. The system, which I developed, allows the company to effectively manage and track their merchandise inventory including products, stock levels, and orders. It also provides real-time reporting and analysis on sales and inventory data, enabling the company to make informed business decisions and optimize their supply chain operations. Additionally, the system facilitates easy communication with suppliers and customers, streamlining the ordering and fulfillment process. Overall, this system which I created, is a powerful tool for managing and growing the company's polymer-based business.",
         img: "/projects/nsb.png",
         previewLink: "",
+        id: "nsb-platform-old"
+    },
+    {
         client: {
             en: "NSB Polymers GmbH",
             de: "NSB Polymers GmbH"
@@ -540,11 +869,74 @@ export const Projects: ProjectModel[] = [
         },
         description: {
             en: "I built a web-based merchandise management system for a global medium-sized enterprise that specializes in the polymer industry. The system, which I developed, allows the company to effectively manage and track their merchandise inventory including products, stock levels, and orders. It also provides real-time reporting and analysis on sales and inventory data, enabling the company to make informed business decisions and optimize their supply chain operations. Additionally, the system facilitates easy communication with suppliers and customers, streamlining the ordering and fulfillment process. Overall, this system which I created, is a powerful tool for managing and growing the company's polymer-based business.",
-            de: "Ich habe ein webbasiertes Warenwirtschaftssystem für ein global tätiges mittelständisches Unternehmen entwickelt, das sich auf die Polymerindustrie spezialisiert hat. Das von mir entwickelte System ermöglicht dem Unternehmen die effektive Verwaltung und Verfolgung seines Warenbestands, einschließlich Produkte, Lagerbestände und Bestellungen. Es bietet auch Echtzeit-Berichte und -Analysen zu Verkaufs- und Bestandsdaten, wodurch das Unternehmen fundierte Geschäftsentscheidungen treffen und seine Lieferkettenabläufe optimieren kann. Darüber hinaus erleichtert das System die Kommunikation mit Lieferanten und Kunden und rationalisiert den Bestell- und Erfüllungsprozess. Insgesamt ist dieses von mir erstellte System ein leistungsstarkes Werkzeug für die Verwaltung und das Wachstum des Polymergeschäfts des Unternehmens."
-        },
+            de: "Ich habe ein webbasiertes Warenwirtschaftssystem für ein global tätiges mittelständisches Unternehmen entwickelt, das sich auf die Polymerindustrie spezialisiert hat. Das von mir entwickelte System ermöglicht dem Unternehmen die effektive Verwaltung und Verfolgung seines Warenbestands, einschließlich Produkte, Lagerbestände und Bestellungen. Es bietet auch Echtzeit-Berichte und -Analysen zu Verkaufs- und Bestandsdaten, wodurch das Unternehmen fundierte Geschäftsentscheidungen treffen und seine Lieferkettenabläufe optimieren kann. Darüber hinaus erleichtert das System die Kommunikation mit Lieferanten und Kunden und rationalisiert den Bestell- und Erfüllungsprozess. Insgesamt ist dieses von mir erstellte System ein leistungsstarkes Werkzeug für die Verwaltung und das Wachstum des Polymergeschäfts des Unternehmens."        },
         img: "/projects/nsb.png",
         previewLink: "",
-        id: "nsb-platform"
+        id: "nsb-platform",
+        techStack: [
+            {
+                category: { en: 'Frontend', de: 'Frontend' },
+                technologies: ['React', 'TypeScript', 'Material-UI', 'Redux', 'Chart.js']
+            },
+            {
+                category: { en: 'Backend & Database', de: 'Backend & Datenbank' },
+                technologies: ['Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT']
+            },
+            {
+                category: { en: 'Integration & APIs', de: 'Integration & APIs' },
+                technologies: ['PTC Integrity API', 'REST APIs', 'WebSocket', 'XML Processing']
+            },
+            {
+                category: { en: 'Infrastructure', de: 'Infrastruktur' },
+                technologies: ['Docker', 'Nginx', 'PM2', 'SSL/TLS']
+            }
+        ],
+        skills: [
+            {
+                category: { en: 'Enterprise Integration', de: 'Unternehmens-Integration' },
+                items: ['ERP System Integration', 'Legacy System Connectivity', 'Data Migration', 'API Development']
+            },
+            {
+                category: { en: 'Supply Chain Management', de: 'Lieferkettenmanagement' },
+                items: ['Inventory Management', 'Order Processing', 'Supplier Integration', 'Reporting & Analytics']
+            },
+            {
+                category: { en: 'Business Process Optimization', de: 'Geschäftsprozess-Optimierung' },
+                items: ['Workflow Automation', 'Process Mapping', 'Performance Monitoring', 'User Training']
+            }
+        ],
+        challenges: [
+            {
+                title: { en: 'Legacy System Integration', de: 'Legacy-System-Integration' },
+                description: { 
+                    en: 'Integrating with existing polymer industry-specific systems while maintaining data integrity and ensuring seamless workflow transitions for daily operations.',
+                    de: 'Integration mit bestehenden polymerindustriespezifischen Systemen bei gleichzeitiger Wahrung der Datenintegrität und Gewährleistung nahtloser Workflow-Übergänge für den täglichen Betrieb.'
+                }
+            },
+            {
+                title: { en: 'Global Multi-Location Synchronization', de: 'Globale Multi-Standort-Synchronisation' },
+                description: {
+                    en: 'Ensuring real-time inventory synchronization across multiple global locations while handling different time zones, languages, and business processes.',
+                    de: 'Gewährleistung der Echtzeit-Bestandssynchronisation über mehrere globale Standorte hinweg bei gleichzeitiger Berücksichtigung verschiedener Zeitzonen, Sprachen und Geschäftsprozesse.'
+                }
+            }
+        ],
+        learnings: [
+            {
+                title: { en: 'Domain-Specific Business Logic', de: 'Domänenspezifische Geschäftslogik' },
+                description: {
+                    en: 'Gained deep understanding of polymer industry supply chains, specialized inventory requirements, and the importance of industry-specific compliance and documentation.',
+                    de: 'Tiefes Verständnis für Polymer-Industrie-Lieferketten, spezialisierte Lageranforderungen und die Bedeutung branchenspezifischer Compliance und Dokumentation entwickelt.'
+                }
+            },
+            {
+                title: { en: 'Enterprise-Scale Architecture', de: 'Unternehmensweite Architektur' },
+                description: {
+                    en: 'Mastered designing scalable systems that can handle enterprise-level data volumes while maintaining performance and reliability across global operations.',
+                    de: 'Die Gestaltung skalierbarer Systeme gemeistert, die Datenvolumen auf Unternehmensebene bewältigen können, während Performance und Zuverlässigkeit in globalen Operationen erhalten bleiben.'
+                }
+            }
+        ]
     },
     {
         rollout: {
@@ -638,11 +1030,74 @@ export const Projects: ProjectModel[] = [
         ],
         shortDescription: {
             en: "The DVP Platform provides engineers with tools and features to verify product designs, including PTC Integrity Interface and Configuration Matrix for easy integration and testing. User-friendly interface is also included.",
-            de: "Die DVP-Plattform bietet Ingenieuren Werkzeuge und Funktionen zur Überprüfung von Produktdesigns, einschließlich PTC Integrity-Schnittstelle und Konfigurationsmatrix für einfache Integration und Tests. Eine benutzerfreundliche Oberfläche ist ebenfalls enthalten."
-        },
+            de: "Die DVP-Plattform bietet Ingenieuren Werkzeuge und Funktionen zur Überprüfung von Produktdesigns, einschließlich PTC Integrity-Schnittstelle und Konfigurationsmatrix für einfache Integration und Tests. Eine benutzerfreundliche Oberfläche ist ebenfalls enthalten."        },
         img: "/projects/dvp.png",
         previewLink: "",
-        id: "design-verification-process-platform"
+        id: "design-verification-process-platform",
+        techStack: [
+            {
+                category: { en: 'Frontend', de: 'Frontend' },
+                technologies: ['React', 'TypeScript', 'Material-UI', 'Redux Toolkit', 'React Hook Form']
+            },
+            {
+                category: { en: 'Backend & Database', de: 'Backend & Datenbank' },
+                technologies: ['Node.js', 'Express', 'PostgreSQL', 'Sequelize', 'Redis']
+            },
+            {
+                category: { en: 'Engineering Tools Integration', de: 'Engineering-Tools-Integration' },
+                technologies: ['PTC Integrity API', 'CAD File Processing', 'WebDAV', 'LDAP Authentication']
+            },
+            {
+                category: { en: 'Infrastructure', de: 'Infrastruktur' },
+                technologies: ['Docker', 'Kubernetes', 'Jenkins', 'SonarQube']
+            }
+        ],
+        skills: [
+            {
+                category: { en: 'Engineering Workflow Optimization', de: 'Engineering-Workflow-Optimierung' },
+                items: ['Design Review Processes', 'Quality Assurance Integration', 'Collaboration Tools', 'Document Management']
+            },
+            {
+                category: { en: 'Enterprise Software Integration', de: 'Unternehmens-Software-Integration' },
+                items: ['PLM System Integration', 'CAD Tool Connectivity', 'Authentication Systems', 'Legacy System Migration']
+            },
+            {
+                category: { en: 'Large-Scale User Management', de: 'Großangelegtes Benutzermanagement' },
+                items: ['Role-Based Access Control', 'Multi-Tenant Architecture', 'Performance Optimization', 'User Training & Support']
+            }
+        ],
+        challenges: [
+            {
+                title: { en: 'Engineering Tool Ecosystem Integration', de: 'Engineering-Tool-Ökosystem-Integration' },
+                description: { 
+                    en: 'Seamlessly integrating with complex engineering software ecosystem including PTC Integrity while maintaining real-time data synchronization across 500+ concurrent users.',
+                    de: 'Nahtlose Integration in komplexe Engineering-Software-Ökosysteme einschließlich PTC Integrity bei gleichzeitiger Aufrechterhaltung der Echtzeit-Datensynchronisation für über 500 gleichzeitige Benutzer.'
+                }
+            },
+            {
+                title: { en: 'Configuration Matrix Complexity', de: 'Konfigurationsmatrix-Komplexität' },
+                description: {
+                    en: 'Developing a flexible configuration matrix system that can handle thousands of product variants while maintaining performance and user-friendly interfaces.',
+                    de: 'Entwicklung eines flexiblen Konfigurationsmatrix-Systems, das Tausende von Produktvarianten verarbeiten kann, während Performance und benutzerfreundliche Oberflächen beibehalten werden.'
+                }
+            }
+        ],
+        learnings: [
+            {
+                title: { en: 'Engineering Process Understanding', de: 'Verständnis für Engineering-Prozesse' },
+                description: {
+                    en: 'Gained deep insights into product design verification workflows, quality standards, and the critical importance of collaboration in engineering environments.',
+                    de: 'Tiefe Einblicke in Produktdesign-Verifizierungsworkflows, Qualitätsstandards und die kritische Bedeutung der Zusammenarbeit in Engineering-Umgebungen gewonnen.'
+                }
+            },
+            {
+                title: { en: 'High-Performance Enterprise Architecture', de: 'Hochperformante Enterprise-Architektur' },
+                description: {
+                    en: 'Mastered building applications that can scale to hundreds of concurrent engineering users while maintaining sub-second response times for complex operations.',
+                    de: 'Das Erstellen von Anwendungen gemeistert, die auf Hunderte gleichzeitiger Engineering-Benutzer skalieren können, während Sub-Sekunden-Antwortzeiten für komplexe Operationen beibehalten werden.'
+                }
+            }
+        ]
     },
     {
         shortDescription: "A modern website for an employee coaching service using a karate principle, with resources, testimonials and easy communication. Developed as a one-man project",

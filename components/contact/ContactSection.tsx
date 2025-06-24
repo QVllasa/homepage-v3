@@ -8,7 +8,7 @@ type Email = {
     email: string,
 };
 export default function ContactSection() {
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
     const [emailSubmitted, setEmailSubmitted] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const app = useFirebaseApp();

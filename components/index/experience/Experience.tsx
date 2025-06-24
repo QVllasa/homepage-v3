@@ -7,7 +7,7 @@ import {useTranslation} from 'next-i18next';
 
 export default function Experience(){
     const [counter, setCounter] = useState(4);
-    const {t} = useTranslation('common');
+    const {t} = useTranslation();
 
     const exp: ExperienceModel[] = Experiences;
 
