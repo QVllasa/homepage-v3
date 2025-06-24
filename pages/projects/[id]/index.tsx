@@ -276,7 +276,6 @@ export default function ProjectDetails() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
