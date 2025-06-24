@@ -37,14 +37,13 @@ export default function ProjectHighlightSection() {
                         </p>
                     </div>
                     <div className="mx-auto mt-12 grid gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
-                        {highlightProjects?.map((project, index) => (
-                            <Link key={index} href={`projects/${encodeURIComponent(project.id)}`}
-                                  className="flex flex-col overflow-hidden rounded-lg border dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors">
-                                <div className="flex-shrink-0 bg-white">                                    <Image className="h-48 w-full object-cover" width={640} height={400} src={project.img}
+                        {highlightProjects?.map((project, index) => (                            <Link key={index} href={`projects/${encodeURIComponent(project.id)}`}
+                                  className="flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors bg-white dark:bg-slate-800">
+                                <div className="flex-shrink-0">
+                                    <Image className="h-48 w-full object-cover" width={640} height={400} src={project.img}
                                            alt={typeof project.title === 'string' ? project.title : project.title?.en || ''}/>
                                 </div>
-                                <div
-                                    className="flex transition flex-1 flex-col justify-between bg-white dark:bg-slate-800 p-6">
+                                <div className="flex transition flex-1 flex-col justify-between p-6">
                                     <div className="flex-1">
                                         <div className="mt-2 block">
                                             <p className="text-xl transition font-semibold text-gray-900 dark:text-white">

@@ -7,8 +7,7 @@
     "contact": "Kontakt",
     "sections": "Bereiche",
     "downloadCV": "Lebenslauf herunterladen"
-  },
-  "header": {
+  },  "header": {
     "greeting": "Hi, ich bin",
     "role": "Software-Ingenieur aus ❤️",
     "techEnthusiast": "Technologie-Enthusiast 🚀",
@@ -18,7 +17,21 @@
     "projectsButton": "Projekte ansehen",
     "messageSent": "Vielen Dank! Ich melde mich bald.",
     "enterEmail": "Deine E-Mail-Adresse",
-    "reachOut": "Kontakt aufnehmen"
+    "reachOut": "Kontakt aufnehmen",
+    "secretRecipe": "Mein Geheimrezept:",
+    "magicalSolutions": "Kaffee + Code + Kreativität = Magische Lösungen ✨",
+    "description": "Ich verwandle komplexe Probleme in elegante Lösungen und bringe dabei Systeme zum Laufen, die schneller sind als meine Kaffeemaschine am Morgen. Von KI-gestützten Plattformen bis hin zu Cloud-Architekturen – wenn es digital ist und Herausforderungen bietet, bin ich dabei!",
+    "funFact": "Fun Fact:",    "debuggingPassion": "Ich debugge Code genauso leidenschaftlich wie ich Drohnen fliege – mit Präzision und dem Mut, neue Höhen zu erreichen! 🚀",
+    "exploreProjects": "Projekte entdecken",
+    "exploreSkills": "Skills erkunden",
+    "specializations": {
+      "softwareEngineer": "Software-Ingenieur",
+      "techEnthusiast": "Technologie-Enthusiast",
+      "cloudArchitect": "Cloud-Architekt",
+      "fullStackDeveloper": "Full-Stack-Entwickler",
+      "droneLover": "Drohnen-Liebhaber",
+      "performanceOptimizer": "Performance-Optimierer"
+    }
   },
   "about": {
     "title": "Über mich",

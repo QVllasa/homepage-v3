@@ -39,6 +39,11 @@ export interface ProjectModel {
         de: string
     },
     previewLink?: string,
+    demoAvailable?: boolean,
+    demoNote?: string | {
+        en: string,
+        de: string
+    },
     img: string,
     createAt?: Date,
     updatedAt?: Date,

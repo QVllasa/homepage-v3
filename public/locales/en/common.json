@@ -16,7 +16,21 @@
     "projectsButton": "View projects",
   "messageSent": "Thank you! I'll be in touch soon.",
   "enterEmail": "Your email address",
-  "reachOut": "Connect with me"
+  "reachOut": "Connect with me",
+    "secretRecipe": "My Secret Recipe:",
+    "magicalSolutions": "Coffee + Code + Creativity = Magical Solutions ✨",
+    "description": "I transform complex problems into elegant solutions and get systems running that are faster than my coffee machine in the morning. From AI-powered platforms to cloud architectures – if it's digital and offers challenges, I'm in!",
+    "funFact": "Fun Fact:",    "debuggingPassion": "I debug code with the same passion as I fly drones – with precision and the courage to reach new heights! 🚀",
+    "exploreProjects": "Discover Projects",
+    "exploreSkills": "Explore Skills",
+    "specializations": {
+      "softwareEngineer": "Software Engineer",
+      "techEnthusiast": "Technology Enthusiast",
+      "cloudArchitect": "Cloud Architect",
+      "fullStackDeveloper": "Full Stack Developer",
+      "droneLover": "Drone Lover",
+      "performanceOptimizer": "Performance Optimizer"
+    }
   },
   "about": {
     "title": "About Me",

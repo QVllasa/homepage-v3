@@ -39,15 +39,13 @@ export default function ProjectDetails() {
         if (typeof text === 'string') return text;
         if (text && typeof text === 'object' && 'en' in text) return text.en;
         return '';
-    };
-
-    return (
-        <div className="min-h-screen bg-white dark:bg-slate-900">
+    };    return (
+        <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
             {/* Modern Hero Section */}
             <div className="relative">
                 {/* Back Button */}
-                <div className="absolute top-8 left-8 z-20">
-                    <Link href="/de" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all">
+                <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
+                    <Link href="/" className="inline-flex items-center px-3 py-2 md:px-4 md:py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm">
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
@@ -56,44 +54,42 @@ export default function ProjectDetails() {
                 </div>
 
                 {/* Hero Image with subtle overlay */}
-                <div className="relative h-96 md:h-[500px] overflow-hidden">
+                <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] overflow-hidden">
                     <Image
                         className="w-full h-full object-cover"
                         src={data.img}
                         alt={getAltText(data.title)}
                         width={1200}
                         height={500}
-                        priority                    />
-                    {/* Stronger overlay for better text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"/>
+                        priority
+                    />
+                    {/* Gradient overlay for better text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"/>
                     
                     {/* Hero Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 lg:p-12">
                         <div className="max-w-4xl">
-                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-2 md:mb-4 drop-shadow-lg leading-tight">
                                 {useTranslatedContent(data.title)}
                             </h1>
-                            <p className="text-xl md:text-2xl text-white/90 max-w-2xl drop-shadow-md">
+                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl drop-shadow-md leading-relaxed">
                                 {useTranslatedContent(data.shortDescription)}
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Modern Content Section */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10">
-                <div className="grid lg:grid-cols-3 gap-8">
+            </div>            {/* Modern Content Section with proper spacing */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+                <div className="grid lg:grid-cols-4 gap-6 lg:gap-8">
                     
                     {/* Main Content */}
-                    <div className="lg:col-span-2">                        {/* Project Info Card */}
+                    <div className="lg:col-span-3 space-y-6 md:space-y-8">{/* Project Info Card */}
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-600 p-8 mb-8">
                             <div className="flex items-center justify-between mb-6">
                                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                                     {t('projects.projectInformation')}
-                                </h2>
-                                  {/* Live Preview Button */}
-                                {data.previewLink && (
+                                </h2>                                  {/* Live Preview Button - Always visible */}
+                                {data.previewLink ? (
                                     <a 
                                         href={data.previewLink} 
                                         target="_blank" 
@@ -104,7 +100,21 @@ export default function ProjectDetails() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                         </svg>
                                         Live Demo
-                                    </a>
+                                    </a>                                ) : (
+                                    <div className="relative group">
+                                        <button 
+                                            disabled
+                                            className="inline-flex items-center px-4 py-2 bg-gray-400 text-gray-200 font-medium rounded-lg cursor-not-allowed"
+                                        >
+                                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                            </svg>
+                                            Live Demo
+                                        </button>
+                                        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                                            Nur vor Ort verfügbar
+                                        </div>
+                                    </div>
                                 )}
                             </div>
                             
@@ -222,10 +232,8 @@ export default function ProjectDetails() {
                                     ))}
                                 </div>
                             </div>
-                        )}
-
-                        {/* Challenges & Learnings Grid */}
-                        <div className="grid lg:grid-cols-2 gap-8">                            {/* Challenges */}
+                        )}                        {/* Challenges & Learnings Grid */}
+                        <div className="grid md:grid-cols-2 gap-6 md:gap-8">{/* Challenges */}
                             {data.challenges && (
                                 <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-600 p-8">
                                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
@@ -264,20 +272,20 @@ export default function ProjectDetails() {
                             )}
                         </div>
                     </div>                    {/* Sidebar */}
-                    <div className="lg:col-span-1">
-                        {/* Action Card */}
-                        <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white mb-8">
-                            <div className="flex items-center mb-4">
-                                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="lg:col-span-1 lg:order-first xl:order-last">
+                        {/* Action Card */}                        <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-4 sm:p-6 text-white mb-6 lg:sticky lg:top-8">
+                            <div className="flex items-center mb-3 sm:mb-4">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                     </svg>
                                 </div>
-                                <div className="ml-4">
-                                    <h3 className="font-bold text-lg">Innovation</h3>
-                                    <p className="text-white/80 text-sm">Modernste Technologie</p>
-                                </div>                            </div>
-                            <p className="text-white/90 text-sm leading-relaxed mb-6">
+                                <div className="ml-2 sm:ml-3">
+                                    <h3 className="font-bold text-sm sm:text-base">Innovation</h3>
+                                    <p className="text-white/80 text-xs">Modernste Technologie</p>
+                                </div>
+                            </div>
+                            <p className="text-white/90 text-xs sm:text-sm leading-relaxed">
                                 Dieses Projekt zeigt den Einsatz modernster Technologien zur Lösung komplexer Herausforderungen.
                             </p>
                         </div>

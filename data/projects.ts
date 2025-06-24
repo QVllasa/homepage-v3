@@ -95,6 +95,7 @@ export const Projects: ProjectModel[] = [
             de: 'Forschung, Entwicklung und Weiterbildung'
         },
         previewLink: 'https://dev.moebelguru.com',
+        demoAvailable: true,
         img: '/projects/moebelguru.png',
         createAt: new Date('2025-05-10'),
         updatedAt: new Date(),
@@ -268,6 +269,11 @@ export const Projects: ProjectModel[] = [
             en: "The Track and Trace platform revolutionizes manufacturing traceability by creating a digital fingerprint for each component from production start to final assembly. This comprehensive system monitors each part's journey through various machines and processes, capturing critical sensor measurements at every stage. By maintaining this detailed component history, the platform enables unprecedented quality control capabilities, allowing teams to quickly identify and address production issues before they escalate. The system's advanced analytics provide valuable insights into manufacturing efficiency, helping optimize workflows and reduce bottlenecks. Whether investigating quality deviations, demonstrating regulatory compliance, or identifying opportunities for process improvement, Track and Trace transforms component data into actionable intelligence, making it an essential tool for modern manufacturing operations.",
             de: "Die Track-and-Trace-Plattform revolutioniert die Rückverfolgbarkeit in der Fertigung, indem sie einen digitalen Fingerabdruck für jede Komponente vom Produktionsstart bis zur Endmontage erstellt. Dieses umfassende System überwacht den Weg jedes Teils durch verschiedene Maschinen und Prozesse und erfasst kritische Sensormessungen in jeder Phase. Durch die Aufrechterhaltung dieser detaillierten Komponentenhistorie ermöglicht die Plattform beispiellose Qualitätskontrollfunktionen, sodass Teams Produktionsprobleme schnell identifizieren und beheben können, bevor sie eskalieren. Die fortschrittlichen Analysen des Systems liefern wertvolle Erkenntnisse zur Fertigungseffizienz und helfen dabei, Arbeitsabläufe zu optimieren und Engpässe zu reduzieren. Ob bei der Untersuchung von Qualitätsabweichungen, dem Nachweis der Einhaltung von Vorschriften oder der Identifizierung von Möglichkeiten zur Prozessverbesserung – Track and Trace verwandelt Komponentendaten in umsetzbare Informationen und macht es zu einem unverzichtbaren Werkzeug für moderne Fertigungsprozesse."        },
         previewLink: "",
+        demoAvailable: false,
+        demoNote: {
+            en: "Live demo only available on-site at ThyssenKrupp facilities for security reasons",
+            de: "Live-Demo nur vor Ort bei ThyssenKrupp verfügbar aus Sicherheitsgründen"
+        },
         id: "track-and-trace",
         techStack: [
             {
@@ -387,6 +393,11 @@ export const Projects: ProjectModel[] = [
             en: "The \"BI Reporting Platform\" is a versatile and powerful application designed to streamline data monitoring and dashboard creation. This all-encompassing tool empowers users to monitor a wide array of data types, including investments, operations, process data, metadata, and more. What sets this platform apart is its user-friendly and generic approach, allowing individuals to craft customized dashboards tailored to their unique data needs. Whether you're tracking financial investments, optimizing operational processes, or diving into metadata analysis, the BI Reporting Platform simplifies data monitoring and reporting, making it a valuable asset for professionals in various industries.",
             de: "Die \"BI Reporting-Plattform\" ist eine vielseitige und leistungsstarke Anwendung zur Optimierung der Datenüberwachung und Dashboard-Erstellung. Dieses umfassende Tool ermöglicht Benutzern die Überwachung einer Vielzahl von Datentypen, einschließlich Investitionen, Betriebsabläufen, Prozessdaten, Metadaten und mehr. Was diese Plattform auszeichnet, ist ihr benutzerfreundlicher und generischer Ansatz, der es Einzelpersonen ermöglicht, maßgeschneiderte Dashboards entsprechend ihrer individuellen Datenanforderungen zu erstellen. Ob Sie finanzielle Investitionen verfolgen, Betriebsprozesse optimieren oder Metadatenanalysen durchführen, die BI Reporting-Plattform vereinfacht die Datenüberwachung und Berichterstellung und macht sie zu einem wertvollen Instrument für Fachleute in verschiedenen Branchen."        },
         previewLink: "",
+        demoAvailable: false,
+        demoNote: {
+            en: "Live demo only available on-site at ThyssenKrupp facilities due to sensitive business data",
+            de: "Live-Demo nur vor Ort bei ThyssenKrupp verfügbar aufgrund sensibler Geschäftsdaten"
+        },
         id: "bi-reporting-platform",
         techStack: [
             {
