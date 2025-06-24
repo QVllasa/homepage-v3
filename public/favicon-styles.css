@@ -1,0 +1,30 @@
+/* Favicon optimization styles */
+/* This file ensures proper favicon display across all devices and browsers */
+
+/* Standard favicon */
+link[rel="icon"] {
+    sizes: any;
+}
+
+/* Apple touch icon */
+link[rel="apple-touch-icon"] {
+    sizes: 180x180;
+}
+
+/* Android Chrome icons */
+link[rel="manifest"] {
+    crossorigin: use-credentials;
+}
+
+/* Ensure proper loading */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --favicon-filter: invert(1);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --favicon-filter: none;
+    }
+}

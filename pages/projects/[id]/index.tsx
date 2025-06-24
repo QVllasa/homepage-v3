@@ -7,6 +7,7 @@ import {useTranslatedContent} from "../../../lib/useTranslatedContent";
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {GetStaticPaths, GetStaticProps} from 'next';
+import SEOHead from "../../../components/seo/SEOHead";
 
 export default function ProjectDetails() {
     const projectData: ProjectModel[] = Projects;
@@ -39,79 +40,101 @@ export default function ProjectDetails() {
         return '';
     };
 
+    const projectTitle = useTranslatedContent(data.title);
+    const projectDescription = useTranslatedContent(data.shortDescription || data.description);
+
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-slate-900">            {/* Modern Hero Section */}
-            <div className="relative">
-                {/* Back Button */}
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-8 md:left-8 z-20">
-                    <Link href="/" className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm">
-                        <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                        Zurück
-                    </Link>
-                </div>
-
-                {/* Mobile: Image as Header */}
-                <div className="md:hidden">
-                    <div className="relative h-48 sm:h-56 overflow-hidden">
-                        <Image
-                            className="w-full h-full object-cover"
-                            src={data.img}
-                            alt={getAltText(data.title)}
-                            width={1200}
-                            height={224}
-                            priority
-                            quality={90}
-                        />
-                        {/* Subtle bottom gradient for text overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"/>
+        <>
+            <SEOHead
+                title={`${projectTitle} - Project Details`}
+                description={projectDescription}
+                type="article"
+                keywords={[
+                    projectTitle,
+                    "Software Project",
+                    "Web Development",
+                    "Technology Solution",
+                    "Portfolio",
+                    "Case Study",
+                    ...(data.techStack?.flatMap(stack => stack.technologies) || [])
+                ]}
+                image={data.img}
+                url={`/projects/${id}`}
+                publishedTime={data.createAt ? data.createAt.toISOString() : undefined}
+                modifiedTime={data.updatedAt ? data.updatedAt.toISOString() : undefined}            />
+            <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
+            {/* Modern Hero Section */}
+                <div className="relative">
+                    {/* Back Button */}
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-8 md:left-8 z-20">
+                        <Link href="/" className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm">
+                            <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                            Zurück
+                        </Link>
                     </div>
-                    
-                    {/* Mobile: Text content with offset */}
-                    <div className="relative bg-white dark:bg-slate-800 -mt-6 mx-3 sm:mx-4 rounded-t-2xl z-10">
-                        <div className="px-4 sm:px-6 pt-6 sm:pt-8 pb-4">
-                            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 leading-tight">
-                                {useTranslatedContent(data.title)}
-                            </h1>
-                            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                                {useTranslatedContent(data.shortDescription)}
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                {/* Desktop: Two-column layout (Text left, Image right) */}
-                <div className="hidden md:block max-w-7xl mx-auto px-3 lg:px-6 xl:px-8 py-8 lg:py-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                        {/* Text Content - Left Column */}
-                        <div className="order-2 lg:order-1">
-                            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-white mb-4 lg:mb-6 leading-tight">
-                                {useTranslatedContent(data.title)}
-                            </h1>
-                            <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                                {useTranslatedContent(data.shortDescription)}
-                            </p>
+                    {/* Mobile: Image as Header */}
+                    <div className="md:hidden">
+                        <div className="relative h-48 sm:h-56 overflow-hidden">
+                            <Image
+                                className="w-full h-full object-cover"
+                                src={data.img}
+                                alt={getAltText(data.title)}
+                                width={1200}
+                                height={224}
+                                priority
+                                quality={90}
+                            />
+                            {/* Subtle bottom gradient for text overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"/>
                         </div>
                         
-                        {/* Image - Right Column */}
-                        <div className="order-1 lg:order-2">
-                            <div className="relative h-64 lg:h-80 xl:h-96 overflow-hidden rounded-lg">
-                                <Image
-                                    className="w-full h-full object-cover"
-                                    src={data.img}
-                                    alt={getAltText(data.title)}
-                                    width={600}
-                                    height={400}
-                                    priority
-                                    quality={90}
-                                />
+                        {/* Mobile: Text content with offset */}
+                        <div className="relative bg-white dark:bg-slate-800 -mt-6 mx-3 sm:mx-4 rounded-t-2xl z-10">
+                            <div className="px-4 sm:px-6 pt-6 sm:pt-8 pb-4">
+                                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 leading-tight">
+                                    {useTranslatedContent(data.title)}
+                                </h1>
+                                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    {useTranslatedContent(data.shortDescription)}
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>{/* Modern Content Section with proper spacing */}
-            <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-12 lg:pb-16">                <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+
+                    {/* Desktop: Two-column layout (Text left, Image right) */}
+                    <div className="hidden md:block max-w-7xl mx-auto px-3 lg:px-6 xl:px-8 py-8 lg:py-12">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                            {/* Text Content - Left Column */}
+                            <div className="order-2 lg:order-1">
+                                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-white mb-4 lg:mb-6 leading-tight">
+                                    {useTranslatedContent(data.title)}
+                                </h1>
+                                <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    {useTranslatedContent(data.shortDescription)}
+                                </p>
+                            </div>
+                            
+                            {/* Image - Right Column */}
+                            <div className="order-1 lg:order-2">
+                                <div className="relative h-64 lg:h-80 xl:h-96 overflow-hidden rounded-lg">
+                                    <Image
+                                        className="w-full h-full object-cover"
+                                        src={data.img}
+                                        alt={getAltText(data.title)}
+                                        width={600}
+                                        height={400}
+                                        priority
+                                        quality={90}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>{/* Modern Content Section with proper spacing */}
+                <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-12 lg:pb-16">                <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                     {/* Project Info Card */}
                     <div className="bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-slate-600 p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6 lg:mb-8">
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3">
@@ -128,7 +151,7 @@ export default function ProjectDetails() {
                                         className="inline-flex items-center justify-center px-4 py-2.5 sm:px-4 sm:py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors text-sm sm:text-base w-full sm:w-auto"
                                     >
                                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                         </svg>
                                         Live Demo
                                     </a>
@@ -139,7 +162,7 @@ export default function ProjectDetails() {
                                             className="inline-flex items-center justify-center px-4 py-2.5 sm:px-4 sm:py-2 bg-gray-400 text-gray-200 font-medium rounded-lg cursor-not-allowed text-sm sm:text-base w-full sm:w-auto"
                                         >
                                             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                             </svg>
                                             Live Demo
                                         </button>

@@ -1,41 +1,165 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Qendrim Vllasa Portfolio - SEO Optimized
 
-## Getting Started
+This is a professional portfolio website built with [Next.js](https://nextjs.org/), fully optimized for SEO, performance, and accessibility.
 
-First, run the development server:
+## 🚀 Features
 
+### SEO Optimization
+- **Comprehensive Meta Tags**: Dynamic meta titles, descriptions, and Open Graph tags
+- **Structured Data**: JSON-LD schema markup for Person, WebSite, Article, and Service types
+- **Sitemap Generation**: Automatic XML sitemap generation for all pages
+- **Robots.txt**: Proper search engine directives
+- **Canonical URLs**: Prevent duplicate content issues
+- **Multi-language Support**: SEO-optimized for English and German content
+- **Image Optimization**: Next.js Image component with WebP/AVIF support
+- **Performance Monitoring**: Core Web Vitals tracking
+
+### Performance Features
+- **Lazy Loading**: Images and components load when needed
+- **Code Splitting**: Automatic route-based code splitting
+- **Optimized Images**: Responsive images with blur placeholders
+- **Preconnect**: DNS prefetching for external resources
+- **Compression**: Gzip compression enabled
+- **Caching**: Optimized cache headers
+
+### Accessibility
+- **ARIA Labels**: Proper semantic HTML and ARIA attributes
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Screen Reader Support**: Optimized for assistive technologies
+- **Color Contrast**: WCAG 2.1 AA compliant colors
+
+## 🛠️ Getting Started
+
+### Prerequisites
+- Node.js 16.x or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/qendrimvllasa/portfolio-v3.git
+cd portfolio-v3
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Copy environment variables:
+```bash
+cp .env.example .env.local
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 ```
 
-## Deploy to Google Cloud Run
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
+## 📊 SEO Scripts
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Available Commands
+```bash
+# SEO audit with Lighthouse
+npm run seo:audit
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# Generate sitemap
+npm run sitemap:generate
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed
-on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited
-in `pages/api/hello.ts`.
+# Build and analyze
+npm run seo:analyze
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated
-as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Test SEO components
+npm run test:seo
+```
 
-## Learn More
+## 🔧 SEO Configuration
 
-To learn more about Next.js, take a look at the following resources:
+### Environment Variables
+Update `.env.local` with your configuration:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# SEO Configuration
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+NEXT_PUBLIC_GA_ID=your-google-analytics-id
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Customizing SEO
+1. **Meta Tags**: Update `components/seo/SEOHead.tsx`
+2. **Structured Data**: Modify `components/seo/StructuredData.tsx`
+3. **Sitemap**: Configure `pages/sitemap.xml.tsx`
 
-## Deploy on Vercel
+## 📈 Performance Optimization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Image Optimization
+- Uses Next.js Image component with automatic WebP/AVIF conversion
+- Responsive images with proper sizing
+- Lazy loading by default
+- Blur placeholders for better UX
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Core Web Vitals
+- Largest Contentful Paint (LCP): < 2.5s
+- First Input Delay (FID): < 100ms
+- Cumulative Layout Shift (CLS): < 0.1
+
+## 🌐 Multi-language Support
+
+The website supports both English and German with SEO optimization for each language:
+- Language-specific meta tags
+- Hreflang attributes
+- Localized structured data
+- Language-specific sitemaps
+
+## 📱 Progressive Web App (PWA)
+
+- Web App Manifest for installability
+- Service Worker ready
+- Offline-first approach
+- App-like experience on mobile devices
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Connect your GitHub repository to Vercel
+2. Set environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
+
+### Manual Deployment
+```bash
+npm run build
+npm run start
+```
+
+## 📊 SEO Checklist
+
+- ✅ Meta titles and descriptions
+- ✅ Open Graph tags
+- ✅ Twitter Card tags
+- ✅ Structured data (JSON-LD)
+- ✅ XML sitemap
+- ✅ Robots.txt
+- ✅ Canonical URLs
+- ✅ Image alt texts
+- ✅ Semantic HTML
+- ✅ Mobile responsiveness
+- ✅ Page speed optimization
+- ✅ SSL certificate
+- ✅ 404 error handling
+- ✅ Breadcrumb navigation
+- ✅ Internal linking
+
+## 📞 Contact
+
+Qendrim Vllasa - [LinkedIn](https://linkedin.com/in/qendrimvllasa) - [GitHub](https://github.com/qendrimvllasa)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -6,6 +6,7 @@ import {useTranslatedContent} from "../../../lib/useTranslatedContent";
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {GetStaticPaths, GetStaticProps} from 'next';
+import SEOHead from "../../../components/seo/SEOHead";
 
 export default function Skill() {
     const router = useRouter();
@@ -23,7 +24,29 @@ export default function Skill() {
         </div>
     }
 
-    return (        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 py-12 sm:py-16 lg:py-24">
+    const skillTitle = useTranslatedContent(skill.title);
+    const skillDescription = useTranslatedContent(skill.description);
+    const skillSlug = useTranslatedContent(skill.slug);
+
+    return (
+        <>
+            <SEOHead
+                title={`${skillTitle} - Expertise & Services`}
+                description={`${skillDescription} ${skillSlug} Professional services and consulting by Qendrim Vllasa.`}
+                type="article"
+                keywords={[
+                    skillTitle,
+                    "Software Development",
+                    "IT Consulting",
+                    "Professional Services",
+                    "Technology Solutions",
+                    "Web Development",
+                    "Cloud Computing",
+                    "Business Analytics",
+                    "Digital Transformation"
+                ]}
+                url={`/skills/${key}`}            />
+            <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 py-12 sm:py-16 lg:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Enhanced Header Section */}
                 <div className="mx-auto max-w-4xl text-center mb-16 lg:mb-24">
@@ -41,18 +64,21 @@ export default function Skill() {
                     </p>
                 </div>
 
-                {/* Enhanced Skills Grid */}                <div className="mx-auto mt-16 lg:mt-24">
+                {/* Enhanced Skills Grid */}
+                <div className="mx-auto mt-16 lg:mt-24">
                     <div className={`grid gap-8 xl:gap-12 ${
                         skill.sections.length === 1 
                             ? "grid-cols-1 max-w-2xl mx-auto" 
                             : skill.sections.length === 2 
                             ? "grid-cols-1 lg:grid-cols-2 max-w-5xl mx-auto"
                             : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-                    }`}>                        {skill.sections.map((section, idx) => (
+                    }`}>
+                        {skill.sections.map((section, idx) => (
                             <div key={idx} className="relative bg-white dark:bg-slate-800 rounded-3xl border border-gray-200 dark:border-slate-600 p-8 overflow-hidden">
-                                {/* Content */}                                <div className="relative z-10">
-                                    {/* Title with improved typography */}
-                                        {/* Dynamic icons based on section title */}
+                                {/* Content */}
+                                <div className="relative z-10">
+                                    {/* Dynamic icons based on section title */}
+                                    <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 dark:bg-yellow-500">
                                         {useTranslatedContent(section.title).toLowerCase().includes('web') || useTranslatedContent(section.title).toLowerCase().includes('anwendung') ? (
                                             <svg className="h-8 w-8 text-white dark:text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -120,12 +146,12 @@ export default function Skill() {
                                         </div>
                                     )}
                                 </div>
-                            
-                        ))}
+                            </div>                        ))}
                     </div>
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

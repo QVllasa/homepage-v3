@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Disallow admin paths (if any)
+Disallow: /admin
+Disallow: /private
+
+# Allow search engines to crawl all public content
+Allow: /projects/
+Allow: /skills/
+Allow: /legal/
+
+# Sitemap location
+Sitemap: https://qendrimvllasa.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

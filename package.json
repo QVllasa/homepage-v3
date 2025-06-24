@@ -1,13 +1,16 @@
 {
   "name": "homepage_2023",
   "version": "0.1.0",
-  "private": true,
-  "scripts": {
+  "private": true,  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export"
+    "export": "next export",
+    "seo:audit": "lighthouse http://localhost:3000 --output html --output-path ./seo-audit.html --chrome-flags='--headless'",
+    "seo:analyze": "next build && next export",
+    "sitemap:generate": "next build && node scripts/generate-sitemap.js",
+    "test:seo": "jest --testPathPattern=seo"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
