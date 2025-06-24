@@ -32,14 +32,15 @@ export default function ProjectDetails() {
             default:
                 return status;
         }
-    };
-
-    // Safe function to get Alt text for images
+    };    // Safe function to get Alt text for images
     const getAltText = (text: any) => {
         if (typeof text === 'string') return text;
         if (text && typeof text === 'object' && 'en' in text) return text.en;
         return '';
-    };    return (        <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
+    };
+
+    return (
+        <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
             {/* Modern Hero Section */}
             <div className="relative">
                 {/* Back Button */}
@@ -50,24 +51,24 @@ export default function ProjectDetails() {
                         </svg>
                         Zurück
                     </Link>
-                </div>                {/* Hero Image - Responsive with fixed desktop height for sharpness */}
-                <div className="relative h-48 sm:h-56 md:h-72 lg:h-80 xl:h-[420px] overflow-hidden">
-                    <Image
-                        className="w-full h-full object-cover"
-                        src={data.img}
-                        alt={getAltText(data.title)}
-                        width={1200}
-                        height={420}
-                        priority
-                        quality={90}
-                    />
-                    {/* Subtle bottom gradient only for mobile text overlay if needed */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:hidden"/>
-                </div>
-
-                {/* Content below image - better readability */}
-                <div className="relative bg-white dark:bg-slate-800 -mt-6 sm:-mt-8 md:mt-0 mx-3 sm:mx-4 md:mx-0 rounded-t-2xl md:rounded-none z-10 md:z-auto">
-                    <div className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-8 md:pt-8 pb-4">
+                </div>                {/* Hero Image Container - Constrained to content width on desktop */}
+                <div className="md:max-w-7xl md:mx-auto md:px-3 md:sm:px-4 lg:px-6 xl:px-8">
+                    <div className="relative h-48 sm:h-56 md:h-72 lg:h-80 xl:h-[420px] overflow-hidden md:rounded-lg">
+                        <Image
+                            className="w-full h-full object-cover"
+                            src={data.img}
+                            alt={getAltText(data.title)}
+                            width={1200}
+                            height={420}
+                            priority
+                            quality={90}
+                        />
+                        {/* Subtle bottom gradient only for mobile text overlay if needed */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:hidden"/>
+                    </div>
+                </div>                {/* Content below image - better readability */}
+                <div className="relative bg-white dark:bg-slate-800 -mt-6 sm:-mt-8 md:mt-0 mx-3 sm:mx-4 md:max-w-7xl md:mx-auto rounded-t-2xl md:rounded-none z-10 md:z-auto">
+                    <div className="px-4 sm:px-6 md:px-3 lg:px-6 xl:px-8 pt-6 sm:pt-8 md:pt-8 pb-4">
                         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 md:mb-4 leading-tight">
                             {useTranslatedContent(data.title)}
                         </h1>
@@ -76,33 +77,10 @@ export default function ProjectDetails() {
                         </p>
                     </div>
                 </div>
-            </div>{/* Modern Content Section with proper spacing */}
-            <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-12 lg:pb-16">
-                <div className="space-y-4 sm:space-y-6 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-6 xl:gap-8">
-                      {/* Sidebar - Hidden on mobile, visible on large screens */}
-                    <div className="hidden lg:block lg:col-span-1 lg:order-first xl:order-last">
-                        {/* Action Card */}
-                        <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-white mb-4 sm:mb-6 lg:sticky lg:top-8">
-                            <div className="flex items-center mb-3 sm:mb-4">
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-lg sm:rounded-xl flex items-center justify-center">
-                                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
-                                <div className="ml-2 sm:ml-3">
-                                    <h3 className="font-bold text-sm sm:text-base">Innovation</h3>
-                                    <p className="text-white/80 text-xs">Modernste Technologie</p>
-                                </div>
-                            </div>
-                            <p className="text-white/90 text-xs sm:text-sm leading-relaxed">
-                                Dieses Projekt zeigt den Einsatz modernster Technologien zur Lösung komplexer Herausforderungen.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    {/* Main Content */}
-                    <div className="lg:col-span-3 space-y-4 sm:space-y-6 lg:space-y-8">                        {/* Project Info Card */}
-                        <div className="bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-slate-600 p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6 lg:mb-8">
+            </div>            {/* Modern Content Section with proper spacing */}
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-12 lg:pb-16">                <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+                    {/* Project Info Card */}
+                    <div className="bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-slate-600 p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6 lg:mb-8">
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3">
                                 <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                                     {t('projects.projectInformation')}
@@ -287,32 +265,13 @@ export default function ProjectDetails() {
                                     </h2>
                                     <div className="space-y-4 sm:space-y-6">
                                         {data.learnings.map((learning, idx) => (
-                                            <div key={idx} className="border-l-4 border-purple-500 pl-4 sm:pl-6">
-                                                <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">{useTranslatedContent(learning.title)}</h3>
+                                            <div key={idx} className="border-l-4 border-purple-500 pl-4 sm:pl-6">                                                <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">{useTranslatedContent(learning.title)}</h3>
                                                 <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">{useTranslatedContent(learning.description)}</p>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             )}
-                        </div>
-                    </div>{/* Sidebar */}
-                    <div className="lg:col-span-1 lg:order-first xl:order-last">
-                        {/* Action Card */}                        <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-4 sm:p-6 text-white mb-6 lg:sticky lg:top-8">
-                            <div className="flex items-center mb-3 sm:mb-4">
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
-                                <div className="ml-2 sm:ml-3">
-                                    <h3 className="font-bold text-sm sm:text-base">Innovation</h3>
-                                    <p className="text-white/80 text-xs">Modernste Technologie</p>
-                                </div>
-                            </div>
-                            <p className="text-white/90 text-xs sm:text-sm leading-relaxed">
-                                Dieses Projekt zeigt den Einsatz modernster Technologien zur Lösung komplexer Herausforderungen.
-                            </p>
                         </div>
                     </div>
                 </div>
