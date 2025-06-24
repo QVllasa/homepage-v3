@@ -50,9 +50,8 @@ export default function Skill() {
                             : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                     }`}>                        {skill.sections.map((section, idx) => (
                             <div key={idx} className="relative bg-white dark:bg-slate-800 rounded-3xl border border-gray-200 dark:border-slate-600 p-8 overflow-hidden">
-                                {/* Content */}
-                                <div className="relative z-10">                                    {/* Modern Icon Container */}
-                                    <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 dark:from-yellow-400 dark:to-yellow-500">
+                                {/* Content */}                                <div className="relative z-10">
+                                    {/* Title with improved typography */}
                                         {/* Dynamic icons based on section title */}
                                         {useTranslatedContent(section.title).toLowerCase().includes('web') || useTranslatedContent(section.title).toLowerCase().includes('anwendung') ? (
                                             <svg className="h-8 w-8 text-white dark:text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,7 +120,7 @@ export default function Skill() {
                                         </div>
                                     )}
                                 </div>
-                            </div>
+                            
                         ))}
                     </div>
                 </div>

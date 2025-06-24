@@ -5,14 +5,7 @@ import {useTranslation} from 'next-i18next';
 export default function HeaderSection() {
     const {t} = useTranslation();
     
-    const specializations = [
-        { icon: '💻', text: t('header.specializations.softwareEngineer') },
-        { icon: '🚀', text: t('header.specializations.techEnthusiast') },
-        { icon: '🌟', text: t('header.specializations.cloudArchitect') },
-        { icon: '🎯', text: t('header.specializations.fullStackDeveloper') },
-        { icon: '🚁', text: t('header.specializations.droneLover') },
-        { icon: '⚡', text: t('header.specializations.performanceOptimizer') },
-    ];return (
+    return (
         <div className="relative bg-white dark:bg-slate-900 min-h-screen transition">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="relative grid md:grid-cols-2 w-full min-h-screen lg:text-left md:place-items-center py-8">
@@ -30,25 +23,18 @@ export default function HeaderSection() {
                         <p className="block font-bold xl:inline dark:text-slate-100 transition">Qendrim</p>
                     </div>                    {/* Humorous description */}
                     <div className="mt-6 text-center md:text-left max-w-xl">
-                        <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                            🎯 <strong>{t('header.secretRecipe')}</strong> {t('header.magicalSolutions')}
-                        </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                             {t('header.description')}
                         </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
+                        
+                        {/* Magic Trick - moved to center */}
+                        <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mt-4 mb-4">
+                            🎯 <strong>{t('header.secretRecipe')}</strong> {t('header.magicalSolutions')}
+                        </p>
+                        
+                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                             <span className="font-semibold">{t('header.funFact')}</span> {t('header.debuggingPassion')}
                         </p>
-                    </div>{/* Subtle hashtag-style tags */}
-                    <div className="flex flex-wrap gap-1.5 mt-3 justify-center md:justify-start">
-                        {specializations.map((spec, index) => (
-                            <span 
-                                key={index}
-                                className="text-gray-400 dark:text-gray-500 text-xs font-normal"
-                            >
-                                #{spec.text.replace(/\s+/g, '').replace(/-/g, '')}
-                            </span>
-                        ))}
                     </div>                    {/* Call to Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 mt-6 justify-center md:justify-start">
                         <a 

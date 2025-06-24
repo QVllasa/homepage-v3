@@ -40,8 +40,7 @@ export default function ProjectDetails() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
-            {/* Modern Hero Section */}
+        <div className="min-h-screen bg-gray-50 dark:bg-slate-900">            {/* Modern Hero Section */}
             <div className="relative">
                 {/* Back Button */}
                 <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-8 md:left-8 z-20">
@@ -51,33 +50,67 @@ export default function ProjectDetails() {
                         </svg>
                         Zurück
                     </Link>
-                </div>                {/* Hero Image Container - Constrained to content width on desktop */}
-                <div className="md:max-w-7xl md:mx-auto md:px-3 md:sm:px-4 lg:px-6 xl:px-8">
-                    <div className="relative h-48 sm:h-56 md:h-72 lg:h-80 xl:h-[420px] overflow-hidden md:rounded-lg">
+                </div>
+
+                {/* Mobile: Image as Header */}
+                <div className="md:hidden">
+                    <div className="relative h-48 sm:h-56 overflow-hidden">
                         <Image
                             className="w-full h-full object-cover"
                             src={data.img}
                             alt={getAltText(data.title)}
                             width={1200}
-                            height={420}
+                            height={224}
                             priority
                             quality={90}
                         />
-                        {/* Subtle bottom gradient only for mobile text overlay if needed */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:hidden"/>
+                        {/* Subtle bottom gradient for text overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"/>
                     </div>
-                </div>                {/* Content below image - better readability */}
-                <div className="relative bg-white dark:bg-slate-800 -mt-6 sm:-mt-8 md:mt-0 mx-3 sm:mx-4 md:max-w-7xl md:mx-auto rounded-t-2xl md:rounded-none z-10 md:z-auto">
-                    <div className="px-4 sm:px-6 md:px-3 lg:px-6 xl:px-8 pt-6 sm:pt-8 md:pt-8 pb-4">
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 md:mb-4 leading-tight">
-                            {useTranslatedContent(data.title)}
-                        </h1>
-                        <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-                            {useTranslatedContent(data.shortDescription)}
-                        </p>
+                    
+                    {/* Mobile: Text content with offset */}
+                    <div className="relative bg-white dark:bg-slate-800 -mt-6 mx-3 sm:mx-4 rounded-t-2xl z-10">
+                        <div className="px-4 sm:px-6 pt-6 sm:pt-8 pb-4">
+                            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 leading-tight">
+                                {useTranslatedContent(data.title)}
+                            </h1>
+                            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                {useTranslatedContent(data.shortDescription)}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>            {/* Modern Content Section with proper spacing */}
+
+                {/* Desktop: Two-column layout (Text left, Image right) */}
+                <div className="hidden md:block max-w-7xl mx-auto px-3 lg:px-6 xl:px-8 py-8 lg:py-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                        {/* Text Content - Left Column */}
+                        <div className="order-2 lg:order-1">
+                            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-white mb-4 lg:mb-6 leading-tight">
+                                {useTranslatedContent(data.title)}
+                            </h1>
+                            <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                                {useTranslatedContent(data.shortDescription)}
+                            </p>
+                        </div>
+                        
+                        {/* Image - Right Column */}
+                        <div className="order-1 lg:order-2">
+                            <div className="relative h-64 lg:h-80 xl:h-96 overflow-hidden rounded-lg">
+                                <Image
+                                    className="w-full h-full object-cover"
+                                    src={data.img}
+                                    alt={getAltText(data.title)}
+                                    width={600}
+                                    height={400}
+                                    priority
+                                    quality={90}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>{/* Modern Content Section with proper spacing */}
             <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-12 lg:pb-16">                <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                     {/* Project Info Card */}
                     <div className="bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-slate-600 p-4 sm:p-6 lg:p-8 mb-4 sm:mb-6 lg:mb-8">
