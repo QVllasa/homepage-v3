@@ -1,4 +1,3 @@
-import {useState} from "react";
 import Image from "next/image";
 import {useTranslation} from 'next-i18next';
 
@@ -23,13 +22,13 @@ export default function HeaderSection() {
                         <p className="block font-bold xl:inline dark:text-slate-100 transition">Qendrim</p>
                     </div>                    {/* Humorous description */}
                     <div className="mt-6 text-center md:text-left max-w-xl">
-                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                            {t('header.description')}
-                        </p>
+                        {/*<p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">*/}
+                        {/*    {t('header.description')}*/}
+                        {/*</p>*/}
                         
                         {/* Magic Trick - moved to center */}
                         <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mt-4 mb-4">
-                            🎯 <strong>{t('header.secretRecipe')}</strong> {t('header.magicalSolutions')}
+                            <strong>{t('header.secretRecipe')}</strong> <br/>{t('header.magicalSolutions')}
                         </p>
                         
                         <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">

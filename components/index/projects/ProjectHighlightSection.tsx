@@ -25,8 +25,10 @@ export default function ProjectHighlightSection() {
             default:
                 return status;
         }
-    };    return (
-        <div className={'dark:bg-slate-900 pt-16 sm:pt-24 lg:pt-32'}>            <div className="relative mx-auto py-24 lg:py-32 px-6 lg:max-w-7xl lg:px-8" id='project-highlights'>
+    };
+    return (
+        <div className={'dark:bg-slate-900 pt-16 sm:pt-24 lg:pt-12'}>
+            <div className="relative mx-auto  px-6 lg:max-w-7xl lg:px-8" id='project-highlights'>
                 <div className="relative mx-auto max-w-3xl lg:max-w-7xl z-10">
                     <div className="text-left lg:text-center">
                         <h2 className="text-3xl font-bold transition tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
@@ -37,8 +39,8 @@ export default function ProjectHighlightSection() {
                         </p>
                     </div>
                     <div className="mx-auto mt-12 grid gap-5 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
-                        {highlightProjects?.map((project, index) => (                            <Link key={index} href={`projects/${encodeURIComponent(project.id)}`}
-                                  className="flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors bg-white dark:bg-slate-800">
+                        {highlightProjects?.map((project, index) => (<Link key={index} href={`projects/${encodeURIComponent(project.id)}`}
+                                                                           className="flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-colors bg-white dark:bg-slate-800">
                                 <div className="flex-shrink-0">
                                     <Image className="h-48 w-full object-cover" width={640} height={400} src={project.img}
                                            alt={typeof project.title === 'string' ? project.title : project.title?.en || ''}/>
