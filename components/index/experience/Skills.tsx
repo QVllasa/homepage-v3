@@ -12,7 +12,6 @@ export default function Skills() {
 
     const skills: SkillModel[] = SkillsData;
 
-
     return (
         <div className="" id={'skills'}>
             <div className="relative mx-auto  py-24 ">
@@ -29,15 +28,7 @@ export default function Skills() {
                     <dl className="mt-20 grid grid-cols-1 gap-16 sm:grid-cols-2 sm:gap-x-12 lg:col-span-2 lg:mt-0">
                         {skills?.map((item, index) => {
                             if (index < 6) {
-                                return <div key={index} className="relative">
-                                    <dt>
-                                        <CheckCircleIcon
-                                            className="absolute transition h-8 w-8 text-blue-600 dark:text-yellow-500 font-bold"
-                                            aria-hidden="true"/>
-                                        <p className="ml-12 text-lg font-semibold transition leading-8 text-gray-900 dark:text-slate-100">{item.name}</p>
-                                    </dt>
-                                    <dd className="mt-3 ml-12 text-sm transition leading-7 text-gray-600 dark:text-slate-300">{useTranslatedContent(item.description)}</dd>
-                                </div>
+                                return <SkillItem key={index} skill={item} size="large"/>
                             }
                         })}
                     </dl>
@@ -54,18 +45,41 @@ export default function Skills() {
                 </div>
                 {showMore ? <dl className="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
                     {skills?.map((item, index) => {
-                        if (index >= 6) return <div key={item.name} className="relative">
-                            <dt>
-                                <CheckIcon
-                                    className="absolute transition mt-1 h-6 w-6 text-blue-600 dark:text-yellow-500"
-                                    aria-hidden="true"/>
-                                <p className="ml-10 text-sm font-semibold transition leading-8 text-gray-900 dark:text-slate-100">{item.name}</p>
-                            </dt>
-                            <dd className="mt-2 ml-10 text-sm transition leading-7 text-gray-600 dark:text-slate-300">{useTranslatedContent(item.description)}</dd>
-                        </div>
+                        if (index >= 6) return <SkillItem key={item.name} skill={item} size="small"/>
                     })}
                 </dl> : null}
             </div>
         </div>
     )
+}
+
+// Separate component for individual skills to properly use hooks
+function SkillItem({skill, size}: { skill: SkillModel, size: 'large' | 'small' }) {
+    const translatedDescription = useTranslatedContent(skill.description);
+
+    if (size === 'large') {
+        return (
+            <div className="relative">
+                <dt>
+                    <CheckCircleIcon
+                        className="absolute transition h-8 w-8 text-blue-600 dark:text-yellow-500 font-bold"
+                        aria-hidden="true"/>
+                    <p className="ml-12 text-lg font-semibold transition leading-8 text-gray-900 dark:text-slate-100">{skill.name}</p>
+                </dt>
+                <dd className="mt-3 ml-12 text-sm transition leading-7 text-gray-600 dark:text-slate-300">{translatedDescription}</dd>
+            </div>
+        );
+    }
+
+    return (
+        <div className="relative">
+            <dt>
+                <CheckIcon
+                    className="absolute transition mt-1 h-6 w-6 text-blue-600 dark:text-yellow-500"
+                    aria-hidden="true"/>
+                <p className="ml-10 text-sm font-semibold transition leading-8 text-gray-900 dark:text-slate-100">{skill.name}</p>
+            </dt>
+            <dd className="mt-2 ml-10 text-sm transition leading-7 text-gray-600 dark:text-slate-300">{translatedDescription}</dd>
+        </div>
+    );
 }
