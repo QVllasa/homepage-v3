@@ -28,7 +28,7 @@ export default function Skills() {
                     </div>
                     <dl className="mt-20 grid grid-cols-1 gap-16 sm:grid-cols-2 sm:gap-x-12 lg:col-span-2 lg:mt-0">
                         {skills?.map((item, index) => {
-                            if (index < 4) {
+                            if (index < 6) {
                                 return <div key={index} className="relative">
                                     <dt>
                                         <CheckCircleIcon
@@ -54,7 +54,7 @@ export default function Skills() {
                 </div>
                 {showMore ? <dl className="mt-20 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
                     {skills?.map((item, index) => {
-                        if (index >= 4) return  <div key={item.name} className="relative">
+                        if (index >= 6) return <div key={item.name} className="relative">
                             <dt>
                                 <CheckIcon
                                     className="absolute transition mt-1 h-6 w-6 text-blue-600 dark:text-yellow-500"
