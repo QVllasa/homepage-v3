@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import {useState} from 'react';
 
 interface OptimizedImageProps {
     src: string;
@@ -115,7 +115,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
     return (
         <div className="relative">
-            <Image {...imageProps} />
+            <Image {...imageProps} alt={alt}/>
             {imageLoading && (
                 <div 
                     className={`absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700 animate-pulse ${className}`}

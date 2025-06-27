@@ -11,7 +11,6 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {GetStaticProps} from 'next';
 import {useTranslation} from 'next-i18next';
 import {useGoogleAnalytics} from '../lib/analytics';
-import {useEffect} from 'react';
 
 export default function Home() {
     const {t} = useTranslation();
@@ -23,9 +22,10 @@ export default function Home() {
         <>
             <SEOHead
                 title="Qendrim Vllasa - Software Engineer & Cloud Expert"
-                description="Experienced Software Engineer specializing in cloud technologies, web development, and digital transformation. Expert in React, Next.js, Python, TypeScript, and modern cloud architectures."
+                description="Professional Software Engineer & Cloud Architect with 5+ years experience. Specializing in full-stack development, cloud solutions, and digital transformation. Expert in React, Next.js, Python, AWS, and modern web technologies."
                 type="profile"
                 keywords={[
+                    "Qendrim Vllasa",
                     "Software Engineer",
                     "Cloud Expert", 
                     "Web Developer",
@@ -41,9 +41,11 @@ export default function Home() {
                     "AWS",
                     "Azure",
                     "Docker",
-                    "Kubernetes"
+                    "Kubernetes",
+                    "Portfolio"
                 ]}
                 image="/assets/website.png"
+                modifiedTime={new Date().toISOString()}
             />
             
             {/* Structured Data for Person and Website */}

@@ -9,6 +9,86 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {GetStaticPaths, GetStaticProps} from 'next';
 import SEOHead from "../../../components/seo/SEOHead";
 
+// Helper components to avoid hook violations
+function StatItem({stat}: { stat: any }) {
+    const key = useTranslatedContent(stat.key);
+    const value = useTranslatedContent(stat.value);
+    return (
+        <div className="bg-gray-50 dark:bg-slate-700 rounded-lg sm:rounded-xl border border-gray-200 dark:border-slate-600 p-3 sm:p-4">
+            <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">{key}</p>
+            <p className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white mt-1">{value}</p>
+        </div>
+    );
+}
+
+function TechStackItem({stack}: { stack: any }) {
+    const category = useTranslatedContent(stack.category);
+    return (
+        <div className="bg-gray-50 dark:bg-slate-700 rounded-lg sm:rounded-xl border border-gray-200 dark:border-slate-600 p-4 sm:p-6">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm sm:text-base">{category}</h3>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {stack.technologies.map((tech, techIdx) => (
+                    <span key={techIdx} className="px-2 sm:px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs sm:text-sm rounded-full font-medium border border-blue-200 dark:border-blue-800">
+                        {tech}
+                    </span>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function SkillItem({skill}: { skill: any }) {
+    const category = useTranslatedContent(skill.category);
+    return (
+        <div className="bg-gray-50 dark:bg-slate-700 rounded-lg sm:rounded-xl border border-gray-200 dark:border-slate-600 p-4 sm:p-6">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm sm:text-base">{category}</h3>
+            <ul className="space-y-2">
+                {skill.items.map((item, itemIdx) => (
+                    <li key={itemIdx} className="flex items-start text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+                        <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-2 mt-0.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                        </svg>
+                        <span className="leading-relaxed">{item}</span>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+function KeyItem({keyItem}: { keyItem: any }) {
+    const value = useTranslatedContent(keyItem.value);
+    const description = useTranslatedContent(keyItem.description);
+    return (
+        <div className="bg-gray-50 dark:bg-slate-700 rounded-lg sm:rounded-xl border-l-4 border-l-blue-500 border-t border-r border-b border-gray-200 dark:border-gray-600 pl-4 sm:pl-6 p-4 sm:p-6">
+            <h3 className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg mb-2">{value}</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">{description}</p>
+        </div>
+    );
+}
+
+function ChallengeItem({challenge}: { challenge: any }) {
+    const title = useTranslatedContent(challenge.title);
+    const description = useTranslatedContent(challenge.description);
+    return (
+        <div className="border-l-4 border-orange-500 pl-4 sm:pl-6">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">{title}</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">{description}</p>
+        </div>
+    );
+}
+
+function LearningItem({learning}: { learning: any }) {
+    const title = useTranslatedContent(learning.title);
+    const description = useTranslatedContent(learning.description);
+    return (
+        <div className="border-l-4 border-purple-500 pl-4 sm:pl-6">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">{title}</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">{description}</p>
+        </div>
+    );
+}
+
 export default function ProjectDetails() {
     const projectData: ProjectModel[] = Projects;
     const router = useRouter();
@@ -16,6 +96,12 @@ export default function ProjectDetails() {
     const {id} = router.query;
 
     const data = projectData.find(obj => obj.id === id);
+
+    // Move all hook calls to the top, before any conditional returns
+    const projectTitle = useTranslatedContent(data?.title || {en: '', de: ''});
+    const projectDescription = useTranslatedContent(data?.shortDescription || data?.description || {en: '', de: ''});
+    const fullDescription = useTranslatedContent(data?.description || {en: '', de: ''});
+    const clientName = useTranslatedContent(data?.client || {en: '', de: ''});
 
     if (!data) return null;
 
@@ -33,15 +119,14 @@ export default function ProjectDetails() {
             default:
                 return status;
         }
-    };    // Safe function to get Alt text for images
+    };
+
+    // Safe function to get Alt text for images
     const getAltText = (text: any) => {
         if (typeof text === 'string') return text;
         if (text && typeof text === 'object' && 'en' in text) return text.en;
         return '';
     };
-
-    const projectTitle = useTranslatedContent(data.title);
-    const projectDescription = useTranslatedContent(data.shortDescription || data.description);
 
     return (
         <>
@@ -61,7 +146,8 @@ export default function ProjectDetails() {
                 image={data.img}
                 url={`/projects/${id}`}
                 publishedTime={data.createAt ? data.createAt.toISOString() : undefined}
-                modifiedTime={data.updatedAt ? data.updatedAt.toISOString() : undefined}            />
+                modifiedTime={data.updatedAt ? data.updatedAt.toISOString() : undefined}
+            />
             <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
             {/* Modern Hero Section */}
                 <div className="relative">
@@ -95,10 +181,10 @@ export default function ProjectDetails() {
                         <div className="relative bg-white dark:bg-slate-800 -mt-6 mx-3 sm:mx-4 rounded-t-2xl z-10">
                             <div className="px-4 sm:px-6 pt-6 sm:pt-8 pb-4">
                                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 leading-tight">
-                                    {useTranslatedContent(data.title)}
+                                    {projectTitle}
                                 </h1>
                                 <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                                    {useTranslatedContent(data.shortDescription)}
+                                    {projectDescription}
                                 </p>
                             </div>
                         </div>
@@ -110,10 +196,10 @@ export default function ProjectDetails() {
                             {/* Text Content - Left Column */}
                             <div className="order-2 lg:order-1">
                                 <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-white mb-4 lg:mb-6 leading-tight">
-                                    {useTranslatedContent(data.title)}
+                                    {projectTitle}
                                 </h1>
                                 <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                                    {useTranslatedContent(data.shortDescription)}
+                                    {projectDescription}
                                 </p>
                             </div>
                             
@@ -179,7 +265,7 @@ export default function ProjectDetails() {
                                         <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
                                         <div className="min-w-0 flex-1">
                                             <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Kunde</p>
-                                            <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base truncate">{useTranslatedContent(data.client)}</p>
+                                            <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base truncate">{clientName}</p>
                                         </div>
                                     </div>
                                 )}
@@ -203,10 +289,7 @@ export default function ProjectDetails() {
                                     <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">Leistungskennzahlen</h3>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                                         {data.stats.map((stat, idx) => (
-                                            <div key={idx} className="bg-gray-50 dark:bg-slate-700 rounded-lg sm:rounded-xl border border-gray-200 dark:border-slate-600 p-3 sm:p-4">
-                                                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">{useTranslatedContent(stat.key)}</p>
-                                                <p className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white mt-1">{useTranslatedContent(stat.value)}</p>
-                                            </div>
+                                            <StatItem key={idx} stat={stat}/>
                                         ))}
                                     </div>
                                 </div>
@@ -216,7 +299,7 @@ export default function ProjectDetails() {
                             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">Projektbeschreibung</h2>
                             <div className="prose prose-gray dark:prose-invert max-w-none prose-sm sm:prose-base">
                                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-                                    {useTranslatedContent(data.description)}
+                                    {fullDescription}
                                 </p>
                             </div>
                         </div>                        {/* Tech Stack */}
@@ -230,16 +313,7 @@ export default function ProjectDetails() {
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                     {data.techStack.map((stack, idx) => (
-                                        <div key={idx} className="bg-gray-50 dark:bg-slate-700 rounded-lg sm:rounded-xl border border-gray-200 dark:border-slate-600 p-4 sm:p-6">
-                                            <h3 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm sm:text-base">{useTranslatedContent(stack.category)}</h3>
-                                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                                                {stack.technologies.map((tech, techIdx) => (
-                                                    <span key={techIdx} className="px-2 sm:px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs sm:text-sm rounded-full font-medium border border-blue-200 dark:border-blue-800">
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
+                                        <TechStackItem key={idx} stack={stack}/>
                                     ))}
                                 </div>
                             </div>
@@ -254,18 +328,7 @@ export default function ProjectDetails() {
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                     {data.skills.map((skill, idx) => (
-                                        <div key={idx} className="bg-gray-50 dark:bg-slate-700 rounded-lg sm:rounded-xl border border-gray-200 dark:border-slate-600 p-4 sm:p-6">
-                                            <h3 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm sm:text-base">{useTranslatedContent(skill.category)}</h3>
-                                            <ul className="space-y-2">
-                                                {skill.items.map((item, itemIdx) => (
-                                                    <li key={itemIdx} className="flex items-start text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                                                        <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-2 mt-0.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                                        </svg>
-                                                        <span className="leading-relaxed">{item}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>                                        </div>
+                                        <SkillItem key={idx} skill={skill}/>
                                     ))}
                                 </div>
                             </div>
@@ -280,10 +343,7 @@ export default function ProjectDetails() {
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                     {data.keys.map((key, idx) => (
-                                        <div key={idx} className="bg-gray-50 dark:bg-slate-700 rounded-lg sm:rounded-xl border-l-4 border-l-blue-500 border-t border-r border-b border-gray-200 dark:border-gray-600 pl-4 sm:pl-6 p-4 sm:p-6">
-                                            <h3 className="font-semibold text-gray-900 dark:text-white text-base sm:text-lg mb-2">{useTranslatedContent(key.value)}</h3>
-                                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">{useTranslatedContent(key.description)}</p>
-                                        </div>
+                                        <KeyItem key={idx} keyItem={key}/>
                                     ))}
                                 </div>
                             </div>
@@ -301,10 +361,7 @@ export default function ProjectDetails() {
                                     </h2>
                                     <div className="space-y-4 sm:space-y-6">
                                         {data.challenges.map((challenge, idx) => (
-                                            <div key={idx} className="border-l-4 border-orange-500 pl-4 sm:pl-6">
-                                                <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">{useTranslatedContent(challenge.title)}</h3>
-                                                <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">{useTranslatedContent(challenge.description)}</p>
-                                            </div>
+                                            <ChallengeItem key={idx} challenge={challenge}/>
                                         ))}
                                     </div>
                                 </div>
@@ -321,9 +378,7 @@ export default function ProjectDetails() {
                                     </h2>
                                     <div className="space-y-4 sm:space-y-6">
                                         {data.learnings.map((learning, idx) => (
-                                            <div key={idx} className="border-l-4 border-purple-500 pl-4 sm:pl-6">                                                <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">{useTranslatedContent(learning.title)}</h3>
-                                                <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">{useTranslatedContent(learning.description)}</p>
-                                            </div>
+                                            <LearningItem key={idx} learning={learning}/>
                                         ))}
                                     </div>
                                 </div>

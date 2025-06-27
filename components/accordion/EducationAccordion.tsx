@@ -8,6 +8,7 @@ import {useTranslatedContent} from "../../lib/useTranslatedContent";
 export default function EducationAccordion(data: { item: EducationModel}) {
     const [open, setOpen] = useState(false)
     const {t} = useTranslation();
+    const description = useTranslatedContent(data.item.description);
 
     return (
         <div className="mx-auto w-full">
@@ -44,7 +45,7 @@ export default function EducationAccordion(data: { item: EducationModel}) {
                 {open ?
                     <div className='col-span-full transition mt-6 text-xs sm:text-sm md:text-md dark:text-slate-300'>
                         <p>
-                            {useTranslatedContent(data.item.description)}
+                            {description}
                         </p>
                     </div>
                     :

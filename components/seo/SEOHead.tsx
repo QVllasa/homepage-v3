@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 
 interface SEOProps {
     title?: string;
@@ -18,11 +18,11 @@ interface SEOProps {
 
 const SEOHead: React.FC<SEOProps> = ({
     title = "Qendrim Vllasa - Software Engineer & Cloud Expert",
-    description = "Experienced Software Engineer specializing in cloud technologies, web development, and digital transformation. Proficient in React, Next.js, Python, and modern cloud architectures.",
+                                         description = "Professional Software Engineer & Cloud Architect with 5+ years experience. Specializing in full-stack development, cloud solutions, and digital transformation. Expert in React, Next.js, Python, AWS, and modern web technologies.",
     image = "/assets/website.png",
     url,
     type = "website",
-    keywords = ["Software Engineer", "Cloud Expert", "Web Developer", "React", "Next.js", "Python", "TypeScript", "Cloud Architecture", "Digital Transformation"],
+                                         keywords = ["Qendrim Vllasa", "Software Engineer", "Cloud Expert", "Web Developer", "React", "Next.js", "Python", "TypeScript", "Cloud Architecture", "Digital Transformation", "Portfolio"],
     author = "Qendrim Vllasa",
     publishedTime,
     modifiedTime,

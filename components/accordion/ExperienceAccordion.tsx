@@ -7,6 +7,7 @@ import {useTranslatedContent} from "../../lib/useTranslatedContent";
 
 export default function ExperienceAccordion(data: { item: ExperienceModel }) {
     const [open, setOpen] = useState(false)
+    const description = useTranslatedContent(data.item.description);
 
 
     return (
@@ -45,7 +46,7 @@ export default function ExperienceAccordion(data: { item: ExperienceModel }) {
                     {open ?
                         <div
                             className='col-span-full transition mt-6 text-xs sm:text-sm md:text-md dark:text-slate-300'>                            <p className='leading-6'>
-                                {useTranslatedContent(data.item.description)}
+                            {description}
                             </p>
                         </div>
                         :
