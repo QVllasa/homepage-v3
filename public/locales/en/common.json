@@ -100,6 +100,10 @@
     "subheading": "Growing with every project",
   "highlightsHeading": "Featured Projects",
   "highlightsSubheading": "Some of my best work",
+  "highlights": {
+    "title": "Featured Projects",
+    "description": "Explore some of my most impactful work and technical achievements"
+  },
     "loadMore": "Load more",
     "status": {
       "completed": "Completed",

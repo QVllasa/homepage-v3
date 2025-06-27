@@ -103,6 +103,10 @@
     "subheading": "Mit jedem Projekt wachsen",
     "highlightsHeading": "Ausgewählte Projekte",
     "highlightsSubheading": "Einige meiner besten Arbeiten",
+    "highlights": {
+      "title": "Ausgewählte Projekte",
+      "description": "Entdecken Sie einige meiner wirkungsvollsten Arbeiten und technischen Errungenschaften"
+    },
     "loadMore": "Mehr laden",
     "status": {
       "completed": "Abgeschlossen",
