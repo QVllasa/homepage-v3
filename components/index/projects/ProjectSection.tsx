@@ -14,7 +14,7 @@ function ProjectItem({project, getTranslatedStatus, t}: { project: ProjectModel,
     const shortDescription = useTranslatedContent(project.shortDescription);
 
     return (
-        <div className="flex transition flex-col overflow-hidden rounded-lg shadow-lg bg-white dark:bg-slate-800">
+        <div className="flex transition flex-col overflow-hidden rounded-lg shadow-lg bg-white dark:bg-slate-800 h-full">
             <div className="flex-shrink-0">
                 <Image className="h-48 w-full object-cover" width={600} height={192} src={project.img}
                        alt={typeof project.title === 'string' ? project.title : project.title?.en || ''}/>
@@ -38,7 +38,7 @@ function ProjectItem({project, getTranslatedStatus, t}: { project: ProjectModel,
                                 </p>
                             </div>
                         </div>
-                        <p className="my-3 transition text-base text-gray-500 dark:text-gray-400 line-clamp-4">
+                        <p className="my-3 transition text-base text-gray-500 dark:text-gray-400 line-clamp-3">
                             {shortDescription}
                         </p>
                     </div>
@@ -105,7 +105,7 @@ export default function ProjectSection() {
 
                 {/* Load More Button */}
                 {!hide && (
-                    <div className="text-center mt-8">
+                    <div className="text-center mt-8 mb-16">
                         <button
                             onClick={loadMore}
                             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
