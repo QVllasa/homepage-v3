@@ -95,6 +95,7 @@
     }
   },  "projects": {
     "title": "Featured Projects",
+  "description": "Discover my latest projects and technical achievements across different domains and technologies",
     "viewAll": "View all projects",
     "heading": "Some of My latest Projects",
     "subheading": "Growing with every project",

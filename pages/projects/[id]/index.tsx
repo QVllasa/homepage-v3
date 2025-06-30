@@ -149,18 +149,19 @@ export default function ProjectDetails() {
                 modifiedTime={data.updatedAt ? data.updatedAt.toISOString() : undefined}
             />
             <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
-            {/* Modern Hero Section */}
-                <div className="relative">
-                    {/* Back Button */}
-                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-8 md:left-8 z-20">
-                        <Link href="/" className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm">
-                            <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                            </svg>
-                            Zurück
-                        </Link>
-                    </div>
+                {/* Back Button - Fixed positioning within main container */}
+                <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 pt-4 sm:pt-6">
+                    <Link href="/"
+                          className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all shadow-sm mb-4 sm:mb-6">
+                        <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/>
+                        </svg>
+                        {t('projects.backButton')}
+                    </Link>
+                </div>
 
+                {/* Modern Hero Section */}
+                <div className="relative">
                     {/* Mobile: Image as Header */}
                     <div className="md:hidden">
                         <div className="relative h-48 sm:h-56 overflow-hidden">
