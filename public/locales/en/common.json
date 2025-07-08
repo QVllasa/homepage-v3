@@ -111,13 +111,26 @@
       "inProgress": "In Progress",
       "onHold": "On Hold",
       "canceled": "Canceled"
-    },    "viewDetails": "View Details",
+    },
+  "viewDetails": "View Details",
     "viewWebsite": "View Website",
     "backButton": "← Back",
     "projectInformation": "Project Information",
     "client": "Client",
     "statusLabel": "Status",
-    "serviceNotFound": "Service not found"
+  "serviceNotFound": "Service not found",
+  "sections": {
+    "client": "Client",
+    "status": "Status",
+    "stats": "Performance Metrics",
+    "description": "Project Description",
+    "techStack": "Technology Stack",
+    "skills": "Skills & Competencies",
+    "mainFeatures": "Main Features",
+    "challenges": "Challenges",
+    "learnings": "Learnings",
+    "demoUnavailable": "Demo only available on-site"
+  }
   },
   "companies": {
     "heading": "Some companies which profited from my work"

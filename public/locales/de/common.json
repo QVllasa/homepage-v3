@@ -121,7 +121,19 @@
     "projectInformation": "Projektinformationen",
     "client": "Kunde",
     "statusLabel": "Status",
-    "serviceNotFound": "Service nicht gefunden"
+    "serviceNotFound": "Service nicht gefunden",
+    "sections": {
+      "client": "Kunde",
+      "status": "Status",
+      "stats": "Leistungskennzahlen",
+      "description": "Projektbeschreibung",
+      "techStack": "Technologie-Stack",
+      "skills": "Fähigkeiten & Kompetenzen",
+      "mainFeatures": "Hauptfunktionen",
+      "challenges": "Herausforderungen",
+      "learnings": "Learnings",
+      "demoUnavailable": "Demo nur vor Ort verfügbar"
+    }
   },
   "companies": {
     "heading": "Einige Unternehmen, die von meiner Arbeit profitiert haben"
