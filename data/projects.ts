@@ -111,7 +111,7 @@ export const Projects: ProjectModel[] = [
             },
             {
                 category: { en: 'Backend & Database', de: 'Backend & Datenbank' },
-                technologies: ['Supabase', 'PostgreSQL', 'Python FastAPI', 'Redis']
+                technologies: ['Supabase', 'PostgreSQL', 'Python FastAPI', 'Java', 'Spring Boot', 'Redis']
             },
             {
                 category: { en: 'AI & Search', de: 'KI & Suche' },
@@ -362,15 +362,24 @@ export const Projects: ProjectModel[] = [
         ],
         stats: [
             {
-                key: "Supported Data Types",
+                key: {
+                    en: "Supported Data Types",
+                    de: "Unterstützte Datentypen"
+                },
                 value: "20+"
             },
             {
-                key: "User-Created Dashboards",
+                key: {
+                    en: "User-Created Dashboards",
+                    de: "Benutzer-erstellte Dashboards"
+                },
                 value: "Within Minutes"
             },
             {
-                key: "Data Control Efficiency",
+                key: {
+                    en: "Data Control Efficiency",
+                    de: "Datenkontroll-Effizienz"
+                },
                 value: "Up to 30% Improvement"
             }
         ],
@@ -406,7 +415,7 @@ export const Projects: ProjectModel[] = [
             },
             {
                 category: { en: 'Backend & Database', de: 'Backend & Datenbank' },
-                technologies: ['Node.js', 'Express', 'PostgreSQL', 'Redis', 'Prisma ORM']
+                technologies: ['Node.js', 'Express', 'PostgreSQL', 'Java', 'Spring Boot', 'Redis', 'Prisma ORM']
             },
             {
                 category: { en: 'Data Processing', de: 'Datenverarbeitung' },
@@ -745,20 +754,44 @@ export const Projects: ProjectModel[] = [
         },
         keys: [
             {
-                value: "Inventory Management",
-                description: "The system allows for real-time tracking and management of merchandise inventory, including products, stock levels, and orders."
+                value: {
+                    en: "Inventory Management",
+                    de: "Bestandsverwaltung"
+                },
+                description: {
+                    en: "The system allows for real-time tracking and management of merchandise inventory, including products, stock levels, and orders.",
+                    de: "Das System ermöglicht die Echtzeit-Verfolgung und -Verwaltung des Warenbestands, einschließlich Produkten, Lagerbeständen und Bestellungen."
+                }
             },
             {
-                description: "The system provides real-time reporting and analysis on sales and inventory data, enabling the company to make informed business decisions.",
-                value: "Data Analysis and Reporting"
+                description: {
+                    en: "The system provides real-time reporting and analysis on sales and inventory data, enabling the company to make informed business decisions.",
+                    de: "Das System bietet Echtzeit-Berichterstattung und -Analyse von Verkaufs- und Bestandsdaten und ermöglicht es dem Unternehmen, fundierte Geschäftsentscheidungen zu treffen."
+                },
+                value: {
+                    en: "Data Analysis and Reporting",
+                    de: "Datenanalyse und Berichterstattung"
+                }
             },
             {
-                description: "It allows the company to optimize their supply chain operations and make better decisions.",
-                value: "Supply Chain Optimization"
+                description: {
+                    en: "It allows the company to optimize their supply chain operations and make better decisions.",
+                    de: "Es ermöglicht dem Unternehmen, seine Lieferkettenoperationen zu optimieren und bessere Entscheidungen zu treffen."
+                },
+                value: {
+                    en: "Supply Chain Optimization",
+                    de: "Lieferketten-Optimierung"
+                }
             },
             {
-                value: "Communication",
-                description: "The system facilitates easy communication with suppliers and customers, streamlining the ordering and fulfillment process."
+                value: {
+                    en: "Communication",
+                    de: "Kommunikation"
+                },
+                description: {
+                    en: "The system facilitates easy communication with suppliers and customers, streamlining the ordering and fulfillment process.",
+                    de: "Das System erleichtert die Kommunikation mit Lieferanten und Kunden und optimiert den Bestell- und Fulfillment-Prozess."
+                }
             }
         ],
         stats: [
