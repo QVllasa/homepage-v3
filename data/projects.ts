@@ -94,7 +94,7 @@ export const Projects: ProjectModel[] = [
             en: 'Research, Development & Training',
             de: 'Forschung, Entwicklung und Weiterbildung'
         },
-        previewLink: 'https://dev.moebelguru.com',
+        previewLink: 'https://dev.moebelguru.de',
         demoAvailable: true,
         img: '/projects/moebelguru.png',
         createAt: new Date('2025-05-10'),
