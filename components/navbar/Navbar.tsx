@@ -20,8 +20,8 @@ export default function Navbar() {
 
     // CV file path based on selected language
     const cvFilePath = router.locale === 'de'
-        ? '/cv/Qendrim_Vllasa_CV_Software_Engineer_DE_2025.pdf'
-        : '/cv/Qendrim_Vllasa_CV_Software_Engineer_EN_2025.pdf';
+        ? '/cv/Qendrim_Vllasa_CV_Software_Engineer_DE_09_2025.pdf'
+        : '/cv/Qendrim_Vllasa_CV_Software_Engineer_EN_09_2025.pdf';
 
     const navigation = [
         {name: t('navbar.projects'), href: '/#projects', current: false},
